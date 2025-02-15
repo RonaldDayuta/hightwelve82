@@ -331,7 +331,9 @@
   <div class="login">
     <div class="container">
       <div id="to-content" class="arrowback">
-        <span class="material-icons-outlined"> arrow_back </span>
+        <span class="material-icons-outlined">
+          cancel
+        </span>
       </div>
       <div class="rowlogin row">
         <div class="col-lg-6 col-md-6 col-sm-12 container-logo-name">
