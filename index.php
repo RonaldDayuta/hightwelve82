@@ -12,6 +12,7 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <!-- Google Material Icons Outlined -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>High Twelve</title>
 </head>
 
@@ -347,10 +348,10 @@
           <div class="signin">
             <h2>Login</h2>
             <span>Input the needed details to log in</span>
-            <form action="#">
-              <input class="form-control" type="email" placeholder="Email Addressor Username" required />
-              <input class="form-control" type="password" placeholder="Password" required />
-              <button class="signin-btn">Login</button>
+            <form id="form-login">
+              <input id="login-email" name="login-email" class="form-control" type="email" placeholder="Email Addressor Username" required />
+              <input id="login-password" name="login-password" class="form-control" type="password" placeholder="Password" required />
+              <button type="submit" class="signin-btn">Login</button>
             </form>
           </div>
         </div>
