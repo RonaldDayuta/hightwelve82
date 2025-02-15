@@ -131,7 +131,7 @@ $id = $_SESSION['admin_id'];
             <span><?php echo $email ?></span>
             <span><?php echo $username ?></span>
           </div>
-          <img src="<?php echo $profile ?>" alt="" />
+          <img src="<?php echo $profile ?>" alt="Profile" />
         </div>
         <div class="lates-event">
           <h2>Latest Event Updates!</h2>
