@@ -9,7 +9,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">UserName</th>
+        <th scope="col">Username</th>
         <th scope="col">Email</th>
         <th scope="col">Password</th>
         <th scope="col">Position</th>
