@@ -87,23 +87,17 @@ $(document).ready(function () {
               window.location.href = "admin.php";
             }
           });
-        } else if (response.email) {
+        } else if (response.message.includes("Invalid Password")) {
           Swal.fire({
             icon: "error",
             title: "Error!",
-            text: "Please check your password",
+            text: "Invalid Password. Please try again.",
           });
-        } else if (response.message.includes("Invalid Email and Password")) {
+        } else if (response.message.includes("Invalid Email")) {
           Swal.fire({
             icon: "error",
             title: "Error!",
-            text: "Invalid Email or Password. Please try again.",
-          });
-        } else if (response.message.includes("Please Check Your email")) {
-          Swal.fire({
-            icon: "error",
-            title: "Error!",
-            text: "Please Check Your email",
+            text: "Invalid Email. Please try again.",
           });
         } else {
           Swal.fire({

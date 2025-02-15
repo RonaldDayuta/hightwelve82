@@ -9,10 +9,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Email = $_POST['login-email'];
     $Password = $_POST['login-password'];
 
-
-    $query = "SELECT * FROM accounts WHERE Email = '$Email' AND Password = '$Password'";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
+    $stmt = $conn->prepare('SELECT * FROM accounts WHERE Email = ?');
+    $stmt->bind_param("s", $Email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
 
     if ($row) {
 
@@ -23,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $row['Username'];
         $id = $row['ID'];
 
-        if ($Email === $email && $Password === $password) {
+        if (password_verify($Password, $password)) {
             if ($position == 'Admin') {
                 $_SESSION['admin_username'] = $username;
                 $_SESSION['admin_image'] = $profile;
@@ -37,17 +38,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 'position' => $position,
             ));
         } else {
-            echo json_encode(array('success' => false, 'message' => 'Invalid Email and Password'));
+            echo json_encode(array('success' => false, 'message' => 'Invalid Password'));
         }
     } else {
-        $check_email_query = "SELECT * FROM accounts WHERE Email = '$Email'";
-        $check_email_result = mysqli_query($conn, $check_email_query);
-
-        if (mysqli_num_rows($check_email_result) > 0) {
-            echo json_encode(array('email' => true, 'message' => 'Please check your password'));
-        } else {
-            echo json_encode(array('success' => false, 'message' => 'Please Check Your Email'));
-        }
+        echo json_encode(array('success' => false, 'message' => 'Invalid Email'));
     }
 } else {
     echo json_encode(array('success' => false, 'message' => 'Invalid request method.'));
