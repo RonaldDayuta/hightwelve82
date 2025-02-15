@@ -5,7 +5,7 @@
   <div class="account">
     <div class="acc-information">
       <div class="profile-account">
-        <img src="MW_Cayanan_Temp__website-removebg-preview_1.png" alt="" />
+        <img src="img/MW_Cayanan_Temp__website-removebg-preview_1.png" alt="" />
       </div>
       <div class="account-info">
         <h2>Account Information</h2>
