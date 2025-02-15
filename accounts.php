@@ -25,8 +25,7 @@
   id="exampleModal"
   tabindex="-1"
   aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+  aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -34,8 +33,7 @@
         <button
           type="button"
           class="btn-close"
-          data-bs-dismiss="modal"
-        ></button>
+          data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
         <div class="mb-3">
@@ -44,8 +42,7 @@
             type="text"
             id="account-email"
             class="form-control"
-            placeholder="Email"
-          />
+            placeholder="Email" />
         </div>
         <div class="mb-3">
           <label for="account-password" class="form-label">Password</label>
@@ -53,19 +50,23 @@
             type="text"
             id="account-password"
             class="form-control"
-            placeholder="Password"
-          />
+            placeholder="Password" />
         </div>
         <div class="mb-3">
-          <label for="account-copassword" class="form-label"
-            >Confirm-Password</label
-          >
+          <label for="account-copassword" class="form-label">Confirm-Password</label>
           <input
             type="text"
             id="account-copassword"
             class="form-control"
-            placeholder="Confirm-Password"
-          />
+            placeholder="Confirm-Password" />
+        </div>
+        <div class="mb-3">
+          <label for=account-image" class="form-label">Upload Image (Optional)</label>
+          <input
+            type="file"
+            id="account-image"
+            class="form-control"
+            accept="image/*" />
         </div>
       </div>
       <div class="modal-footer">

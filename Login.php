@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $email = $row['Email'];
         $password = $row['Password'];
-        $position = $row['Position'];
+        $position = $row['WebPosition'];
         $profile = $row['Profile'];
         $username = $row['Username'];
         $id = $row['ID'];

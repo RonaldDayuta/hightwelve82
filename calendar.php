@@ -3,11 +3,13 @@
     max-width: 900px;
     margin: 20px auto;
   }
+
   .calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
   }
+
   .day {
     padding: 15px;
     text-align: center;
@@ -17,18 +19,22 @@
     border-radius: 5px;
     min-height: 50px;
   }
+
   .day:hover {
     background-color: #007bff;
     color: white;
   }
+
   .header {
     font-weight: bold;
     text-align: center;
     margin-bottom: 10px;
   }
+
   .empty {
     visibility: hidden;
   }
+
   .current-day {
     background-color: #007bff !important;
     color: white !important;
@@ -64,8 +70,7 @@
     class="modal fade"
     id="eventModal"
     tabindex="-1"
-    aria-labelledby="eventModalLabel"
-  >
+    aria-labelledby="eventModalLabel">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -76,8 +81,7 @@
             type="button"
             class="btn-close"
             data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+            aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <table class="table">
@@ -101,8 +105,7 @@
           <button
             type="button"
             class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
+            data-bs-dismiss="modal">
             Close
           </button>
         </div>
@@ -114,8 +117,7 @@
     class="modal fade"
     id="addEventModal"
     tabindex="-1"
-    aria-labelledby="addEventModalLabel"
-  >
+    aria-labelledby="addEventModalLabel">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -125,34 +127,36 @@
           <button
             type="button"
             class="btn-close"
-            data-bs-dismiss="modal"
-          ></button>
+            data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
+          <div class="mb-3">
+            <label for="event-title" class="form-label">Date</label>
+            <input
+              type="text"
+              id="event-date"
+              class="form-control"
+              placeholder="Enter event title"
+              disabled />
+          </div>
           <div class="mb-3">
             <label for="event-title" class="form-label">Event Title</label>
             <input
               type="text"
               id="event-title"
               class="form-control"
-              placeholder="Enter event title"
-            />
+              placeholder="Enter event title" />
           </div>
           <div class="mb-3">
-            <label for="event-description" class="form-label"
-              >Event Description</label
-            >
+            <label for="event-description" class="form-label">Event Description</label>
             <textarea
               id="event-description"
               class="form-control"
               rows="3"
-              placeholder="Enter event description"
-            ></textarea>
+              placeholder="Enter event description"></textarea>
           </div>
           <div class="mb-3">
-            <label for="event-category" class="form-label"
-              >Event Category</label
-            >
+            <label for="event-category" class="form-label">Event Category</label>
             <select id="event-category" class="form-control">
               <option value="news-today">News Today</option>
               <option value="events">Events</option>
@@ -161,15 +165,12 @@
             </select>
           </div>
           <div class="mb-3">
-            <label for="event-image" class="form-label"
-              >Upload Image FOR:(Event, Activities, News) (Optional)</label
-            >
+            <label for="event-image" class="form-label">Upload Image FOR:(Event, Activities, News) (Optional)</label>
             <input
               type="file"
               id="event-image"
               class="form-control"
-              accept="image/*"
-            />
+              accept="image/*" />
           </div>
         </div>
         <div class="modal-footer">
@@ -179,8 +180,7 @@
           <button
             type="button"
             class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
+            data-bs-dismiss="modal">
             Close
           </button>
         </div>
