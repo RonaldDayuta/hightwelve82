@@ -1,4 +1,11 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+
 include('conn.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -29,11 +36,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    $stmt = $conn->prepare("INSERT INTO accounts (Email, Password, WebPosition, Profile) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO tblaccounts (Email, Password, WebPosition, Profile) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $email, $encrypted_password, $position, $image_path);
 
     if ($stmt->execute()) {
-        echo json_encode(["success" => true, "message" => "Account added successfully!"]);
+        // Send email confirmation
+        $mail = new PHPMailer(true);
+        try {
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com'; // Palitan ng SMTP host ng email provider mo
+            $mail->SMTPAuth = true;
+            $mail->Username = 'ronaldthird.dayuta@gmail.com'; // Palitan ng email mo
+            $mail->Password = 'wami xzxh dkic utgz'; // Palitan ng app password mo (huwag ilagay ang real password mo)
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
+
+            $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve82');
+            $mail->addAddress($email);
+
+            $mail->isHTML(true);
+            $mail->Subject = 'Account Registration Successful';
+            $mail->Body    = "<h3>Welcome!</h3><p>Your account has been successfully created.</p>
+                              <p><b>Email:</b> $email</p>
+                              <p><b>Password:</b> $password</p>
+                              <p>Login <a href='your-website-url.com/login'>here</a>.</p>";
+
+            $mail->send();
+            echo json_encode(["success" => true, "message" => "Account added successfully and email sent!"]);
+        } catch (Exception $e) {
+            echo json_encode(["success" => false, "message" => "Account created but email not sent. Error: {$mail->ErrorInfo}"]);
+        }
     } else {
         echo json_encode(["success" => false, "message" => "Database error!"]);
     }
@@ -43,3 +75,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo json_encode(["success" => false, "message" => "Invalid request"]);
 }
+?>
