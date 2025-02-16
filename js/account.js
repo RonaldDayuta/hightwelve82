@@ -1,8 +1,7 @@
-// add-account.js
 $(document).ready(function () {
   function loadAccounts() {
     $.ajax({
-      url: "../php/ViewAccounts.php",
+      url: "php/ViewAccounts.php",
       type: "POST",
       cache: false,
       success: function (data) {
@@ -21,7 +20,7 @@ $(document).ready(function () {
     let formData = new FormData(this);
 
     try {
-      let response = await fetch("../php/AddAccount.php", {
+      let response = await fetch("php/AddAccount.php", {
         method: "POST",
         body: formData,
       });
