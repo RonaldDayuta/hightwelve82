@@ -10,6 +10,7 @@
           <img src="img/logo.png" class="card-img-top" alt="..." />
           <div class="card-body">
             <h3>News Title</h3>
+            <span>Date</span>
             <p class="card-text">
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
@@ -22,6 +23,7 @@
           <img src="img/logo.png" class="card-img-top" alt="..." />
           <div class="card-body">
             <h3>News Title</h3>
+            <span>Date</span>
             <p class="card-text">
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
@@ -37,6 +39,7 @@
           <img src="img/logo.png" class="card-img-top" alt="..." />
           <div class="card-body">
             <h3>Event Title</h3>
+            <span>Date</span>
             <p class="card-text">
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
@@ -49,6 +52,7 @@
           <img src="img/logo.png" class="card-img-top" alt="..." />
           <div class="card-body">
             <h3>Event Title</h3>
+            <span>Date</span>
             <p class="card-text">
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
@@ -64,6 +68,7 @@
           <img src="img/logo.png" class="card-img-top" alt="..." />
           <div class="card-body">
             <h3>Meeting Title</h3>
+            <span>Date</span>
             <p class="card-text">
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
@@ -76,6 +81,7 @@
           <img src="img/logo.png" class="card-img-top" alt="..." />
           <div class="card-body">
             <h3>Meeting Title</h3>
+            <span>Date</span>
             <p class="card-text">
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
@@ -85,4 +91,8 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> 545dbb28d45682608e7c98f1578f3c02117b5015

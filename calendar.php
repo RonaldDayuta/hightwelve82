@@ -158,6 +158,7 @@
           <div class="mb-3">
             <label for="event-category" class="form-label">Event Category</label>
             <select id="event-category" class="form-control">
+              <option value="" selected>Select Category</option>
               <option value="news-today">News Today</option>
               <option value="events">Events</option>
               <option value="meeting">Meeting</option>
