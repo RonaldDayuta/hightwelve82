@@ -351,7 +351,7 @@
             <h2>Login</h2>
             <span>Input the needed details to log in</span>
             <form id="form-login">
-              <input id="login-email" name="login-email" class="form-control" type="email" placeholder="Email Address or Username" required />
+              <input id="login-email" name="login-email" class="form-control" type="text" placeholder="Email Address or Username" required />
               <input id="login-password" name="login-password" class="form-control" type="password" placeholder="Password" required />
               <button type="submit" class="signin-btn">Login</button>
             </form>

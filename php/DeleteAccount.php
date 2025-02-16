@@ -8,10 +8,9 @@ if (isset($_POST['id'])) {
     $stmt->bind_param("i", $id);
 
     if ($stmt->execute()) {
-        echo "Deleted";
+        echo json_encode(array('success' => 'Delete', 'message' => 'Delete Successful'));
     } else {
-        echo "Error: " . $conn->error;
+        echo json_encode(array('error' => 'Error', 'message' => 'Delete UnSuccessful')) . $conn->error;
     }
 }
 $conn->close();
-?>

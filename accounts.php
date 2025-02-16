@@ -68,4 +68,52 @@
   </div>
 </div>
 
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Account</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="form-update-account">
+          <input id="update-id" name="update-id" type="text" style="display: none;">
+          <div class="mb-3">
+            <label for="update-email" class="form-label">Email</label>
+            <input type="email" id="update-email" name="update-email" class="form-control" placeholder="Email" required />
+          </div>
+          <div class="mb-3">
+            <label for="update-username" class="form-label">Username</label>
+            <input type="text" id="update-username" name="update-username" class="form-control" placeholder="Username" required />
+          </div>
+          <div class="mb-3">
+            <label for="update-password" class="form-label">Password</label>
+            <input type="password" id="update-password" name="update-password" class="form-control" placeholder="Password" required />
+          </div>
+          <div class="mb-3">
+            <label for="update-position" class="form-label">Website Position</label>
+            <select id="update-position" name="update-position" class="form-control" required>
+              <option value="" selected disabled>Website Position</option>
+              <option value="Admin">Admin</option>
+              <option value="User">User</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="update-statuus" class="form-label">Status</label>
+            <select id="update-status" name="update-status" class="form-control" required>
+              <option value="" selected disabled>Status</option>
+              <option value="Active">Active</option>
+              <option value="InActive">InActive</option>
+              <option value="Suspended">Suspended</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Update Account</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="js/account.js"></script>
