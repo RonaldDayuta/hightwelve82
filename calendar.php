@@ -3,13 +3,19 @@
     max-width: 900px;
     margin: 20px auto;
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
   .calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
   .day {
     padding: 15px;
     text-align: center;
@@ -19,22 +25,34 @@
     border-radius: 5px;
     min-height: 50px;
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
   .day:hover {
     background-color: #007bff;
     color: white;
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
   .header {
     font-weight: bold;
     text-align: center;
     margin-bottom: 10px;
   }
+<<<<<<< HEAD
 
   .empty {
     visibility: hidden;
   }
 
+=======
+  .empty {
+    visibility: hidden;
+  }
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
   .current-day {
     background-color: #007bff !important;
     color: white !important;
@@ -70,7 +88,12 @@
     class="modal fade"
     id="eventModal"
     tabindex="-1"
+<<<<<<< HEAD
     aria-labelledby="eventModalLabel">
+=======
+    aria-labelledby="eventModalLabel"
+  >
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -81,7 +104,12 @@
             type="button"
             class="btn-close"
             data-bs-dismiss="modal"
+<<<<<<< HEAD
             aria-label="Close"></button>
+=======
+            aria-label="Close"
+          ></button>
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
         </div>
         <div class="modal-body">
           <table class="table">
@@ -105,7 +133,12 @@
           <button
             type="button"
             class="btn btn-secondary"
+<<<<<<< HEAD
             data-bs-dismiss="modal">
+=======
+            data-bs-dismiss="modal"
+          >
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
             Close
           </button>
         </div>
@@ -117,7 +150,12 @@
     class="modal fade"
     id="addEventModal"
     tabindex="-1"
+<<<<<<< HEAD
     aria-labelledby="addEventModalLabel">
+=======
+    aria-labelledby="addEventModalLabel"
+  >
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -127,6 +165,7 @@
           <button
             type="button"
             class="btn-close"
+<<<<<<< HEAD
             data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
@@ -140,23 +179,50 @@
               disabled />
           </div>
           <div class="mb-3">
+=======
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
             <label for="event-title" class="form-label">Event Title</label>
             <input
               type="text"
               id="event-title"
               class="form-control"
+<<<<<<< HEAD
               placeholder="Enter event title" />
           </div>
           <div class="mb-3">
             <label for="event-description" class="form-label">Event Description</label>
+=======
+              placeholder="Enter event title"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="event-description" class="form-label"
+              >Event Description</label
+            >
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
             <textarea
               id="event-description"
               class="form-control"
               rows="3"
+<<<<<<< HEAD
               placeholder="Enter event description"></textarea>
           </div>
           <div class="mb-3">
             <label for="event-category" class="form-label">Event Category</label>
+=======
+              placeholder="Enter event description"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="event-category" class="form-label"
+              >Event Category</label
+            >
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
             <select id="event-category" class="form-control">
               <option value="news-today">News Today</option>
               <option value="events">Events</option>
@@ -165,12 +231,23 @@
             </select>
           </div>
           <div class="mb-3">
+<<<<<<< HEAD
             <label for="event-image" class="form-label">Upload Image FOR:(Event, Activities, News) (Optional)</label>
+=======
+            <label for="event-image" class="form-label"
+              >Upload Image FOR:(Event, Activities, News) (Optional)</label
+            >
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
             <input
               type="file"
               id="event-image"
               class="form-control"
+<<<<<<< HEAD
               accept="image/*" />
+=======
+              accept="image/*"
+            />
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
           </div>
         </div>
         <div class="modal-footer">
@@ -180,7 +257,12 @@
           <button
             type="button"
             class="btn btn-secondary"
+<<<<<<< HEAD
             data-bs-dismiss="modal">
+=======
+            data-bs-dismiss="modal"
+          >
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
             Close
           </button>
         </div>
@@ -189,4 +271,8 @@
   </div>
 </div>
 
+<<<<<<< HEAD
 <script src="js/calendar.js"></script>
+=======
+<script src="js/calendar.js"></script>
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4

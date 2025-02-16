@@ -602,10 +602,13 @@ a {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 .arrowback span {
   font-size: 2.5rem;
 }
 
+=======
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
 .login .container .rowlogin .col-signin-signup .signup {
   display: flex;
   flex-direction: column;
@@ -704,3 +707,7 @@ a {
     padding: 2rem;
   }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
