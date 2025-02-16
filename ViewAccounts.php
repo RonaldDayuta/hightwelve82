@@ -3,7 +3,7 @@ include 'conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $accountsql = "SELECT Username, Email, Password, WebPosition, Status FROM accounts";
+    $accountsql = "SELECT Username, Email, Password, WebPosition, Status FROM tblaccounts";
     $stmt = $conn->prepare($accountsql);
     $stmt->execute();
     $result = $stmt->get_result();
