@@ -41,10 +41,7 @@ function openEventModal(date) {
 
 function openAddEventModal() {
   document.getElementById("add-event-date").innerText = selectedDate;
-<<<<<<< HEAD
   document.getElementById("event-date").value = selectedDate;
-=======
->>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
   new bootstrap.Modal(document.getElementById("addEventModal")).show();
 }
 

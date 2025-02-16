@@ -158,10 +158,18 @@
           <div class="mb-3">
             <label for="event-category" class="form-label">Event Category</label>
             <select id="event-category" class="form-control">
+              <option value="" selected>Select Category</option>
               <option value="news-today">News Today</option>
               <option value="events">Events</option>
               <option value="meeting">Meeting</option>
               <option value="activities">Activities</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="event-category-whotosee" class="form-label">Who Need To See?</label>
+            <select id="event-category-whotosee" class="form-control">
+              <option value="NotMember">Not Member</option>
+              <option value="Member">Member</option>
             </select>
           </div>
           <div class="mb-3">
