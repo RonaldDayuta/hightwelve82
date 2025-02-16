@@ -14,9 +14,10 @@
         <th scope="col">Password</th>
         <th scope="col">Position</th>
         <th scope="col">Status</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
-    <tbody></tbody>
+    <tbody id="table-accounts"></tbody>
   </table>
 </div>
 
@@ -50,8 +51,8 @@
             </select>
           </div>
           <div class="mb-3">
-            <label for="account-image" class="form-label">Profile Image</label>
-            <input type="file" id="account-image" name="account-image" class="form-control" accept="image/*" required />
+            <label for="account-image" class="form-label">Profile Image (Optional)</label>
+            <input type="file" id="account-image" name="account-image" class="form-control" accept="image/*" />
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Add Account</button>

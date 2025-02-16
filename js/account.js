@@ -1,4 +1,12 @@
 $(document).ready(function () {
+  $.ajax({
+    url: "ViewAccounts.php",
+    type: "POST",
+    cache: false,
+    success: function (data) {
+      $("#table-accounts").html(data);
+    },
+  });
   $("#form-add-account").submit(function (event) {
     event.preventDefault();
 
@@ -19,6 +27,14 @@ $(document).ready(function () {
             text: "Account Added Successfully",
           });
           $("#form-add-account")[0].reset();
+          $.ajax({
+            url: "ViewAccounts.php",
+            type: "POST",
+            cache: false,
+            success: function (data) {
+              $("#table-accounts").html(data);
+            },
+          });
         } else if (response.message.includes("Database error!")) {
           Swal.fire({
             icon: "error",

@@ -83,6 +83,21 @@ b {
   color: var(--color-dark);
 }
 
+.actionsbutton {
+  display: flex;
+  gap: 1rem;
+}
+
+.btnupdate {
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.btndelete {
+  color: var(--color-danger);
+  cursor: pointer;
+}
+
 .text-muted {
   color: var(--color-info-dark);
 }
