@@ -15,6 +15,7 @@ $(document).ready(function () {
 
   loadAccounts();
 
+  // ADD ACCOUNT
   $("#form-add-account").submit(async function (event) {
     event.preventDefault();
     let formData = new FormData(this);
@@ -37,5 +38,83 @@ $(document).ready(function () {
       console.error("Request failed:", error);
       Swal.fire({ icon: "error", title: "Request Failed", text: "Server error. Please try again." });
     }
+  });
+
+  // DELETE ACCOUNT
+  $(document).on("click", ".btndelete", function () {
+    let email = $(this).closest("tr").find("td:eq(0)").text(); // Kunin ang email mula sa table row
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        $.ajax({
+          url: "php/DeleteAccount.php",
+          type: "POST",
+          data: { email: email },
+          success: function (response) {
+            let result = JSON.parse(response);
+            if (result.success) {
+              Swal.fire("Deleted!", result.message, "success");
+              loadAccounts();
+            } else {
+              Swal.fire("Error!", result.message, "error");
+            }
+          },
+          error: function () {
+            Swal.fire("Error!", "Server error. Please try again.", "error");
+          },
+        });
+      }
+    });
+  });
+
+  // UPDATE ACCOUNT - Fetch Data and Show in Modal
+  $(document).on("click", ".btnupdate", function () {
+    let row = $(this).closest("tr");
+    let email = row.find("td:eq(0)").text();
+    let username = row.find("td:eq(1)").text();
+    let password = row.find("td:eq(2)").text();
+    let webPosition = row.find("td:eq(3)").text();
+    let status = row.find("td:eq(4)").text();
+
+    $("#update-email").val(email);
+    $("#update-username").val(username);
+    $("#update-password").val(password);
+    $("#update-webPosition").val(webPosition);
+    $("#update-status").val(status);
+
+    $("#updateModal").modal("show");
+  });
+
+  // UPDATE ACCOUNT - Submit Form
+  $("#form-update-account").submit(function (event) {
+    event.preventDefault();
+    let formData = $(this).serialize();
+
+    $.ajax({
+      url: "php/UpdateAccount.php",
+      type: "POST",
+      data: formData,
+      success: function (response) {
+        let result = JSON.parse(response);
+        if (result.success) {
+          Swal.fire({ icon: "success", title: "Updated!", text: result.message });
+          $("#updateModal").modal("hide");
+          loadAccounts();
+        } else {
+          Swal.fire({ icon: "error", title: "Error", text: result.message });
+        }
+      },
+      error: function () {
+        Swal.fire("Error!", "Server error. Please try again.", "error");
+      },
+    });
   });
 });
