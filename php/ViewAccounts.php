@@ -3,7 +3,7 @@ include '../dbconnect/conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $accountsql = "SELECT Email, Username, Password, WebPosition, Status FROM tblaccounts";
+    $accountsql = "SELECT ID, Email, Username, Password, WebPosition, Status FROM tblaccounts"; // Ensure ID is selected
     $stmt = $conn->prepare($accountsql);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -17,10 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <td><?= openssl_decrypt($row['Password'], "AES-128-ECB", 'hightwelve82'); ?></td>
                 <td><?= $row['WebPosition']; ?></td>
                 <td><?= $row['Status']; ?></td>
-                <td class="actionsbutton"><span class="material-icons-outlined btnupdate">
+                <td class="actionsbutton">
+                    <span class="material-icons-outlined btnupdate" data-id="<?= $row['ID']; ?>">
                         update
                     </span>
-                    <span class="material-icons-outlined btndelete">
+                    <span class="material-icons-outlined btndelete" data-id="<?= $row['ID']; ?>">
                         delete
                     </span>
                 </td>
@@ -28,8 +29,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php
         }
     } else {
-        echo "<tr><td colspan='5'>0 results</td></tr>";
+        echo "<tr><td colspan='6'>0 results</td></tr>";
     }
 } else {
     echo "Invalid request";
 }
+?>
