@@ -42,7 +42,15 @@ $(document).ready(function () {
 
   // DELETE ACCOUNT
   $(document).on("click", ".btndelete", function () {
-    let email = $(this).closest("tr").find("td:eq(0)").text(); // Kunin ang email mula sa table row
+    let row = $(this).closest("tr");
+    let email = row.find("td:first").text().trim(); // Siguraduhin na may email na nakuha
+
+    console.log("Deleting email:", email); // Debugging output
+
+    if (!email) {
+      Swal.fire("Error!", "Email not found.", "error");
+      return;
+    }
 
     Swal.fire({
       title: "Are you sure?",
@@ -59,6 +67,7 @@ $(document).ready(function () {
           type: "POST",
           data: { email: email },
           success: function (response) {
+            console.log("Delete Response:", response); // Debugging output
             let result = JSON.parse(response);
             if (result.success) {
               Swal.fire("Deleted!", result.message, "success");
@@ -78,11 +87,18 @@ $(document).ready(function () {
   // UPDATE ACCOUNT - Fetch Data and Show in Modal
   $(document).on("click", ".btnupdate", function () {
     let row = $(this).closest("tr");
-    let email = row.find("td:eq(0)").text();
-    let username = row.find("td:eq(1)").text();
-    let password = row.find("td:eq(2)").text();
-    let webPosition = row.find("td:eq(3)").text();
-    let status = row.find("td:eq(4)").text();
+    let email = row.find("td:first").text().trim();
+    let username = row.find("td:eq(1)").text().trim();
+    let password = row.find("td:eq(2)").text().trim();
+    let webPosition = row.find("td:eq(3)").text().trim();
+    let status = row.find("td:eq(4)").text().trim();
+
+    console.log("Editing:", { email, username, password, webPosition, status }); // Debugging output
+
+    if (!email) {
+      Swal.fire("Error!", "Email not found.", "error");
+      return;
+    }
 
     $("#update-email").val(email);
     $("#update-username").val(username);
@@ -98,11 +114,14 @@ $(document).ready(function () {
     event.preventDefault();
     let formData = $(this).serialize();
 
+    console.log("Updating with data:", formData); // Debugging output
+
     $.ajax({
       url: "php/UpdateAccount.php",
       type: "POST",
       data: formData,
       success: function (response) {
+        console.log("Update Response:", response); // Debugging output
         let result = JSON.parse(response);
         if (result.success) {
           Swal.fire({ icon: "success", title: "Updated!", text: result.message });
