@@ -63,6 +63,7 @@ $(document).ready(function () {
     $(".signup").removeClass("active");
     $(".signin").removeClass("active");
   });
+<<<<<<< HEAD
 
   $("#form-login").submit(function (event) {
     event.preventDefault();
@@ -118,4 +119,6 @@ $(document).ready(function () {
       },
     });
   });
+=======
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
 });

@@ -12,7 +12,10 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <!-- Google Material Icons Outlined -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+<<<<<<< HEAD
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+=======
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
   <title>High Twelve</title>
 </head>
 
@@ -331,9 +334,13 @@
   <div class="login">
     <div class="container">
       <div id="to-content" class="arrowback">
+<<<<<<< HEAD
         <span class="material-icons-outlined">
           cancel
         </span>
+=======
+        <span class="material-icons-outlined"> arrow_back </span>
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
       </div>
       <div class="rowlogin row">
         <div class="col-lg-6 col-md-6 col-sm-12 container-logo-name">
@@ -350,10 +357,17 @@
           <div class="signin">
             <h2>Login</h2>
             <span>Input the needed details to log in</span>
+<<<<<<< HEAD
             <form id="form-login">
               <input id="login-email" name="login-email" class="form-control" type="email" placeholder="Email Addressor Username" required />
               <input id="login-password" name="login-password" class="form-control" type="password" placeholder="Password" required />
               <button type="submit" class="signin-btn">Login</button>
+=======
+            <form action="#">
+              <input class="form-control" type="email" placeholder="Email Addressor Username" required />
+              <input class="form-control" type="password" placeholder="Password" required />
+              <button class="signin-btn">Login</button>
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
             </form>
           </div>
         </div>

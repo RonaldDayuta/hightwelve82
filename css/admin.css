@@ -83,6 +83,7 @@ b {
   color: var(--color-dark);
 }
 
+<<<<<<< HEAD
 .actionsbutton {
   display: flex;
   gap: 1rem;
@@ -98,6 +99,8 @@ b {
   cursor: pointer;
 }
 
+=======
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
 .text-muted {
   color: var(--color-info-dark);
 }
@@ -169,7 +172,11 @@ b {
   background-color: var(--color-white);
   border-radius: var(--border-radius-1);
   overflow: hidden;
+<<<<<<< HEAD
   min-height: 70vh;
+=======
+  height: 70vh;
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
   box-shadow: var(--box-shadow);
 }
 
@@ -452,7 +459,10 @@ b {
 .account .acc-information .profile-account img {
   height: 10rem;
   width: 10rem;
+<<<<<<< HEAD
   border-radius: var(--border-radius-2);
+=======
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
 }
 
 .account .acc-information .input1 {

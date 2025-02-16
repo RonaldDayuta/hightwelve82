@@ -7,7 +7,11 @@
       <h2>News Today</h2>
       <div class="news-info">
         <div class="card" style="max-width: 18rem">
+<<<<<<< HEAD
           <img src="img/logo.png" class="card-img-top" alt="..." />
+=======
+          <img src="logo.png" class="card-img-top" alt="..." />
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
           <div class="card-body">
             <h3>News Title</h3>
             <p class="card-text">
@@ -19,7 +23,11 @@
       </div>
       <div class="news-info">
         <div class="card" style="max-width: 18rem">
+<<<<<<< HEAD
           <img src="img/logo.png" class="card-img-top" alt="..." />
+=======
+          <img src="logo.png" class="card-img-top" alt="..." />
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
           <div class="card-body">
             <h3>News Title</h3>
             <p class="card-text">
@@ -34,7 +42,11 @@
       <h2>Events</h2>
       <div class="events-info">
         <div class="card" style="max-width: 18rem">
+<<<<<<< HEAD
           <img src="img/logo.png" class="card-img-top" alt="..." />
+=======
+          <img src="logo.png" class="card-img-top" alt="..." />
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
           <div class="card-body">
             <h3>Event Title</h3>
             <p class="card-text">
@@ -46,7 +58,11 @@
       </div>
       <div class="events-info">
         <div class="card" style="max-width: 18rem">
+<<<<<<< HEAD
           <img src="img/logo.png" class="card-img-top" alt="..." />
+=======
+          <img src="logo.png" class="card-img-top" alt="..." />
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
           <div class="card-body">
             <h3>Event Title</h3>
             <p class="card-text">
@@ -61,7 +77,11 @@
       <h2>Meetings</h2>
       <div class="meeting-info">
         <div class="card" style="max-width: 18rem">
+<<<<<<< HEAD
           <img src="img/logo.png" class="card-img-top" alt="..." />
+=======
+          <img src="logo.png" class="card-img-top" alt="..." />
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
           <div class="card-body">
             <h3>Meeting Title</h3>
             <p class="card-text">
@@ -73,7 +93,11 @@
       </div>
       <div class="meeting-info">
         <div class="card" style="max-width: 18rem">
+<<<<<<< HEAD
           <img src="img/logo.png" class="card-img-top" alt="..." />
+=======
+          <img src="logo.png" class="card-img-top" alt="..." />
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
           <div class="card-body">
             <h3>Meeting Title</h3>
             <p class="card-text">
@@ -85,4 +109,8 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> dc126cc1015aed93d974631a7de1c6d8c319b9e4
