@@ -82,34 +82,28 @@ $(document).ready(function () {
             icon: "success",
             title: "Login Successful!",
             text: "Welcome, " + response.position + "!",
-          }).then((result) => {
+          }).then(() => {
             if (response.position === "Admin") {
               window.location.href = "admin.php";
             }
           });
-        } else if (response.message.includes("Invalid Password")) {
-          Swal.fire({
-            icon: "error",
-            title: "Error!",
-            text: "Invalid Password. Please try again.",
-          });
-        } else if (response.message.includes("Invalid Email")) {
-          Swal.fire({
-            icon: "error",
-            title: "Error!",
-            text: "Invalid Email. Please try again.",
-          });
         } else {
+          let errorMessage = response.message;
+
+          if (errorMessage.includes("Invalid Password")) {
+            errorMessage = "Incorrect password. Please try again.";
+          } else if (errorMessage.includes("Invalid Email") || errorMessage.includes("Invalid Email or Username")) {
+            errorMessage = "Invalid Email or Username. Please try again.";
+          }
+
           Swal.fire({
             icon: "error",
-            title: "Error!",
-            text:
-              response.message ||
-              "An unexpected error occurred. Please try again.",
+            title: "Login Failed",
+            text: errorMessage,
           });
         }
       },
-      error: function (jqXHR, textStatus, errorThrown) {
+      error: function () {
         Swal.fire({
           icon: "error",
           title: "Request Failed",
