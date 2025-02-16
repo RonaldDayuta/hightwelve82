@@ -73,11 +73,12 @@ $(document).ready(function () {
           type: "POST",
           data: { id: id },
           success: function (response) {
-            if (response.success === "Delete") {
-              Swal.fire("Deleted!", response.message, "success");
+            let result = JSON.parse(response);
+            if (result.success === "Delete") {
+              Swal.fire("Deleted!", result.message, "success");
               loadAccounts();
             } else {
-              Swal.fire("Error!", response.message, "error");
+              Swal.fire("Error!", result.message, "error");
             }
           },
           error: function () {
