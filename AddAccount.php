@@ -4,10 +4,11 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php'; // Gumamit ng Composer autoload
 
-include('conn.php');
+include('dbconnect/conn.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['account-email']);
+    $username = trim($_POST['account-username']);
     $password = trim($_POST['account-password']);
     $confirm_password = trim($_POST['account-copassword']);
     $position = trim($_POST['account-position']);
@@ -39,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Ipasok sa database
-    $stmt = $conn->prepare("INSERT INTO accounts (Email, Password, WebPosition, Profile) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO tblaccounts (Email, Password, WebPosition, Profile) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $email, $encrypted_password, $position, $image_path);
 
     if ($stmt->execute()) {
@@ -61,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Subject = 'Account Registration Successful';
             $mail->Body    = "<h3>Welcome!</h3><p>Your account has been successfully created.</p>
                               <p><b>Email:</b> $email</p>
+                              <p><b>Username:</b> $username</p>
                               <p><b>Password:</b> $password</p>
                               <p>Login <a href='your-website-url.com/login'>here</a>.</p>";
 
