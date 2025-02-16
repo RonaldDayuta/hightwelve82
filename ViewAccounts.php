@@ -1,9 +1,9 @@
 <?php
-include 'conn.php';
+include 'dbconnect/conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $accountsql = "SELECT Username, Email, Password, WebPosition, Status FROM tblaccounts";
+    $accountsql = "SELECT Email, Username, Password, WebPosition, Status FROM tblaccounts";
     $stmt = $conn->prepare($accountsql);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
             <tr>
                 <td><?= $row['Email']; ?></td>
+                <td><?= $row['Username']; ?></td>
                 <td><?= openssl_decrypt($row['Password'], "AES-128-ECB", 'hightwelve82'); ?></td>
                 <td><?= $row['WebPosition']; ?></td>
                 <td><?= $row['Status']; ?></td>

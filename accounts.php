@@ -5,11 +5,13 @@
     <span>Add Account</span>
   </button>
 </div>
+
 <div class="tables">
   <table class="table">
     <thead>
       <tr>
         <th scope="col">Email</th>
+        <th scope="col">Username</th>
         <th scope="col">Password</th>
         <th scope="col">Position</th>
         <th scope="col">Status</th>
@@ -32,6 +34,10 @@
           <div class="mb-3">
             <label for="account-email" class="form-label">Email</label>
             <input type="email" id="account-email" name="account-email" class="form-control" placeholder="Email" required />
+          </div>
+          <div class="mb-3">
+            <label for="account-username" class="form-label">Username</label>
+            <input type="text" id="account-username" name="account-username" class="form-control" placeholder="Username" required />
           </div>
           <div class="mb-3">
             <label for="account-password" class="form-label">Password</label>
@@ -61,4 +67,5 @@
     </div>
   </div>
 </div>
+
 <script src="js/account.js"></script>
