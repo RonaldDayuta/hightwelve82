@@ -36,7 +36,11 @@ $(document).ready(function () {
       }
     } catch (error) {
       console.error("Request failed:", error);
-      Swal.fire({ icon: "error", title: "Request Failed", text: "Server error. Please try again." });
+      Swal.fire({
+        icon: "error",
+        title: "Request Failed",
+        text: "Server error. Please try again.",
+      });
     }
   });
 
@@ -44,8 +48,10 @@ $(document).ready(function () {
   $(document).on("click", ".btndelete", function () {
     let row = $(this).closest("tr");
     let email = row.find("td:first").text().trim(); // Siguraduhin na may email na nakuha
+    let id = $(this).data("id");
 
     console.log("Deleting email:", email); // Debugging output
+    console.log("Deleting email:", id); // Debugging output
 
     if (!email) {
       Swal.fire("Error!", "Email not found.", "error");
@@ -65,15 +71,13 @@ $(document).ready(function () {
         $.ajax({
           url: "php/DeleteAccount.php",
           type: "POST",
-          data: { email: email },
+          data: { id: id },
           success: function (response) {
-            console.log("Delete Response:", response); // Debugging output
-            let result = JSON.parse(response);
-            if (result.success) {
-              Swal.fire("Deleted!", result.message, "success");
+            if (response.success === "Delete") {
+              Swal.fire("Deleted!", response.message, "success");
               loadAccounts();
             } else {
-              Swal.fire("Error!", result.message, "error");
+              Swal.fire("Error!", response.message, "error");
             }
           },
           error: function () {
@@ -86,32 +90,54 @@ $(document).ready(function () {
 
   // UPDATE ACCOUNT - Fetch Data and Show in Modal
   $(document).on("click", ".btnupdate", function () {
-    let row = $(this).closest("tr");
-    let email = row.find("td:first").text().trim();
-    let username = row.find("td:eq(1)").text().trim();
-    let password = row.find("td:eq(2)").text().trim();
-    let webPosition = row.find("td:eq(3)").text().trim();
-    let status = row.find("td:eq(4)").text().trim();
+    let id = $(this).data("id");
 
-    console.log("Editing:", { email, username, password, webPosition, status }); // Debugging output
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, Update it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        $.ajax({
+          url: "php/fetchaccountinfo.php",
+          type: "POST",
+          data: { id: id },
+          dataType: "json",
+          success: function (response) {
+            if (response.status === "success") {
+              $("#update-id").val(response.data.ID);
+              $("#update-email").val(response.data.Email);
+              $("#update-username").val(response.data.Username);
+              $("#update-password").val(response.data.DecryptedPassword);
+              $("#update-position").val(response.data.WebPosition);
+              $("#update-status").val(response.data.Status);
 
-    if (!email) {
-      Swal.fire("Error!", "Email not found.", "error");
-      return;
-    }
-
-    $("#update-email").val(email);
-    $("#update-username").val(username);
-    $("#update-password").val(password);
-    $("#update-webPosition").val(webPosition);
-    $("#update-status").val(status);
-
-    $("#updateModal").modal("show");
+              $("#updateModal").modal("show");
+            } else {
+              Swal.fire("Error", response.message, "error");
+            }
+          },
+          error: function (xhr, status, error) {
+            console.error("AJAX Error:", xhr.responseText);
+            Swal.fire(
+              "Error",
+              "An error occurred while fetching the account data.",
+              "error"
+            );
+          },
+        });
+      }
+    });
   });
 
   // UPDATE ACCOUNT - Submit Form
   $("#form-update-account").submit(function (event) {
     event.preventDefault();
+
     let formData = $(this).serialize();
 
     console.log("Updating with data:", formData); // Debugging output
@@ -123,8 +149,12 @@ $(document).ready(function () {
       success: function (response) {
         console.log("Update Response:", response); // Debugging output
         let result = JSON.parse(response);
-        if (result.success) {
-          Swal.fire({ icon: "success", title: "Updated!", text: result.message });
+        if (result.success === "Updated") {
+          Swal.fire({
+            icon: "success",
+            title: "Updated!",
+            text: result.message,
+          });
           $("#updateModal").modal("hide");
           loadAccounts();
         } else {

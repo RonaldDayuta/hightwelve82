@@ -70,7 +70,7 @@ $(document).ready(function () {
     var formData = new FormData(this);
 
     $.ajax({
-      url: "Login.php",
+      url: "php/Login.php",
       method: "POST",
       data: formData,
       dataType: "json",
@@ -92,7 +92,10 @@ $(document).ready(function () {
 
           if (errorMessage.includes("Invalid Password")) {
             errorMessage = "Incorrect password. Please try again.";
-          } else if (errorMessage.includes("Invalid Email") || errorMessage.includes("Invalid Email or Username")) {
+          } else if (
+            errorMessage.includes("Invalid Email") ||
+            errorMessage.includes("Invalid Email or Username")
+          ) {
             errorMessage = "Invalid Email or Username. Please try again.";
           }
 
