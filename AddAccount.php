@@ -2,9 +2,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
+require 'vendor/autoload.php'; // Siguraduhin na meron kang 'vendor' folder at na-install ang PHPMailer
 
 include('conn.php');
 
@@ -19,10 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    // Encrypt password
     $encrypted_password = openssl_encrypt($password, "AES-128-ECB", 'hightwelve82');
 
+    // Handle profile image upload
     $upload_dir = "ProfileUpload/";
-    $image_path = "img/logo.png";
+    $image_path = "img/logo.png"; // Default image
 
     if (!empty($_FILES['account-image']['name'])) {
         $image_tmp = $_FILES['account-image']['tmp_name'];
@@ -36,7 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    $stmt = $conn->prepare("INSERT INTO tblaccounts (Email, Password, WebPosition, Profile) VALUES (?, ?, ?, ?)");
+    // Insert into database
+    $stmt = $conn->prepare("INSERT INTO accounts (Email, Password, WebPosition, Profile) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $email, $encrypted_password, $position, $image_path);
 
     if ($stmt->execute()) {
@@ -44,10 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail = new PHPMailer(true);
         try {
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com'; // Palitan ng SMTP host ng email provider mo
+            $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'ronaldthird.dayuta@gmail.com'; // Palitan ng email mo
-            $mail->Password = 'wami xzxh dkic utgz'; // Palitan ng app password mo (huwag ilagay ang real password mo)
+            $mail->Username = 'ronaldthird.dayuta@gmail.com'; // Palitan mo ito ng email mo
+            $mail->Password = 'wami xzxh dkic utgz'; // Gamitin ang App Password ng Gmail
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
@@ -56,7 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $mail->isHTML(true);
             $mail->Subject = 'Account Registration Successful';
-            $mail->Body    = "<h3>Welcome!</h3><p>Your account has been successfully created.</p>
+            $mail->Body    = "<h3>Welcome!</h3>
+                              <p>Your account has been successfully created.</p>
                               <p><b>Email:</b> $email</p>
                               <p><b>Password:</b> $password</p>
                               <p>Login <a href='your-website-url.com/login'>here</a>.</p>";
