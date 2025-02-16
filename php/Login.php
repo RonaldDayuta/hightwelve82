@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('dbconnect/conn.php');
+include('../dbconnect/conn.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     session_regenerate_id(true);

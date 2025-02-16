@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require '../vendor/autoload.php'; // Gumamit ng Composer autoload
 
-include('../dbconnect/conn.php');
+include '../dbconnect/conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['account-email']);
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $encrypted_password = openssl_encrypt($password, "AES-128-ECB", 'hightwelve82');
 
     // Default profile image
-    $upload_dir = "ProfileUpload/";
+    $upload_dir = "../ProfileUpload/";
     $image_path = "img/logo.png";
 
     // Handle file upload kung meron
@@ -40,8 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Ipasok sa database
-    $stmt = $conn->prepare("INSERT INTO tblaccounts (Email, Password, WebPosition, Profile) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $email, $encrypted_password, $position, $image_path);
+    $stmt = $conn->prepare("INSERT INTO tblaccounts (Email, username, Password, WebPosition, Profile) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $email, $username, $encrypted_password, $position, $image_path);
 
     if ($stmt->execute()) {
         // Send email confirmation
