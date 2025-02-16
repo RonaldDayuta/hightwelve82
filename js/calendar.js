@@ -4,9 +4,10 @@ let today = new Date();
 let selectedDate = "";
 let events = {}; // This will store events from the database
 
+
 // Function to fetch events from PHP
 function fetchEvents() {
-  fetch("../php/getEvents.php")
+  fetch("php/getEvents.php")
     .then((response) => response.json())
     .then((data) => {
       events = {};
@@ -44,8 +45,8 @@ function generateCalendar(month, year) {
     ).padStart(2, "0")}`;
     let isToday =
       day === today.getDate() &&
-      month === today.getMonth() &&
-      year === today.getFullYear()
+        month === today.getMonth() &&
+        year === today.getFullYear()
         ? "current-day"
         : "";
 
@@ -66,11 +67,11 @@ function openEventModal(date) {
   const eventList = document.getElementById("event-list");
   eventList.innerHTML = events[date]
     ? events[date]
-        .map(
-          (event) =>
-            `<div><strong>${event.title}</strong> - ${event.description}</div>`
-        )
-        .join("")
+      .map(
+        (event) =>
+          `<div><strong>${event.title}</strong> - ${event.description}</div>`
+      )
+      .join("")
     : "<p>No events</p>";
 
   new bootstrap.Modal(document.getElementById("eventModal")).show();
@@ -90,17 +91,28 @@ function addEvent() {
   console.log("Form Data before submission:", Object.fromEntries(formData)); // Debugging form data
 
   $.ajax({
-    url: "../php/addEvents.php",
+    url: "php/addEvents.php",
     type: "POST",
     data: formData,
     processData: false,
     contentType: false,
     success: function (response) {
-      console.log("Server Response:", response); // Debugging server response
-      let data = JSON.parse(response);
-      alert(data.message);
-      if (data.status === "success") {
-        fetchEvents(); // Reload events
+      console.log("Raw Response:", response); // Debugging raw response
+      try {
+        let data = JSON.parse(response);
+        console.log("Parsed JSON:", data);
+
+        if (typeof data === "object" && data !== null) {
+          if (data.status && data.message) {
+            alert(`Status: ${data.status}\nMessage: ${data.message}`);
+          } else {
+            console.error("Unexpected JSON format:", data);
+          }
+        } else {
+          console.error("Response is not a valid JSON object:", response);
+        }
+      } catch (error) {
+        console.error("JSON Parse Error:", error, "\nInvalid JSON Response:", response);
       }
     },
     error: function (xhr, status, error) {
