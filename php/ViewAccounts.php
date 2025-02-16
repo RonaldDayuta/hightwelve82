@@ -1,5 +1,5 @@
 <?php
-include 'dbconnect/conn.php';
+include '../dbconnect/conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 

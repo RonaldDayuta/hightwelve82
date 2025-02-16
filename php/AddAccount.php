@@ -2,9 +2,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php'; // Gumamit ng Composer autoload
+require '../vendor/autoload.php'; // Gumamit ng Composer autoload
 
-include('dbconnect/conn.php');
+include('../dbconnect/conn.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['account-email']);
