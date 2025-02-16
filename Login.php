@@ -18,17 +18,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($row) {
 
         $email = $row['Email'];
-        $password = $row['Password'];
+        $password = openssl_decrypt($row['Password'], "AES-128-ECB", 'hightwelve82');
         $position = $row['WebPosition'];
         $profile = $row['Profile'];
         $username = $row['Username'];
         $id = $row['ID'];
 
-        if (password_verify($Password, $password)) {
+        if ($Password === $password) {
             if ($position == 'Admin') {
                 $_SESSION['admin_username'] = $username;
                 $_SESSION['admin_image'] = $profile;
                 $_SESSION['admin_email'] = $email;
+                $_SESSION['admin_password'] = $password;
                 $_SESSION['admin_id'] = $id;
             }
 

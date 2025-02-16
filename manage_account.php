@@ -17,27 +17,24 @@
               id="email-account"
               class="form-control"
               placeholder="Email"
-            />
+              disabled />
           </div>
           <div class="mb-3">
             <label for="pass-account" class="form-label">Password</label>
             <input
-              type="password"
+              type="text"
               id="pass-account"
               class="form-control"
               placeholder="Password"
-              disabled
-            />
+              disabled />
           </div>
         </div>
-        <!-- Button to Open Modal -->
         <button
           type="button"
           class="btn btn-primary mt-2"
           data-bs-toggle="modal"
-          data-bs-target="#changePasswordModal"
-        >
-          Change Password
+          data-bs-target="#changePasswordModal">
+          Change Account Information
         </button>
       </div>
     </div>
@@ -49,56 +46,47 @@
   id="changePasswordModal"
   tabindex="-1"
   aria-labelledby="changePasswordModalLabel"
-  aria-hidden="true"
->
+  aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="changePasswordModalLabel">
-          Change Password
+          Change Account Information
         </h5>
         <button
           type="button"
           class="btn-close"
           data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+          aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
           <div class="mb-3">
-            <label for="current-password" class="form-label"
-              >Current Password</label
-            >
+            <label for="change-email" class="form-label">New Email</label>
             <input
-              type="password"
-              id="current-password"
+              type="Email"
+              id="change-email"
               class="form-control"
               placeholder="Enter current password"
-              required
-            />
+              required />
           </div>
           <div class="mb-3">
-            <label for="new-password" class="form-label">New Password</label>
+            <label for="change-new-password" class="form-label">New Password</label>
             <input
               type="password"
-              id="new-password"
+              id="change-new-password"
               class="form-control"
               placeholder="Enter new password"
-              required
-            />
+              required />
           </div>
           <div class="mb-3">
-            <label for="confirm-password" class="form-label"
-              >Confirm New Password</label
-            >
+            <label for="change-confirm-password" class="form-label">Confirm New Password</label>
             <input
               type="password"
-              id="confirm-password"
+              id="change-confirm-password"
               class="form-control"
               placeholder="Confirm new password"
-              required
-            />
+              required />
           </div>
           <button type="submit" class="btn btn-success">Save Changes</button>
         </form>

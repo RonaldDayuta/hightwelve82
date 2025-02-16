@@ -12,9 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         while ($row = $result->fetch_assoc()) {
 ?>
             <tr>
-                <td><?= $row['Username']; ?></td>
                 <td><?= $row['Email']; ?></td>
-                <td><?= $row['Password']; ?></td>
+                <td><?= openssl_decrypt($row['Password'], "AES-128-ECB", 'hightwelve82'); ?></td>
                 <td><?= $row['WebPosition']; ?></td>
                 <td><?= $row['Status']; ?></td>
                 <td class="actionsbutton"><span class="material-icons-outlined btnupdate">

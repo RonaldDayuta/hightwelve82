@@ -452,6 +452,7 @@ b {
 .account .acc-information .profile-account img {
   height: 10rem;
   width: 10rem;
+  border-radius: var(--border-radius-2);
 }
 
 .account .acc-information .input1 {

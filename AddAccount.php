@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $encrypted_password = openssl_encrypt($password, "AES-128-ECB", 'hightwelve82');
 
     $upload_dir = "ProfileUpload/";
     $image_path = "img/logo.png";
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $stmt = $conn->prepare("INSERT INTO accounts (Email, Password, WebPosition, Profile) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $email, $hashed_password, $position, $image_path);
+    $stmt->bind_param("ssss", $email, $encrypted_password, $position, $image_path);
 
     if ($stmt->execute()) {
         echo json_encode(["success" => true, "message" => "Account added successfully!"]);
