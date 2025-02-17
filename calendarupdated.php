@@ -66,22 +66,14 @@
         </div>
         <div class="calendar" id="calendar-body"></div>
     </div>
-    <div
-        class="modal fade"
-        id="eventModal"
-        tabindex="-1"
-        aria-labelledby="eventModalLabel">
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="eventModalLabel">
                         Events on <span id="selected-date"></span>
                     </h5>
-                    <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <table class="table">
@@ -104,10 +96,7 @@
                     <button class="btn btn-primary" id="add-event-btn">
                         Add Event
                     </button>
-                    <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Close
                     </button>
                 </div>
@@ -115,78 +104,50 @@
         </div>
     </div>
 
-    <div
-        class="modal fade"
-        id="addEventModal"
-        tabindex="-1"
-        aria-labelledby="addEventModalLabel">
+    <div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">
-                        Add Event on <span id="add-event-date"></span>
-                    </h5>
-                    <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title">Add Event on <span id="add-event-date"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="event-title" class="form-label">Date</label>
-                        <input
-                            type="text"
-                            id="event-date"
-                            class="form-control"
-                            placeholder="Enter event title"
-                            disabled />
+                <form id="event-form"> <!-- Dito na inilagay ang form -->
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Date</label>
+                            <input type="text" id="event-date" name="event-date" class="form-control" readonly />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Event Title</label>
+                            <input type="text" id="event-title" name="event-title" class="form-control"
+                                placeholder="Enter event title" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Event Description</label>
+                            <textarea id="event-description" name="event-description" class="form-control" rows="3"
+                                placeholder="Enter event description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Event Category</label>
+                            <select id="event-category" name="event-category" class="form-control">
+                                <option value="" selected>Select Category</option>
+                                <option value="news-today">News Today</option>
+                                <option value="events">Events</option>
+                                <option value="meeting">Meeting</option>
+                                <option value="activities">Activities</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Upload Image (Optional)</label>
+                            <input type="file" id="event-image" name="event-image" class="form-control"
+                                accept="image/*" />
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="event-title" class="form-label">Event Title</label>
-                        <input
-                            type="text"
-                            id="event-title"
-                            class="form-control"
-                            placeholder="Enter event title" />
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="addEvent()">Save Event</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
-                    <div class="mb-3">
-                        <label for="event-description" class="form-label">Event Description</label>
-                        <textarea
-                            id="event-description"
-                            class="form-control"
-                            rows="3"
-                            placeholder="Enter event description"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="event-category" class="form-label">Event Category</label>
-                        <select id="event-category" class="form-control">
-                            <option value="" selected>Select Category</option>
-                            <option value="news-today">News Today</option>
-                            <option value="events">Events</option>
-                            <option value="meeting">Meeting</option>
-                            <option value="activities">Activities</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="event-image" class="form-label">Upload Image FOR:(Event, Activities, News) (Optional)</label>
-                        <input
-                            type="file"
-                            id="event-image"
-                            class="form-control"
-                            accept="image/*" />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-success" onclick="addEvent()">
-                        Save Event
-                    </button>
-                    <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal">
-                        Close
-                    </button>
-                </div>
+                </form> <!-- Dito natapos ang form -->
             </div>
         </div>
     </div>
