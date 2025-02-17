@@ -54,11 +54,6 @@ $(document).ready(function () {
     $("body").css("overflow", "");
   });
 
-  $("#to-signup").on("click", function () {
-    $(".signup").addClass("active");
-    $(".signin").addClass("active");
-  });
-
   $("#to-signin").on("click", function () {
     $(".signup").removeClass("active");
     $(".signin").removeClass("active");

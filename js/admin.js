@@ -26,7 +26,7 @@ $(document).ready(function () {
     $("#navbar-tabs-manage").removeClass("active");
   });
   $("#sidebar-tabs-calendar").on("click", function () {
-    $("#main").load("calendar.php", function () {
+    $("#main").load("calendarupdated.php", function () {
       // Ensure the calendar initializes after the content is loaded
       if (typeof generateCalendar === "function") {
         generateCalendar(currentMonth, currentYear);
@@ -76,7 +76,7 @@ $(document).ready(function () {
     $("#navbar-tabs-manage").removeClass("active");
   });
   $("#navbar-tabs-calendar").on("click", function () {
-    $("#main").load("calendar.php", function () {
+    $("#main").load("calendarupdated.php", function () {
       // Ensure the calendar initializes after the content is loaded
       if (typeof generateCalendar === "function") {
         generateCalendar(currentMonth, currentYear);
