@@ -9,16 +9,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title       = isset($_POST['event-title']) ? trim($_POST['event-title']) : '';
     $description = isset($_POST['event-description']) ? trim($_POST['event-description']) : '';
     $category    = isset($_POST['event-category']) ? trim($_POST['event-category']) : '';
-    $image_path  = ''; // Default na walang laman
+    $image_path  = ''; // Default value
 
-    if (empty($event_date) || empty($title) || empty($description) || empty($category)) {
-        echo json_encode(["status" => "error", "message" => "All fields are required."]);
+    $errors = [];
+
+    if (empty($event_date)) {
+        $errors[] = "Event date is required.";
+    }
+    if (empty($title)) {
+        $errors[] = "Event title is required.";
+    }
+    if (empty($description)) {
+        $errors[] = "Event description is required.";
+    }
+    if (empty($category)) {
+        $errors[] = "Event category is required.";
+    }
+
+    if (!empty($errors)) {
+        echo json_encode(["status" => "error", "message" => $errors]);
         exit();
     }
 
     // Check if file is uploaded
     if (isset($_FILES['event-image']) && $_FILES['event-image']['error'] === UPLOAD_ERR_OK) {
-        $target_dir = "../uploads/"; // Make sure this directory exists!
+        $target_dir = "../uploads/"; // Ensure this directory exists
         $image_name = basename($_FILES["event-image"]["name"]);
         $image_path = $target_dir . $image_name;
 
