@@ -13,8 +13,9 @@
   --color-dark: black;
   --color-light: rgba(132, 139, 200, 0.18);
   --color-dark-variant: #677483;
-  --color-background: #f6f6f9;
+  --color-background: #0e1a58;
   --color-green: #98ff21;
+  --colo-gold: #d6b500;
 
   --card-border-radius: 2rem;
   --border-radius-1: 0.4rem;
@@ -40,8 +41,8 @@ body {
   font-family: "Fjord One", sans-serif;
   font-size: 0.88rem;
   user-select: none;
-  color: var(--color-white);
-  background-color: var(--color-dark);
+  color: black;
+  background-color: var(--color-background);
 }
 
 a {
@@ -113,17 +114,12 @@ b {
   font-weight: 900;
 }
 
-::-webkit-scrollbar {
-  width: 0px;
-}
-
-.lightmode {
-  --color-dark: #f6f6f9;
-  --color-white: #363949;
+.tab:hover {
+  cursor: pointer;
 }
 
 .navbar {
-  background-color: var(--color-dark) !important;
+  background-color: var(--color-background) !important;
   font-family: "Fjord One", sans-serif;
   box-shadow: var(--box-shadow);
   position: fixed;
@@ -134,7 +130,22 @@ b {
 }
 
 .navbar .dropdown-menu {
-  background-color: var(--color-dark) !important;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
 }
 
 .navbar .dropdown-menu li a {
@@ -142,13 +153,39 @@ b {
 }
 
 .navbar .dropdown-menu li a:hover {
-  background-color: var(--color-dark-variant);
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
   color: var(--color-dark) !important;
 }
 
-.navbar h2,
-a {
-  color: var(--color-white) !important;
+.navbar .nav-link {
+  background: #fcf6ba;
+  background: linear-gradient(to left, #fcf6ba 6%, #aa771c 50%, #fcf6ba 88%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 1000;
+}
+
+.navbar h2 {
+  background: #fcf6ba;
+  background: linear-gradient(to left, #fcf6ba 6%, #aa771c 50%, #fcf6ba 88%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 1000;
 }
 
 .navbar ul li a {
@@ -158,332 +195,168 @@ a {
 .navbar .btn-login {
   width: 5rem;
   border-radius: var(--border-radius-1);
-  background-color: var(--color-primary);
-  color: #fff;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+  color: var(--color-white);
 }
 
-.row {
-  background-color: var(--color-dark);
-}
-
-.row .col-company-logo {
+.col-company-logo .logo {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   padding: 1rem;
   gap: 2rem;
   margin-top: 4rem;
 }
 
-.row .col-company-logo h2 {
-  width: 40rem;
-  color: var(--color-white);
+.col-company-logo .logo .logo-title {
+  max-width: 45rem;
 }
 
-.row .col-company-logo img {
-  height: 6.8rem;
-  width: 6.8rem;
+.col-company-logo .logo h2 {
+  text-transform: uppercase;
+  background: #fcf6ba;
+  background: linear-gradient(to left, #fcf6ba 6%, #aa771c 50%, #fcf6ba 88%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 1000;
 }
 
-.row .col-company-quotes .quotes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: "Fjord One", sans-serif;
-  background-color: black;
-  padding: 2rem;
-  height: 100%;
-  width: 100%;
-  gap: 1rem;
-}
-
-.row .col-company-quotes .quotes a {
-  max-width: 30rem;
-  font-size: 1.3rem;
-  text-align: center;
-  color: var(--color-whites) !important;
-}
-
-.row .col-company-quotes .quotes a:hover {
-  text-decoration: underline;
-  color: var(--color-whites);
-}
-
-.row .col-company-quotes .quotes img {
-  max-height: 3rem;
-  max-width: 20rem;
-}
-
-.row .col-masters-act {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-}
-
-.row .col-masters-act h2 {
-  font-family: "PT Serif", sans-serif;
-  text-align: center;
-}
-
-.row .col-masters-act .acts {
-  display: flex;
-  justify-content: center;
-}
-
-.row .col-masters-act .act {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  width: 40%;
-  gap: 1rem;
-}
-
-.row .col-masters-act .act img {
-  height: 30rem;
-  width: 100%;
-}
-
-.row .col-masters-act .act a {
-  color: var(--color-primary) !important;
-}
-
-.row .col-masters-act .act a:hover {
-  text-decoration: underline;
-}
-
-.row .col-masters-act .act p {
-  color: var(--color-white);
-  font-size: 0.9rem;
-}
-
-.row .col-masters-act .other-acts {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  gap: 1rem;
-}
-
-.row .col-masters-act .other-acts a {
-  color: var(--color-primary) !important;
-}
-
-.row .col-masters-act .other-acts a:hover {
-  text-decoration: underline;
-}
-
-.row .col-officer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 1rem;
-}
-
-.row .col-officer h2 {
-  text-align: center;
-}
-
-.row .col-officer .swiper {
-  max-width: 100%;
-  max-height: 100%;
-  padding: 2rem;
-  padding-bottom: 3rem;
-}
-
-.row .col-officer .swiper-wrapper {
-  display: flex;
-}
-
-.row .col-officer .swiper-slide {
-  display: flex;
-  justify-content: center;
-}
-
-.row .col-officer .card-officers {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: "Fjord One", sans-serif;
-  text-align: center;
-  border-radius: 10px;
-  gap: 1rem;
-}
-
-.row .col-officer .card-officers img {
-  border-radius: 10px;
-  height: 20rem;
-}
-
-.row .col-allied-org {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 1rem;
-  font-family: "Fjord One" sans-serif;
-}
-
-.row .col-allied-org h2 {
-  text-align: center;
-}
-
-.row .col-allied-org .swiper {
-  max-width: 100%;
-  max-height: 100%;
-  padding: 2rem;
-  padding-bottom: 3rem;
-}
-
-.row .col-allied-org .swiper-wrapper {
-  display: flex;
-}
-
-.row .col-allied-org .swiper-slide {
-  display: flex;
-  justify-content: center;
-}
-
-.row .col-allied-org .card-allied {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1rem;
-}
-
-.row .col-allied-org .card-allied img {
-  border-radius: 50%;
-  width: 6rem;
-  height: 6rem;
-}
-
-.row .col-allied-org .card-allied a:hover {
-  text-decoration: underline;
-}
-
-.btn-arrow {
-  color: var(--color-white) !important;
-}
-
-.row .col-grand {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  gap: 2rem;
-  background-color: var(--color-light);
-  margin-top: 1rem;
-}
-
-.row .col-grand .grandimg {
-  width: 15rem;
-  height: 20rem;
-}
-
-.row .col-grand .grandlogo {
-  width: 15rem;
-  height: 15rem;
-}
-
-.row .col-grand .info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1rem;
-}
-
-.row .col-grand .info a {
+.col-company-logo .logo h3 {
+  font-weight: 600;
   font-size: 1rem;
+  background: #fcf6ba;
+  background: linear-gradient(to left, #fcf6ba 6%, #aa771c 50%, #fcf6ba 88%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 1000;
 }
 
-.row .col-grand .info a:hover {
-  text-decoration: underline;
+.col-company-logo .logo img {
+  height: 6.8rem;
+  width: 7rem;
 }
 
-.row .col-footer {
-  padding: 2rem;
-}
-
-.row .col-footer .footer-cards {
+.col-officer-jewels {
+  margin-top: 4rem;
   display: flex;
-  justify-content: center;
-  padding: 2rem;
+  text-align: center;
+  flex-direction: column;
   gap: 1rem;
+  padding: 2rem;
 }
 
-.row .col-footer .footer-cards .cards {
-  height: 20rem;
-  width: 20rem;
-  max-height: 20rem;
-  max-width: 20rem;
-  padding: 1rem;
+.col-officer-jewels h2 {
+  background: #fcf6ba;
+  background: linear-gradient(to left, #fcf6ba 6%, #aa771c 50%, #fcf6ba 88%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.col-officer-jewels h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: #fcf6ba;
+  background: linear-gradient(to left, #fcf6ba 6%, #aa771c 50%, #fcf6ba 88%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.col-officer-jewels .officer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Fjord One", sans-serif;
-  text-align: center;
   gap: 1rem;
 }
 
-.row .col-footer .footer-cards .cards hr {
-  padding: 0;
-  margin: 0;
-  margin-top: -10px;
+/* Officers Card */
+.officers-card {
+  position: relative;
+  width: 260px;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+  cursor: pointer;
+}
+
+/* Image covers the entire card */
+.officers-card img {
+  position: absolute;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-.row .col-footer .footer-cards .cards a:hover {
-  text-decoration: underline;
+/* Zoom effect on hover */
+.officers-card:hover img {
+  transform: scale(1.1);
 }
 
-.row .col-footer .copyright {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 5rem;
+/* Text container - positioned at the bottom left */
+.officers-card .text-overlay {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  color: white;
+  text-align: left;
+  z-index: 2;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+  border-radius: 5px;
 }
 
-.row .col-footer .copyright small:first-child {
-  margin-bottom: 1rem;
+/* Title with gold gradient */
+.officers-card h2 {
+  width: 100%;
+  font-size: 18px;
+  margin: 0;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ffd700, #fdb931, #8b6508);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9); /* Adds contrast */
 }
 
-.row .col-footer .copyright small:nth-child(2) {
-  font-weight: 900;
-}
-
-.switchmode {
-  background-color: var(--color-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  margin-left: 1rem;
-  padding: 1rem;
-  position: fixed;
-  width: 3rem;
-  height: 3rem;
-  bottom: 1rem;
-  right: 1rem;
-  z-index: 10;
-}
-
-.switchmode:hover {
-  background-color: var(--color-dark-variant);
-}
-
-.switchmode span:last-child {
-  display: none;
-}
-
-.lightmode .switchmode span:first-child {
-  display: none;
-}
-
-.lightmode .switchmode span:last-child {
-  display: flex;
+/* Subtitle */
+.officers-card h3 {
+  font-size: 14px;
+  margin: 0;
+  color: white;
+  opacity: 0.9;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 .login {
@@ -500,21 +373,18 @@ a {
   width: 100%;
 }
 
-.actives {
-  display: flex;
-}
-
 .login .container {
   background-color: none !important;
   box-shadow: var(--box-shadow);
 }
 
 .login .container .rowlogin {
-  background-color: var(--color-dark);
+  background-color: var(--color-background);
   padding: 2rem;
   border-radius: var(--border-radius-2);
   max-height: 40rem;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .login .container .rowlogin .container-logo-name {
@@ -523,7 +393,23 @@ a {
 }
 
 .login .container .rowlogin .container-logo-name .logo {
-  background-color: var(--color-dark);
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+  color: var(--color-white);
   border-radius: var(--border-radius-2);
   box-shadow: var(--box-shadow);
   display: flex;
@@ -559,6 +445,14 @@ a {
   gap: 1rem;
 }
 
+.login .container .rowlogin .col-signin-signup .signin h2,
+span {
+  background: #fcf6ba;
+  background: linear-gradient(to left, #fcf6ba 6%, #aa771c 50%, #fcf6ba 88%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .login .container .rowlogin .col-signin-signup .signin span {
   margin-bottom: 1rem;
 }
@@ -573,11 +467,7 @@ a {
 
 .login .container .rowlogin .col-signin-signup .signin input {
   box-shadow: var(--box-shadow);
-}
-
-.btn-outline-secondary {
-  background-color: var(--color-primary);
-  color: var(--color-whites);
+  color: black !important;
 }
 
 .signin-btn {
@@ -585,122 +475,36 @@ a {
   max-width: 50%;
   height: 2rem;
   border-radius: var(--border-radius-1);
-  background-color: var(--color-primary);
-  color: var(--color-whites);
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+  color: var(--color-white);
   margin-bottom: 1rem;
-}
-
-.to-signup {
-  color: var(--color-primary);
-  text-decoration: underline;
 }
 
 .arrowback {
   position: fixed;
-  left: 0;
-  top: 0;
+  margin-top: 0.6rem;
   cursor: pointer;
+  background: #fcf6ba;
+  background: linear-gradient(to left, #fcf6ba 6%, #aa771c 50%, #fcf6ba 88%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.arrowback span {
-  font-size: 2.5rem;
-}
-
-.login .container .rowlogin .col-signin-signup .signup {
+.actives {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 1rem;
-}
-
-.login .container .rowlogin .col-signin-signup .signup span {
-  margin-bottom: 1rem;
-}
-
-.login .container .rowlogin .col-signin-signup .signup form {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-}
-
-.login .container .rowlogin .col-signin-signup .signup input {
-  box-shadow: var(--box-shadow);
-}
-
-.signup {
-  transform: translateX(650px);
-  transition: transform 0.6s ease;
-  transition-delay: 0s;
-  position: absolute;
-  width: 100%;
-}
-.signup.active {
-  transform: translateX(0px);
-  transition-delay: 0.3s;
-}
-
-.signin {
-  transform: translateX(0px);
-  transition: transform 0.6s ease;
-  transition-delay: 0.3s;
-  position: absolute;
-  width: 100%;
-}
-.signin.active {
-  transform: translateX(650px);
-  transition-delay: 0s;
-}
-
-@media screen and (max-width: 768px) {
-  .row .col-masters-act .acts {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .row .col-masters-act .act {
-    width: 100%;
-  }
-  .row .col-grand {
-    display: flex;
-    flex-direction: column;
-  }
-  .row .col-footer .footer-cards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .row .col-company-logo h2 {
-    font-size: 1.2rem;
-  }
-
-  .row .col-company-quotes .quotes a {
-    font-size: 1rem;
-  }
-
-  .row .col-masters-act h2 {
-    font-size: 1.2rem;
-  }
-
-  .row .col-officer h2 {
-    font-size: 1.2rem;
-  }
-
-  .row .col-allied-org h2 {
-    font-size: 1.2rem;
-  }
-
-  .row .col-grand {
-    display: flex;
-    flex-direction: column;
-  }
-  .row .col-footer .copyright {
-    padding: 2rem;
-  }
 }
