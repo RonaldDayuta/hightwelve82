@@ -87,8 +87,10 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Event</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Title</th>
                                 <th scope="col">Description</th>
+                                <th scope="col">Category</th>
                             </tr>
                         </thead>
                         <tbody id="table-events">
