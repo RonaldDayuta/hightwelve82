@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+//include_once "calendar.php";
+
 // Check if the user is logged in as an admin
 if (!isset($_SESSION['admin_id'])) {
   header("Location: index.php");
