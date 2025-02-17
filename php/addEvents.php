@@ -1,5 +1,9 @@
 <?php
 require '../dbconnect/conn.php'; // Database connection file
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../vendor/autoload.php'; // Include PHPMailer
 
 header('Content-Type: application/json'); // Ensure JSON response
 ob_start(); // Start output buffering
@@ -44,17 +48,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Prepare and execute query
+    // Prepare and execute query for inserting event
     $stmt = $conn->prepare("INSERT INTO tblevents (event_date, title, description, category, image) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("sssss", $event_date, $title, $description, $category, $image_path);
 
     if ($stmt->execute()) {
-        echo json_encode(["status" => "success", "message" => "Event added successfully"]);
+        // Fetch all email addresses from tblaccounts
+        $accountsql = "SELECT Email FROM tblaccounts";
+        $stmtEmails = $conn->prepare($accountsql);
+        $stmtEmails->execute();
+        $resultEmails = $stmtEmails->get_result();
+
+        // PHPMailer setup
+        $mail = new PHPMailer(true);
+        try {
+            //Server settings
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';  // Set your SMTP server
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'ronaldthird.dayuta@gmail.com'; // SMTP username
+            $mail->Password   = 'wami xzxh dkic utgz';   // SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port       = 587;
+
+            //Recipients
+            $mail->setFrom('ronaldthird.dayuta@gmail.com', 'Event Manager');
+            
+            // Loop through the result of email addresses and send an email to each
+            while ($row = $resultEmails->fetch_assoc()) {
+                $mail->addAddress($row['Email']); // Add recipient email
+
+                // Content
+                $mail->isHTML(true);
+                $mail->Subject = 'New Event Added: ' . $title;
+                $mail->Body    = "A new event has been added:<br><br>
+                                  <strong>Title:</strong> $title<br>
+                                  <strong>Date:</strong> $event_date<br>
+                                  <strong>Description:</strong> $description<br>
+                                  <strong>Category:</strong> $category<br>";
+
+                // Send the email
+                $mail->send();
+
+                // Clear recipients for next email
+                $mail->clearAddresses();
+            }
+
+            // Send success response
+            echo json_encode(["status" => "success", "message" => "Event added successfully. Emails sent."]);
+        } catch (Exception $e) {
+            echo json_encode(["status" => "error", "message" => "Error sending email: {$mail->ErrorInfo}"]);
+        }
     } else {
         echo json_encode(["status" => "error", "message" => "Error adding event: " . $stmt->error]);
     }
 
     $stmt->close();
+    $stmtEmails->close();
     $conn->close();
 } else {
     echo json_encode(["status" => "error", "message" => "Invalid request"]);
