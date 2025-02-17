@@ -78,8 +78,11 @@
           <table class="table">
             <thead>
               <tr>
-                <th>Event</th>
-                <th>Description</th>
+                <th>Event Date</th>
+                <th>Event Title</th>
+                <th>Event Description</th>
+                <th>Event Category</th>
+                <th>Event Image</th>
               </tr>
             </thead>
             <tbody id="event-list">
@@ -106,7 +109,7 @@
           <div class="modal-body">
             <div class="mb-3">
               <label class="form-label">Date</label>
-              <input type="text" id="event-date" name="event-date" class="form-control" disabled />
+              <input type="text" id="event-date" name="event-date" class="form-control" readonly />
             </div>
             <div class="mb-3">
               <label class="form-label">Event Title</label>
@@ -142,3 +145,5 @@
 </div>
 
 <script src="js/calendar.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
