@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-//include_once "calendar.php";
-
 // Check if the user is logged in as an admin
 if (!isset($_SESSION['admin_id'])) {
   header("Location: index.php");
@@ -83,7 +81,7 @@ $id = $_SESSION['admin_id'];
             <div class="icon">
               <span class="material-icons-outlined"> logout </span>
             </div>
-            <div>LogOut</div>
+            <div>Logout</div>
           </div>
         </div>
       </nav>

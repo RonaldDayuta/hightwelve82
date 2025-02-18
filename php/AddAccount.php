@@ -19,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Encrypt ang password
-    $encrypted_password = openssl_encrypt($password, "AES-128-ECB", 'hightwelve82');
+    // Hash ang password bago i-store sa database
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Default profile image
     $upload_dir = "../ProfileUpload/";
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Ipasok sa database
     $stmt = $conn->prepare("INSERT INTO tblaccounts (Email, username, Password, WebPosition, Profile) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $email, $username, $encrypted_password, $position, $image_path);
+    $stmt->bind_param("sssss", $email, $username, $hashed_password, $position, $image_path);
 
     if ($stmt->execute()) {
         // Send email confirmation
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Body    = "<h3>Welcome!</h3><p>Your account has been successfully created.</p>
                               <p><b>Email:</b> $email</p>
                               <p><b>Username:</b> $username</p>
-                              <p><b>Password:</b> $password</p>
+                              <p><b>Password:</b> $password</p> <!-- Plaintext password -->
                               <p>Login <a href='your-website-url.com/login'>here</a>.</p>";
 
             $mail->send();

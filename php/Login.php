@@ -5,45 +5,37 @@ include('../dbconnect/conn.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     session_regenerate_id(true);
 
-    $identifier = $_POST['login-email']; // This will now accept email or username
-    $Password = $_POST['login-password'];
+    $identifier = trim($_POST['login-email']); // Pwedeng Email o Username
+    $password = trim($_POST['login-password']);
 
-    // Modify SQL query to check both Email and Username
+    // Query para hanapin ang user gamit ang Email o Username
     $stmt = $conn->prepare('SELECT * FROM tblaccounts WHERE Email = ? OR Username = ?');
     $stmt->bind_param("ss", $identifier, $identifier);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
+    $stmt->close();
 
     if ($row) {
-        $stored_password = openssl_decrypt($row['Password'], "AES-128-ECB", 'hightwelve82');
+        $stored_password = $row['Password']; // Database password
         $position = $row['WebPosition'];
         $profile = $row['Profile'];
         $username = $row['Username'];
         $email = $row['Email'];
         $id = $row['ID'];
-
-        if ($Password === $stored_password) {
-            if ($position == 'Admin') {
-                $_SESSION['admin_username'] = $username;
-                $_SESSION['admin_image'] = $profile;
-                $_SESSION['admin_email'] = $email;
-                $_SESSION['admin_password'] = $stored_password;
-                $_SESSION['admin_id'] = $id;
-            }
-
-            echo json_encode(array(
-                'success' => true,
-                'message' => 'Login successful',
-                'position' => $position,
-            ));
+    
+        // DEBUG: I-print ang password values
+        error_log("Entered Password: " . $password);
+        error_log("Stored Password (Hashed): " . $stored_password);
+    
+        if (password_verify($password, $stored_password)) {
+            echo json_encode(['success' => true, 'message' => 'Login successful', 'position' => $position]);
         } else {
-            echo json_encode(array('success' => false, 'message' => 'Invalid Password'));
+            echo json_encode(['success' => false, 'message' => 'Invalid Password']);
         }
-    } else {
-        echo json_encode(array('success' => false, 'message' => 'Invalid Email or Username'));
     }
+    $conn->close();
 } else {
-    echo json_encode(array('success' => false, 'message' => 'Invalid request method.'));
+    echo json_encode(['success' => false, 'message' => 'Invalid request method.']);
 }
 ?>
