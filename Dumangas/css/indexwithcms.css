@@ -265,6 +265,12 @@ nav h2 {
   overflow: auto;
 }
 
+.row .col-main .home .cms {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .row .col-main .post-container {
   margin-top: 1rem;
   background-color: var(--color-darknav);

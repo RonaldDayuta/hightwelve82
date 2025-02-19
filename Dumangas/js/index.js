@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("#main").load("IndexHome.php");
+  $("#main").load("../Webpage/IndexHome.php");
 
   $("#Home").on("click", function () {
     $("#main").load("Home.php");
@@ -23,7 +23,7 @@ $(document).ready(function () {
     var formData = new FormData(this);
 
     $.ajax({
-      url: "php/Login.php",
+      url: "../php/Login.php",
       method: "POST",
       data: formData,
       dataType: "json",
@@ -37,7 +37,7 @@ $(document).ready(function () {
             text: "Welcome, " + response.position + "!",
           }).then(() => {
             if (response.position === "Admin") {
-              window.location.href = "Admin.php";
+              window.location.href = "../Webpage/Admin.php";
             }
           });
         } else {

@@ -1,7 +1,7 @@
 $(document).ready(function () {
   function loadAccounts() {
     $.ajax({
-      url: "php/ViewAccounts.php",
+      url: "../php/ViewAccounts.php",
       type: "POST",
       cache: false,
       success: function (data) {
@@ -18,10 +18,19 @@ $(document).ready(function () {
   // ADD ACCOUNT
   $("#form-add-account").submit(async function (event) {
     event.preventDefault();
+
+    let addButton = $("#add-event-btn");
+    let spinner = $("#spinner");
+    let buttonText = $("#button-text");
+
+    spinner.show();
+    buttonText.text("Adding...");
+    addButton.prop("disabled", true);
+
     let formData = new FormData(this);
 
     try {
-      let response = await fetch("php/AddAccount.php", {
+      let response = await fetch("../php/AddAccount.php", {
         method: "POST",
         body: formData,
       });
@@ -30,6 +39,9 @@ $(document).ready(function () {
       if (result.success) {
         Swal.fire({ icon: "success", title: "Success", text: result.message });
         $("#form-add-account")[0].reset();
+        spinner.hide();
+        buttonText.text("Add Accounts");
+        addButton.prop("disabled", false);
         loadAccounts();
       } else {
         Swal.fire({ icon: "error", title: "Error", text: result.message });
@@ -69,7 +81,7 @@ $(document).ready(function () {
     }).then((result) => {
       if (result.isConfirmed) {
         $.ajax({
-          url: "php/DeleteAccount.php",
+          url: "../php/DeleteAccount.php",
           type: "POST",
           data: { id: id },
           success: function (response) {
@@ -104,7 +116,7 @@ $(document).ready(function () {
     }).then((result) => {
       if (result.isConfirmed) {
         $.ajax({
-          url: "php/fetchaccountinfo.php",
+          url: "../php/fetchaccountinfo.php",
           type: "POST",
           data: { id: id },
           dataType: "json",
@@ -139,12 +151,18 @@ $(document).ready(function () {
   $("#form-update-account").submit(function (event) {
     event.preventDefault();
 
+    let spinner = $("#spinners");
+    let buttonText = $("#button-texts");
+
+    spinner.show();
+    buttonText.text("Updating...");
+
     let formData = $(this).serialize();
 
     console.log("Updating with data:", formData); // Debugging output
 
     $.ajax({
-      url: "php/UpdateAccount.php",
+      url: "../php/UpdateAccount.php",
       type: "POST",
       data: formData,
       success: function (response) {
@@ -157,6 +175,8 @@ $(document).ready(function () {
             text: result.message,
           });
           $("#updateModal").modal("hide");
+          spinner.hide();
+          buttonText.text("Update Account");
           loadAccounts();
         } else {
           Swal.fire({ icon: "error", title: "Error", text: result.message });
