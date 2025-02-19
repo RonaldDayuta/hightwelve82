@@ -202,4 +202,4 @@
         </div>
     </div>
 </div>
-<script src="js/Calendar.js"></script>
+<script src="../js/Calendar.js"></script>

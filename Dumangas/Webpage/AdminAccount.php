@@ -101,7 +101,12 @@
                             accept="image/*" />
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Add Account</button>
+                        <button type="submit" class="btn btn-primary">
+                            <span id="button-text">Add Account</span>
+                            <div id="spinner" class="spinner-border spinner-border-sm" role="status" style="display: none;">
+                                <span class="sr-only"></span>
+                            </div>
+                        </button>
                     </div>
                 </form>
             </div>
@@ -187,7 +192,10 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">
-                            Update Account
+                            <span id="button-texts">Update Account</span>
+                            <div id="spinners" class="spinner-border spinner-border-sm" role="status" style="display: none;">
+                                <span class="sr-only"></span>
+                            </div>
                         </button>
                     </div>
                 </form>
@@ -196,4 +204,4 @@
     </div>
 </div>
 
-<script src="js/Account.js"></script>
+<script src="../js/Account.js"></script>
