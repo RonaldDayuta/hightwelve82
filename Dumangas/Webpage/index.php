@@ -69,7 +69,7 @@
                                     </ul>
                                 </li>
                                 <button id="btn-login" class="btn-login" type="button">
-                                    LogIn
+                                    Login
                                 </button>
                             </div>
                         </div>
