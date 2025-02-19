@@ -17,8 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <td><?= htmlspecialchars($row['Status']); ?></td>
                 <td class="actionsbutton">
                     <span class="material-icons-outlined btn-update" data-id="<?= $row['ID']; ?>">
-                        update
-                    </span>
+                        edit</span>
                     <span class="material-icons-outlined btn-delete" data-id="<?= $row['ID']; ?>">
                         delete
                     </span>
