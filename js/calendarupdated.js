@@ -105,6 +105,16 @@ $("#next-month").click(function () {
 generateCalendar(currentMonth, currentYear);
 
 function addEvent() {
+  // Disable the button and show the spinner
+  let addButton = $("#add-event-btn");
+  let spinner = $("#spinner");
+  let buttonText = $("#button-text");
+  
+  // Show the spinner and change the button text
+  spinner.show();
+  buttonText.text("Adding...");  // Change text to "Adding..."
+  addButton.prop("disabled", true);  // Disable the button
+
   let formData = new FormData(document.getElementById("event-form"));
 
   console.log("Form Data before submission:", Object.fromEntries(formData));
@@ -135,15 +145,27 @@ function addEvent() {
 
           // Refresh events to show the newly added event
           fetchEvents(); // Refresh calendar or events list
+
+          // Re-enable the button, hide the spinner, and reset text
+          spinner.hide();
+          buttonText.text("Save Event");
+          addButton.prop("disabled", false);
         });
       } else {
         console.error("Unexpected response format:", response);
+        // Re-enable the button and reset text on error
+        spinner.hide();
+        buttonText.text("Save Event");
+        addButton.prop("disabled", false);
       }
     },
     error: function (xhr, status, error) {
       console.error("Error adding event:", error);
+      // Re-enable the button and reset text on error
+      spinner.hide();
+      buttonText.text("Save Event");
+      addButton.prop("disabled", false);
     },
   });
 }
-
 

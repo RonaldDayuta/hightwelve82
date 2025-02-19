@@ -99,16 +99,21 @@
             </select>
           </div>
           <div class="mb-3">
-            <label for="update-statuus" class="form-label">Status</label>
+            <label for="update-status" class="form-label">Status</label>
             <select id="update-status" name="update-status" class="form-control" required>
               <option value="" selected disabled>Status</option>
               <option value="Active">Active</option>
-              <option value="InActive">InActive</option>
+              <option value="InActive">Inactive</option>
               <option value="Suspended">Suspended</option>
             </select>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Update Account</button>
+            <button type="submit" class="btn btn-primary" id="update-account-btn">
+              <span id="button-text">Update Account</span>
+              <div id="spinner" class="spinner-border spinner-border-sm" role="status" style="display: none;">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </button>
           </div>
         </form>
       </div>
@@ -117,3 +122,8 @@
 </div>
 
 <script src="js/account.js"></script>
+<!-- Include SweetAlert CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+
+<!-- Include SweetAlert JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>

@@ -4,7 +4,7 @@ include '../dbconnect/conn.php'; // Database connection
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
 
-    // Prepare the SQL statement
+    // Prepare the SQL statement to fetch account by ID
     $sqlstmt = "SELECT * FROM tblaccounts WHERE ID = ?";
     $stmt = $conn->prepare($sqlstmt);
 
@@ -18,20 +18,17 @@ if (isset($_POST['id'])) {
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
 
-            // Decrypt the password in PHP (not in SQL)
-            $decrypted_password = openssl_decrypt(
-                $row['Password'],     // Encrypted password from DB
-                "AES-128-ECB",        // Encryption method
-                'hightwelve82'        // Secret key
-            );
+            // You can include the hashed password in the response as-is
+            // This would be the hashed version stored in the database
+            $row['HashedPassword'] = $row['Password'];
 
-            // Add decrypted password to response
-            $row['DecryptedPassword'] = $decrypted_password;
+            // Optionally, you can remove the password from the response if you want to avoid returning sensitive data
+            // unset($row['Password']);  // Uncomment this line to exclude the password field from the response
 
-            // Return account data in JSON format
+            // Return account data including hashed password in JSON format
             echo json_encode(array('status' => 'success', 'data' => $row));
         } else {
-            echo json_encode(array('status' => 'error', 'message' => 'No Account found with this ID'));
+            echo json_encode(array('status' => 'error', 'message' => 'No account found with this ID'));
         }
 
         $stmt->close();

@@ -144,7 +144,12 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" onclick="addEvent()">Save Event</button>
+                        <button id="add-event-btn" type="button" class="btn btn-success" onclick="addEvent()">
+                            <span id="button-text">Save Event</span>
+                            <div id="spinner" class="spinner-border spinner-border-sm" role="status" style="display: none;">
+                                <span class="sr-only"></span>
+                            </div>
+                        </button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </form> <!-- Dito natapos ang form -->
