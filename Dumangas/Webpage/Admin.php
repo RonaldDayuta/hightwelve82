@@ -5,7 +5,7 @@ session_start();
 
 // Check if the user is logged in as an admin
 if (!isset($_SESSION['admin_id'])) {
-    header("Location: index.php");
+    header("Location: ../Webpage/index.php");
     exit();
 }
 
@@ -89,7 +89,7 @@ $id = $_SESSION['admin_id'];
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">
+                        <a class="nav-link" href="../php/logout.php">
                             <button>LogOut</button>
                         </a>
                     </li>
@@ -107,14 +107,9 @@ $id = $_SESSION['admin_id'];
                 <div class="cards-events">
                     <h3>Latest News</h3>
                     <div class="event-information">
-                        <h3>News title</h3>
-                        <span>Date</span>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos
-                            odio dicta id dignissimos nihil hic ab dolore suscipit illo
-                            optio eveniet qui, repudiandae iusto at harum porro provident
-                            iste delectus.
-                        </p>
+                        <h3 id="news_h3">Loading...</h3>
+                        <span id="news_span">Loading...</span>
+                        <p id="news_p">Loading news details...</p>
                     </div>
                 </div>
                 <hr />
@@ -136,21 +131,25 @@ $id = $_SESSION['admin_id'];
             <div class="colright-side col-lg-3 col-md-12">
                 <div class="cardmeeting">
                     <h3>Meetings</h3>
-                    <div class="meetingalign">
-                        <div class="meetinginfo">
-                            <img src="../Information/102 Years Logo.png" alt="" />
-                            <div class="information">
-                                <span>Meeting Title</span>
-                                <span>Date: 18/02/2025</span>
-                                <span>Time: 10 am</span>
+                    <div id="meeting-cards">
+                        <div class="meetingalign">
+                            <div class="meetinginfo">
+                                <img src="../Information/102 Years Logo.png" alt="" />
+                                <div class="information">
+                                    <span>Loading...</span>
+                                    <span>Loading...</span>
+                                    <p>Loading...</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="meetinginfo">
-                            <img src="../Information/102 Years Logo.png" alt="" />
-                            <div class="information">
-                                <span>Meeting Title</span>
-                                <span>Date: 18/02/2025</span>
-                                <span>Time: 10 am</span>
+                        <div class="meetingalign">
+                            <div class="meetinginfo">
+                                <img src="../Information/102 Years Logo.png" alt="" />
+                                <div class="information">
+                                    <span>Loading...</span>
+                                    <span>Loading...</span>
+                                    <p>Loading...</p>
+                                </div>
                             </div>
                         </div>
                     </div>
