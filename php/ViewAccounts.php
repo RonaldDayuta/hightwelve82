@@ -2,7 +2,7 @@
 include '../dbconnect/conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $accountsql = "SELECT ID, Email, Username, Password, WebPosition, Status FROM tblaccounts"; 
+    $accountsql = "SELECT ID, Email, Username, Password, WebPosition, Status FROM tblaccounts";
     $stmt = $conn->prepare($accountsql);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -13,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <tr>
                 <td><?= htmlspecialchars($row['Email']); ?></td>
                 <td><?= htmlspecialchars($row['Username']); ?></td>
-                <td><?= htmlspecialchars($row['Password']); ?></td> <!-- Now displaying password -->
                 <td><?= htmlspecialchars($row['WebPosition']); ?></td>
                 <td><?= htmlspecialchars($row['Status']); ?></td>
                 <td class="actionsbutton">

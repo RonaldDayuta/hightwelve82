@@ -13,7 +13,6 @@
         <tr>
           <th scope="col">Email</th>
           <th scope="col">Username</th>
-          <th scope="col">Password</th>
           <th scope="col">Position</th>
           <th scope="col">Status</th>
           <th scope="col">Action</th>
@@ -159,8 +158,7 @@
               id="update-password"
               name="update-password"
               class="form-control"
-              placeholder="Password"
-              required />
+              placeholder="Password" />
           </div>
           <div class="mb-3">
             <label for="update-position" class="form-label">Website Position</label>
