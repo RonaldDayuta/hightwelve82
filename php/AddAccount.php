@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Default profile image
-    $upload_dir = "ProfileUpload/";
+    $upload_dir = "../ProfileUpload/";
     $image_path = "img/logo.png";
 
     // Handle file upload kung meron
