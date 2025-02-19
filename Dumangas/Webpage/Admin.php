@@ -23,7 +23,7 @@ $id = $_SESSION['admin_id'];
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/indexwithcms.css" />
+    <link rel="stylesheet" href="../css/indexwithcms.css" />
     <title>Admin</title>
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
@@ -42,7 +42,7 @@ $id = $_SESSION['admin_id'];
             <!-- Logo & Title -->
             <div class="d-flex align-items-center">
                 <img
-                    src="Information/Lodge Logo.png"
+                    src="../Information/Lodge Logo.png"
                     alt="Logo"
                     class="navbar-logo" />
                 <h2 class="mb-0 ms-2">HIGHTWELVE82</h2>
@@ -83,7 +83,8 @@ $id = $_SESSION['admin_id'];
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a id="Calendar" class="nav-link"><span class="material-icons-outlined"> calendar_month </span>
+                        <a id="Calendar" href="#" class=" nav-link">
+                            <span class="material-icons-outlined"> calendar_month </span>
                             Calendar
                         </a>
                     </li>
@@ -137,7 +138,7 @@ $id = $_SESSION['admin_id'];
                     <h3>Meetings</h3>
                     <div class="meetingalign">
                         <div class="meetinginfo">
-                            <img src="Information/102 Years Logo.png" alt="" />
+                            <img src="../Information/102 Years Logo.png" alt="" />
                             <div class="information">
                                 <span>Meeting Title</span>
                                 <span>Date: 18/02/2025</span>
@@ -145,7 +146,7 @@ $id = $_SESSION['admin_id'];
                             </div>
                         </div>
                         <div class="meetinginfo">
-                            <img src="Information/102 Years Logo.png" alt="" />
+                            <img src="../Information/102 Years Logo.png" alt="" />
                             <div class="information">
                                 <span>Meeting Title</span>
                                 <span>Date: 18/02/2025</span>
@@ -168,19 +169,19 @@ $id = $_SESSION['admin_id'];
                             </form>
                         </div>
                         <li>
-                            <img src="Information/Lodge Logo.png" alt="" />
+                            <img src="../Information/Lodge Logo.png" alt="" />
                             <span>Username</span>
                         </li>
                         <li>
-                            <img src="Information/Lodge Logo.png" alt="" />
+                            <img src="../Information/Lodge Logo.png" alt="" />
                             <span>Username</span>
                         </li>
                         <li>
-                            <img src="Information/Lodge Logo.png" alt="" />
+                            <img src="../Information/Lodge Logo.png" alt="" />
                             <span>Username</span>
                         </li>
                         <li>
-                            <img src="Information/Lodge Logo.png" alt="" />
+                            <img src="../Information/Lodge Logo.png" alt="" />
                             <span>Username</span>
                         </li>
                     </ul>
@@ -190,7 +191,7 @@ $id = $_SESSION['admin_id'];
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/Admin.js"></script>
+    <script src="../js/Admin.js"></script>
 </body>
 
 </html>

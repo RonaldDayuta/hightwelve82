@@ -46,7 +46,7 @@ function generateCalendar(month, year) {
 // Fetch events (for refreshing after adding or changing months)
 function fetchEvents() {
   $.ajax({
-    url: "php/fetchevents.php",
+    url: "../php/fetchevents.php",
     type: "POST",
     data: { selectedDate: selectedDate },
     cache: false,
@@ -118,7 +118,7 @@ function addEvent() {
   console.log("Form Data before submission:", Object.fromEntries(formData));
 
   $.ajax({
-    url: "php/addEvents.php", // Correct URL to your add event PHP script
+    url: "../php/addEvents.php", // Correct URL to your add event PHP script
     type: "POST",
     data: formData,
     processData: false,
