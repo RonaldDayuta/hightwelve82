@@ -18,10 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <td><?= $row['WebPosition']; ?></td>
                 <td><?= $row['Status']; ?></td>
                 <td class="actionsbutton">
-                    <span class="material-icons-outlined btnupdate" data-id="<?= $row['ID']; ?>">
+                    <span class="material-icons-outlined btn-update" data-id="<?= $row['ID']; ?>">
                         update
                     </span>
-                    <span class="material-icons-outlined btndelete" data-id="<?= $row['ID']; ?>">
+                    <span class="material-icons-outlined btn-delete" data-id="<?= $row['ID']; ?>">
                         delete
                     </span>
                 </td>

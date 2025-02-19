@@ -37,7 +37,7 @@ $(document).ready(function () {
             text: "Welcome, " + response.position + "!",
           }).then(() => {
             if (response.position === "Admin") {
-              window.location.href = "admin.php";
+              window.location.href = "indexwithcms.php";
             }
           });
         } else {
