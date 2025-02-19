@@ -1,4 +1,5 @@
 <?php
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -23,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Default profile image
-    $upload_dir = "../ProfileUpload/";
+    $upload_dir = "ProfileUpload/";
     $image_path = "img/logo.png";
 
     // Handle file upload kung meron
@@ -80,4 +81,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo json_encode(["success" => false, "message" => "Invalid request"]);
 }
-?>
