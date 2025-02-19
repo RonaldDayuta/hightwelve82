@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <td><?= $row['event_date']; ?></td>
                 <td><?= $row['title']; ?></td>
                 <td><?= $row['description']; ?></td>
-                <td><?= $row['category']; ?></td>
             </tr>
 <?php
         }
