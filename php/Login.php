@@ -23,11 +23,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $row['Username'];
         $email = $row['Email'];
         $id = $row['ID'];
-    
+
+        $_SESSION['admin_username'] = $username;
+        $_SESSION['admin_image'] = $profile;
+        $_SESSION['admin_email'] = $email;
+        $_SESSION['admin_id'] = $id;
+
         // DEBUG: I-print ang password values
         error_log("Entered Password: " . $password);
         error_log("Stored Password (Hashed): " . $stored_password);
-    
+
         if (password_verify($password, $stored_password)) {
             echo json_encode(['success' => true, 'message' => 'Login successful', 'position' => $position]);
         } else {
@@ -38,4 +43,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo json_encode(['success' => false, 'message' => 'Invalid request method.']);
 }
-?>
