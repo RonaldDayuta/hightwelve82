@@ -1,7 +1,9 @@
 <?php
 include '../dbconnect/conn.php'; // Adjust this based on your database connection file
 
-$sql = "SELECT event_date, title, description FROM tblevents WHERE category = 'events' ORDER BY event_date DESC LIMIT 1";
+$today = date('Y-m-d');
+
+$sql = "SELECT event_date, title, description FROM tblevents WHERE category = 'events' AND event_date IN ('$today') ORDER BY event_date DESC LIMIT 1";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
