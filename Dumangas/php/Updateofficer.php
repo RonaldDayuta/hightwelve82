@@ -1,8 +1,6 @@
 <?php
 include '../dbconnect/conn.php';
 
-$response = ["success" => false];
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $officerID = $_POST["officerID"];
     $name = $_POST["officerName"];
@@ -11,29 +9,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if a new image is uploaded
     if (!empty($_FILES["officerImage"]["name"])) {
-        $targetDir = "../officerimage/";
-        $imageName = basename($_FILES["officerImage"]["name"]);
-        $targetFilePath = $targetDir . $imageName;
-        $imageFileType = strtolower(pathinfo($targetFilePath, PATHINFO_EXTENSION));
-        $allowedTypes = ["jpg", "jpeg", "png", "gif"];
-        $imageSize = $_FILES["officerImage"]["size"]; // Get image size in bytes (B)
+        $fileName = $_FILES['officerImage']['name'];
+        $fileSize = $_FILES['officerImage']['size'];
+        $fileTmpName = $_FILES['officerImage']['tmp_name'];
+        $fileType = $_FILES['officerImage']['type']; // Get image size in bytes (B)
+        $maxSize = 20 * 1024 * 1024; // 20MB in bytes
 
-        // **20MB Limit (20 * 1024 * 1024 = 20971520 bytes)**
-        if ($imageSize > 20 * 1024 * 1024) {
+        // 20MB Limit (20 * 1024 * 1024 = 20971520 bytes)
+        if ($fileSize > $maxSize) {
             echo json_encode(["success" => false, "message" => "Image size exceeds 20MB limit!"]);
             exit();
         }
 
-        if (in_array($imageFileType, $allowedTypes)) {
-            if (move_uploaded_file($_FILES["officerImage"]["tmp_name"], $targetFilePath)) {
-                $stmt = $conn->prepare("UPDATE tblofficers SET Name = ?, Position = ?, PosDecs = ?, Image = ? WHERE ID = ?");
-                $stmt->bind_param("ssssi", $name, $position, $posDesc, $targetFilePath, $officerID);
-            } else {
-                echo json_encode(["success" => false, "message" => "Failed to upload image."]);
-                exit();
-            }
+        $uploadPath = "../Officerimage/" . basename($fileName);
+
+        if (move_uploaded_file($fileTmpName, $uploadPath)) {
+            $stmt = $conn->prepare("UPDATE tblofficers SET Name = ?, Position = ?, PosDecs = ?, Image = ? WHERE ID = ?");
+            $stmt->bind_param("ssssi", $name, $position, $posDesc, $uploadPath, $officerID);
         } else {
-            echo json_encode(["success" => false, "message" => "Invalid image format! Only JPG, JPEG, PNG, and GIF are allowed."]);
+            echo json_encode(["success" => false, "message" => "Failed to upload image."]);
             exit();
         }
     } else {
@@ -43,11 +37,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($stmt->execute()) {
-        $response["success"] = true;
+        echo json_encode(["success" => true, "message" => "Update Successful"]);
+    } else {
+        echo json_encode(["success" => false, "message" => "Error: " . $stmt->error]);
     }
 
     $stmt->close();
+} else {
+    echo json_encode(["success" => false, "message" => "Invalid request."]);
 }
 
 $conn->close();
-echo json_encode($response);
