@@ -7,6 +7,7 @@ $(document).ready(function () {
     $("#Home").addClass("active");
     $("#Accounts").removeClass("active");
     $("#Calendar").removeClass("active");
+    $("#Officers").removeClass("active");
   });
 
   $("#Accounts").click(function () {
@@ -14,11 +15,21 @@ $(document).ready(function () {
     $("#Accounts").addClass("active");
     $("#Home").removeClass("active");
     $("#Calendar").removeClass("active");
+    $("#Officers").removeClass("active");
   });
 
   $("#Calendar").click(function () {
     $("#main").load("../Webpage/AdminCalendar.php");
     $("#Calendar").addClass("active");
+    $("#Accounts").removeClass("active");
+    $("#Home").removeClass("active");
+    $("#Officers").removeClass("active");
+  });
+
+  $("#Officers").click(function () {
+    $("#main").load("../Webpage/Adminofficers.php");
+    $("#Officers").addClass("active");
+    $("#Calendar").removeClass("active");
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
   });

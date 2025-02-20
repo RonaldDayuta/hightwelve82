@@ -1,17 +1,25 @@
 <?php
-// Include your database connection (update the path if necessary)
+// Include your database connection
 include '../dbconnect/conn.php';
 
-// Get today's date
+// Set timezone to avoid date mismatch issues
+date_default_timezone_set('Asia/Manila');
+
+// Get today's date and the date 5 days from today
 $today = date('Y-m-d');
-$tomorrow = date('Y-m-d', strtotime('+1 day'));
+$next5Days = date('Y-m-d', strtotime('+5 days'));
 
-// Query to get meetings scheduled for today and tomorrow
+// Query to get meetings scheduled from today to the next 5 days
 $sql = "SELECT title, event_date, description, image FROM tblevents 
-        WHERE category = 'meeting' AND event_date IN ('$today', '$tomorrow') 
-        ORDER BY event_date ASC LIMIT 2";
+        WHERE category = 'meeting' AND event_date BETWEEN ? AND ?
+        ORDER BY event_date ASC
+        LIMIT 2";
 
-$result = $conn->query($sql);
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ss", $today, $next5Days);
+$stmt->execute();
+$result = $stmt->get_result();
+
 $meetings = [];
 
 if ($result->num_rows > 0) {
@@ -22,4 +30,6 @@ if ($result->num_rows > 0) {
 
 // Return JSON response
 echo json_encode($meetings);
+
+$stmt->close();
 $conn->close();

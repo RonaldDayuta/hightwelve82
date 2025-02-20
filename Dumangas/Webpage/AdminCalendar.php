@@ -91,6 +91,7 @@
                                 <th scope="col">Date</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Description</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody id="table-events">

@@ -89,6 +89,20 @@ $id = $_SESSION['admin_id'];
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a id="Officers" href="#" class=" nav-link">
+                            <span class="material-icons-outlined"> group </span>
+                            Officers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="ManageAccount" href="#" class=" nav-link">
+                            <span class="material-icons-outlined">
+                                manage_accounts
+                            </span>
+                            Manage Account
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="../php/logout.php">
                             <button>LogOut</button>
                         </a>

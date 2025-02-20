@@ -45,6 +45,9 @@ $(document).ready(function () {
         loadAccounts();
       } else {
         Swal.fire({ icon: "error", title: "Error", text: result.message });
+        spinner.hide();
+        buttonText.text("Add Accounts");
+        addButton.prop("disabled", false);
       }
     } catch (error) {
       console.error("Request failed:", error);
@@ -57,13 +60,13 @@ $(document).ready(function () {
   });
 
   // DELETE ACCOUNT
-  $(document).on("click", ".btn-delete", function () {
+  $(document).on("click", "#account-delete", function () {
     let row = $(this).closest("tr");
-    let email = row.find("td:first").text().trim(); // Siguraduhin na may email na nakuha
+    let email = row.find("td:first").text().trim();
     let id = $(this).data("id");
 
-    console.log("Deleting email:", email); // Debugging output
-    console.log("Deleting email:", id); // Debugging output
+    console.log("Deleting email:", email);
+    console.log("Deleting ID:", id);
 
     if (!email) {
       Swal.fire("Error!", "Email not found.", "error");
@@ -80,6 +83,16 @@ $(document).ready(function () {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
+        // Show loading indicator
+        Swal.fire({
+          title: "Deleting...",
+          text: "Please wait while we process the request.",
+          allowOutsideClick: false,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        });
+
         $.ajax({
           url: "../php/DeleteAccount.php",
           type: "POST",
@@ -102,7 +115,7 @@ $(document).ready(function () {
   });
 
   // UPDATE ACCOUNT - Fetch Data and Show in Modal
-  $(document).on("click", ".btn-update", function () {
+  $(document).on("click", "#account-update", function () {
     let id = $(this).data("id");
 
     Swal.fire({
