@@ -4,7 +4,7 @@
     <div class="officer">
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/1 Worshipful Master.png"
+                src="../Information/Lodge Officers Jewels/1 Worshipful Master.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>Bro. Aguinaldo S. Sepnio</h2>
@@ -13,7 +13,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/2 Senior Warden.png"
+                src="../Information/Lodge Officers Jewels/2 Senior Warden.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>Bro. Victor Roman C. Cacal</h2>
@@ -22,7 +22,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/3 Junior Warden.png"
+                src="../Information/Lodge Officers Jewels/3 Junior Warden.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>Bro. Faustino B. Austria Jr.</h2>
@@ -31,7 +31,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/4 Treasurer.png"
+                src="../Information/Lodge Officers Jewels/4 Treasurer.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>WB Jan S. Bautista</h2>
@@ -40,7 +40,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/5 Secretary.png"
+                src="../Information/Lodge Officers Jewels/5 Secretary.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>WB David B. Reyes Jr.</h2>
@@ -56,7 +56,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/6 Auditor.png"
+                src="../Information/Lodge Officers Jewels/6 Auditor.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>VW Ryan Oliver M. Felipe</h2>
@@ -65,7 +65,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/14 Organist.png"
+                src="../Information/Lodge Officers Jewels/14 Organist.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>VW Luisito S. Laylay</h2>
@@ -74,7 +74,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/8 Chaplain.png"
+                src="../Information/Lodge Officers Jewels/8 Chaplain.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>Bro. Jean Rafaello R. De Leon</h2>
@@ -83,7 +83,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/7 Marshall.png"
+                src="../Information/Lodge Officers Jewels/7 Marshall.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>Bro. Rhoderick E. Marcelo</h2>
@@ -92,7 +92,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/9 Senior Deacon.png"
+                src="../Information/Lodge Officers Jewels/9 Senior Deacon.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>Bro. Amir Karlo M. Caliwag</h2>
@@ -101,7 +101,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/10 Junior Deacon.png"
+                src="../Information/Lodge Officers Jewels/10 Junior Deacon.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>Bro. Crisanto D. Guevara</h2>
@@ -110,7 +110,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/16 Orator.png"
+                src="../Information/Lodge Officers Jewels/16 Orator.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>Bro. Niño Raymund C. Larrosa</h2>
@@ -119,7 +119,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/17 Almoner.png"
+                src="../Information/Lodge Officers Jewels/17 Almoner.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>Bro. Rhundy Yel C. Santos</h2>
@@ -128,7 +128,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/19 Lecturer.png"
+                src="../Information/Lodge Officers Jewels/19 Lecturer.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>Bro. Saturnino C. Danganan Jr.</h2>
@@ -137,7 +137,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/20 Bible Bearer.png"
+                src="../Information/Lodge Officers Jewels/20 Bible Bearer.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>Bro. Niño Khristian S. Mulato</h2>
@@ -146,7 +146,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/15 Historian.png"
+                src="../Information/Lodge Officers Jewels/15 Historian.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>Bro. Benjie G. Privado</h2>
@@ -169,7 +169,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/11 Senior Steward.png"
+                src="../Information/Lodge Officers Jewels/11 Senior Steward.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>Bro. Jimmy A. Trayvilla</h2>
@@ -178,7 +178,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/12 Junior Steward.png"
+                src="../Information/Lodge Officers Jewels/12 Junior Steward.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>Bro. Melvin S. Mangahas</h2>
@@ -187,7 +187,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/18 Organist.png"
+                src="../Information/Lodge Officers Jewels/18 Organist.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>Bro. Benito G. Gaufo</h2>
@@ -196,7 +196,7 @@
         </div>
         <div class="officers-card">
             <img
-                src="Information/Lodge Officers Jewels/13 Tyler.png"
+                src="../Information/Lodge Officers Jewels/13 Tyler.png"
                 alt="Officer Image" />
             <div class="text-overlay">
                 <h2>WB Edmundo B. Esteban</h2>

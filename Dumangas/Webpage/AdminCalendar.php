@@ -183,7 +183,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button id="add-event-btn" type="button" class="btn btn-success" onclick="addEvent()">
+                        <button id="add-events-btn" type="button" class="btn btn-success">
                             <span id="button-text">Save Event</span>
                             <div id="spinner" class="spinner-border spinner-border-sm" role="status" style="display: none;">
                                 <span class="sr-only"></span>
@@ -202,4 +202,5 @@
         </div>
     </div>
 </div>
+
 <script src="../js/Calendar.js"></script>
