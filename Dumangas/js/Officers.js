@@ -17,8 +17,20 @@ $(document).ready(function () {
 
   $("#addOfficerForm").submit(function (event) {
     event.preventDefault();
-
     let formData = new FormData(this);
+    let fileSize = $("#officerimage")[0].files[0].size;
+    let maxSize = 20 * 1024 * 1024; // 20MB in bytes
+
+    if (fileSize > maxSize) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "File size should not exceed 20MB.",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
     $("#button-text").text("Adding...");
     $("#spinner").show();
 
@@ -32,7 +44,7 @@ $(document).ready(function () {
       success: function (response) {
         $("#button-text").text("Add Officer");
         $("#spinner").hide();
-        if (response.success === true) {
+        if (response.success) {
           Swal.fire({
             icon: "success",
             title: "Success",
@@ -108,6 +120,22 @@ $(document).ready(function () {
   $("#editOfficerForm").submit(function (event) {
     event.preventDefault();
     let formData = new FormData(this);
+    let fileInput = $("#officerimage")[0];
+
+    if (fileInput.files.length > 0) {
+      let fileSize = fileInput.files[0].size;
+      let maxSize = 20 * 1024 * 1024; // 20MB in bytes
+
+      if (fileSize > maxSize) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "File size should not exceed 20MB.",
+          confirmButtonText: "OK",
+        });
+        return;
+      }
+    }
 
     $("#edit-button-text").text("Updating...");
     $("#edit-spinner").show();
@@ -126,18 +154,28 @@ $(document).ready(function () {
           Swal.fire({
             icon: "success",
             title: "Updated!",
-            text: "Officer details updated successfully.",
+            text: response.message,
             confirmButtonText: "OK",
           }).then(() => {
             $("#editOfficerModal").modal("hide");
             loadofficers();
           });
         } else {
-          Swal.fire("Error", "Update failed.", "error");
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: response.message || "Update failed.",
+            confirmButtonText: "OK",
+          });
         }
       },
       error: function () {
-        Swal.fire("Error", "An unexpected error occurred.", "error");
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "An unexpected error occurred.",
+          confirmButtonText: "OK",
+        });
       },
     });
   });
