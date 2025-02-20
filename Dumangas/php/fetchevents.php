@@ -17,6 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <td><?= $row['event_date']; ?></td>
                 <td><?= $row['title']; ?></td>
                 <td><?= $row['description']; ?></td>
+                <td>
+                    <span class="material-icons-outlined btn-delete" id="delete-events" data-id="<?= $row['id']; ?>">
+                        delete
+                    </span>
+                </td>
             </tr>
 <?php
         }

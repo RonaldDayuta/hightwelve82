@@ -92,13 +92,14 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="account-image" class="form-label">Profile Image (Optional)</label>
+                        <label for="account-image" class="form-label">Profile Image</label>
                         <input
                             type="file"
                             id="account-image"
                             name="account-image"
                             class="form-control"
-                            accept="image/*" />
+                            accept="image/*"
+                            required />
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">

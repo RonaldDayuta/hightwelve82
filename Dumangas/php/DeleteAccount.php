@@ -1,5 +1,6 @@
 <?php
 require '../dbconnect/conn.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -8,8 +9,8 @@ require '../vendor/autoload.php';
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
 
-    // Fetch the user's email before deleting the account
-    $sql = "SELECT Email, Username FROM tblaccounts WHERE ID = ?";
+    // Fetch user details before deleting the account
+    $sql = "SELECT Email, Username, Profile FROM tblaccounts WHERE ID = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -20,6 +21,12 @@ if (isset($_POST['id'])) {
         $user = $result->fetch_assoc();
         $email = $user['Email'];
         $username = $user['Username'];
+        $imageFile = $user['Profile'];
+
+        // Delete the image file if it exists
+        if (!empty($imageFile) && file_exists($imageFile)) {
+            unlink($imageFile);
+        }
 
         // Proceed with deletion
         $deleteSql = "DELETE FROM tblaccounts WHERE ID = ?";
@@ -53,12 +60,12 @@ if (isset($_POST['id'])) {
 
                 // Send email
                 $mail->send();
-                echo json_encode(array('success' => 'Delete', 'message' => 'Delete Successful and email sent'));
+                echo json_encode(array('success' => 'Delete', 'message' => 'Account deleted successfully, and email sent.'));
             } catch (Exception $e) {
-                echo json_encode(array('success' => 'Delete', 'message' => 'Delete Successful but email failed: ' . $mail->ErrorInfo));
+                echo json_encode(array('success' => 'Delete', 'message' => 'Account deleted, but email failed: ' . $mail->ErrorInfo));
             }
         } else {
-            echo json_encode(array('error' => 'Error', 'message' => 'Delete Unsuccessful') . $conn->error);
+            echo json_encode(array('error' => 'Error', 'message' => 'Account deletion failed.') . $conn->error);
         }
     } else {
         echo json_encode(array('error' => 'Error', 'message' => 'User not found'));

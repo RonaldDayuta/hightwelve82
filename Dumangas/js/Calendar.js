@@ -71,12 +71,13 @@ $(document).ready(function () {
   $(document).on("click", ".day", function () {
     selectedDate = $(this).data("date");
     $("#selected-date").text(selectedDate);
-    fetchEvents(); // Refresh events for the selected date
+    fetchEvents();
   });
 
   // Open Add Event Modal on button click
   $("#add-event-btn").click(function () {
     openAddEventModal();
+    $("#eventModal").modal("hide");
   });
 
   // Navigate to previous month
@@ -140,6 +141,7 @@ $(document).ready(function () {
 
             // Hide the modal after successful submission
             $("#addEventModal").modal("hide");
+            $("#eventModal").modal("show");
 
             // Refresh events to show the newly added event
             fetchEvents(); // Refresh calendar or events list
@@ -164,6 +166,50 @@ $(document).ready(function () {
         buttonText.text("Save Event");
         addButton.prop("disabled", false);
       },
+    });
+  });
+
+  $(document).on("click", "#delete-events", function () {
+    let calendarid = $(this).data("id");
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This event will be permanently deleted!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Show loading state
+        Swal.fire({
+          title: "Deleting...",
+          text: "Please wait while we process the request.",
+          allowOutsideClick: false,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        });
+
+        $.ajax({
+          url: "../php/Deleteevents.php", // Make sure this PHP file exists
+          type: "POST",
+          data: { id: calendarid },
+          success: function (response) {
+            let result = JSON.parse(response);
+            if (result.success) {
+              Swal.fire("Deleted!", "The event has been deleted.", "success");
+              fetchEvents();
+            } else {
+              Swal.fire("Error!", result.message, "error");
+            }
+          },
+          error: function () {
+            Swal.fire("Error!", "Server error. Please try again.", "error");
+          },
+        });
+      }
     });
   });
 });

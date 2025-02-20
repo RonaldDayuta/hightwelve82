@@ -35,11 +35,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    // Check if file is uploaded
+    // Image upload handling
     if (isset($_FILES['event-image']) && $_FILES['event-image']['error'] === UPLOAD_ERR_OK) {
         $target_dir = "../uploads/"; // Ensure this directory exists
         $image_name = basename($_FILES["event-image"]["name"]);
+        $image_ext = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
+        $image_size = $_FILES["event-image"]["size"];
         $image_path = $target_dir . $image_name;
+
+        // Allowed file types
+        $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
+        $max_size = 20 * 1024 * 1024; // 20MB limit
+
+        // Check file type
+        if (!in_array($image_ext, $allowed_types)) {
+            echo json_encode(["status" => "error", "message" => "Invalid file type! Only JPG, JPEG, PNG, and GIF are allowed."]);
+            exit();
+        }
+
+        // Check file size
+        if ($image_size > $max_size) {
+            echo json_encode(["status" => "error", "message" => "Image size exceeds 20MB limit!"]);
+            exit();
+        }
 
         // Move uploaded file
         if (!move_uploaded_file($_FILES["event-image"]["tmp_name"], $image_path)) {
@@ -73,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             //Recipients
             $mail->setFrom('ronaldthird.dayuta@gmail.com', 'Event Manager');
-            
+
             // Loop through the result of email addresses and send an email to each
             while ($row = $resultEmails->fetch_assoc()) {
                 $mail->addAddress($row['Email']); // Add recipient email
@@ -109,4 +127,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo json_encode(["status" => "error", "message" => "Invalid request"]);
 }
-?>
