@@ -85,6 +85,15 @@ $(document).ready(function () {
   $("#addPostForm").submit(function (e) {
     e.preventDefault(); // Prevent form from refreshing the page
 
+    let addButton = $("#btn-post");
+    let spinner = $("#spinner");
+    let buttonText = $("#button-text");
+
+    // Show the spinner and change the button text
+    spinner.show();
+    buttonText.text("Posting..."); // Change text to "Adding..."
+    addButton.prop("disabled", true); // Disable the button
+
     let formData = new FormData(this);
 
     $.ajax({
@@ -105,6 +114,9 @@ $(document).ready(function () {
             $("#addPostForm")[0].reset(); // Reset the form
             $("#addpost").modal("hide"); // Close the modal
             loadcms(); // Reload posts
+            spinner.hide();
+            buttonText.text("Post");
+            addButton.prop("disabled", false);
           });
         } else {
           Swal.fire({
