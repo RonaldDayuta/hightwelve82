@@ -24,13 +24,27 @@ $(document).ready(function () {
   });
 
   $.ajax({
-    url: "../php/fetcheventforadmin.php",
+    url: "../php/fetchnewsforadmin.php",
     type: "GET",
     dataType: "json",
     success: function (data) {
       $("#news_h3").text(data.title);
       $("#news_span").text(data.event_date);
       $("#news_p").text(data.description);
+    },
+    error: function (xhr, status, error) {
+      console.error("Error fetching event:", error);
+    },
+  });
+
+  $.ajax({
+    url: "../php/fetcheventforadmin.php",
+    type: "GET",
+    dataType: "json",
+    success: function (data) {
+      $("#event_h3").text(data.title);
+      $("#event_span").text(data.event_date);
+      $("#event_p").text(data.description);
     },
     error: function (xhr, status, error) {
       console.error("Error fetching event:", error);
@@ -66,6 +80,33 @@ $(document).ready(function () {
     },
     error: function (xhr, status, error) {
       console.error("Error fetching meetings:", error);
+      console.log("Server Response:", xhr.responseText);
+    },
+  });
+
+  $.ajax({
+    url: "../php/Membertableforadmin.php",
+    type: "GET",
+    dataType: "json",
+    success: function (data) {
+      if (data.length > 0) {
+        let membersHTML = "";
+        data.forEach(function (members) {
+          membersHTML += `
+            <li>
+              <img src="${members.Profile}" alt="" />
+              <span>${members.Username}</span>
+            </li>
+          `;
+        });
+
+        $("#members").html(membersHTML);
+      } else {
+        $("#members").html("<p>No members available.</p>");
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error("Error fetching members:", error);
       console.log("Server Response:", xhr.responseText);
     },
   });

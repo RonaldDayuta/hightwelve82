@@ -2,10 +2,10 @@ $(document).ready(function () {
   $("#main").load("../Webpage/IndexHome.php");
 
   $("#Home").on("click", function () {
-    $("#main").load("Home.php");
+    $("#main").load("../Webpage/IndexHome.php");
   });
   $("#Officers").on("click", function () {
-    $("#main").load("Officer.php");
+    $("#main").load("../Webpage/IndexOfficer.php");
   });
 
   $("#btn-login").on("click", function () {

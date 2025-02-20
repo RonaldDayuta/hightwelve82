@@ -260,6 +260,12 @@ nav h2 {
   gap: 0.5rem;
 }
 
+.row .colright-side .tablesmembers ul #members {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .row .colright-side .tablesmembers ul h3 {
   font-weight: 900;
   font-size: 1.5rem;
@@ -452,6 +458,12 @@ nav h2 {
 
   .row .colright-side {
     padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .row .colright-side {
+    display: none;
   }
 }
 
