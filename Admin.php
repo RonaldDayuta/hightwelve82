@@ -89,7 +89,7 @@ $id = $_SESSION['admin_id'];
                     </li>
                     <li class="nav-item">
                         <a class="nav-link">
-                            <button>LogOut</button>
+                            <button>Logout</button>
                         </a>
                     </li>
                 </ul>
