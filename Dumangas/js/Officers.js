@@ -32,11 +32,11 @@ $(document).ready(function () {
       success: function (response) {
         $("#button-text").text("Add Officer");
         $("#spinner").hide();
-        if (response.success) {
+        if (response.success === true) {
           Swal.fire({
             icon: "success",
             title: "Success",
-            text: "Officer added successfully!",
+            text: response.message,
             confirmButtonText: "OK",
           }).then(() => {
             $("#addOfficerForm")[0].reset(); // Reset the form
@@ -46,7 +46,7 @@ $(document).ready(function () {
           Swal.fire({
             icon: "error",
             title: "Error",
-            text: "Error adding officer.",
+            text: response.message || "Error adding officer.",
             confirmButtonText: "OK",
           });
         }
