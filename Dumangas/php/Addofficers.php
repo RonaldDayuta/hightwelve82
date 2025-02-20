@@ -28,19 +28,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    if (move_uploaded_file($_FILES["officerimage"]["tmp_name"], $targetFilePath)) {
-        // Insert into database
-        $stmt = $conn->prepare("INSERT INTO tblofficers (Name, Position, PosDecs, Image) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $name, $position, $posDesc, $targetFilePath);
-
-        if ($stmt->execute()) {
-            $response["success"] = true;
-        }
-
-        $stmt->close();
+    // Move the uploaded file
+    if (!move_uploaded_file($_FILES["officerimage"]["tmp_name"], $targetFilePath)) {
+        echo json_encode(["success" => false, "message" => "Failed to upload image!"]);
+        exit();
     }
 
+    // Insert into database (store only filename, not full path)
+    $stmt = $conn->prepare("INSERT INTO tblofficers (Name, Position, PosDecs, Image) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $name, $position, $posDesc, $targetFilePath);
+
+    if ($stmt->execute()) {
+        echo json_encode(["success" => true, "message" => "Added Successfully!"]);
+    } else {
+        echo json_encode(["success" => false, "message" => "Database insertion failed!"]);
+    }
+
+    $stmt->close();
     $conn->close();
 }
-
-echo json_encode($response);
