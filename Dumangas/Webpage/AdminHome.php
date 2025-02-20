@@ -174,7 +174,12 @@ $id = $_SESSION['admin_id'];
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Post</button>
+                    <button id="btn-post" type="submit" class="btn btn-primary">
+                        <span id="button-text">Post</span>
+                        <div id="spinner" class="spinner-border spinner-border-sm" role="status" style="display: none;">
+                            <span class="sr-only"></span>
+                        </div>
+                    </button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </form>
