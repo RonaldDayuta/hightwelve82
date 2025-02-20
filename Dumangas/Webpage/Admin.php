@@ -116,14 +116,9 @@ $id = $_SESSION['admin_id'];
                 <div class="cards-events">
                     <h3>Latest Events</h3>
                     <div class="event-information">
-                        <h3>Events title</h3>
-                        <span>Date</span>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos
-                            odio dicta id dignissimos nihil hic ab dolore suscipit illo
-                            optio eveniet qui, repudiandae iusto at harum porro provident
-                            iste delectus.
-                        </p>
+                        <h3 id="event_h3">Loading...</h3>
+                        <span id="event_span">Loading...</span>
+                        <p id="event_p">Loading...</p>
                     </div>
                 </div>
             </div>
@@ -167,22 +162,9 @@ $id = $_SESSION['admin_id'];
                                     aria-label="Search" />
                             </form>
                         </div>
-                        <li>
-                            <img src="../Information/Lodge Logo.png" alt="" />
-                            <span>Username</span>
-                        </li>
-                        <li>
-                            <img src="../Information/Lodge Logo.png" alt="" />
-                            <span>Username</span>
-                        </li>
-                        <li>
-                            <img src="../Information/Lodge Logo.png" alt="" />
-                            <span>Username</span>
-                        </li>
-                        <li>
-                            <img src="../Information/Lodge Logo.png" alt="" />
-                            <span>Username</span>
-                        </li>
+                        <div id="members">
+
+                        </div>
                     </ul>
                 </div>
             </div>
