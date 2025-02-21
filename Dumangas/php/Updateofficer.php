@@ -9,7 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if a new image is uploaded
     if (!empty($_FILES["officerImage"]["name"])) {
-        $fileName = $_FILES['officerImage']['name'];
+        $fileExt = pathinfo($_FILES["officerImage"]["name"], PATHINFO_EXTENSION);
+        $uniqueFileName = uniqid("officer_", true) . "." . $fileExt; // Generate a unique filename
         $fileSize = $_FILES['officerImage']['size'];
         $fileTmpName = $_FILES['officerImage']['tmp_name'];
         $fileType = $_FILES['officerImage']['type']; // Get image size in bytes (B)
@@ -21,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        $uploadPath = "../Officerimage/" . basename($fileName);
+        $uploadPath = "../Officerimage/" . $uniqueFileName;
 
         if (move_uploaded_file($fileTmpName, $uploadPath)) {
             $stmt = $conn->prepare("UPDATE tblofficers SET Name = ?, Position = ?, PosDecs = ?, Image = ? WHERE ID = ?");

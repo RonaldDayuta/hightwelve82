@@ -41,7 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $image_name = basename($_FILES["event-image"]["name"]);
         $image_ext = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
         $image_size = $_FILES["event-image"]["size"];
-        $image_path = $target_dir . $image_name;
+        $unique_name = uniqid("event_", true) . "." . $image_ext;
+        $image_path = $target_dir . $unique_name;
 
         // Allowed file types
         $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];

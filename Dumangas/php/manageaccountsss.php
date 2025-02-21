@@ -13,10 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sssi", $email, $username, $hashedPassword, $id);
     } else if (!empty($_FILES["image"]["name"])) {
-        $fileName = $_FILES['image']['name'];
+        $fileExt = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+        $uniqueFileName = uniqid("profile_", true) . "." . $fileExt; // Generate unique filename
         $fileSize = $_FILES['image']['size'];
         $fileTmpName = $_FILES['image']['tmp_name'];
-        $fileType = $_FILES['image']['type']; // Get image size in bytes (B)
+        $fileType = $_FILES['image']['type'];
         $maxSize = 20 * 1024 * 1024; // 20MB in bytes
 
         if ($fileSize > $maxSize) {
@@ -24,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        $uploadPath = "../ProfileUpload/" . basename($fileName);
+        $uploadPath = "../ProfileUpload/" . $uniqueFileName;
         if (move_uploaded_file($fileTmpName, $uploadPath)) {
             $stmt = $conn->prepare("UPDATE tblaccounts SET Email=?, Username=?, Profile=? WHERE ID=?");
             $stmt->bind_param("sssi", $email, $username, $uploadPath, $id);
@@ -34,10 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else if (!empty($password && $_FILES["image"]["name"])) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $fileName = $_FILES['image']['name'];
+        $fileExt = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+        $uniqueFileName = uniqid("profile_", true) . "." . $fileExt; // Generate unique filename
         $fileSize = $_FILES['image']['size'];
         $fileTmpName = $_FILES['image']['tmp_name'];
-        $fileType = $_FILES['image']['type']; // Get image size in bytes (B)
+        $fileType = $_FILES['image']['type'];
         $maxSize = 20 * 1024 * 1024; // 20MB in bytes
 
         if ($fileSize > $maxSize) {
@@ -45,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        $uploadPath = "../ProfileUpload/" . basename($fileName);
+        $uploadPath = "../ProfileUpload/" . $uniqueFileName;
         if (move_uploaded_file($fileTmpName, $uploadPath)) {
             $stmt = $conn->prepare("UPDATE tblaccounts SET Email=?, Username=?, Password=?, Profile=? WHERE ID=?");
             $stmt->bind_param("ssssi", $email, $username, $hashedPassword, $uploadPath, $id);
