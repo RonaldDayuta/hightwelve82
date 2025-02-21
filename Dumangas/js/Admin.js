@@ -34,6 +34,46 @@ $(document).ready(function () {
     $("#Home").removeClass("active");
   });
 
+  $("#Officers").click(function () {
+    $("#main").load("../Webpage/Adminofficers.php");
+    $("#Officers").addClass("active");
+    $("#Calendar").removeClass("active");
+    $("#Accounts").removeClass("active");
+    $("#Home").removeClass("active");
+  });
+
+  $("#eventdrop").click(function () {
+    $("#eventdrop").addClass("actives");
+    $("#newsdrop").removeClass("actives");
+    $("#meetdrop").removeClass("actives");
+    $("#actdrop").removeClass("actives");
+    $("#eventnav").addClass("active");
+  });
+
+  $("#newsdrop").click(function () {
+    $("#newsdrop").addClass("actives");
+    $("#eventdrop").removeClass("actives");
+    $("#meetdrop").removeClass("actives");
+    $("#actdrop").removeClass("actives");
+    $("#eventnav").addClass("active");
+  });
+
+  $("#meetdrop").click(function () {
+    $("#meetdrop").addClass("actives");
+    $("#newsdrop").removeClass("actives");
+    $("#eventdrop").removeClass("actives");
+    $("#actdrop").removeClass("actives");
+    $("#eventnav").addClass("active");
+  });
+
+  $("#actdrop").click(function () {
+    $("#actdrop").addClass("actives");
+    $("#meetdrop").removeClass("actives");
+    $("#newsdrop").removeClass("actives");
+    $("#eventdrop").removeClass("actives");
+    $("#eventnav").addClass("active");
+  });
+
   $.ajax({
     url: "../php/fetchnewsforadmin.php",
     type: "GET",
@@ -73,7 +113,7 @@ $(document).ready(function () {
           meetingsHTML += `
             <div class="meetingalign">
               <div class="meetinginfo">
-                <img src="${meeting.image}" alt="${meeting.title}" />
+                <img src="${meeting.image}" />
                 <div class="information">
                   <span>${meeting.title}</span>
                   <span>${meeting.event_date}</span>

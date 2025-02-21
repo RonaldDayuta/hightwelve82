@@ -44,7 +44,7 @@
                         <textarea class="form-control" id="positionDescription" name="positionDescription" rows="3" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="officerimage" class="form-label">Officer Profile</label>
+                        <label for="officerimage" class="form-label">Officer Profile (Recomended: No Backgroud IMG)</label>
                         <input
                             type="file"
                             id="officerimage"

@@ -77,10 +77,43 @@ $id = $_SESSION['admin_id'];
                             Acccounts
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><span class="material-icons-outlined"> event </span>
-                            Events
-                        </a>
+                    <li class="nav-item dropdown">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            data-bs-toggle="dropdown"
+                            href="#"
+                            role="button"
+                            aria-expanded="false"
+                            id="eventnav">
+                            <span class="material-icons-outlined">
+                                event
+                            </span>Events</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a id="eventdrop" class="dropdown-item" href="#">
+                                    <span class="material-icons-outlined">
+                                        event
+                                    </span>Events</a>
+                            </li>
+                            <li>
+                                <a id="newsdrop" class="dropdown-item" href="#">
+                                    <span class="material-icons-outlined">
+                                        newspaper
+                                    </span>News-Today</a>
+                            </li>
+                            <li>
+                                <a id="meetdrop" class="dropdown-item" href="#">
+                                    <span class="material-icons-outlined">
+                                        groups
+                                    </span>Meeting</a>
+                            </li>
+                            <li>
+                                <a id="actdrop" class="dropdown-item" href="#">
+                                    <span class="material-icons-outlined">
+                                        local_activity
+                                    </span>Activities</a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a id="Calendar" href="#" class=" nav-link">

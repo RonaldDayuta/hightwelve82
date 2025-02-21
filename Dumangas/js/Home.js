@@ -33,7 +33,7 @@ $(document).ready(function () {
           let postHTML = `
             <div class="viewpostcontainer">
                 <div class="profile-post">
-                    <img src="${post.profile}" alt="Profile Picture"/>
+                    <img src="${post.profile}"/>
                     <div class="name-dateposted">
                         <h3>${post.Username}</h3>
                         <span>${post.date}</span>
