@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($stmt->execute()) {
-        echo json_encode(["success" => true, "message" => "Update Successful"]);
+        echo json_encode(["success" => true, "message" => "Your Account will LOGOUT to see the changes"]);
     } else {
         echo json_encode(["success" => false, "message" => "Error: " . $stmt->error]);
     }

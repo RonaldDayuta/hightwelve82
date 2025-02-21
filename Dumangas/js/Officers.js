@@ -18,18 +18,6 @@ $(document).ready(function () {
   $("#addOfficerForm").submit(function (event) {
     event.preventDefault();
     let formData = new FormData(this);
-    let fileSize = $("#officerimage")[0].files[0].size;
-    let maxSize = 20 * 1024 * 1024; // 20MB in bytes
-
-    if (fileSize > maxSize) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "File size should not exceed 20MB.",
-        confirmButtonText: "OK",
-      });
-      return;
-    }
 
     $("#button-text").text("Adding...");
     $("#spinner").show();
@@ -120,22 +108,6 @@ $(document).ready(function () {
   $("#editOfficerForm").submit(function (event) {
     event.preventDefault();
     let formData = new FormData(this);
-    let fileInput = $("#officerimage")[0];
-
-    if (fileInput.files.length > 0) {
-      let fileSize = fileInput.files[0].size;
-      let maxSize = 20 * 1024 * 1024; // 20MB in bytes
-
-      if (fileSize > maxSize) {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "File size should not exceed 20MB.",
-          confirmButtonText: "OK",
-        });
-        return;
-      }
-    }
 
     $("#edit-button-text").text("Updating...");
     $("#edit-spinner").show();

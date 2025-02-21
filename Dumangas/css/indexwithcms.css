@@ -164,8 +164,9 @@ nav h2 {
 }
 
 .row .colleft-side .profile img {
-  max-width: 2.8rem;
-  max-height: 2.8rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  object-fit: cover;
   border-radius: 50%;
 }
 
@@ -282,8 +283,9 @@ nav h2 {
 }
 
 .row .colright-side .tablesmembers ul li img {
-  max-width: 2.8rem;
-  max-height: 2.8rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  object-fit: cover;
   border-radius: 50%;
 }
 
@@ -340,8 +342,9 @@ nav h2 {
 }
 
 .row .col-main .post-container img {
-  max-width: 2.8rem;
-  max-height: 2.8rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  object-fit: cover;
   border-radius: 50%;
 }
 
@@ -368,8 +371,9 @@ nav h2 {
 }
 
 .row .col-main .profile-post img {
-  max-width: 2.8rem;
-  max-height: 2.8rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  object-fit: cover;
   border-radius: 50%;
 }
 

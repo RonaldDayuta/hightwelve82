@@ -95,7 +95,7 @@ $id = $_SESSION['admin_id'];
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a id="ManageAccount" href="#" class=" nav-link">
+                        <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#manageaccoutmodal">
                             <span class="material-icons-outlined">
                                 manage_accounts
                             </span>
@@ -180,6 +180,50 @@ $id = $_SESSION['admin_id'];
 
                         </div>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="manageaccoutmodal" tabindex="-1" aria-labelledby="manageaccoutmodalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="manageaccoutmodalLabel">Manage Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img style="display: block;
+            margin: 0 auto 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;" src="<?php echo $profile ?>" alt="Profile Image" class="profile-img">
+                    <form id="updateAccountForm">
+                        <input type="text" name="id" value="<?php echo $id ?>" hidden>
+                        <div class="mb-3">
+                            <label class="form-label">Profile Image (Leave if you don't want to change)</label>
+                            <input type="file" class="form-control" name="image">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input type="text" class="form-control" name="username" value="<?php echo $username ?>" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" value="<?php echo $email ?>" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password (Leave emty if don't want to change password)</label>
+                            <input type="password" class="form-control" name="password" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">
+                                <span id="edit-button-text">Update Account</span>
+                                <div id="edit-spinner" class="spinner-border spinner-border-sm" role="status" style="display: none;"></div>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -121,4 +121,61 @@ $(document).ready(function () {
       console.log("Server Response:", xhr.responseText);
     },
   });
+
+  $("#updateAccountForm").submit(function (e) {
+    e.preventDefault();
+
+    let formData = new FormData(this);
+    let buttonText = $("#edit-button-text");
+    let spinner = $("#edit-spinner");
+    let submitButton = $("#updateAccountForm button[type='submit']");
+
+    // Disable button & show loading spinner
+    submitButton.prop("disabled", true);
+    buttonText.hide();
+    spinner.show();
+
+    $.ajax({
+      url: "../php/manageaccount.php",
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      dataType: "json",
+      success: function (data) {
+        if (data.success) {
+          Swal.fire({
+            title: "Update Successful!",
+            text: data.message,
+            icon: "info",
+            confirmButtonText: "OK",
+            allowOutsideClick: false,
+          }).then(() => {
+            window.location.href = "../php/logout.php"; // Redirect to logout to refresh session
+          });
+        } else {
+          Swal.fire({
+            title: "Update Failed",
+            text: data.message,
+            icon: "error",
+            confirmButtonText: "Try Again",
+          });
+        }
+      },
+      error: function () {
+        Swal.fire({
+          title: "Error",
+          text: "Something went wrong. Please try again later.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      },
+      complete: function () {
+        // Re-enable button & hide spinner
+        submitButton.prop("disabled", false);
+        buttonText.show();
+        spinner.hide();
+      },
+    });
+  });
 });
