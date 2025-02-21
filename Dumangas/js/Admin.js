@@ -8,6 +8,11 @@ $(document).ready(function () {
     $("#Accounts").removeClass("active");
     $("#Calendar").removeClass("active");
     $("#Officers").removeClass("active");
+    $("#eventnav").removeClass("active");
+    $("#eventdrop").removeClass("actives");
+    $("#newsdrop").removeClass("actives");
+    $("#meetdrop").removeClass("actives");
+    $("#actdrop").removeClass("actives");
   });
 
   $("#Accounts").click(function () {
@@ -16,6 +21,11 @@ $(document).ready(function () {
     $("#Home").removeClass("active");
     $("#Calendar").removeClass("active");
     $("#Officers").removeClass("active");
+    $("#eventnav").removeClass("active");
+    $("#eventdrop").removeClass("actives");
+    $("#newsdrop").removeClass("actives");
+    $("#meetdrop").removeClass("actives");
+    $("#actdrop").removeClass("actives");
   });
 
   $("#Calendar").click(function () {
@@ -24,6 +34,11 @@ $(document).ready(function () {
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
     $("#Officers").removeClass("active");
+    $("#eventnav").removeClass("active");
+    $("#eventdrop").removeClass("actives");
+    $("#newsdrop").removeClass("actives");
+    $("#meetdrop").removeClass("actives");
+    $("#actdrop").removeClass("actives");
   });
 
   $("#Officers").click(function () {
@@ -32,38 +47,50 @@ $(document).ready(function () {
     $("#Calendar").removeClass("active");
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
-  });
-
-  $("#Officers").click(function () {
-    $("#main").load("../Webpage/Adminofficers.php");
-    $("#Officers").addClass("active");
-    $("#Calendar").removeClass("active");
-    $("#Accounts").removeClass("active");
-    $("#Home").removeClass("active");
+    $("#eventnav").removeClass("active");
+    $("#eventdrop").removeClass("actives");
+    $("#newsdrop").removeClass("actives");
+    $("#meetdrop").removeClass("actives");
+    $("#actdrop").removeClass("actives");
   });
 
   $("#eventdrop").click(function () {
+    $("#main").load("../Webpage/AdminEvent.php");
     $("#eventdrop").addClass("actives");
     $("#newsdrop").removeClass("actives");
     $("#meetdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
     $("#eventnav").addClass("active");
+    $("#Officers").removeClass("active");
+    $("#Calendar").removeClass("active");
+    $("#Accounts").removeClass("active");
+    $("#Home").removeClass("active");
   });
 
   $("#newsdrop").click(function () {
+    $("#main").load("../Webpage/AdminNews.php");
     $("#newsdrop").addClass("actives");
     $("#eventdrop").removeClass("actives");
     $("#meetdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
     $("#eventnav").addClass("active");
+    $("#Officers").removeClass("active");
+    $("#Calendar").removeClass("active");
+    $("#Accounts").removeClass("active");
+    $("#Home").removeClass("active");
   });
 
   $("#meetdrop").click(function () {
+    $("#main").load("../Webpage/AdminMeeting.php");
     $("#meetdrop").addClass("actives");
     $("#newsdrop").removeClass("actives");
     $("#eventdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
     $("#eventnav").addClass("active");
+    $("#Officers").removeClass("active");
+    $("#Calendar").removeClass("active");
+    $("#Accounts").removeClass("active");
+    $("#Home").removeClass("active");
   });
 
   $("#actdrop").click(function () {
@@ -72,6 +99,10 @@ $(document).ready(function () {
     $("#newsdrop").removeClass("actives");
     $("#eventdrop").removeClass("actives");
     $("#eventnav").addClass("active");
+    $("#Officers").removeClass("active");
+    $("#Calendar").removeClass("active");
+    $("#Accounts").removeClass("active");
+    $("#Home").removeClass("active");
   });
 
   $.ajax({

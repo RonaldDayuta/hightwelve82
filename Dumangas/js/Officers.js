@@ -86,7 +86,6 @@ $(document).ready(function () {
               $("#editOfficerName").val(response.data.Name);
               $("#editOfficerPosition").val(response.data.Position);
               $("#editPositionDescription").val(response.data.PosDecs);
-              $("#currentOfficerImage").attr("src", response.data.Image);
               $("#editOfficerModal").modal("show");
             } else {
               Swal.fire("Error", "Failed to fetch officer details.", "error");

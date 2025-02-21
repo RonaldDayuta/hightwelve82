@@ -2,7 +2,8 @@
 include('../dbconnect/conn.php'); // Include database connection
 
 if (isset($_FILES['officerimage'])) {
-    $fileName = $_FILES['officerimage']['name'];
+    $fileExt = pathinfo($_FILES['officerimage']['name'], PATHINFO_EXTENSION);
+    $uniqueFileName = uniqid("officer_", true) . "." . $fileExt; // Generate unique filename
     $fileSize = $_FILES['officerimage']['size'];
     $fileTmpName = $_FILES['officerimage']['tmp_name'];
     $fileType = $_FILES['officerimage']['type'];
@@ -13,7 +14,7 @@ if (isset($_FILES['officerimage'])) {
         exit;
     }
 
-    $uploadPath = "../Officerimage/" . basename($fileName);
+    $uploadPath = "../Officerimage/" . $uniqueFileName;
 
     if (move_uploaded_file($fileTmpName, $uploadPath)) {
         $officerName = $_POST['officerName'];

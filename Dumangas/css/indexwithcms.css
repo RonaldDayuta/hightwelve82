@@ -123,7 +123,6 @@ nav h2 {
 
 .actives {
   color: var(--color-primary) !important;
-  border-bottom: 5px solid var(--color-primary);
 }
 
 .navbar-nav .nav-link:hover {
@@ -506,6 +505,50 @@ nav h2 {
   color: var(--color-white);
   font-weight: 600;
   font-size: 0.9rem;
+}
+
+.row .col-main .events {
+  padding-right: 5rem;
+  padding-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 52.9rem;
+  overflow: auto;
+  margin-top: 1rem;
+}
+
+.row .col-main .events #view-all-events {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.row .col-main .events #view-all-news {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.row .col-main .events #view-all-meet {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.row .col-main .events .events-view-cards {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-darknav);
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.row .col-main .events .events-view-cards img {
+  width: 100%;
+  max-height: 50rem;
+  object-fit: cover;
 }
 
 @media screen and (max-width: 1200px) {
