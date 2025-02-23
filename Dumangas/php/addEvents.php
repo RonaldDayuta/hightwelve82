@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             // Send success response
-            echo json_encode(["status" => "success", "message" => "Event added successfully. Emails sent."]);
+            echo json_encode(["status" => "success", "message" => "Event added successfully. Email sent."]);
         } catch (Exception $e) {
             echo json_encode(["status" => "error", "message" => "Error sending email: {$mail->ErrorInfo}"]);
         }

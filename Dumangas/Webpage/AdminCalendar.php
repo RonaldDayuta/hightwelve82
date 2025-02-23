@@ -180,7 +180,6 @@
                                 <option value="external">External</option>
                                 <option value="both">Both</option>
                             </select>
-
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Upload Image (Optional)</label>
