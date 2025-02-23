@@ -150,7 +150,7 @@
                                 name="event-title"
                                 class="form-control"
                                 placeholder="Enter event title"
-                                required/>
+                                required />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Event Description</label>
@@ -164,7 +164,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Event Category</label>
-                            <select id="event-category" name="event-category" class="form-control required">
+                            <select id="event-category" name="event-category" class="form-control" required>
                                 <option value="" disabled selected>Select Category</option>
                                 <option value="news-today">News Today</option>
                                 <option value="events">Events</option>
@@ -193,7 +193,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button id="add-events-btn" type="button" class="btn btn-success">
+                        <button id="add-events-btn" type="submit" class="btn btn-success">
                             <span id="button-text">Save Event</span>
                             <div id="spinner" class="spinner-border spinner-border-sm" role="status" style="display: none;">
                                 <span class="sr-only"></span>
