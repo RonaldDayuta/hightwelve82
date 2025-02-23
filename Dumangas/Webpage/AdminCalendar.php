@@ -149,7 +149,8 @@
                                 id="event-title"
                                 name="event-title"
                                 class="form-control"
-                                placeholder="Enter event title" />
+                                placeholder="Enter event title"
+                                required/>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Event Description</label>
@@ -158,20 +159,28 @@
                                 name="event-description"
                                 class="form-control"
                                 rows="3"
-                                placeholder="Enter event description"></textarea>
+                                placeholder="Enter event description"
+                                required></textarea>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Event Category</label>
-                            <select
-                                id="event-category"
-                                name="event-category"
-                                class="form-control">
-                                <option value="" selected>Select Category</option>
+                            <select id="event-category" name="event-category" class="form-control required">
+                                <option value="" disabled selected>Select Category</option>
                                 <option value="news-today">News Today</option>
                                 <option value="events">Events</option>
                                 <option value="meeting">Meeting</option>
                                 <option value="activities">Activities</option>
                             </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Post Category</label>
+                            <select id="post-category" name="post-category" class="form-control" required>
+                                <option value="" disabled selected>Select Category</option>
+                                <option value="internal">Internal</option>
+                                <option value="external">External</option>
+                                <option value="both">Both</option>
+                            </select>
+
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Upload Image (Optional)</label>
