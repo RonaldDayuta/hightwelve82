@@ -103,7 +103,8 @@ $(document).ready(function () {
   // Initial calendar generation
   generateCalendar(currentMonth, currentYear);
 
-  $(document).on("click", "#add-events-btn", function () {
+  $("#event-form").submit(function (event) {
+    event.preventDefault();
     // Disable the button and show the spinner
     let addButton = $("#add-events-btn");
     let spinner = $("#spinner");
@@ -114,7 +115,7 @@ $(document).ready(function () {
     buttonText.text("Adding..."); // Change text to "Adding..."
     addButton.prop("disabled", true); // Disable the button
 
-    let formData = new FormData(document.getElementById("event-form"));
+    let formData = new FormData(this);
 
     console.log("Form Data before submission:", Object.fromEntries(formData));
 
@@ -137,7 +138,7 @@ $(document).ready(function () {
             confirmButtonText: "OK",
           }).then(() => {
             // Clear the form inputs after successful submission
-            document.getElementById("event-form").reset();
+            $("#event-form")[0].reset();
 
             // Hide the modal after successful submission
             $("#addEventModal").modal("hide");
