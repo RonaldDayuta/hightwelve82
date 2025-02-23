@@ -21,11 +21,16 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
 ?>
-        <div class="events-view-cards">
-            <span><?php echo htmlspecialchars($row['title']); ?></span>
-            <span><?php echo htmlspecialchars($row['event_date']); ?></span>
-            <p><?php echo htmlspecialchars($row['description']); ?></p>
-            <img src="<?php echo htmlspecialchars($row['image']); ?>">
+
+        <div class="events-card">
+            <img src="<?php echo htmlspecialchars($row['image']); ?>" alt="" />
+            <div class="description">
+                <h3><?php echo htmlspecialchars($row['title']); ?></h3>
+                <span><?php echo htmlspecialchars($row['event_date']); ?></span>
+                <p>
+                    <?php echo htmlspecialchars($row['description']); ?>
+                </p>
+            </div>
         </div>
 <?php
     }
