@@ -42,8 +42,8 @@ $(document).ready(function () {
                 <p>${post.description}</p>
                 <div class="post-images">${imagesHTML}</div>
                 <div class="buttons-post">
-                  <button id="update_post" data-id="${post.ID}"><span class="material-icons-outlined">edit</span></button>
-                  <button id="delete_post" data-id="${post.ID}"><span class="material-icons-outlined">delete</span></button>
+                  <button data-bs-toggle="modal" data-bs-target="#editpost" id="update_post" data-id="${post.ID}" data-des="${post.description}"><span class="material-icons-outlined">edit</span></button>
+                  <button id="delete_post" data-images="${post.post_image}" data-id="${post.ID}"><span class="material-icons-outlined">delete</span></button>
                 </div>
             </div>
     
@@ -76,7 +76,119 @@ $(document).ready(function () {
 
     $(document).on("click", "#update_post", function () {
       let id = $(this).data("id");
-      console.log(id);
+      let des = $(this).data("des");
+
+      $("#edit_description").val(des);
+      $("#post_id").val(id);
+    });
+
+    $("#editPostForm").submit(function (e) {
+      e.preventDefault();
+
+      let formData = new FormData(this);
+
+      Swal.fire({
+        title: "Are you sure?",
+        text: "Do you want to update this post?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, update it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $("#button-text").text("Updating...");
+          $("#spinner").show();
+
+          $.ajax({
+            url: "../php/update_post.php",
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            dataType: "json",
+            success: function (response) {
+              if (response.success) {
+                Swal.fire("Updated!", response.message, "success");
+                $("#editpost").modal("hide");
+                $("#editPostForm")[0].reset();
+                loadcms();
+              } else {
+                Swal.fire("Error!", response.message, "error");
+              }
+            },
+            error: function () {
+              Swal.fire("Error!", "Something went wrong!", "error");
+            },
+            complete: function () {
+              $("#button-text").text("Update");
+              $("#spinner").hide();
+            },
+          });
+        }
+      });
+    });
+
+    $(document).on("click", "#delete_post", function () {
+      let postId = $(this).data("id");
+      let imagePaths = $(this).data("images");
+
+      Swal.fire({
+        title: "Are you sure?",
+        text: "This action cannot be undone!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Yes, delete it!",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showLoaderOnConfirm: true,
+        preConfirm: () => {
+          // Show loading state
+          Swal.fire({
+            title: "Deleting...",
+            text: "Please wait while we process your request.",
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            didOpen: () => {
+              Swal.showLoading();
+            },
+          });
+
+          return $.ajax({
+            url: "../php/delete_post.php",
+            type: "POST",
+            data: { post_id: postId, images: imagePaths },
+            dataType: "json",
+          })
+            .then((response) => {
+              if (!response.success) {
+                throw new Error(response.message);
+              }
+              return response;
+            })
+            .catch((error) => {
+              Swal.fire({
+                title: "Error!",
+                text: `Request failed: ${error}`,
+                icon: "error",
+              });
+            });
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Deleted!",
+            text: result.value.message,
+            icon: "success",
+            timer: 2000,
+            showConfirmButton: false,
+          }).then(() => {
+            location.reload();
+          });
+        }
+      });
     });
   }
 
