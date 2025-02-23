@@ -136,7 +136,7 @@ $id = $_SESSION['admin_id'];
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../php/logout.php">
+                        <a class="nav-link" href="../php/adminlogout.php">
                             <button>LogOut</button>
                         </a>
                     </li>

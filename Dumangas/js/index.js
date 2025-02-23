@@ -74,13 +74,16 @@ $(document).ready(function () {
           }).then(() => {
             if (response.position === "Admin") {
               window.location.href = "../Webpage/Admin.php";
+            } else if (response.position === "User") {
+              window.location.href = "../Webpage/User.php";
             }
           });
         } else {
           let errorMessage = response.message;
 
           if (errorMessage.includes("Invalid Password")) {
-            errorMessage = "Incorrect Email or Username or Password. Please try again.";
+            errorMessage =
+              "Incorrect Email or Username or Password. Please try again.";
           } else if (
             errorMessage.includes("Invalid Email") ||
             errorMessage.includes("Invalid Email or Username")
