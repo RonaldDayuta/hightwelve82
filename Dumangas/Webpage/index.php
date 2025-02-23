@@ -56,7 +56,7 @@
                         <a class="nav-link" id="OfficersNav" href="#Officers">Officers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="btn-login" href="#"><button>LogIn</button></a>
+                        <a class="nav-link" id="btn-login" href="#"><button>Login</button></a>
                     </li>
                 </ul>
             </div>

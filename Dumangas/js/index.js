@@ -80,7 +80,7 @@ $(document).ready(function () {
           let errorMessage = response.message;
 
           if (errorMessage.includes("Invalid Password")) {
-            errorMessage = "Incorrect password. Please try again.";
+            errorMessage = "Incorrect Email or Username or Password. Please try again.";
           } else if (
             errorMessage.includes("Invalid Email") ||
             errorMessage.includes("Invalid Email or Username")
