@@ -2,7 +2,6 @@
     <div class="event-view">
         <h3>Events Contents</h3>
         <div id="view-all-events">
-
         </div>
     </div>
 </div>
