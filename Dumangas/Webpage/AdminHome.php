@@ -187,6 +187,42 @@ $id = $_SESSION['admin_id'];
     </div>
 </div>
 
+<div class="modal fade" id="editpost" tabindex="-1" aria-labelledby="editpostLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="editpostLabel">Edit Post</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="editPostForm" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <input type="hidden" name="post_id" id="post_id">
+                    <div class="mb-3">
+                        <label class="form-label">Post Description</label>
+                        <textarea class="form-control" name="description" id="edit_description" rows="3" placeholder="Edit your post description" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Upload New Images (Optional)</label>
+                        <input type="file" class="form-control" name="images[]" multiple accept="image/*">
+                        <small class="text-muted">Leave empty if you don't want to change the image.</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-update" type="submit" class="btn btn-primary">
+                        <span id="button-text">Update</span>
+                        <div id="spinner" class="spinner-border spinner-border-sm" role="status" style="display: none;">
+                            <span class="sr-only"></span>
+                        </div>
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 <script src="../js/Home.js"></script>
