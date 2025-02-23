@@ -469,7 +469,7 @@ p {
 }
 
 .login .container .rowlogin .container-logo-name .logo img {
-  max-width: 20rem;
+  max-width: 100%;
   max-height: 20rem;
 }
 
