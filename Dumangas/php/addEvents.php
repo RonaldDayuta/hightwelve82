@@ -9,10 +9,11 @@ header('Content-Type: application/json'); // Ensure JSON response
 ob_start(); // Start output buffering
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $event_date  = isset($_POST['event-date']) ? trim($_POST['event-date']) : '';
-    $title       = isset($_POST['event-title']) ? trim($_POST['event-title']) : '';
+    $event_date = isset($_POST['event-date']) ? trim($_POST['event-date']) : '';
+    $title = isset($_POST['event-title']) ? trim($_POST['event-title']) : '';
     $description = isset($_POST['event-description']) ? trim($_POST['event-description']) : '';
-    $category    = isset($_POST['event-category']) ? trim($_POST['event-category']) : '';
+    $category = isset($_POST['event-category']) ? trim($_POST['event-category']) : '';
+    $post_category = isset($_POST['post-category']) ? trim($_POST['post-category']) : '';
     $image_path  = ''; // Default value
 
     $errors = [];
@@ -28,6 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     if (empty($category)) {
         $errors[] = "Event category is required.";
+    }
+    if (empty($post_category)) {
+        $errors[] = "Event post category is required.";
     }
 
     if (!empty($errors)) {
@@ -68,8 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Prepare and execute query for inserting event
-    $stmt = $conn->prepare("INSERT INTO tblevents (event_date, title, description, category, image) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $event_date, $title, $description, $category, $image_path);
+    $stmt = $conn->prepare("INSERT INTO tblevents (event_date, title, description, category, post_category, image) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $event_date, $title, $description, $category, $post_category, $image_path);
 
     if ($stmt->execute()) {
         // Fetch all email addresses from tblaccounts
