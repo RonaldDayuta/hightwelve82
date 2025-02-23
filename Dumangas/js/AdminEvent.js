@@ -1,7 +1,7 @@
 $(document).ready(function () {
   function loadEvents() {
     $.ajax({
-      url: "../php/fetcheventsformainpage.php", // PHP script to fetch events
+      url: "../php/fetchteventforadmincontent.php", // PHP script to fetch events
       type: "GET",
       success: function (response) {
         $("#view-all-events").html(response);
@@ -14,7 +14,7 @@ $(document).ready(function () {
   loadEvents();
   function loadNews() {
     $.ajax({
-      url: "../php/fetchnewsformainpage.php", // PHP script to fetch events
+      url: "../php/fetchnewsforadmincontent.php", // PHP script to fetch events
       type: "GET",
       success: function (response) {
         $("#view-all-news").html(response);
@@ -27,7 +27,7 @@ $(document).ready(function () {
   loadNews();
   function loadMeet() {
     $.ajax({
-      url: "../php/fetchmeetformainpage.php", // PHP script to fetch events
+      url: "../php/fetchmeetforadmincontent.php", // PHP script to fetch events
       type: "GET",
       success: function (response) {
         $("#view-all-meet").html(response);
@@ -38,4 +38,17 @@ $(document).ready(function () {
     });
   }
   loadMeet();
+  function loadAct() {
+    $.ajax({
+      url: "../php/fetchactforadmincontent.php", // PHP script to fetch events
+      type: "GET",
+      success: function (response) {
+        $("#view-all-act").html(response);
+      },
+      error: function () {
+        $("#view-all-act").html("<p>Error loading events.</p>");
+      },
+    });
+  }
+  loadAct();
 });
