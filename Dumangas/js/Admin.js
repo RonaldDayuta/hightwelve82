@@ -94,6 +94,7 @@ $(document).ready(function () {
   });
 
   $("#actdrop").click(function () {
+    $("#main").load("../Webpage/AdminActivities.php");
     $("#actdrop").addClass("actives");
     $("#meetdrop").removeClass("actives");
     $("#newsdrop").removeClass("actives");

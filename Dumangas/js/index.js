@@ -1,19 +1,55 @@
 $(document).ready(function () {
-  $("#main").load("../Webpage/IndexHome.php");
+  $("#officers").removeClass("active").addClass("inactive");
+  $("#Events").removeClass("active").addClass("inactive");
+  $("#News").removeClass("active").addClass("inactive");
+  $("#Activities").removeClass("active").addClass("inactive");
 
-  $("#Home").on("click", function () {
-    $("#main").load("../Webpage/IndexHome.php");
+  $("#HomeNav, #AboutNav, #HistoryNav").click(function () {
+    $("#main").removeClass("inactive").addClass("active");
+    $("#officers").removeClass("active").addClass("inactive");
+    $("#Events").removeClass("active").addClass("inactive");
+    $("#News").removeClass("active").addClass("inactive");
+    $("#Activities").removeClass("active").addClass("inactive");
   });
-  $("#Officers").on("click", function () {
-    $("#main").load("../Webpage/IndexOfficer.php");
+
+  $("#EventsNav").click(function () {
+    $("#main").removeClass("active").addClass("inactive");
+    $("#officers").removeClass("active").addClass("inactive");
+    $("#Events").removeClass("inactive").addClass("active");
+    $("#News").removeClass("active").addClass("inactive");
+    $("#Activities").removeClass("active").addClass("inactive");
+  });
+
+  $("#NewsNav").click(function () {
+    $("#main").removeClass("active").addClass("inactive");
+    $("#officers").removeClass("active").addClass("inactive");
+    $("#Events").removeClass("active").addClass("inactive");
+    $("#News").removeClass("inactive").addClass("active");
+    $("#Activities").removeClass("active").addClass("inactive");
+  });
+
+  $("#ActivitiesNav").click(function () {
+    $("#main").removeClass("active").addClass("inactive");
+    $("#officers").removeClass("active").addClass("inactive");
+    $("#Events").removeClass("active").addClass("inactive");
+    $("#News").removeClass("active").addClass("inactive");
+    $("#Activities").removeClass("inactive").addClass("active");
+  });
+
+  $("#OfficersNav").click(function () {
+    $("#main").removeClass("active").addClass("inactive");
+    $("#officers").removeClass("inactive").addClass("active");
+    $("#Events").removeClass("active").addClass("inactive");
+    $("#News").removeClass("active").addClass("inactive");
+    $("#Activities").removeClass("active").addClass("inactive");
   });
 
   $("#btn-login").on("click", function () {
-    $(".login").addClass("actives");
+    $(".login").addClass("loginactive");
     $("body").css("overflow", "hidden");
   });
   $("#to-content").on("click", function () {
-    $(".login").removeClass("actives");
+    $(".login").removeClass("loginactive");
     $("body").css("overflow", "");
   });
 
@@ -67,5 +103,71 @@ $(document).ready(function () {
         });
       },
     });
+  });
+
+  $.ajax({
+    url: "../php/fetchofficerinfoforindex.php",
+    type: "GET",
+    dataType: "json",
+    success: function (response) {
+      let officersHtml = "";
+
+      $.each(response, function (index, officer) {
+        officersHtml += `
+                    <div class="officer-container">
+                      <div class="officer-card">
+                        <div class="officer-bg"
+                          style="background-image: linear-gradient(
+                            to top,
+                            rgba(0, 0, 0, 1) 10%,
+                            rgba(0, 0, 0, 0.5) 20%,
+                            rgba(0, 0, 0, 0) 90%
+                          ), url('${officer.image}');">
+                        </div>
+                        <h3>${officer.name}</h3>
+                        <span>${officer.position}</span>
+                      </div>
+                    </div>
+                `;
+      });
+
+      $("#officer-list").html(officersHtml);
+    },
+    error: function (xhr, status, error) {
+      console.error("Error fetching officers:", error);
+    },
+  });
+
+  $.ajax({
+    url: "../php/fetcheventsformainpage.php", // PHP script to fetch events
+    type: "GET",
+    success: function (response) {
+      $("#events-list").html(response);
+    },
+    error: function () {
+      $("#events-list").html("<p>Error loading events.</p>");
+    },
+  });
+
+  $.ajax({
+    url: "../php/fetchnewsformainpage.php", // PHP script to fetch events
+    type: "GET",
+    success: function (response) {
+      $("#news-list").html(response);
+    },
+    error: function () {
+      $("#news-list").html("<p>Error loading events.</p>");
+    },
+  });
+
+  $.ajax({
+    url: "../php/fetchactformainpage.php", // PHP script to fetch events
+    type: "GET",
+    success: function (response) {
+      $("#activies-list").html(response);
+    },
+    error: function () {
+      $("#activies-list").html("<p>Error loading events.</p>");
+    },
   });
 });
