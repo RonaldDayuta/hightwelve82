@@ -18,27 +18,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($row) {
         $stored_password = $row['Password']; // Database password
-        $position = $row['WebPosition'];
-        $profile = $row['Profile'];
-        $username = $row['Username'];
-        $email = $row['Email'];
-        $id = $row['ID'];
-
-        $_SESSION['admin_username'] = $username;
-        $_SESSION['admin_image'] = $profile;
-        $_SESSION['admin_email'] = $email;
-        $_SESSION['admin_id'] = $id;
 
         // DEBUG: I-print ang password values
         error_log("Entered Password: " . $password);
         error_log("Stored Password (Hashed): " . $stored_password);
 
         if (password_verify($password, $stored_password)) {
-            echo json_encode(['success' => true, 'message' => 'Login successful', 'position' => $position]);
+            $_SESSION['admin_username'] = $row['Username'];
+            $_SESSION['admin_image'] = $row['Profile'];
+            $_SESSION['admin_email'] = $row['Email'];
+            $_SESSION['admin_id'] = $row['ID'];
+
+            echo json_encode(['success' => true, 'message' => 'Login successful', 'position' => $row['WebPosition']]);
         } else {
-            echo json_encode(['success' => false, 'message' => 'Invalid Password']);
+            echo json_encode(['success' => false, 'message' => 'Invalid Password or Username']);
         }
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Invalid Email or Username']);
     }
+
     $conn->close();
 } else {
     echo json_encode(['success' => false, 'message' => 'Invalid request method.']);
