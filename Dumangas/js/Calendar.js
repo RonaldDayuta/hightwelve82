@@ -18,15 +18,16 @@ $(document).ready(function () {
       })
     );
 
-    // Get the first day and the number of days in the month
+    // Get first day and number of days in the month
     let firstDay = new Date(year, month, 1).getDay();
     let daysInMonth = new Date(year, month + 1, 0).getDate();
 
+    // Create empty spaces for alignment
     for (let i = 0; i < firstDay; i++) {
       calendarBody.append('<div class="empty"></div>');
     }
 
-    // Generate the calendar days
+    // Generate calendar days
     for (let day = 1; day <= daysInMonth; day++) {
       let isToday =
         day === today.getDate() &&
@@ -36,14 +37,38 @@ $(document).ready(function () {
           : "";
 
       calendarBody.append(
-        `<div class="day ${isToday}" data-date="${year}-${
-          month + 1
-        }-${day}">${day}</div>`
+        `<div class="day ${isToday}" data-date="${year}-${(month + 1)
+          .toString()
+          .padStart(2, "0")}-${day.toString().padStart(2, "0")}">${day}</div>`
       );
     }
+
+    // Fetch event dates and highlight them
+    fetchEventDates(month, year);
   }
 
-  // Fetch events (for refreshing after adding or changing months)
+  // Function to fetch event dates and highlight them
+  function fetchEventDates(month, year) {
+    $.ajax({
+      url: "../php/fetchEventDates.php",
+      type: "POST",
+      data: { month: month + 1, year: year }, // PHP expects 1-based month index
+      dataType: "json",
+      success: function (eventDates) {
+        $(".day").each(function () {
+          let date = $(this).data("date");
+          if (eventDates.includes(date)) {
+            $(this).addClass("event-day"); // Apply yellow background
+          }
+        });
+      },
+      error: function (xhr, status, error) {
+        console.error("Error fetching event dates:", error);
+      },
+    });
+  }
+
+  // Fetch events (for displaying events when a date is clicked)
   function fetchEvents() {
     $.ajax({
       url: "../php/fetchevents.php",
@@ -60,24 +85,11 @@ $(document).ready(function () {
     });
   }
 
-  // Open Add Event Modal
-  function openAddEventModal() {
-    document.getElementById("add-event-date").innerText = selectedDate;
-    document.getElementById("event-date").value = selectedDate;
-    new bootstrap.Modal(document.getElementById("addEventModal")).show();
-  }
-
   // Event handler when a day is clicked
   $(document).on("click", ".day", function () {
     selectedDate = $(this).data("date");
     $("#selected-date").text(selectedDate);
     fetchEvents();
-  });
-
-  // Open Add Event Modal on button click
-  $("#add-event-btn").click(function () {
-    openAddEventModal();
-    $("#eventModal").modal("hide");
   });
 
   // Navigate to previous month
@@ -103,6 +115,17 @@ $(document).ready(function () {
   // Initial calendar generation
   generateCalendar(currentMonth, currentYear);
 
+  function openAddEventModal() {
+    document.getElementById("add-event-date").innerText = selectedDate;
+    document.getElementById("event-date").value = selectedDate;
+    new bootstrap.Modal(document.getElementById("addEventModal")).show();
+  }
+
+  $("#add-event-btn").click(function () {
+    openAddEventModal();
+    $("#eventModal").modal("hide");
+  });
+
   $("#event-form").submit(function (event) {
     event.preventDefault();
     // Disable the button and show the spinner
@@ -120,7 +143,7 @@ $(document).ready(function () {
     console.log("Form Data before submission:", Object.fromEntries(formData));
 
     $.ajax({
-      url: "../php/addEvents.php", // Correct URL to your add event PHP script
+      url: "../php/AddEvents.php", // Correct URL to your add event PHP script
       type: "POST",
       data: formData,
       processData: false,
@@ -211,6 +234,90 @@ $(document).ready(function () {
           },
         });
       }
+    });
+  });
+
+  $(document).on("click", "#edit-event-btn", function () {
+    let eventId = $(this).data("id");
+
+    $.ajax({
+      url: "../php/GetEventDetails.php", // PHP script to fetch event details
+      type: "POST",
+      data: { event_id: eventId },
+      dataType: "json",
+      success: function (response) {
+        if (response.status === "success") {
+          $("#update-event-id").val(response.data.id);
+          $("#update-event-date").val(response.data.event_date);
+          $("#update-event-title").val(response.data.title);
+          $("#update-event-description").val(response.data.description);
+          $("#update-event-category").val(response.data.category);
+          $("#update-post-category").val(response.data.post_category);
+
+          // Clear file input (User can upload a new image)
+          $("#update-event-image").val("");
+
+          // Show the modal
+          $("#updateEventModal").modal("show");
+        } else {
+          Swal.fire("Error", response.message, "error");
+        }
+      },
+      error: function () {
+        Swal.fire("Error", "Failed to fetch event details", "error");
+      },
+    });
+  });
+
+  $("#update-event-form").submit(function (event) {
+    event.preventDefault();
+
+    let updateButton = $("#update-event-btn");
+    let spinner = $("#update-spinner");
+    let buttonText = $("#update-button-text");
+
+    // Show the spinner and disable the button
+    spinner.show();
+    buttonText.text("Updating...");
+    updateButton.prop("disabled", true);
+
+    let formData = new FormData(this);
+
+    $.ajax({
+      url: "../php/UpdateEvent.php", // Your PHP update script
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        if (response.status === "success") {
+          Swal.fire({
+            title: "Success!",
+            text: response.message,
+            icon: "success",
+            confirmButtonText: "OK",
+          }).then(() => {
+            $("#updateEventModal").modal("hide");
+            fetchEvents(); // Refresh the event list
+
+            // Reset button state
+            spinner.hide();
+            buttonText.text("Update Event");
+            updateButton.prop("disabled", false);
+          });
+        } else {
+          Swal.fire("Error", response.message, "error");
+          spinner.hide();
+          buttonText.text("Update Event");
+          updateButton.prop("disabled", false);
+        }
+      },
+      error: function () {
+        Swal.fire("Error", "Failed to update event", "error");
+        spinner.hide();
+        buttonText.text("Update Event");
+        updateButton.prop("disabled", false);
+      },
     });
   });
 });

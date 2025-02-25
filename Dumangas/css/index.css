@@ -551,6 +551,152 @@ span {
   -webkit-text-fill-color: transparent;
 }
 
+.post-images {
+  position: relative;
+  max-width: 100%;
+}
+
+.post-img {
+  width: 100%;
+  max-height: 50rem;
+  border-radius: 5px;
+}
+
+/* --- "+X More" Button --- */
+.more-images-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.more-images-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* --- Modal Background (Centered) --- */
+.modals {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.active {
+  display: flex;
+}
+
+/* --- Modal Content Box (Centered) --- */
+.modal-contents {
+  background: #323639;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 80%;
+  max-height: 80%;
+  overflow-y: auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* --- Modal Image Grid (Better Spacing) --- */
+.modal-contents img {
+  width: auto;
+  max-width: 300px;
+  max-height: 300px;
+  margin: 10px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+/* --- Close Button (Fixed Position) --- */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+.viewpostcontainer {
+  background-color: black;
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.viewpostcontainer img {
+  width: 100%;
+  max-height: 50rem;
+}
+
+.viewpostcontainer h3 {
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+.profile-post {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-post img {
+  width: 2.8rem;
+  height: 2.8rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.name-dateposted h3 {
+  font-weight: 900;
+  font-size: 1rem;
+  line-height: 2px;
+}
+
+.name-dateposted span {
+  font-weight: 200;
+  font-size: 0.9rem;
+  color: var(--color-white) !important;
+}
+
+.home {
+  padding-right: 5rem;
+  padding-left: 5rem;
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  height: 52.9rem;
+  overflow: auto;
+  margin-top: 4rem;
+}
+
+.home .cms {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .loginactive {
   display: flex;
 }
@@ -575,5 +721,9 @@ span {
   .content-events .event-list .events-card {
     display: flex;
     flex-direction: column;
+  }
+  .home {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
   }
 }

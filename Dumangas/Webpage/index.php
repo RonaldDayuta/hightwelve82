@@ -53,10 +53,13 @@
                         <a class="nav-link" id="ActivitiesNav" href="#Activities">Activities</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" id="ContentNav" href="#post">Post Content</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" id="OfficersNav" href="#Officers">Officers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="btn-login" href="#"><button>LoginMember</button></a>
+                        <a class="nav-link" id="btn-login" href="#"><button>Login</button></a>
                     </li>
                 </ul>
             </div>
@@ -337,6 +340,13 @@
                     </p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="post" class="container home">
+        <h3>Post Content</h3>
+        <div id="cms" class="cms">
+
         </div>
     </div>
 

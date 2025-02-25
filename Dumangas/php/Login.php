@@ -30,11 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['admin_image'] = $row['Profile'];
                 $_SESSION['admin_email'] = $row['Email'];
                 $_SESSION['admin_id'] = $row['ID'];
+                $_SESSION['admin_pos'] = $row['WebPosition'];
             } else {
                 $_SESSION['user_username'] = $row['Username'];
                 $_SESSION['user_image'] = $row['Profile'];
                 $_SESSION['user_email'] = $row['Email'];
                 $_SESSION['user_id'] = $row['ID'];
+                $_SESSION['user_pos'] = $row['WebPosition'];
             }
             echo json_encode(['success' => true, 'message' => 'Login successful', 'position' => $row['WebPosition']]);
         } else {

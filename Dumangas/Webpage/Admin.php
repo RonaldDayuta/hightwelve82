@@ -13,6 +13,7 @@ if (!isset($_SESSION['admin_id'])) {
 $username = $_SESSION['admin_username'];
 $profile = $_SESSION['admin_image'];
 $email = $_SESSION['admin_email'];
+$pos = $_SESSION['admin_pos'];
 $id = $_SESSION['admin_id'];
 
 ?>
@@ -252,6 +253,7 @@ $id = $_SESSION['admin_id'];
                             <input type="password" class="form-control" name="password" />
                             <small class="text-muted">Leave empty if you don't want to change the password.</small>
                         </div>
+                        <input type="hidden" id="updateposition" value="<?php echo $pos ?>">
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">
                                 <span id="edit-button-text">Update Account</span>

@@ -55,4 +55,17 @@ $(document).ready(function () {
       console.log("Error fetching posts:", error);
     },
   });
+
+  $(document).on("click", ".more-images-btn", function () {
+    let index = $(this).data("index");
+    $(`#modal-${index}`).addClass("active");
+    $("body").css("overflow", "hidden");
+  });
+
+  // Use event delegation to handle modal closing
+  $(document).on("click", ".close-btn", function () {
+    let index = $(this).data("index");
+    $(`#modal-${index}`).removeClass("active");
+    $("body").css("overflow", "");
+  });
 });
