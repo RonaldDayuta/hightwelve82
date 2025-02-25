@@ -19,6 +19,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    $check_stmt = $conn->prepare("SELECT ID FROM tblaccounts WHERE Email = ?");
+    $check_stmt->bind_param("s", $email);
+    $check_stmt->execute();
+    $check_stmt->store_result();
+
+    if ($check_stmt->num_rows > 0) {
+        echo json_encode(["success" => false, "message" => "Email is already registered!"]);
+        $check_stmt->close();
+        exit();
+    }
+    $check_stmt->close();
+
     // Hash ang password bago i-store sa database
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
