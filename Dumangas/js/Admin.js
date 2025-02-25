@@ -197,6 +197,8 @@ $(document).ready(function () {
   $("#updateAccountForm").submit(function (e) {
     e.preventDefault();
 
+    let position = $("#updateposition").val();
+
     let formData = new FormData(this);
     let buttonText = $("#edit-button-text");
     let spinner = $("#edit-spinner");
@@ -223,7 +225,11 @@ $(document).ready(function () {
             confirmButtonText: "OK",
             allowOutsideClick: false,
           }).then(() => {
-            window.location.href = "../php/logout.php"; // Redirect to logout to refresh session
+            if ((position = "Admin")) {
+              window.location.href = "../php/adminlogout.php";
+            } else {
+              window.location.href = "../php/userlogout.php";
+            }
           });
         } else {
           Swal.fire({
