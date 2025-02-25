@@ -25,7 +25,7 @@ $id = $_SESSION['admin_id'];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/indexwithcms.css" />
-    <title>Admin</title>
+    <title>HighTwelveLodge82Admin</title>
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
         rel="stylesheet" />
@@ -204,8 +204,9 @@ $id = $_SESSION['admin_id'];
                             <h3>Members</h3>
                             <form class="d-flex" role="search">
                                 <input
+                                    id="search-member"
                                     class="form-control me-2"
-                                    type="search"
+                                    type="text"
                                     placeholder="Search"
                                     aria-label="Search" />
                             </form>
