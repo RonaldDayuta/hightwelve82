@@ -31,6 +31,7 @@ $id = $_SESSION['user_id'];
     <link
         href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
         rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="../Information/Lodge Logo.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -119,7 +120,7 @@ $id = $_SESSION['user_id'];
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../php/userlogout.php">
-                            <button>LogOut</button>
+                            <button>Logout</button>
                         </a>
                     </li>
                 </ul>

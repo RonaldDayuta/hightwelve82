@@ -78,23 +78,22 @@
                     </div>
                     <div class="mb-3">
                         <label for="account-password" class="form-label">Password</label>
-                        <input
-                            type="password"
-                            id="account-password"
-                            name="account-password"
-                            class="form-control"
-                            placeholder="Password"
-                            required />
+                        <div class="input-group">
+                            <input type="password" id="account-password" name="account-password" class="form-control" placeholder="Password" required />
+                            <button class="btn btn-outline-secondary toggle-password" type="button">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
+
                     <div class="mb-3">
                         <label for="account-copassword" class="form-label">Confirm Password</label>
-                        <input
-                            type="password"
-                            id="account-copassword"
-                            name="account-copassword"
-                            class="form-control"
-                            placeholder="Confirm Password"
-                            required />
+                        <div class="input-group">
+                            <input type="password" id="account-copassword" name="account-copassword" class="form-control" placeholder="Confirm Password" required />
+                            <button class="btn btn-outline-secondary toggle-password" type="button">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="account-position" class="form-label">Website Position</label>
@@ -176,12 +175,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="update-password" class="form-label">Password</label>
+                        <div class="input-group">
                         <input
                             type="password"
                             id="update-password"
                             name="update-password"
                             class="form-control"
                             placeholder="Password" />
+                        <button class="btn btn-outline-secondary toggle-password" type="button"><i class="fa fa-eye"></i></button>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="update-position" class="form-label">Website Position</label>
@@ -221,4 +223,5 @@
         </div>
     </div>
 </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <script src="../js/Account.js"></script>
