@@ -6,7 +6,7 @@ $today = date('Y-m-d');
 
 $sql = "SELECT event_date, title, description 
         FROM tblevents 
-        WHERE category = 'events' 
+        WHERE category = 'events' AND post_category = 'internal' OR post_category = 'both'
         AND DATE(event_date) = ? 
         ORDER BY event_date DESC 
         LIMIT 1";

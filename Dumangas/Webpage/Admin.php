@@ -235,8 +235,9 @@ $id = $_SESSION['admin_id'];
                     <form id="updateAccountForm">
                         <input type="text" name="id" value="<?php echo $id ?>" hidden>
                         <div class="mb-3">
-                            <label class="form-label">Profile Image (Leave if you don't want to change)</label>
+                            <label class="form-label">Profile Image</label>
                             <input type="file" class="form-control" name="image">
+                            <small class="text-muted">Leave empty if you don't want to change the image.</small>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Username</label>
@@ -247,8 +248,9 @@ $id = $_SESSION['admin_id'];
                             <input type="email" class="form-control" name="email" value="<?php echo $email ?>" />
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Password (Leave emty if don't want to change password)</label>
+                            <label class="form-label">Password</label>
                             <input type="password" class="form-control" name="password" />
+                            <small class="text-muted">Leave empty if you don't want to change the password.</small>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">

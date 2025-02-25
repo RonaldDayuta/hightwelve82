@@ -46,10 +46,12 @@ $(document).ready(function () {
 
   $("#btn-login").on("click", function () {
     $(".login").addClass("loginactive");
+    $("#navbar").addClass("inactive");
     $("body").css("overflow", "hidden");
   });
   $("#to-content").on("click", function () {
     $(".login").removeClass("loginactive");
+    $("#navbar").removeClass("inactive");
     $("body").css("overflow", "");
   });
 

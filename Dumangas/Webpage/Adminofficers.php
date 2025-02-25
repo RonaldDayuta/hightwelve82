@@ -44,7 +44,7 @@
                         <textarea class="form-control" id="positionDescription" name="positionDescription" rows="3" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="officerimage" class="form-label">Officer Profile (Recomended: No Backgroud IMG)</label>
+                        <label for="officerimage" class="form-label">Officer Profile</label>
                         <input
                             type="file"
                             id="officerimage"
@@ -52,6 +52,7 @@
                             class="form-control"
                             accept="image/*"
                             required />
+                        <small class="text-muted">Recomended: No Backgroud IMG</small>
                     </div>
                     <div class="modal-footer">
                         <button id="btn-officers" type="submit" class="btn btn-primary">
@@ -94,8 +95,6 @@
                         <label for="editOfficerImage" class="form-label">Change Officer Image</label>
                         <input type="file" id="editOfficerImage" name="officerImage" class="form-control" accept="image/*">
                         <small class="text-muted">Leave blank to keep the current image.</small>
-                        <br>
-                        <img id="currentOfficerImage" src="" alt="Current Image" width="50" class="mt-2">
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">

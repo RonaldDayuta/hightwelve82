@@ -9,7 +9,7 @@ $today = date('Y-m-d');
 
 // Use a prepared statement for security
 $sql = "SELECT event_date, title, description FROM tblevents 
-        WHERE category = ? AND event_date = ? 
+        WHERE category = ? AND event_date = ? AND post_category = 'internal' OR post_category = 'both'
         ORDER BY event_date DESC LIMIT 1";
 
 $stmt = $conn->prepare($sql);
