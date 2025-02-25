@@ -6,7 +6,6 @@ use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php'; // Include PHPMailer
 
 header('Content-Type: application/json'); // Ensure JSON response
-ob_start(); // Start output buffering
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $event_date = isset($_POST['event-date']) ? trim($_POST['event-date']) : '';
@@ -15,29 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category = isset($_POST['event-category']) ? trim($_POST['event-category']) : '';
     $post_category = isset($_POST['post-category']) ? trim($_POST['post-category']) : '';
     $image_path  = ''; // Default value
-
-    $errors = [];
-
-    if (empty($event_date)) {
-        $errors[] = "Event date is required.";
-    }
-    if (empty($title)) {
-        $errors[] = "Event title is required.";
-    }
-    if (empty($description)) {
-        $errors[] = "Event description is required.";
-    }
-    if (empty($category)) {
-        $errors[] = "Event category is required.";
-    }
-    if (empty($post_category)) {
-        $errors[] = "Event post category is required.";
-    }
-
-    if (!empty($errors)) {
-        echo json_encode(["status" => "error", "message" => $errors]);
-        exit();
-    }
 
     // Image upload handling
     if (isset($_FILES['event-image']) && $_FILES['event-image']['error'] === UPLOAD_ERR_OK) {

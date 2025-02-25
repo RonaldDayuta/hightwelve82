@@ -4,17 +4,16 @@ session_start();
 //include_once "calendar.php";
 
 // Check if the user is logged in as an admin
-if (!isset($_SESSION['admin_id'])) {
+if (!isset($_SESSION['user_id'])) {
     header("Location: ../Webpage/index.php");
     exit();
 }
 
 // Get session variables for displaying the profile
-$username = $_SESSION['admin_username'];
-$profile = $_SESSION['admin_image'];
-$email = $_SESSION['admin_email'];
-$pos = $_SESSION['admin_pos'];
-$id = $_SESSION['admin_id'];
+$username = $_SESSION['user_username'];
+$profile = $_SESSION['user_image'];
+$email = $_SESSION['user_email'];
+$id = $_SESSION['user_id'];
 
 ?>
 
@@ -25,7 +24,7 @@ $id = $_SESSION['admin_id'];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/indexwithcms.css" />
-    <title>Admin</title>
+    <title>User</title>
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
         rel="stylesheet" />
@@ -72,12 +71,6 @@ $id = $_SESSION['admin_id'];
                             Home
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a id="Accounts" class="nav-link" href="#">
-                            <span class="material-icons-outlined"> group </span>
-                            Acccounts
-                        </a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a
                             class="nav-link dropdown-toggle"
@@ -117,18 +110,6 @@ $id = $_SESSION['admin_id'];
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a id="Calendar" href="#" class=" nav-link">
-                            <span class="material-icons-outlined"> calendar_month </span>
-                            Calendar
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="Officers" href="#" class=" nav-link">
-                            <span class="material-icons-outlined"> group </span>
-                            Officers
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#manageaccoutmodal">
                             <span class="material-icons-outlined">
                                 manage_accounts
@@ -137,7 +118,7 @@ $id = $_SESSION['admin_id'];
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../php/adminlogout.php">
+                        <a class="nav-link" href="../php/userlogout.php">
                             <button>LogOut</button>
                         </a>
                     </li>
@@ -236,9 +217,8 @@ $id = $_SESSION['admin_id'];
                     <form id="updateAccountForm">
                         <input type="text" name="id" value="<?php echo $id ?>" hidden>
                         <div class="mb-3">
-                            <label class="form-label">Profile Image</label>
+                            <label class="form-label">Profile Image (Leave if you don't want to change)</label>
                             <input type="file" class="form-control" name="image">
-                            <small class="text-muted">Leave empty if you don't want to change the image.</small>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Username</label>
@@ -249,11 +229,9 @@ $id = $_SESSION['admin_id'];
                             <input type="email" class="form-control" name="email" value="<?php echo $email ?>" />
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Password</label>
+                            <label class="form-label">Password (Leave emty if don't want to change password)</label>
                             <input type="password" class="form-control" name="password" />
-                            <small class="text-muted">Leave empty if you don't want to change the password.</small>
                         </div>
-                        <input type="hidden" id="updateposition" value="<?php echo $pos ?>">
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">
                                 <span id="edit-button-text">Update Account</span>
@@ -267,7 +245,7 @@ $id = $_SESSION['admin_id'];
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/Admin.js"></script>
+    <script src="../js/User.js"></script>
 </body>
 
 </html>

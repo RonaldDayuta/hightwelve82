@@ -19,7 +19,7 @@
 
 <body>
     <!-- Fixed Dark Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">HighTwelve82</a>
             <button
@@ -53,6 +53,9 @@
                         <a class="nav-link" id="ActivitiesNav" href="#Activities">Activities</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" id="ContentNav" href="#post">Post Content</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" id="OfficersNav" href="#Officers">Officers</a>
                     </li>
                     <li class="nav-item">
@@ -70,7 +73,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 coltext">
                         <div class="text-content">
-                            <h1>High Twelve Masonic Lodge No. 82</h1>
+                            <h1>High Twelve Masonic Lodge No.82</h1>
                             <p>Masonic District NCR-D</p>
                             <p>
                                 Under the jurisdiction of the Most Worshipful Grand Lodge
@@ -337,6 +340,13 @@
                     </p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="post" class="container home">
+        <h3>Post Content</h3>
+        <div id="cms" class="cms">
+
         </div>
     </div>
 

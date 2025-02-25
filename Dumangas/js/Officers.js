@@ -129,6 +129,7 @@ $(document).ready(function () {
             confirmButtonText: "OK",
           }).then(() => {
             $("#editOfficerModal").modal("hide");
+            $("#editOfficerForm")[0].reset();
             loadofficers();
           });
         } else {

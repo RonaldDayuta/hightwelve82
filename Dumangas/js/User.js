@@ -1,9 +1,9 @@
 $(document).ready(function () {
-  $("#main").load("../Webpage/AdminHome.php");
+  $("#main").load("../Webpage/UserHome.php");
   $("#Home").addClass("active");
 
   $("#Home").click(function () {
-    $("#main").load("../Webpage/AdminHome.php");
+    $("#main").load("../Webpage/UserHome.php");
     $("#Home").addClass("active");
     $("#Accounts").removeClass("active");
     $("#Calendar").removeClass("active");
@@ -15,47 +15,8 @@ $(document).ready(function () {
     $("#actdrop").removeClass("actives");
   });
 
-  $("#Accounts").click(function () {
-    $("#main").load("../Webpage/AdminAccount.php");
-    $("#Accounts").addClass("active");
-    $("#Home").removeClass("active");
-    $("#Calendar").removeClass("active");
-    $("#Officers").removeClass("active");
-    $("#eventnav").removeClass("active");
-    $("#eventdrop").removeClass("actives");
-    $("#newsdrop").removeClass("actives");
-    $("#meetdrop").removeClass("actives");
-    $("#actdrop").removeClass("actives");
-  });
-
-  $("#Calendar").click(function () {
-    $("#main").load("../Webpage/AdminCalendar.php");
-    $("#Calendar").addClass("active");
-    $("#Accounts").removeClass("active");
-    $("#Home").removeClass("active");
-    $("#Officers").removeClass("active");
-    $("#eventnav").removeClass("active");
-    $("#eventdrop").removeClass("actives");
-    $("#newsdrop").removeClass("actives");
-    $("#meetdrop").removeClass("actives");
-    $("#actdrop").removeClass("actives");
-  });
-
-  $("#Officers").click(function () {
-    $("#main").load("../Webpage/Adminofficers.php");
-    $("#Officers").addClass("active");
-    $("#Calendar").removeClass("active");
-    $("#Accounts").removeClass("active");
-    $("#Home").removeClass("active");
-    $("#eventnav").removeClass("active");
-    $("#eventdrop").removeClass("actives");
-    $("#newsdrop").removeClass("actives");
-    $("#meetdrop").removeClass("actives");
-    $("#actdrop").removeClass("actives");
-  });
-
   $("#eventdrop").click(function () {
-    $("#main").load("../Webpage/AdminEvent.php");
+    $("#main").load("../Webpage/UserEvent.php");
     $("#eventdrop").addClass("actives");
     $("#newsdrop").removeClass("actives");
     $("#meetdrop").removeClass("actives");
@@ -68,7 +29,7 @@ $(document).ready(function () {
   });
 
   $("#newsdrop").click(function () {
-    $("#main").load("../Webpage/AdminNews.php");
+    $("#main").load("../Webpage/UserNews.php");
     $("#newsdrop").addClass("actives");
     $("#eventdrop").removeClass("actives");
     $("#meetdrop").removeClass("actives");
@@ -81,7 +42,7 @@ $(document).ready(function () {
   });
 
   $("#meetdrop").click(function () {
-    $("#main").load("../Webpage/AdminMeeting.php");
+    $("#main").load("../Webpage/UserMeeting.php");
     $("#meetdrop").addClass("actives");
     $("#newsdrop").removeClass("actives");
     $("#eventdrop").removeClass("actives");
@@ -94,7 +55,7 @@ $(document).ready(function () {
   });
 
   $("#actdrop").click(function () {
-    $("#main").load("../Webpage/AdminActivities.php");
+    $("#main").load("../Webpage/UserAct.php");
     $("#actdrop").addClass("actives");
     $("#meetdrop").removeClass("actives");
     $("#newsdrop").removeClass("actives");
@@ -143,17 +104,17 @@ $(document).ready(function () {
         let meetingsHTML = "";
         data.forEach(function (meeting) {
           meetingsHTML += `
-            <div class="meetingalign">
-              <div class="meetinginfo">
-                <img src="${meeting.image}" />
-                <div class="information">
-                  <span>${meeting.title}</span>
-                  <span>${meeting.event_date}</span>
-                  <p>${meeting.description}</p>
+              <div class="meetingalign">
+                <div class="meetinginfo">
+                  <img src="${meeting.image}" />
+                  <div class="information">
+                    <span>${meeting.title}</span>
+                    <span>${meeting.event_date}</span>
+                    <p>${meeting.description}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          `;
+            `;
         });
 
         $("#meeting-cards").html(meetingsHTML); // Append meetings
@@ -176,11 +137,11 @@ $(document).ready(function () {
         let membersHTML = "";
         data.forEach(function (members) {
           membersHTML += `
-            <li>
-              <img src="${members.Profile}" alt="" />
-              <span>${members.Username}</span>
-            </li>
-          `;
+              <li>
+                <img src="${members.Profile}" alt="" />
+                <span>${members.Username}</span>
+              </li>
+            `;
         });
 
         $("#members").html(membersHTML);
@@ -196,8 +157,6 @@ $(document).ready(function () {
 
   $("#updateAccountForm").submit(function (e) {
     e.preventDefault();
-
-    let position = $("#updateposition").val();
 
     let formData = new FormData(this);
     let buttonText = $("#edit-button-text");
@@ -225,11 +184,7 @@ $(document).ready(function () {
             confirmButtonText: "OK",
             allowOutsideClick: false,
           }).then(() => {
-            if ((position = "Admin")) {
-              window.location.href = "../php/adminlogout.php";
-            } else {
-              window.location.href = "../php/userlogout.php";
-            }
+            window.location.href = "../php/userlogout.php"; // Redirect to logout to refresh session
           });
         } else {
           Swal.fire({
