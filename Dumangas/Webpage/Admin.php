@@ -26,6 +26,7 @@ $id = $_SESSION['admin_id'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/indexwithcms.css" />
     <title>HighTwelveLodge82Admin</title>
+    <link rel="icon" type="image/x-icon" href="../Information/Lodge Logo.ico">
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
         rel="stylesheet" />
@@ -138,7 +139,7 @@ $id = $_SESSION['admin_id'];
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../php/adminlogout.php">
-                            <button>LogOut</button>
+                            <button>Logout</button>
                         </a>
                     </li>
                 </ul>

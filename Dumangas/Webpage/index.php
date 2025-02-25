@@ -12,6 +12,7 @@
     <link
         href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
         rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="../Information/Lodge Logo.ico">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../css/index.css" />

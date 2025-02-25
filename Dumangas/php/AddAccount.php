@@ -19,17 +19,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    $check_stmt = $conn->prepare("SELECT ID FROM tblaccounts WHERE Email = ?");
-    $check_stmt->bind_param("s", $email);
+    $check_stmt = $conn->prepare("SELECT Email, username FROM tblaccounts WHERE Email = ? OR username = ?");
+    $check_stmt->bind_param("ss", $email, $username);
     $check_stmt->execute();
     $check_stmt->store_result();
+    $check_stmt->bind_result($existing_email, $existing_username);
 
-    if ($check_stmt->num_rows > 0) {
+    $email_exists = false;
+    $username_exists = false;
+
+    while ($check_stmt->fetch()) {
+        if ($existing_email === $email) {
+            $email_exists = true;
+        }
+        if ($existing_username === $username) {
+            $username_exists = true;
+        }
+    }
+
+    $check_stmt->close();
+
+    // Construct the appropriate error message
+    if ($email_exists && $username_exists) {
+        echo json_encode(["success" => false, "message" => "Email and Username are already in use!"]);
+        exit();
+    } elseif ($email_exists) {
         echo json_encode(["success" => false, "message" => "Email is already registered!"]);
-        $check_stmt->close();
+        exit();
+    } elseif ($username_exists) {
+        echo json_encode(["success" => false, "message" => "Username is already in use!"]);
         exit();
     }
-    $check_stmt->close();
 
     // Hash ang password bago i-store sa database
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
