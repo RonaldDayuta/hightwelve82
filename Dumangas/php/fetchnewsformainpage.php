@@ -9,7 +9,7 @@ $nextFiveDays = date("Y-m-d", strtotime("+5 days"));
 
 // SQL Query: Get events from today to the next 5 days
 $query = "SELECT event_date, title, description, image FROM tblevents 
-          WHERE category = 'news-today' 
+          WHERE category = 'news-today' AND (post_category = 'external' OR post_category = 'both')
           AND event_date BETWEEN ? AND ? 
           ORDER BY event_date ASC";
 

@@ -19,7 +19,7 @@
 
 <body>
     <!-- Fixed Dark Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">HighTwelve82</a>
             <button
@@ -56,7 +56,7 @@
                         <a class="nav-link" id="OfficersNav" href="#Officers">Officers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="btn-login" href="#"><button>Login</button></a>
+                        <a class="nav-link" id="btn-login" href="#"><button>LoginMember</button></a>
                     </li>
                 </ul>
             </div>
@@ -70,7 +70,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 coltext">
                         <div class="text-content">
-                            <h1>High Twelve Masonic Lodge No. 82</h1>
+                            <h1>High Twelve Masonic Lodge No.82</h1>
                             <p>Masonic District NCR-D</p>
                             <p>
                                 Under the jurisdiction of the Most Worshipful Grand Lodge
