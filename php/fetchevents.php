@@ -17,6 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <td><?= $row['event_date']; ?></td>
                 <td><?= $row['title']; ?></td>
                 <td><?= $row['description']; ?></td>
+                <td>
+                    <span class="material-icons-outlined btn-update" id="edit-event-btn" data-id="<?= $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#updateEventModal">
+                        edit</span>
+                    <span class="material-icons-outlined btn-delete" id="delete-events" data-id="<?= $row['id']; ?>">
+                        delete
+                    </span>
+                </td>
             </tr>
 <?php
         }
