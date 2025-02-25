@@ -97,8 +97,10 @@ $(document).ready(function () {
         confirmButtonText: "Yes, update it!",
       }).then((result) => {
         if (result.isConfirmed) {
-          $("#button-text").text("Updating...");
+          $("#button-text-post").text("Updating...");
           $("#spinner").show();
+          $("#btn-update").prop("disabled", true); // Disable button
+          $("#loadingOverlay").fadeIn(); // Show loading overlay
 
           $.ajax({
             url: "../php/update_post.php",
@@ -121,8 +123,10 @@ $(document).ready(function () {
               Swal.fire("Error!", "Something went wrong!", "error");
             },
             complete: function () {
-              $("#button-text").text("Update");
+              $("#button-text-post").text("Update");
               $("#spinner").hide();
+              $("#btn-update").prop("disabled", false); // Re-enable button
+              $("#loadingOverlay").fadeOut(); // Hide loading overlay
             },
           });
         }
@@ -209,7 +213,7 @@ $(document).ready(function () {
     let formData = new FormData(this);
 
     $.ajax({
-      url: "../php/addpost.php", // PHP file to handle insertion
+      url: "../php/Addpost.php", // PHP file to handle insertion
       type: "POST",
       data: formData,
       contentType: false,

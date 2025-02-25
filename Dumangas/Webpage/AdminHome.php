@@ -209,7 +209,7 @@ $id = $_SESSION['admin_id'];
                 </div>
                 <div class="modal-footer">
                     <button id="btn-update" type="submit" class="btn btn-primary">
-                        <span id="button-text">Update</span>
+                        <span id="button-text-post">Update</span>
                         <div id="spinner" class="spinner-border spinner-border-sm" role="status" style="display: none;">
                             <span class="sr-only"></span>
                         </div>
