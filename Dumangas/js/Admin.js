@@ -167,33 +167,6 @@ $(document).ready(function () {
     },
   });
 
-  $.ajax({
-    url: "../php/Membertableforadmin.php",
-    type: "GET",
-    dataType: "json",
-    success: function (data) {
-      if (data.length > 0) {
-        let membersHTML = "";
-        data.forEach(function (members) {
-          membersHTML += `
-            <li>
-              <img src="${members.Profile}" alt="" />
-              <span>${members.Username}</span>
-            </li>
-          `;
-        });
-
-        $("#members").html(membersHTML);
-      } else {
-        $("#members").html("<p>No members available.</p>");
-      }
-    },
-    error: function (xhr, status, error) {
-      console.error("Error fetching members:", error);
-      console.log("Server Response:", xhr.responseText);
-    },
-  });
-
   $("#updateAccountForm").submit(function (e) {
     e.preventDefault();
 
@@ -255,5 +228,48 @@ $(document).ready(function () {
         spinner.hide();
       },
     });
+  });
+
+  function fetchMembers(searchQuery = "") {
+    let url = searchQuery
+      ? "../php/SearchMember.php"
+      : "../php/Membertableforadmin.php";
+
+    $.ajax({
+      url: url,
+      type: "GET",
+      data: searchQuery ? { search: searchQuery } : {}, // Only send search query if it exists
+      dataType: "json",
+      success: function (data) {
+        if (data.length > 0) {
+          let membersHTML = "";
+          data.forEach(function (members) {
+            membersHTML += `
+              <li>
+                <img src="${members.Profile}" alt="" />
+                <span>${members.Username}</span>
+              </li>
+            `;
+          });
+
+          $("#members").html(membersHTML);
+        } else {
+          $("#members").html("<p>No members available.</p>");
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error fetching members:", error);
+        console.log("Server Response:", xhr.responseText);
+      },
+    });
+  }
+
+  // Fetch all members on page load
+  fetchMembers();
+
+  // Search functionality
+  $("#search-member").on("keyup", function () {
+    let searchQuery = $(this).val().trim();
+    fetchMembers(searchQuery);
   });
 });

@@ -200,4 +200,28 @@ $(document).ready(function () {
       },
     });
   });
+
+  $("#search-account").on("keyup", function () {
+    let searchText = $(this).val().trim(); // Get the input value and trim spaces
+
+    if (searchText !== "") {
+      $.ajax({
+        url: "../php/SearchAcc.php",
+        type: "POST",
+        data: { search: searchText }, // Use "search" to handle both date & title
+        beforeSend: function () {
+          $("#table-accounts").html("<p>Loading...</p>"); // Show loading text
+        },
+        success: function (response) {
+          $("#table-accounts").html(response);
+        },
+        error: function (xhr, status, error) {
+          console.error("AJAX Error: " + error);
+          $("#table-accounts").html("<p>Error fetching Accounts.</p>");
+        },
+      });
+    } else {
+      loadAccounts();
+    }
+  });
 });

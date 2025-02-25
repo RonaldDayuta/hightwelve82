@@ -191,4 +191,28 @@ $(document).ready(function () {
       }
     });
   });
+
+  $("#search-officer").on("keyup", function () {
+    let searchText = $(this).val().trim(); // Get the input value and trim spaces
+
+    if (searchText !== "") {
+      $.ajax({
+        url: "../php/SearchOfficer.php",
+        type: "POST",
+        data: { search: searchText }, // Use "search" to handle both date & title
+        beforeSend: function () {
+          $("#table-Officers").html("<p>Loading...</p>"); // Show loading text
+        },
+        success: function (response) {
+          $("#table-Officers").html(response);
+        },
+        error: function (xhr, status, error) {
+          console.error("AJAX Error: " + error);
+          $("#table-Officers").html("<p>Error fetching officers.</p>");
+        },
+      });
+    } else {
+      loadofficers();
+    }
+  });
 });
