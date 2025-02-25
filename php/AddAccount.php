@@ -4,7 +4,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require '../vendor/autoload.php'; // Gumamit ng Composer autoload
-
 include '../dbconnect/conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -20,6 +19,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    $check_stmt = $conn->prepare("SELECT Email, username FROM tblaccounts WHERE Email = ? OR username = ?");
+    $check_stmt->bind_param("ss", $email, $username);
+    $check_stmt->execute();
+    $check_stmt->store_result();
+    $check_stmt->bind_result($existing_email, $existing_username);
+
+    $email_exists = false;
+    $username_exists = false;
+
+    while ($check_stmt->fetch()) {
+        if ($existing_email === $email) {
+            $email_exists = true;
+        }
+        if ($existing_username === $username) {
+            $username_exists = true;
+        }
+    }
+
+    $check_stmt->close();
+
+    // Construct the appropriate error message
+    if ($email_exists && $username_exists) {
+        echo json_encode(["success" => false, "message" => "Email and Username are already in use!"]);
+        exit();
+    } elseif ($email_exists) {
+        echo json_encode(["success" => false, "message" => "Email is already registered!"]);
+        exit();
+    } elseif ($username_exists) {
+        echo json_encode(["success" => false, "message" => "Username is already in use!"]);
+        exit();
+    }
+
     // Hash ang password bago i-store sa database
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -31,9 +62,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($_FILES['account-image']['name'])) {
         $image_tmp = $_FILES['account-image']['tmp_name'];
         $image_ext = strtolower(pathinfo($_FILES['account-image']['name'], PATHINFO_EXTENSION));
+        $image_size = $_FILES['account-image']['size']; // Get image size in bytes
         $image_name = uniqid("profile_", true) . "." . $image_ext;
         $image_path = $upload_dir . $image_name;
 
+        // Allowed extensions
+        $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
+
+        // **Check file size (limit to 20MB = 20 * 1024 * 1024 bytes)**
+        if ($image_size > 20 * 1024 * 1024) {
+            echo json_encode(["success" => false, "message" => "Image size exceeds 20MB limit!"]);
+            exit();
+        }
+
+        // **Check file type**
+        if (!in_array($image_ext, $allowed_extensions)) {
+            echo json_encode(["success" => false, "message" => "Invalid image format! Only JPG, PNG, and GIF are allowed."]);
+            exit();
+        }
+
+        // Move uploaded file
         if (!move_uploaded_file($image_tmp, $image_path)) {
             echo json_encode(["success" => false, "message" => "Failed to upload image"]);
             exit();
