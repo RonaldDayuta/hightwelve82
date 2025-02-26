@@ -333,10 +333,6 @@ p {
   font-weight: 900;
 }
 
-.content-events span {
-  color: var(--color-white) !important;
-}
-
 .content-events .event-list {
   margin-top: 2rem;
   display: flex;
