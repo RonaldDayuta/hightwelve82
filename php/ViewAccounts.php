@@ -2,7 +2,7 @@
 include '../dbconnect/conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $accountsql = "SELECT ID, Email, Username, Password, WebPosition, Status FROM tblaccounts";
+    $accountsql = "SELECT ID, Email, Username, Password, WebPosition, Status FROM tblaccounts WHERE is_hidden = 0";
     $stmt = $conn->prepare($accountsql);
     $stmt->execute();
     $result = $stmt->get_result();

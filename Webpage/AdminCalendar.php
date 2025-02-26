@@ -96,6 +96,7 @@
                                 <th scope="col">Date</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Description</th>
+                                <th scope="col">Category</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -170,7 +171,7 @@
                         <div class="mb-3">
                             <label class="form-label">Event Category</label>
                             <select id="event-category" name="event-category" class="form-control" required>
-                                <option value="" disabled selected>Select Category</option>
+                                <option value="" disabled selected>Select Event Category</option>
                                 <option value="news-today">News Today</option>
                                 <option value="events">Events</option>
                                 <option value="meeting">Meeting</option>
@@ -180,10 +181,18 @@
                         <div class="mb-3">
                             <label class="form-label">Post Category</label>
                             <select id="post-category" name="post-category" class="form-control" required>
-                                <option value="" disabled selected>Select Category</option>
+                                <option value="" disabled selected>Select Post Category</option>
                                 <option value="internal">Internal</option>
                                 <option value="external">External</option>
                                 <option value="both">Both</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Priority Category</label>
+                            <select id="priority-category" name="priority-category" class="form-control" required>
+                                <option value="" disabled selected>Select Priority Category</option>
+                                <option value="top-priority">Top Priority</option>
+                                <option value="less-priority">Less Priority</option>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -254,6 +263,13 @@
                             <option value="internal">Internal</option>
                             <option value="external">External</option>
                             <option value="both">Both</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Priority Category</label>
+                        <select id="update-priority-category" name="priority-category" class="form-control" required>
+                            <option value="top-priority">Top Priority</option>
+                            <option value="less-priority">Less Priority</option>
                         </select>
                     </div>
                     <div class="mb-3">
