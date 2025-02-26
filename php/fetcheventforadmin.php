@@ -7,9 +7,10 @@ $today = date('Y-m-d');
 $sql = "SELECT event_date, title, description 
         FROM tblevents 
         WHERE category = 'events' AND post_category = 'internal' OR post_category = 'both'
+        AND priority_category = 'top-priority' OR priority_category = 'less-priority' 
         AND DATE(event_date) = ? 
         ORDER BY event_date DESC 
-        LIMIT 1";
+        LIMIT 5";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $today);

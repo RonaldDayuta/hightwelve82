@@ -3,7 +3,7 @@
 include '../dbconnect/conn.php';
 
 // Query to get the latest 2 meetings
-$sql = "SELECT Username, Profile FROM tblaccounts";
+$sql = "SELECT Username, Profile FROM tblaccounts WHERE is_hidden = 0";
 $result = $conn->query($sql);
 
 $members = [];

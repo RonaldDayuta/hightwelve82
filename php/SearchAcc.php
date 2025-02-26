@@ -6,7 +6,7 @@ if (isset($_POST['search']) && !empty($_POST['search'])) {
     $searchPattern = "%$searchText%"; // Allows partial matching
 
     $query = "SELECT * FROM tblaccounts 
-              WHERE Email LIKE ? OR Username LIKE ?";
+          WHERE is_hidden = 0 AND (Email LIKE ? OR Username LIKE ?)";
 
     $stmt = $conn->prepare($query);
 
