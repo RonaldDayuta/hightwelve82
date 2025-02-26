@@ -126,6 +126,7 @@ p {
 .text-content {
   position: relative;
   text-transform: uppercase;
+  text-align: center;
   z-index: 2;
 }
 
@@ -240,11 +241,17 @@ p {
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .content-about .row1 h1 {
   font-weight: 900;
   text-transform: uppercase;
+  text-align: center;
+}
+
+.content-about .row1 p {
+  width: 60rem;
 }
 
 .background-container-history {
@@ -303,11 +310,17 @@ p {
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .content-history .row1 h1 {
   font-weight: 900;
   text-transform: uppercase;
+  text-align: center;
+}
+
+.content-history .row1 p {
+  width: 60rem;
 }
 
 .content-events {
