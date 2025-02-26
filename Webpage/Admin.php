@@ -25,7 +25,7 @@ $id = $_SESSION['admin_id'];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/indexwithcms.css" />
-    <title>HighTwelveLodge82Admin</title>
+    <title>High Twelve Lodge No.82</title>
     <link rel="icon" type="image/x-icon" href="../Information/Lodge Logo.ico">
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
