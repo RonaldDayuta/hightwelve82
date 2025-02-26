@@ -198,7 +198,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="update-statuus" class="form-label">Status</label>
+                        <label for="update-status" class="form-label">Status</label>
                         <select
                             id="update-status"
                             name="update-status"
@@ -206,7 +206,7 @@
                             required>
                             <option value="" selected disabled>Status</option>
                             <option value="Active">Active</option>
-                            <option value="InActive">InActive</option>
+                            <option value="Inactive">Inactive</option>
                             <option value="Suspended">Suspended</option>
                         </select>
                     </div>

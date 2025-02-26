@@ -404,13 +404,16 @@
                                 type="text"
                                 placeholder="Email Address or Username"
                                 required />
-                            <input
-                                id="login-password"
-                                name="login-password"
-                                class="form-control"
-                                type="password"
-                                placeholder="Password"
-                                required />
+                            <div class="input-group">
+                                <input
+                                    id="login-password"
+                                    name="login-password"
+                                    class="form-control"
+                                    type="password"
+                                    placeholder="Password"
+                                    required />
+                                <button class="btn btn-outline-secondary toggle-password" type="button"><i class="fa fa-eye"></i></button>
+                            </div>
                             <button type="submit" class="signin-btn">Login</button>
                         </form>
                     </div>
@@ -421,6 +424,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="../js/index.js"></script>
 </body>
 

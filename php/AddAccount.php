@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Ipasok sa database
     $stmt = $conn->prepare("INSERT INTO tblaccounts (Email, username, Password, WebPosition, Profile) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $email, $username, $hashed_password, $position, $image_path);
+    $stmt->bind_param("sssssi", $email, $username, $hashed_password, $position, $image_path);
 
     if ($stmt->execute()) {
         // Send email confirmation
@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
-            $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve82');
+            $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve Lodge No.82');
             $mail->addAddress($email);
 
             $mail->isHTML(true);

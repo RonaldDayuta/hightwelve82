@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $description = isset($_POST['event-description']) ? trim($_POST['event-description']) : '';
     $category = isset($_POST['event-category']) ? trim($_POST['event-category']) : '';
     $post_category = isset($_POST['post-category']) ? trim($_POST['post-category']) : '';
+    $priority_category = isset($_POST['priority-category']) ? trim($_POST['priority-category']) : '';
     $image_path  = ''; // Default value
 
     // Image upload handling
@@ -48,8 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Prepare and execute query for inserting event
-    $stmt = $conn->prepare("INSERT INTO tblevents (event_date, title, description, category, post_category, image) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $event_date, $title, $description, $category, $post_category, $image_path);
+    $stmt = $conn->prepare("INSERT INTO tblevents (event_date, title, description, category, post_category, priority_category, image) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssss", $event_date, $title, $description, $category, $post_category, $priority_category, $image_path);
 
     if ($stmt->execute()) {
         // Fetch all email addresses from tblaccounts
