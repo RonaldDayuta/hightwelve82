@@ -203,43 +203,47 @@ $(document).ready(function () {
         let imagesHTML = "";
         let modalImages = "";
         let imagesArray = post.post_image; // This is now an array
+        let fullDescription = post.description.replace(/\n/g, "<br>");
+        let shortDescription =
+          fullDescription.length > 100
+            ? fullDescription.substring(0, 100) + "..."
+            : fullDescription;
 
         if (Array.isArray(imagesArray) && imagesArray.length > 0) {
-          // Show only the first image in the post
           imagesHTML = `<img src="${imagesArray[0]}" alt="Post Image" class="post-img"/>`;
 
-          // Prepare all images for the modal
           imagesArray.forEach((image) => {
             modalImages += `<img src="${image}" alt="Full Image" class="modal-img"/>`;
           });
 
-          // Show "+X More" button if more than 1 image
           if (imagesArray.length > 1) {
-            imagesHTML += `<div class="more-images-btn" data-index="${index}">+${
-              imagesArray.length - 1
-            } More</div>`;
+            imagesHTML += `<div class="more-images-btn" data-index="${index}">+${imagesArray.length - 1
+              } More</div>`;
           }
         }
 
         let postHTML = `
-              <div class="viewpostcontainer">
-                  <div class="profile-post">
-                      <img src="${post.profile}"/>
-                      <div class="name-dateposted">
-                          <h3>${post.Username}</h3>
-                          <span>${post.date}</span>
-                      </div>
+          <div class="viewpostcontainer">
+              <div class="profile-post">
+                  <img src="${post.profile}"/>
+                  <div class="name-dateposted">
+                      <h3>${post.Username}</h3>
+                      <span>${post.date}</span>
                   </div>
-                  <p>${post.description}</p>
-                  <div class="post-images">${imagesHTML}</div>
               </div>
-      
-              <!-- Modal for showing all images -->
-              <div id="modal-${index}" class="modals">
-                <span class="close-btn" data-index="${index}">&times;</span>
-                <div class="modal-contents">${modalImages}</div>
-              </div>
-            `;
+              <p class="post-description" data-full="${fullDescription}">
+                ${shortDescription} 
+                ${fullDescription.length > 100 ? '<span class="see-more">See More</span>' : ""}
+              </p>
+              <div class="post-images">${imagesHTML}</div>
+          </div>
+  
+          <!-- Modal for showing all images -->
+          <div id="modal-${index}" class="modals">
+            <span class="close-btn" data-index="${index}">&times;</span>
+            <div class="modal-contents">${modalImages}</div>
+          </div>
+        `;
         postContainer.append(postHTML);
       });
     },
@@ -247,6 +251,20 @@ $(document).ready(function () {
       console.log("Error fetching posts:", error);
     },
   });
+
+  // Event delegation for "See More" and "See Less"
+  $(document).on("click", ".see-more", function () {
+    let parent = $(this).closest(".post-description");
+    let fullText = parent.data("full");
+
+    if ($(this).text() === "See More") {
+      parent.html(fullText + ' <span class="see-more text-white"><br><strong>See Less</strong></br></span>');
+    } else {
+      let shortText = fullText.substring(0, 100) + "...";
+      parent.html(shortText + ' <span class="see-more text-white"><br><strong>See More</strong></br></span>');
+    } 
+  });
+
   $(document).on("click", ".more-images-btn", function () {
     let index = $(this).data("index");
     $(`#modal-${index}`).addClass("active");

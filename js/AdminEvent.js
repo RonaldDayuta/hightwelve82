@@ -10,6 +10,7 @@ $(document).ready(function () {
         $("#view-all-events").html("<p>Error loading events.</p>");
       },
     });
+    
   }
   loadEvents();
   function loadNews() {

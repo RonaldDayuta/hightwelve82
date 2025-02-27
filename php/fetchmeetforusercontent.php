@@ -9,7 +9,7 @@ $nextFiveDays = date("Y-m-d", strtotime("+5 days"));
 
 // SQL Query: Get events from today to the next 5 days
 $query = "SELECT event_date, title, description, image FROM tblevents 
-          WHERE category = 'meeting'
+          WHERE category = 'meeting' 
           AND event_date BETWEEN ? AND ? 
           ORDER BY event_date ASC";
 
@@ -20,16 +20,26 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
+        // Convert newlines to <br>
+        $fullDescription = nl2br(htmlspecialchars($row['description']));
+        
+        // Create short description (first 100 chars)
+        $shortDescription = strlen($fullDescription) > 100 ? substr($fullDescription, 0, 100) . "..." : $fullDescription;
 ?>
         <div class="events-view-cards">
             <span><?php echo htmlspecialchars($row['title']); ?></span>
             <span><?php echo htmlspecialchars($row['event_date']); ?></span>
-            <p><?php echo htmlspecialchars($row['description']); ?></p>
+            <p class="post-description" data-full="<?php echo $fullDescription; ?>">
+                <?php echo $shortDescription; ?>
+                <?php if (strlen($fullDescription) > 100) { ?>
+                    <span class="see-more4" style="cursor: pointer;"><br/>See More</span>
+                <?php } ?>
+            </p>
             <img src="<?php echo htmlspecialchars($row['image']); ?>">
         </div>
 <?php
     }
 } else {
-    echo "<p>No upcoming meeting found.</p>";
+    echo "<p>No upcoming events found.</p>";
 }
 ?>

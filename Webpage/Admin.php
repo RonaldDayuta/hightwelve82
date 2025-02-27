@@ -47,7 +47,7 @@ $id = $_SESSION['admin_id'];
                     src="../Information/Lodge Logo.png"
                     alt="Logo"
                     class="navbar-logo" />
-                <h2 class="mb-0 ms-2">HIGHTWELVE82</h2>
+                <h2 class="mb-0 ms-2">HIGH TWELVE LODGE NO.82</h2>
             </div>
 
             <!-- Navbar Toggle Button for Mobile -->

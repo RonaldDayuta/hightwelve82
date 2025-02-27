@@ -740,3 +740,11 @@ span {
     padding-left: 1.5rem;
   }
 }
+
+.see-more-btn {
+  font-weight: bold;
+  color: blue;
+  display: block; /* Para nasa ibaba */
+  margin-top: 5px;
+  cursor: pointer;
+}
