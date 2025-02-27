@@ -72,13 +72,53 @@ $(document).ready(function () {
     type: "GET",
     dataType: "json",
     success: function (data) {
-      $("#news_h3").text(data.title);
-      $("#news_span").text(data.event_date);
-      $("#news_p").text(data.description);
+      let newsList = "";
+
+      if (Array.isArray(data) && data.length > 0) {
+        data.forEach(news => {
+          let fullText = news.description.replace(/\n/g, "<br>");
+          let shortText = fullText.length > 100 ? fullText.substring(0, 100) + "..." : fullText;
+          newsList += `
+                    <div class="event-information">
+                        <h3>${news.title}</h3>
+                        <span>${news.event_date}</span>
+                        <p class="news-description" data-full="${fullText}">
+                            ${shortText}
+                            ${fullText.length > 100 ? '<br><span class="see-more1" style="cursor: pointer;">See More</span>' : ''}
+                        </p>
+                    </div>
+                    <hr/>
+                `;
+        });
+      } else {
+        newsList = `
+                <div class="event-information">
+                    <h3>No News</h3>
+                    <p>No Latest available.</p>
+                </div>
+            `;
+      }
+      $(".cards-events:eq(0)").html(`
+            <h3>Latest News</h3>
+            ${newsList}
+        `); // **Replaces the entire events section**
     },
     error: function (xhr, status, error) {
-      console.error("Error fetching event:", error);
+      console.error("Error fetching events:", error);
     },
+  });
+
+  // Attach the "See More / See Less" click event
+  $(document).on("click", ".see-more1", function () {
+    let parent = $(this).closest(".news-description");
+    let fullText = parent.data("full");
+
+    if ($(this).text() === "See More") {
+      parent.html(fullText + '<br><span class="see-more1" style="cursor: pointer;"><strong>See Less</strong></span>');
+    } else {
+      let shortText = fullText.substring(0, 100) + "...";
+      parent.html(shortText + '<br><span class="see-more1" style="cursor: pointer;"><strong>See More</strong></span>');
+    }
   });
 
   $.ajax({
@@ -86,46 +126,113 @@ $(document).ready(function () {
     type: "GET",
     dataType: "json",
     success: function (data) {
-      $("#event_h3").text(data.title);
-      $("#event_span").text(data.event_date);
-      $("#event_p").text(data.description);
+      let eventList = "";
+
+      if (Array.isArray(data) && data.length > 0) {
+        data.forEach((event) => {
+          let fullText = event.description.replace(/\n/g, "<br>");
+          let shortText = fullText.length > 100 ? fullText.substring(0, 100) + "..." : fullText;
+
+          eventList += `
+                    <div class="event-information">
+                        <h3>${event.title}</h3>
+                        <span>${event.event_date}</span>
+                        <p class="event-description" data-full="${fullText}">
+                            ${shortText}
+                            ${fullText.length > 100 ? '<br><span class="see-more2" style="cursor: pointer;"><strong>See More</strong></span>' : ''}
+                        </p>
+                    </div>
+                    <hr />
+                `;
+        });
+      } else {
+        eventList = `
+                <div class="event-information">
+                    <h3>No Events</h3>
+                    <p>No events available.</p>
+                </div>
+            `;
+      }
+
+      $(".cards-events:eq(1)").html(`
+            <h3>Latest Events</h3>
+            ${eventList}
+        `);
     },
     error: function (xhr, status, error) {
-      console.error("Error fetching event:", error);
+      console.error("Error fetching events:", error);
     },
   });
 
+  // Attach the "See More / See Less" click event
+  $(document).on("click", ".see-more2", function () {
+    let parent = $(this).closest(".event-description");
+    let fullText = parent.data("full");
+
+    if ($(this).text() === "See More") {
+      parent.html(fullText + '<br><span class="see-more2" style="cursor: pointer;"><strong>See Less</strong></span>');
+    } else {
+      let shortText = fullText.substring(0, 100) + "...";
+      parent.html(shortText + '<br><span class="see-more2" style="cursor: pointer;"><strong>See More</strong></span>');
+    }
+  });
+
   $.ajax({
-    url: "../php/fetchmeetingforadmin.php", // Adjust path
+    url: "../php/fetchmeetingforadmin.php",
     type: "GET",
     dataType: "json",
     success: function (data) {
-      if (data.length > 0) {
-        let meetingsHTML = "";
-        data.forEach(function (meeting) {
-          meetingsHTML += `
-              <div class="meetingalign">
-                <div class="meetinginfo">
-                  <img src="${meeting.image}" />
-                  <div class="information">
-                    <span>${meeting.title}</span>
-                    <span>${meeting.event_date}</span>
-                    <p>${meeting.description}</p>
-                  </div>
-                </div>
-              </div>
-            `;
-        });
+      let meetingsList = "";
 
-        $("#meeting-cards").html(meetingsHTML); // Append meetings
+      if (Array.isArray(data) && data.length > 0) {
+        data.forEach(meeting => {
+          let fullText = meeting.description.replace(/\n/g, "<br>");
+          let shortText = fullText.length > 100 ? fullText.substring(0, 100) + "..." : fullText;
+
+          meetingsList += `
+                    <div class="meetingalign">
+                        <div class="meetinginfo">
+                            <img src="${meeting.image}" alt="Meeting Image" />
+                            <div class="information">
+                                <span>${meeting.title}</span>
+                                <span>${meeting.event_date}</span>
+                                <p class="meeting-description" data-full="${fullText}" data-short="${shortText}">
+                                    ${shortText}
+                                    ${fullText.length > 100 ? '<br><span class="see-more3" style="cursor: pointer;">See More</span>' : ''}
+                                </p>
+                            </div>
+                            <hr/>
+                        </div>
+                    </div>
+                `;
+        });
       } else {
-        $("#meeting-cards").html("<p>No meetings available.</p>");
+        meetingsList = `
+                <div class="meetingalign">
+                    <h3>No Meetings</h3>
+                    <p>No meetings available.</p>
+                </div>
+            `;
       }
+
+      $("#meeting-cards").html(meetingsList);
     },
     error: function (xhr, status, error) {
       console.error("Error fetching meetings:", error);
-      console.log("Server Response:", xhr.responseText);
     },
+  });
+
+  // "See More / See Less" functionality
+  $(document).on("click", ".see-more3", function () {
+    let parent = $(this).closest(".meeting-description");
+    let fullText = parent.data("full");
+    let shortText = parent.data("short");
+
+    if ($(this).text() === "See More") {
+      parent.html(fullText + '<br><span class="see-more3" style="cursor: pointer;">See Less</span>');
+    } else {
+      parent.html(shortText + '<br><span class="see-more3" style="cursor: pointer;">See More</span>');
+    }
   });
 
   $.ajax({

@@ -42,7 +42,7 @@ $(document).ready(function () {
                 </div>
                 <p class="post-description" data-full="${fullDescription}">
                   ${shortDescription} 
-                  ${fullDescription.length > 100 ? '<span class="see-more">See More</span>' : ""}
+                  ${fullDescription.length > 100 ? '<span class="see-more4" style="cursor: pointer;">See More</span>' : ""}
                 </p>
                 <div class="post-images">${imagesHTML}</div>
                 <div class="buttons-post">
@@ -70,15 +70,15 @@ $(document).ready(function () {
     });
 
     // Event delegation for "See More" and "See Less"
-    $(document).on("click", ".see-more", function () {
+    $(document).on("click", ".see-more4", function () {
       let parent = $(this).closest(".post-description");
       let fullText = parent.data("full");
 
       if ($(this).text() === "See More") {
-        parent.html(fullText + '<br><span class="see-more"><strong>See Less</strong></span>');
+        parent.html(fullText + '<br><span class="see-more4" style="cursor: pointer;"><strong>See Less</strong></span>');
       } else {
         let shortText = fullText.substring(0, 100) + "...";
-        parent.html(shortText + '<br><span class="see-more"><strong>See More</strong></span>');
+        parent.html(shortText + '<br><span class="see-more4" style="cursor: pointer;"><strong>See More</strong></span>');
       }      
     });
 

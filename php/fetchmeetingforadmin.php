@@ -12,8 +12,7 @@ $next5Days = date('Y-m-d', strtotime('+5 days'));
 // Query to get meetings scheduled from today to the next 5 days
 $sql = "SELECT title, event_date, description, image FROM tblevents 
         WHERE category = 'meeting' AND event_date BETWEEN ? AND ? 
-        ORDER BY event_date ASC
-        LIMIT 2";
+        ORDER BY event_date ASC";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ss", $today, $next5Days);
