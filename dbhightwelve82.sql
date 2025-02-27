@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2025 at 05:59 PM
+-- Generation Time: Feb 27, 2025 at 03:04 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -94,7 +94,19 @@ CREATE TABLE `tblevents` (
 INSERT INTO `tblevents` (`id`, `event_date`, `title`, `description`, `category`, `post_category`, `priority_category`, `image`) VALUES
 (13, '2025-02-23', 'test', 'test', 'events', 'both', 'less-priority', ''),
 (17, '2025-02-28', 'TEST', 'TEST', 'events', 'both', 'top-priority', '../uploads/event_67bf3dd1d2c258.40884181.jpg'),
-(18, '2025-02-28', 'ASD', 'ASD', 'events', 'both', 'less-priority', '../uploads/event_67bf3e1b09a665.63656694.jpg');
+(18, '2025-02-28', 'ASD', 'ASD', 'events', 'both', 'less-priority', '../uploads/event_67bf3e1b09a665.63656694.jpg'),
+(19, '2025-03-01', 'Outreach Program', '📅 Date: February 28, 2025\n📍 Location: [Venue/Community Name]\n⏰ Time: [Start Time – End Time]\n\nWe are thrilled to share that our Outreach Program held on February 28, 2025, was a great success! 🎉 Through the collective efforts of our volunteers and donors, we were able to extend support to [beneficiaries], providing [e.g., food, school supplies, medical assistance, educational activities].\n\n🤝 Thank You!\nA heartfelt thank you to everyone who participated, donated, and supported this initiative. Your kindness and generosity made a meaningful impact on the lives of those in need.\n\nLet’s continue working together to create positive change! Stay tuned for our next outreach activity.\n\n#OutreachProgram #CommunityService #MakingADifference #ThankYou', 'events', 'both', 'top-priority', '../uploads/event_67bfe88990eff5.56758226.jpg'),
+(21, '2025-02-27', 'dasda', 'asdasd', 'events', 'both', 'top-priority', '../uploads/event_67c01cfb33b162.75436898.jpg'),
+(22, '2025-02-27', 'asdad', 'asdad', 'events', 'internal', 'top-priority', ''),
+(23, '2025-02-27', 'test news', 'test news', 'news-today', 'both', 'top-priority', ''),
+(24, '2025-02-27', 'test news', 'test news', 'news-today', 'both', 'top-priority', ''),
+(25, '2025-02-28', 'test news', 'test news', 'news-today', 'both', 'top-priority', ''),
+(26, '2025-03-01', 'test news', '📅 Date: February 28, 2025\r\n📍 Location: [Venue/Community Name]\r\n⏰ Time: [Start Time – End Time]\r\n\r\nWe are thrilled to share that our Outreach Program held on February 28, 2025, was a great success! 🎉 Through the collective efforts of our volunteers and donors, we were able to extend support to [beneficiaries], providing [e.g., food, school supplies, medical assistance, educational activities].\r\n\r\n🤝 Thank You!\r\nA heartfelt thank you to everyone who participated, donated, and supported this initiative. Your kindness and generosity made a meaningful impact on the lives of those in need.\r\n\r\nLet’s continue working together to create positive change! Stay tuned for our next outreach activity.\r\n\r\n#OutreachProgram #CommunityService #MakingADifference #ThankYou', 'news-today', 'internal', 'top-priority', '../uploads/event_67c069a8f0c965.74934850.jpg'),
+(27, '2025-03-10', 'test news', 'test news', 'news-today', 'both', 'top-priority', ''),
+(28, '2025-02-27', 'test meeting', '📅 Date: February 28, 2025\r\n📍 Location: [Venue/Community Name]\r\n⏰ Time: [Start Time – End Time]\r\n\r\nWe are thrilled to share that our Outreach Program held on February 28, 2025, was a great success! 🎉 Through the collective efforts of our volunteers and donors, we were able to extend support to [beneficiaries], providing [e.g., food, school supplies, medical assistance, educational activities].\r\n\r\n🤝 Thank You!\r\nA heartfelt thank you to everyone who participated, donated, and supported this initiative. Your kindness and generosity made a meaningful impact on the lives of those in need.\r\n\r\nLet’s continue working together to create positive change! Stay tuned for our next outreach activity.\r\n\r\n#OutreachProgram #CommunityService #MakingADifference #ThankYou', 'meeting', 'both', 'top-priority', '../uploads/event_67c04385062354.29349941.jpg'),
+(29, '2025-02-27', 'test meeting', 'test meeting', 'meeting', 'both', 'top-priority', '../uploads/event_67c043dea338b8.88324829.jpg'),
+(30, '2025-02-28', 'test meeting', 'test meeting', 'meeting', 'internal', 'top-priority', '../uploads/event_67c04438b68a12.33716481.jpg'),
+(31, '2025-03-01', 'test meeting', 'test meeting', 'meeting', 'both', 'top-priority', '../uploads/event_67c0445da3d929.72747787.jpg');
 
 -- --------------------------------------------------------
 
@@ -166,7 +178,7 @@ ALTER TABLE `tblaccounts`
 -- AUTO_INCREMENT for table `tblevents`
 --
 ALTER TABLE `tblevents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `tblofficers`
