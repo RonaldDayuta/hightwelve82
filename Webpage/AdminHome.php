@@ -104,30 +104,6 @@ $id = $_SESSION['admin_id'];
     .close-btn:hover {
         color: red;
     }
-
-    .buttons-post {
-        display: flex;
-        justify-content: end;
-        gap: 1rem;
-        padding: .5rem;
-    }
-
-    .buttons-post button {
-        border: none;
-        border-radius: .5rem;
-        padding: .3rem;
-        height: 2rem;
-    }
-
-    .buttons-post #update_post {
-        color: #6c9bcf;
-        background-color: #323639;
-    }
-
-    .buttons-post #delete_post {
-        color: #ff0060;
-        background-color: #323639;
-    }
 </style>
 
 <div class="home">
