@@ -32,7 +32,7 @@ if ($result->num_rows > 0) {
             <p class="post-description" data-full="<?php echo $fullDescription; ?>">
                 <?php echo $shortDescription; ?>
                 <?php if (strlen($fullDescription) > 100) { ?>
-                    <span class="see-more4" style="cursor: pointer;"><br/>See More</span>
+                    <span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>
                 <?php } ?>
             </p>
             <img src="<?php echo htmlspecialchars($row['image']); ?>">

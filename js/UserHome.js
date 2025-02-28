@@ -42,17 +42,9 @@ $(document).ready(function () {
                 </div>
                 <p class="post-description" data-full="${fullDescription}">
                   ${shortDescription} 
-                  ${fullDescription.length > 100 ? '<span class="see-more4" style="cursor: pointer;">See More</span>' : ""}
+                  ${fullDescription.length > 100 ? '<span class="see-more4" style="cursor: pointer;  color: #6c9bcf;">See More</span>' : ""}
                 </p>
                 <div class="post-images">${imagesHTML}</div>
-                <div class="buttons-post">
-                  <button data-bs-toggle="modal" data-bs-target="#editpost" id="update_post" data-id="${post.ID}" data-des="${post.description}">
-                    <span class="material-icons-outlined">edit</span>
-                  </button>
-                  <button id="delete_post" data-images="${post.post_image}" data-id="${post.ID}">
-                    <span class="material-icons-outlined">delete</span>
-                  </button>
-                </div>
             </div>
     
             <!-- Modal for showing all images -->
@@ -75,10 +67,10 @@ $(document).ready(function () {
       let fullText = parent.data("full");
 
       if ($(this).text() === "See More") {
-        parent.html(fullText + '<br><span class="see-more4" style="cursor: pointer;"><strong>See Less</strong></span>');
+        parent.html(fullText + '<br><span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See Less</span>');
       } else {
         let shortText = fullText.substring(0, 100) + "...";
-        parent.html(shortText + '<br><span class="see-more4" style="cursor: pointer;"><strong>See More</strong></span>');
+        parent.html(shortText + '<span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>');
       }      
     });
 
