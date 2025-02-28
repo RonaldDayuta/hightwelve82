@@ -42,7 +42,7 @@ $(document).ready(function () {
                 </div>
                 <p class="post-description" data-full="${fullDescription}">
                   ${shortDescription} 
-                  ${fullDescription.length > 100 ? '<span class="see-more4" style="cursor: pointer;">See More</span>' : ""}
+                  ${fullDescription.length > 100 ? '<span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>' : ""}
                 </p>
                 <div class="post-images">${imagesHTML}</div>
                 <div class="buttons-post">
@@ -75,10 +75,10 @@ $(document).ready(function () {
       let fullText = parent.data("full");
 
       if ($(this).text() === "See More") {
-        parent.html(fullText + '<br><span class="see-more4" style="cursor: pointer;"><strong>See Less</strong></span>');
+        parent.html(fullText + '<span class="see-more4" style="cursor: pointer; color: #6c9bcf;"><br/>See Less</span>');
       } else {
         let shortText = fullText.substring(0, 100) + "...";
-        parent.html(shortText + '<br><span class="see-more4" style="cursor: pointer;"><strong>See More</strong></span>');
+        parent.html(shortText + '<span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>');
       }      
     });
 

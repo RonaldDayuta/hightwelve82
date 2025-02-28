@@ -20,15 +20,22 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
+        // Convert newlines to <br>
+        $fullDescription = nl2br(htmlspecialchars($row['description']));
+        
+        // Create short description (first 100 chars)
+        $shortDescription = strlen($fullDescription) > 100 ? substr($fullDescription, 0, 100) . "..." : $fullDescription;
 ?>
-
         <div class="events-card">
             <img src="<?php echo htmlspecialchars($row['image']); ?>" alt="" />
-            <div class="description">
+            <div class="event-description">
                 <h3><?php echo htmlspecialchars($row['title']); ?></h3>
                 <span><?php echo htmlspecialchars($row['event_date']); ?></span>
-                <p>
-                    <?php echo htmlspecialchars($row['description']); ?>
+                <p class="event-text" data-full="<?php echo htmlspecialchars($fullDescription, ENT_QUOTES, 'UTF-8'); ?>">
+                    <?php echo $shortDescription; ?>
+                    <?php if (strlen($fullDescription) > 100) { ?>
+                        <span class="see-more-btn1" style="cursor: pointer; color: #6c9bcf;">See More</span>
+                    <?php } ?>
                 </p>
             </div>
         </div>
