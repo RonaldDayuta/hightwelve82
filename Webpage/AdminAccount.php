@@ -176,13 +176,13 @@
                     <div class="mb-3">
                         <label for="update-password" class="form-label">Password</label>
                         <div class="input-group">
-                        <input
-                            type="password"
-                            id="update-password"
-                            name="update-password"
-                            class="form-control"
-                            placeholder="Password" />
-                        <button class="btn btn-outline-secondary toggle-password" type="button"><i class="fa fa-eye"></i></button>
+                            <input
+                                type="password"
+                                id="update-password"
+                                name="update-password"
+                                class="form-control"
+                                placeholder="Password" />
+                            <button class="btn btn-outline-secondary toggle-password" type="button"><i class="fa fa-eye"></i></button>
                         </div>
                     </div>
                     <div class="mb-3">
