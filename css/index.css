@@ -80,7 +80,7 @@ p {
       rgba(0, 0, 0, 0.5) 60%,
       rgba(0, 0, 0, 0) 90%
     ),
-    url("../Information/masonic_symbol_rotating_hw.gif"); /* Replace with your image */
+    url("../Information/New Project.png"); /* Replace with your image */
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -209,7 +209,7 @@ p {
       rgba(0, 0, 0, 0.5) 80%,
       rgba(0, 0, 0, 0) 90%
     ),
-    url("../Information/199889_10150131354236591_706426590_6415664_3324669_n.jpg"); /* Replace with your image */
+    url("../Information/Lodge Logo.png"); /* Replace with your image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -331,6 +331,10 @@ p {
 
 .content-events h3 {
   font-weight: 900;
+}
+
+.content-events span {
+  color: var(--color-white) !important;
 }
 
 .content-events .event-list {

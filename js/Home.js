@@ -26,8 +26,9 @@ $(document).ready(function () {
             });
 
             if (imagesArray.length > 1) {
-              imagesHTML += `<div class="more-images-btn" data-index="${index}">+${imagesArray.length - 1
-                } More</div>`;
+              imagesHTML += `<div class="more-images-btn" data-index="${index}">+${
+                imagesArray.length - 1
+              } More</div>`;
             }
           }
 
@@ -36,23 +37,37 @@ $(document).ready(function () {
                 <div class="profile-post">
                     <img src="${post.profile}"/>
                     <div class="name-dateposted">
+                      <div>
                         <h3>${post.Username}</h3>
                         <span>${post.date}</span>
+                      </div>
+                      <div style="display:flex; gap: 1rem;">
+                        <span data-bs-toggle="modal" data-bs-target="#editpost" id="update_post" data-id="${
+                          post.ID
+                        }" data-des="${
+            post.description
+          }" class="material-icons-outlined btn-update-post">
+                          update
+                        </span>
+                        <span id="delete_post" data-images="${
+                          post.post_image
+                        }" data-id="${
+            post.ID
+          }" class="material-icons-outlined btn-delete-post">
+                          clear
+                        </span>
+                      </div> 
                     </div>
                 </div>
                 <p class="post-description" data-full="${fullDescription}">
                   ${shortDescription} 
-                  ${fullDescription.length > 100 ? '<span class="see-more4" style="cursor: pointer;">See More</span>' : ""}
+                  ${
+                    fullDescription.length > 100
+                      ? '<span class="see-more4" style="cursor: pointer;">See More</span>'
+                      : ""
+                  }
                 </p>
                 <div class="post-images">${imagesHTML}</div>
-                <div class="buttons-post">
-                  <button data-bs-toggle="modal" data-bs-target="#editpost" id="update_post" data-id="${post.ID}" data-des="${post.description}">
-                    <span class="material-icons-outlined">edit</span>
-                  </button>
-                  <button id="delete_post" data-images="${post.post_image}" data-id="${post.ID}">
-                    <span class="material-icons-outlined">delete</span>
-                  </button>
-                </div>
             </div>
     
             <!-- Modal for showing all images -->
@@ -75,11 +90,17 @@ $(document).ready(function () {
       let fullText = parent.data("full");
 
       if ($(this).text() === "See More") {
-        parent.html(fullText + '<br><span class="see-more4" style="cursor: pointer;"><strong>See Less</strong></span>');
+        parent.html(
+          fullText +
+            '<br><span class="see-more4" style="cursor: pointer;"><strong>See Less</strong></span>'
+        );
       } else {
         let shortText = fullText.substring(0, 100) + "...";
-        parent.html(shortText + '<br><span class="see-more4" style="cursor: pointer;"><strong>See More</strong></span>');
-      }      
+        parent.html(
+          shortText +
+            '<br><span class="see-more4" style="cursor: pointer;"><strong>See More</strong></span>'
+        );
+      }
     });
 
     $(document).on("click", ".more-images-btn", function () {
@@ -262,6 +283,9 @@ $(document).ready(function () {
             icon: "error",
             confirmButtonText: "OK",
           });
+          spinner.hide();
+          buttonText.text("Post");
+          addButton.prop("disabled", false);
         }
       },
       error: function () {
