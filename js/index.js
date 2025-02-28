@@ -233,7 +233,7 @@ $(document).ready(function () {
               </div>
               <p class="post-description" data-full="${fullDescription}">
                 ${shortDescription} 
-                ${fullDescription.length > 100 ? '<span class="see-more">See More</span>' : ""}
+                ${fullDescription.length > 100 ? '<span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>' : ""}
               </p>
               <div class="post-images">${imagesHTML}</div>
           </div>
@@ -253,16 +253,16 @@ $(document).ready(function () {
   });
 
   // Event delegation for "See More" and "See Less"
-  $(document).on("click", ".see-more", function () {
+  $(document).on("click", ".see-more4", function () {
     let parent = $(this).closest(".post-description");
     let fullText = parent.data("full");
 
     if ($(this).text() === "See More") {
-      parent.html(fullText + ' <span class="see-more text-white"><br><strong>See Less</strong></br></span>');
+      parent.html(fullText + ' <span class="see-more4" style="cursor: pointer; color: #6c9bcf;"><br>See Less</br></span>');
     } else {
       let shortText = fullText.substring(0, 100) + "...";
-      parent.html(shortText + ' <span class="see-more text-white"><br><strong>See More</strong></br></span>');
-    } 
+      parent.html(shortText + ' <span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>');
+    }
   });
 
   $(document).on("click", ".more-images-btn", function () {
@@ -280,16 +280,28 @@ $(document).ready(function () {
 
   document.querySelectorAll(".toggle-password").forEach(button => {
     button.addEventListener("click", function () {
-        let input = this.previousElementSibling;
-        let icon = this.querySelector("i");
-  
-        if (input.type === "password") {
-            input.type = "text";
-            icon.classList.replace("fa-eye", "fa-eye-slash");
-        } else {
-            input.type = "password";
-            icon.classList.replace("fa-eye-slash", "fa-eye");
-        }
+      let input = this.previousElementSibling;
+      let icon = this.querySelector("i");
+
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.replace("fa-eye", "fa-eye-slash");
+      } else {
+        input.type = "password";
+        icon.classList.replace("fa-eye-slash", "fa-eye");
+      }
     });
+  });
+  //See more and See Less eventListener 
+  $(document).on("click", ".see-more-btn1", function () {
+    let parent = $(this).closest(".event-text");
+    let fullText = parent.attr("data-full");
+
+    if ($(this).text() === "See More") {
+      parent.html(fullText + ' <span class="see-more-btn1" style="cursor: pointer; color: #6c9bcf;"><br/>See Less</span>');
+    } else {
+      let shortText = fullText.substring(0, 100) + "...";
+      parent.html(shortText + ' <span class="see-more-btn1" style="cursor: pointer; color: #6c9bcf;">See More</span>');
+    }
   });
 });

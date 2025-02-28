@@ -63,7 +63,7 @@ $(document).ready(function () {
                   ${shortDescription} 
                   ${
                     fullDescription.length > 100
-                      ? '<span class="see-more4" style="cursor: pointer;">See More</span>'
+                      ? '<span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>'
                       : ""
                   }
                 </p>
