@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         // Convert newlines to <br>
         $fullDescription = nl2br(htmlspecialchars($row['description']));
-        
+
         // Create short description (first 100 chars)
         $shortDescription = strlen($fullDescription) > 100 ? substr($fullDescription, 0, 100) . "..." : $fullDescription;
 ?>

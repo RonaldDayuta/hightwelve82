@@ -226,17 +226,17 @@ $(document).ready(function () {
   });
 });
 
-document.querySelectorAll(".toggle-password").forEach(button => {
+document.querySelectorAll(".toggle-password").forEach((button) => {
   button.addEventListener("click", function () {
-      let input = this.previousElementSibling;
-      let icon = this.querySelector("i");
+    let input = this.previousElementSibling;
+    let icon = this.querySelector("i");
 
-      if (input.type === "password") {
-          input.type = "text";
-          icon.classList.replace("fa-eye", "fa-eye-slash");
-      } else {
-          input.type = "password";
-          icon.classList.replace("fa-eye-slash", "fa-eye");
-      }
+    if (input.type === "password") {
+      input.type = "text";
+      icon.classList.replace("fa-eye", "fa-eye-slash");
+    } else {
+      input.type = "password";
+      icon.classList.replace("fa-eye-slash", "fa-eye");
+    }
   });
 });

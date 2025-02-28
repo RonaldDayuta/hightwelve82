@@ -26,8 +26,9 @@ $(document).ready(function () {
             });
 
             if (imagesArray.length > 1) {
-              imagesHTML += `<div class="more-images-btn" data-index="${index}">+${imagesArray.length - 1
-                } More</div>`;
+              imagesHTML += `<div class="more-images-btn" data-index="${index}">+${
+                imagesArray.length - 1
+              } More</div>`;
             }
           }
 
@@ -42,7 +43,11 @@ $(document).ready(function () {
                 </div>
                 <p class="post-description" data-full="${fullDescription}">
                   ${shortDescription} 
-                  ${fullDescription.length > 100 ? '<span class="see-more4" style="cursor: pointer;  color: #6c9bcf;">See More</span>' : ""}
+                  ${
+                    fullDescription.length > 100
+                      ? '<span class="see-more4" style="cursor: pointer;  color: #6c9bcf;">See More</span>'
+                      : ""
+                  }
                 </p>
                 <div class="post-images">${imagesHTML}</div>
             </div>
@@ -67,11 +72,17 @@ $(document).ready(function () {
       let fullText = parent.data("full");
 
       if ($(this).text() === "See More") {
-        parent.html(fullText + '<br><span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See Less</span>');
+        parent.html(
+          fullText +
+            '<br><span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See Less</span>'
+        );
       } else {
         let shortText = fullText.substring(0, 100) + "...";
-        parent.html(shortText + '<span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>');
-      }      
+        parent.html(
+          shortText +
+            '<span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+        );
+      }
     });
 
     $(document).on("click", ".more-images-btn", function () {
