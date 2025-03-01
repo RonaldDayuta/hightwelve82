@@ -110,7 +110,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="editOfficerImage" class="form-label">Change Officer Image</label>
-                        <input type="file" id="editOfficerImage" name="officerImage" class="form-control" accept="image/*">
+                        <input type="file" accept=".jpeg, .png, .gif, .jpg" id="editOfficerImage" name="officerImage" class="form-control" accept="image/*">
                         <small class="text-muted">Leave blank to keep the current image.</small>
                     </div>
                     <div class="modal-footer">
