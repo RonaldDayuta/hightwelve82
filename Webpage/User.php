@@ -220,7 +220,7 @@ $id = $_SESSION['user_id'];
                         <input type="text" name="id" value="<?php echo $id ?>" hidden>
                         <div class="mb-3">
                             <label class="form-label">Profile Image (Leave if you don't want to change)</label>
-                            <input type="file" class="form-control" name="image">
+                            <input type="file" accept=".jpeg, .png, .gif, .jpg" class="form-control" name="image">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Username</label>
