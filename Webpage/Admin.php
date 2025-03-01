@@ -27,45 +27,29 @@ $id = $_SESSION['admin_id'];
     <link rel="stylesheet" href="../css/indexwithcms.css" />
     <title>High Twelve Lodge No.82</title>
     <link rel="icon" type="image/x-icon" href="../Information/Lodge Logo.ico">
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg w-100 px-3">
-        <div
-            class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
             <!-- Logo & Title -->
             <div class="d-flex align-items-center">
-                <img
-                    src="../Information/Lodge Logo.png"
-                    alt="Logo"
-                    class="navbar-logo"/>
+                <img src="../Information/Lodge Logo.png" alt="Logo" class="navbar-logo" />
                 <h2 class="mb-0 ms-2">HIGH TWELVE LODGE NO.82</h2>
             </div>
 
             <!-- Navbar Toggle Button for Mobile -->
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Navigation Links -->
-            <div
-                class="collapse navbar-collapse justify-content-end"
-                id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a id="Home" class="nav-link" aria-current="page" href="#">
@@ -80,13 +64,8 @@ $id = $_SESSION['admin_id'];
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a
-                            class="nav-link dropdown-toggle"
-                            data-bs-toggle="dropdown"
-                            href="#"
-                            role="button"
-                            aria-expanded="false"
-                            id="eventnav">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-expanded="false" id="eventnav">
                             <span class="material-icons-outlined">
                                 event
                             </span>Events</a>
@@ -204,11 +183,7 @@ $id = $_SESSION['admin_id'];
                         <div class="search-acc">
                             <h3>Members</h3>
                             <form class="d-flex" role="search">
-                                <input
-                                    id="search-member"
-                                    class="form-control me-2"
-                                    type="text"
-                                    placeholder="Search"
+                                <input id="search-member" class="form-control me-2" type="text" placeholder="Search"
                                     aria-label="Search" />
                             </form>
                         </div>
@@ -221,7 +196,8 @@ $id = $_SESSION['admin_id'];
         </div>
     </div>
 
-    <div class="modal fade" id="manageaccoutmodal" tabindex="-1" aria-labelledby="manageaccoutmodalLabel" aria-hidden="true">
+    <div class="modal fade" id="manageaccoutmodal" tabindex="-1" aria-labelledby="manageaccoutmodalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -259,7 +235,8 @@ $id = $_SESSION['admin_id'];
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">
                                 <span id="edit-button-text">Update Account</span>
-                                <div id="edit-spinner" class="spinner-border spinner-border-sm" role="status" style="display: none;"></div>
+                                <div id="edit-spinner" class="spinner-border spinner-border-sm" role="status"
+                                    style="display: none;"></div>
                             </button>
                         </div>
                     </form>
