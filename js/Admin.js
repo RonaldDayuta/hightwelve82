@@ -237,7 +237,7 @@ $(document).ready(function () {
                                 <span>${meeting.event_date}</span>
                                 <p class="meeting-description" data-full="${fullText}" data-short="${shortText}">
                                     ${shortText}
-                                    ${fullText.length > 100 ? '<br><span class="see-more3" style="cursor: pointer;  color: #6c9bcf;">See More</span>' : ''}
+                                    ${fullText.length > 100 ? '<br><span class="see-more3" style="cursor: pointer;  color: #6c9bcf;"><br/>See More</span>' : ''}
                                 </p>
                             </div>
                             <hr/>
