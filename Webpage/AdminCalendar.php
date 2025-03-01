@@ -202,7 +202,7 @@
                                 id="event-image"
                                 name="event-image"
                                 class="form-control"
-                                accept="image/*" />
+                                accept=".jpeg, .png, .gif, .jpg" />
                         </div>
                     </div>
                     <div class="modal-footer">
