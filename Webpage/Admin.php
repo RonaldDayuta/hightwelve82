@@ -46,7 +46,7 @@ $id = $_SESSION['admin_id'];
                 <img
                     src="../Information/Lodge Logo.png"
                     alt="Logo"
-                    class="navbar-logo" />
+                    class="navbar-logo"/>
                 <h2 class="mb-0 ms-2">HIGH TWELVE LODGE NO.82</h2>
             </div>
 
@@ -239,7 +239,7 @@ $id = $_SESSION['admin_id'];
                         <input type="text" name="id" value="<?php echo $id ?>" hidden>
                         <div class="mb-3">
                             <label class="form-label">Profile Image</label>
-                            <input type="file" class="form-control" name="image">
+                            <input type="file" accept=".jpeg, .png, .gif, .jpg" class="form-control" name="image">
                             <small class="text-muted">Leave empty if you don't want to change the image.</small>
                         </div>
                         <div class="mb-3">

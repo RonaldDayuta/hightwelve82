@@ -202,7 +202,7 @@
                                 id="event-image"
                                 name="event-image"
                                 class="form-control"
-                                accept="image/*" />
+                                accept=".jpeg, .png, .gif, .jpg" />
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -274,7 +274,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Upload New Image (Optional)</label>
-                        <input type="file" id="update-event-image" name="event-image" class="form-control" accept="image/*" />
+                        <input type="file" accept=".jpeg, .png, .gif, .jpg" id="update-event-image" name="event-image" class="form-control" accept="image/*" />
                         <small class="text-muted">Leave empty if you don't want to change the image.</small>
                     </div>
                 </div>
