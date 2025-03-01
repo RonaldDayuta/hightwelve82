@@ -2,9 +2,11 @@
 include('../dbconnect/conn.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    date_default_timezone_set("Asia/Manila"); // Set timezone to Philippine Time
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $profile_img = mysqli_real_escape_string($conn, $_POST['profile_img']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $post_time = date("Y-m-d H:i:s"); // Get current date and time in PHT
 
     $upload_dir = "../post/";
     $image_paths = [];
@@ -50,12 +52,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Store multiple images as a JSON string in the database
     $image_json = json_encode($image_paths);
 
-    $sql = "INSERT INTO cms (Username, profile, description, post_image) 
-            VALUES ('$username', '$profile_img', '$description', '$image_json')";
+    $sql = "INSERT INTO cms (Username, profile, description, post_image, date) 
+            VALUES ('$username', '$profile_img', '$description', '$image_json', '$post_time')";
 
     if (mysqli_query($conn, $sql)) {
-        echo json_encode(["success" => true, "message" => "Posted successfully!"]);
+        echo json_encode(["success" => true, "message" => "Posted successfully!", "timestamp" => $post_time]);
     } else {
         echo json_encode(["success" => false, "message" => "Database error: " . mysqli_error($conn)]);
     }
 }
+?>
