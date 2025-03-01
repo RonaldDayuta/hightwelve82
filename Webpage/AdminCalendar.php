@@ -1,55 +1,55 @@
 <style>
-    .calendar-container {
-        max-width: 900px;
-        margin: 20px auto;
-    }
+.calendar-container {
+    max-width: 900px;
+    margin: 20px auto;
+}
 
-    .calendars {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        gap: 5px;
-    }
+.calendars {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
 
-    .day {
-        padding: 15px;
-        text-align: center;
-        cursor: pointer;
-        background-color: #323639;
-        border: 1px solid #323639;
-        border-radius: 5px;
-        min-height: 50px;
-    }
+.day {
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #323639;
+    border: 1px solid #323639;
+    border-radius: 5px;
+    min-height: 50px;
+}
 
-    .day:hover {
-        background-color: #007bff;
-        color: white;
-    }
+.day:hover {
+    background-color: #007bff;
+    color: white;
+}
 
-    .header {
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 10px;
-    }
+.header {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
 
-    .empty {
-        visibility: hidden;
-    }
+.empty {
+    visibility: hidden;
+}
 
-    .current-day {
-        color: red !important;
-        font-weight: bold;
-    }
+.current-day {
+    color: red !important;
+    font-weight: bold;
+}
 
-    .text-center {
-        font-size: 1.5rem;
-        font-weight: 900;
-    }
+.text-center {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
 
-    .event-day {
-        background-color: #007bff !important;
-        color: white !important;
-        font-weight: bold;
-    }
+.event-day {
+    background-color: #007bff !important;
+    color: white !important;
+    font-weight: bold;
+}
 </style>
 <div class="calendar">
     <h3>Calendar</h3>
@@ -72,22 +72,14 @@
             <div class="calendars" id="calendar-body"></div>
         </div>
     </div>
-    <div
-        class="modal fade"
-        id="eventModal"
-        tabindex="-1"
-        aria-labelledby="eventModalLabel">
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="eventModalLabel">
                         Events on <span id="selected-date"></span>
                     </h5>
-                    <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <table class="table">
@@ -109,10 +101,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-primary" id="add-event-btn">Add Event</button>
-                    <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Close
                     </button>
                 </div>
@@ -120,53 +109,31 @@
         </div>
     </div>
 
-    <div
-        class="modal fade"
-        id="addEventModal"
-        tabindex="-1"
-        aria-labelledby="addEventModalLabel">
+    <div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">
                         Add Event on <span id="add-event-date"></span>
                     </h5>
-                    <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <form id="event-form">
                     <!-- Dito na inilagay ang form -->
                     <div class="modal-body">
                         <div class="mb-3">
                             <label class="form-label">Date</label>
-                            <input
-                                type="text"
-                                id="event-date"
-                                name="event-date"
-                                class="form-control"
-                                readonly />
+                            <input type="text" id="event-date" name="event-date" class="form-control" readonly />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Event Title</label>
-                            <input
-                                type="text"
-                                id="event-title"
-                                name="event-title"
-                                class="form-control"
-                                placeholder="Enter event title"
-                                required />
+                            <input type="text" id="event-title" name="event-title" class="form-control"
+                                placeholder="Enter event title" required />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Event Description</label>
-                            <textarea
-                                id="event-description"
-                                name="event-description"
-                                class="form-control"
-                                rows="3"
-                                placeholder="Enter event description"
-                                required></textarea>
+                            <textarea id="event-description" name="event-description" class="form-control" rows="3"
+                                placeholder="Enter event description" required></textarea>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Event Category</label>
@@ -197,25 +164,19 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Upload Image (Optional)</label>
-                            <input
-                                type="file"
-                                id="event-image"
-                                name="event-image"
-                                class="form-control"
+                            <input type="file" id="event-image" name="event-image" class="form-control"
                                 accept=".jpeg, .png, .gif, .jpg" />
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button id="add-events-btn" type="submit" class="btn btn-success">
                             <span id="button-text">Save Event</span>
-                            <div id="spinner" class="spinner-border spinner-border-sm" role="status" style="display: none;">
+                            <div id="spinner" class="spinner-border spinner-border-sm" role="status"
+                                style="display: none;">
                                 <span class="sr-only"></span>
                             </div>
                         </button>
-                        <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-bs-dismiss="modal">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                             Close
                         </button>
                     </div>
@@ -246,7 +207,8 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Event Description</label>
-                        <textarea id="update-event-description" name="event-description" class="form-control" rows="3" required></textarea>
+                        <textarea id="update-event-description" name="event-description" class="form-control" rows="3"
+                            required></textarea>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Event Category</label>
@@ -274,14 +236,16 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Upload New Image (Optional)</label>
-                        <input type="file" accept=".jpeg, .png, .gif, .jpg" id="update-event-image" name="event-image" class="form-control" accept="image/*" />
+                        <input type="file" accept=".jpeg, .png, .gif, .jpg" id="update-event-image" name="event-image"
+                            class="form-control" accept="image/*" />
                         <small class="text-muted">Leave empty if you don't want to change the image.</small>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button id="update-event-btn" type="submit" class="btn btn-success">
                         <span id="update-button-text">Update Event</span>
-                        <div id="update-spinner" class="spinner-border spinner-border-sm" role="status" style="display: none;">
+                        <div id="update-spinner" class="spinner-border spinner-border-sm" role="status"
+                            style="display: none;">
                         </div>
                     </button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
