@@ -7,10 +7,10 @@
   --color-danger: #ff0060;
   --color-success: #1b9c85;
   --color-warning: #f7d060;
-  --color-white: #fff;
-  --color-darknav: #323639;
-  --color-dark: #262729;
-  --color-background: #f6f6f9;
+  --color-white: #eeeeee;
+  --color-darknav: #31363f;
+  --color-dark: #222831;
+  --color-background: #31363f;
 
   --box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.3);
 }
@@ -127,8 +127,9 @@ nav h2 {
 }
 
 .active {
-  color: var(--color-primary) !important;
-  border-bottom: 2px solid var(--color-primary);
+  color: var(--color-white) !important;
+  background-color: var(--color-primary);
+  border-radius: 0.5rem;
 }
 
 .actives {
@@ -136,7 +137,7 @@ nav h2 {
 }
 
 .navbar-nav .nav-link:hover {
-  color: var(--color-primary) !important;
+  color: var(--color-white) !important;
 }
 
 .navbar-logo {
@@ -643,6 +644,10 @@ nav h2 {
   box-shadow: 0 0 0 2.5px var(--color-primary);
 }
 
+#updateAccountForm input {
+  text-align: center;
+}
+
 @media screen and (max-width: 1200px) {
   .row .colleft-side {
     display: none;
@@ -650,6 +655,10 @@ nav h2 {
 
   .row .colright-side {
     padding: 1rem;
+  }
+
+  nav h2 {
+    display: none;
   }
 }
 

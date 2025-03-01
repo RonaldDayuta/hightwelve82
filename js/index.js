@@ -1,3 +1,7 @@
+setTimeout(() => {
+  document.getElementById("loading-screen").style.display = "none";
+  document.getElementById("main-content").style.display = "block";
+}, 2000);
 $(document).ready(function () {
   $("#officers").removeClass("active").addClass("inactive");
   $("#Events").removeClass("active").addClass("inactive");
@@ -217,8 +221,9 @@ $(document).ready(function () {
           });
 
           if (imagesArray.length > 1) {
-            imagesHTML += `<div class="more-images-btn" data-index="${index}">+${imagesArray.length - 1
-              } More</div>`;
+            imagesHTML += `<div class="more-images-btn" data-index="${index}">+${
+              imagesArray.length - 1
+            } More</div>`;
           }
         }
 
@@ -233,7 +238,11 @@ $(document).ready(function () {
               </div>
               <p class="post-description" data-full="${fullDescription}">
                 ${shortDescription} 
-                ${fullDescription.length > 100 ? '<span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>' : ""}
+                ${
+                  fullDescription.length > 100
+                    ? '<span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+                    : ""
+                }
               </p>
               <div class="post-images">${imagesHTML}</div>
           </div>
@@ -258,10 +267,16 @@ $(document).ready(function () {
     let fullText = parent.data("full");
 
     if ($(this).text() === "See More") {
-      parent.html(fullText + ' <span class="see-more4" style="cursor: pointer; color: #6c9bcf;"><br>See Less</br></span>');
+      parent.html(
+        fullText +
+          ' <span class="see-more4" style="cursor: pointer; color: #6c9bcf;"><br>See Less</br></span>'
+      );
     } else {
       let shortText = fullText.substring(0, 100) + "...";
-      parent.html(shortText + ' <span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>');
+      parent.html(
+        shortText +
+          ' <span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+      );
     }
   });
 
@@ -278,7 +293,7 @@ $(document).ready(function () {
     $("body").css("overflow", "");
   });
 
-  document.querySelectorAll(".toggle-password").forEach(button => {
+  document.querySelectorAll(".toggle-password").forEach((button) => {
     button.addEventListener("click", function () {
       let input = this.previousElementSibling;
       let icon = this.querySelector("i");
@@ -292,16 +307,22 @@ $(document).ready(function () {
       }
     });
   });
-  //See more and See Less eventListener 
+  //See more and See Less eventListener
   $(document).on("click", ".see-more-btn1", function () {
     let parent = $(this).closest(".event-text");
     let fullText = parent.attr("data-full");
 
     if ($(this).text() === "See More") {
-      parent.html(fullText + ' <span class="see-more-btn1" style="cursor: pointer; color: #6c9bcf;"><br/>See Less</span>');
+      parent.html(
+        fullText +
+          ' <span class="see-more-btn1" style="cursor: pointer; color: #6c9bcf;"><br/>See Less</span>'
+      );
     } else {
       let shortText = fullText.substring(0, 100) + "...";
-      parent.html(shortText + ' <span class="see-more-btn1" style="cursor: pointer; color: #6c9bcf;">See More</span>');
+      parent.html(
+        shortText +
+          ' <span class="see-more-btn1" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+      );
     }
   });
 });
