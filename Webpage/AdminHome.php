@@ -146,7 +146,7 @@ $id = $_SESSION['admin_id'];
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Upload Image</label>
-                        <input type="file" class="form-control" name="images[]" multiple accept="image/*">
+                        <input type="file" accept=".jpeg, .png, .gif, .jpg" class="form-control" name="images[]" multiple accept="image/*">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -179,7 +179,7 @@ $id = $_SESSION['admin_id'];
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Upload New Images (Optional)</label>
-                        <input type="file" class="form-control" name="images[]" multiple accept="image/*">
+                        <input type="file" accept=".jpeg, .png, .gif, .jpg" class="form-control" name="images[]" multiple accept="image/*">
                         <small class="text-muted">Leave empty if you don't want to change the image.</small>
                     </div>
                 </div>
