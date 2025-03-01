@@ -40,6 +40,6 @@ if ($result->num_rows > 0) {
 <?php
     }
 } else {
-    echo "<p>No upcoming events found.</p>";
+    echo "<p>No upcoming news found.</p>";
 }
 ?>

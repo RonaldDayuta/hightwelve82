@@ -62,25 +62,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
-            $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve82');
+            $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve Lodge No.82');
             $mail->addAddress($email);
 
             $mail->isHTML(true);
             $mail->Subject = "Account Update Notification";
-            $mail->Body = "
-                <h3>Hello, $username</h3>
-                <p>Your account details have been updated successfully.</p>
-                <h4>🔹 Updated Information:</h4>
-                <ul>
-                    <li><strong>Email:</strong> $email</li>
-                    <li><strong>Username:</strong> $username</li>
-                    <li><strong>Password:</strong> $plainPassword</li>
-                    " . ($profilePath ? "<li><strong>Profile Picture:</strong> ✅ Updated</li>" : "") . "
-                </ul>
-                <p><strong>Note:</strong> If you did not request this update, please contact support immediately.</p>
-                <p>Best regards,<br><strong>High Twelve82</strong></p>
-            ";
+            $mail->AddEmbeddedImage('../Information/Lodge Logo.png', 'logo_cid');
+            $mail->Body = '
+                <div style="max-width: 600px; margin: auto; border-radius: 10px; overflow: hidden; 
+                            box-shadow: 0px 4px 10px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
+                    
+                    <!-- Banner Header with Logo -->
+                    <div style="background-color: #007BFF; color: white; padding: 20px; text-align: center;">
+                        <img src="cid:logo_cid" alt="Company Logo" style="max-width: 100px; margin-bottom: 10px;">
+                        <h2 style="margin: 0;">Account Update Notification</h2>
+                    </div>
 
+                    <!-- Account Update Details -->
+                    <div style="padding: 20px; background-color: #f9f9f9;">
+                        <h3 style="color: #007BFF;">Hello, ' . htmlspecialchars($username) . '</h3>
+                        <p>Your account details have been updated successfully.</p>
+
+                        <h4>🔹 Updated Information:</h4>
+                        <ul>
+                            <li><strong>Email:</strong> ' . htmlspecialchars($email) . '</li>
+                            <li><strong>Username:</strong> ' . htmlspecialchars($username) . '</li>
+                            <li><strong>Password:</strong> <span style="color: red;">' . htmlspecialchars($plainPassword) . '</span></li>
+                            ' . ($profilePath ? '<li><strong>Profile Picture:</strong> ✅ Updated</li>' : '') . '
+                        </ul>
+
+                        <p style="color: red;"><strong>Note:</strong> If you did not request this update, please <a href="mailto:support@yourwebsite.com" style="color: red; text-decoration: none;">contact support</a> immediately.</p>
+                    </div>
+
+                    <!-- Footer -->
+                    <div style="background-color: #007BFF; color: white; text-align: center; padding: 10px;">
+                        <p style="margin: 0;">Best regards,<br><strong>High Twelve Lodge No.82</strong></p>
+                    </div>
+                </div>';
             $mail->send();
             echo json_encode(["success" => true, "message" => "Your Account will LOGOUT to see the changes. Email sent successfully."]);
         } catch (Exception $e) {

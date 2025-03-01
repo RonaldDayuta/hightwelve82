@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <tr>
                 <td><?= $row['event_date']; ?></td>
                 <td><?= $row['title']; ?></td>
-                <td><?= $row['description']; ?></td>
+                <td><?= nl2br(htmlspecialchars($row['description'])); ?></td>
                 <td><?= $row['category']; ?></td>
                 <td>
                     <span class="material-icons-outlined btn-update" id="edit-event-btn" data-id="<?= $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#updateEventModal">

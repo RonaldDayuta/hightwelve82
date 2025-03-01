@@ -42,22 +42,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Port       = 587;
 
             // Recipients
-            $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve82');
+            $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve Lodge No.82');
             $mail->addAddress($email, $username); // Send email to updated account
 
             // Content
             $mail->isHTML(true);
             $mail->Subject = 'Account Updated';
-            $mail->Body    = "Dear $username,<br><br>
-                              Your account details have been successfully updated.<br><br>
-                              <b>Updated Information:</b><br>
-                              Email: $email<br>
-                              Username: $username<br>
-                              Position: $position<br>
-                              Status: $status<br><br>
-                              If you did not request this change, please contact support immediately.";
+            $mail->AddEmbeddedImage('../Information/Lodge Logo.png', 'logo_cid');
+            $mail->Body = '
+                <div style="max-width: 600px; margin: auto; border-radius: 10px; overflow: hidden; 
+                            box-shadow: 0px 4px 10px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
+                    
+                    <!-- Banner Header with Logo -->
+                    <div style="background-color: #007BFF; color: white; padding: 20px; text-align: center;">
+                        <img src="cid:logo_cid" alt="Company Logo" style="max-width: 100px; margin-bottom: 10px;">
+                        <h2 style="margin: 0;">Account Update Notification</h2>
+                    </div>
 
+                    <!-- Updated Account Details -->
+                    <div style="padding: 20px; background-color: #f9f9f9;">
+                        <h3 style="color: #007BFF; text-align: center;">Hello, ' . htmlspecialchars($username) . '!</h3>
+                        <p style="text-align: center;">Your account details have been successfully updated.</p>
+
+                        <div style="background-color: white; padding: 15px; border-radius: 5px; box-shadow: 0px 2px 5px rgba(0,0,0,0.1);">
+                            <p><b>Email:</b> ' . htmlspecialchars($email) . '</p>
+                            <p><b>Username:</b> ' . htmlspecialchars($username) . '</p>
+                            <p><b>Position:</b> ' . htmlspecialchars($position) . '</p>
+                            <p><b>Status:</b> ' . htmlspecialchars($status) . '</p>
+                        </div>
+
+                        <p style="color: red; text-align: center; margin-top: 20px;">
+                            If you did not request this change, please <a href="mailto:support@yourwebsite.com" style="color: red; text-decoration: none;">contact support</a> immediately.
+                        </p>
+                    </div>
+
+                    <!-- Footer -->
+                    <div style="background-color: #007BFF; color: white; text-align: center; padding: 10px;">
+                        <p style="margin: 0;">&copy; 2025 High Twelve Lodge No.82</p>
+                    </div>
+                </div>';
             $mail->send();
+
             echo json_encode(array('success' => 'Updated', 'message' => 'Updated Successfully and email sent'));
         } catch (Exception $e) {
             echo json_encode(array('success' => 'Updated', 'message' => 'Updated Successfully but email failed: ' . $mail->ErrorInfo));
