@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Ipasok sa database
     $stmt = $conn->prepare("INSERT INTO tblaccounts (Email, username, Password, WebPosition, Profile) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssi", $email, $username, $hashed_password, $position, $image_path);
+    $stmt->bind_param("sssss", $email, $username, $hashed_password, $position, $image_path);
 
     if ($stmt->execute()) {
         // Send email confirmation
@@ -109,12 +109,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $mail->isHTML(true);
             $mail->Subject = 'Account Registration Successful';
-            $mail->Body    = "<h3>Welcome!</h3><p>Your account has been successfully created.</p>
-                              <p><b>Email:</b> $email</p>
-                              <p><b>Username:</b> $username</p>
-                              <p><b>Password:</b> $password</p> <!-- Plaintext password -->
-                              <p>Login <a href='your-website-url.com/login'>here</a>.</p>";
+            // Attach the logo (Ensure the correct file path)
+            $mail->AddEmbeddedImage('../Information/Lodge Logo.png', 'logo_cid');
+            $mail->Body = '
+                <div style="max-width: 600px; margin: auto; border-radius: 10px; overflow: hidden; 
+                            box-shadow: 0px 4px 10px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
+                    
+                    <!-- Banner Header with Logo -->
+                    <div style="background-color: #007BFF; color: white; padding: 20px; text-align: center;">
+                        <img src="cid:logo_cid" alt="Company Logo" style="max-width: 100px; margin-bottom: 10px;">
+                        <h2 style="margin: 0;">Welcome to Our Platform!</h2>
+                    </div>
 
+                    <!-- Account Details -->
+                    <div style="padding: 20px; background-color: #f9f9f9;">
+                        <h3 style="color: #007BFF; text-align: center;">Your Account is Ready!</h3>
+                        <p style="text-align: center;">Thank you for joining us. Below are your account details:</p>
+
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr>
+                                <td style="padding: 10px; font-weight: bold;">Email:</td>
+                                <td style="padding: 10px;">' . htmlspecialchars($email) . '</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; font-weight: bold;">Username:</td>
+                                <td style="padding: 10px;">' . htmlspecialchars($username) . '</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; font-weight: bold;">Password:</td>
+                                <td style="padding: 10px;">' . htmlspecialchars($password) . '</td>
+                            </tr>
+                        </table>
+
+                        <p style="text-align: center; margin-top: 20px;">
+                            <a href="https://your-website-url.com/login" 
+                            style="background-color: #007BFF; color: white; padding: 10px 20px; text-decoration: none; 
+                                    border-radius: 5px; display: inline-block;">Login Now</a>
+                        </p>
+                    </div>
+
+                    <!-- Footer -->
+                    <div style="background-color: #007BFF; color: white; text-align: center; padding: 10px;">
+                        <p style="margin: 0;">&copy; 2025 High Twelve Lodge No.82</p>
+                    </div>
+                </div>';
             $mail->send();
             echo json_encode(["success" => true, "message" => "Account added successfully!"]);
         } catch (Exception $e) {

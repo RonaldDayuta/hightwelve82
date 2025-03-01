@@ -22,7 +22,7 @@
     <!-- Fixed Dark Navbar -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">HighTwelve82</a>
+            <a class="navbar-brand" href="#">High Twelve Lodge No.82</a>
             <button
                 class="navbar-toggler"
                 type="button"

@@ -47,17 +47,39 @@ if (isset($_POST['id'])) {
                 $mail->Port       = 587;
 
                 // Recipients
-                $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve82');
+                $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve Lodge No.82');
                 $mail->addAddress($email, $username); // Send email to the user
 
                 // Content
                 $mail->isHTML(true);
                 $mail->Subject = 'Account Deleted';
-                $mail->Body    = "Dear $username,<br><br>
-                                  Your account has been successfully deleted.<br><br>
-                                  If you did not request this change, please contact support immediately.<br><br>
-                                  Thank you for using our services.";
+                $mail->AddEmbeddedImage('../Information/Lodge Logo.png', 'logo_cid');
+                $mail->Body = '
+                    <div style="max-width: 600px; margin: auto; border-radius: 10px; overflow: hidden; 
+                                box-shadow: 0px 4px 10px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
+                        
+                        <!-- Banner Header with Logo -->
+                        <div style="background-color: #DC3545; color: white; padding: 20px; text-align: center;">
+                            <img src="cid:logo_cid" alt="Company Logo" style="max-width: 100px; margin-bottom: 10px;">
+                            <h2 style="margin: 0;">Account Deletion Notice</h2>
+                        </div>
 
+                        <!-- Deletion Confirmation Message -->
+                        <div style="padding: 20px; background-color: #f9f9f9; text-align: center;">
+                            <h3 style="color: #DC3545;">Dear ' . htmlspecialchars($username) . ',</h3>
+                            <p>Your account has been successfully <b>deleted</b>.</p>
+
+                            <p style="color: red; font-weight: bold;">If you did not request this change, please <a href="mailto:support@yourwebsite.com" style="color: red; text-decoration: none;">contact support</a> immediately.</p>
+
+                            <p style="margin-top: 20px;">Thank you for using our services.</p>
+                        </div>
+
+                        <!-- Footer -->
+                        <div style="background-color: #DC3545; color: white; text-align: center; padding: 10px;">
+                            <p style="margin: 0;">&copy; 2025 High Twelve Lodge No.82</p>
+                        </div>
+                    </div>';
+                $mail->send();
                 // Send email
                 $mail->send();
                 echo json_encode(array('success' => 'Delete', 'message' => 'Account deleted successfully, and email sent.'));
