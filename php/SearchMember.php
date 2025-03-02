@@ -5,10 +5,15 @@ $searchQuery = isset($_GET['search']) ? $_GET['search'] : "";
 $searchPattern = "%" . $searchQuery . "%"; // Wildcard for partial match
 
 $query = "SELECT * FROM tblaccounts 
-          WHERE is_hidden = 0 AND Username LIKE ?";
+          WHERE is_hidden = 0 
+          AND (Username LIKE ? 
+               OR first_name LIKE ? 
+               OR middle_name LIKE ? 
+               OR last_name LIKE ? 
+               OR suffix LIKE ?)";
 
 $stmt = $conn->prepare($query);
-$stmt->bind_param("s", $searchPattern);
+$stmt->bind_param("sssss", $searchPattern, $searchPattern, $searchPattern, $searchPattern, $searchPattern);
 $stmt->execute();
 $result = $stmt->get_result();
 
