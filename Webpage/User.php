@@ -10,6 +10,10 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Get session variables for displaying the profile
+$first_name = $_SESSION['user_first-name'];
+$middle_name = $_SESSION['user_middle-name'];
+$last_name = $_SESSION['user_last-name'];
+$suffix = $_SESSION['user_suffix'];
 $username = $_SESSION['user_username'];
 $profile = $_SESSION['user_image'];
 $email = $_SESSION['user_email'];
@@ -110,8 +114,29 @@ $id = $_SESSION['user_id'];
         <div class="row">
             <div class="colleft-side col-lg-3 col-md-12">
                 <div class="profile">
-                    <img src="<?php echo $profile ?>" alt="" />
-                    <span><?php echo $username ?></span>
+                    <img src="<?php echo $profile; ?>" alt="" />
+                    <span>
+                        <?php 
+                            // Bagong variable para sa display name lang
+                            $display_name = $_SESSION['user_first-name'];
+
+                            // Idagdag ang middle initial kung hindi ito NULL, empty, o "N/A"
+                            if (!empty($_SESSION['user_middle-name']) && $_SESSION['user_middle-name'] !== "N/A") {
+                                $display_name .= ' ' . substr($_SESSION['user_middle-name'], 0, 1) . '.';
+                            }
+
+                            // Idagdag ang last name
+                            $display_name .= ' ' . $_SESSION['user_last-name'];
+
+                            // Idagdag ang suffix kung hindi ito "N/A"
+                            if (!empty($_SESSION['user_suffix']) && $_SESSION['user_suffix'] !== "N/A") {
+                                $display_name .= ' ' . $_SESSION['user_suffix'];
+                            }
+
+                            // I-display ang pangalan nang may encoding protection
+                            echo htmlspecialchars($display_name, ENT_QUOTES, 'UTF-8'); 
+                        ?>
+                    </span>
                 </div>
                 <div class="cards-events">
                     <h3>Latest News</h3>
@@ -187,16 +212,50 @@ $id = $_SESSION['user_id'];
                 </div>
                 <div class="modal-body text-center">
                     <img style="display: block;
-            margin: 0 auto 20px;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;" src="<?php echo $profile ?>" alt="Profile Image" class="profile-img">
+                    margin: 0 auto 20px;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    object-fit: cover;" src="<?php echo $profile ?>" alt="Profile Image" class="profile-img">
                     <form id="updateAccountForm">
                         <input type="text" name="id" value="<?php echo $id ?>" hidden>
                         <div class="mb-3">
                             <label class="form-label">Profile Image (Leave if you don't want to change)</label>
                             <input type="file" accept=".jpeg, .png, .gif, .jpg" class="form-control" name="image">
+                        </div>
+                        <div class="mb-3">
+                            <label for="first-name" class="form-label">First Name</label>
+                            <input type="text" id="first-name" name="first-name" class="form-control"
+                                placeholder="First Name" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="middle-name" class="form-label">Middle Name</label>
+                            <input type="text" id="middle-name" name="middle-name" class="form-control"
+                                placeholder="Middle Name, if w/o Middle Name type N/A" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="last-name" class="form-label">Last Name</label>
+                            <input type="text" id="last-name" name="last-name" class="form-control" placeholder="Last Name"
+                                required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="suffix" class="form-label">Suffix</label>
+                            <select id="suffix" name="suffix" class="form-control" required>
+                                <option value="" selected disabled>Select Suffix</option>
+                                <option value="N/A">N/A</option>
+                                <option value="Sr.">Sr.</option>
+                                <option value="Jr.">Jr.</option>
+                                <option value="I">I</option>
+                                <option value="II">II</option>
+                                <option value="III">III</option>
+                                <option value="IV">IV</option>
+                                <option value="V">V</option>
+                                <option value="VI">VI</option>
+                                <option value="VII">VII</option>
+                                <option value="VIII">VIII</option>
+                                <option value="IX">IX</option>
+                                <option value="X">X</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Username</label>

@@ -46,6 +46,40 @@
             <div class="modal-body">
                 <form id="form-add-account">
                     <div class="mb-3">
+                        <label for="first-name" class="form-label">First Name</label>
+                        <input type="text" id="first-name" name="first-name" class="form-control"
+                            placeholder="First Name" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="middle-name" class="form-label">Middle Name</label>
+                        <input type="text" id="middle-name" name="middle-name" class="form-control"
+                            placeholder="Middle Name, if w/o Middle Name type N/A" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="last-name" class="form-label">Last Name</label>
+                        <input type="text" id="last-name" name="last-name" class="form-control" placeholder="Last Name"
+                            required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="suffix" class="form-label">Suffix</label>
+                        <select id="suffix" name="suffix" class="form-control" required>
+                            <option value="" selected disabled>Select Suffix</option>
+                            <option value="N/A">N/A</option>
+                            <option value="Sr.">Sr.</option>
+                            <option value="Jr.">Jr.</option>
+                            <option value="I">I</option>
+                            <option value="II">II</option>
+                            <option value="III">III</option>
+                            <option value="IV">IV</option>
+                            <option value="V">V</option>
+                            <option value="VI">VI</option>
+                            <option value="VII">VII</option>
+                            <option value="VIII">VIII</option>
+                            <option value="IX">IX</option>
+                            <option value="X">X</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="account-email" class="form-label">Email</label>
                         <input type="email" id="account-email" name="account-email" class="form-control"
                             placeholder="Email" required />
@@ -114,6 +148,40 @@
             <div class="modal-body">
                 <form id="form-update-account">
                     <input id="update-id" name="update-id" type="text" style="display: none" />
+                    <div class="mb-3">
+                        <label for="update-first-name" class="form-label">First Name</label>
+                        <input type="text" id="update-first-name" name="update-first-name" class="form-control"
+                            placeholder="First Name" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="update-middle-name" class="form-label">Middle Name</label>
+                        <input type="text" id="update-middle-name" name="update-middle-name" class="form-control"
+                            placeholder="Middle Name, if w/o Middle Name type N/A" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="update-last-name" class="form-label">Last Name</label>
+                        <input type="text" id="update-last-name" name="update-last-name" class="form-control" placeholder="Last Name"
+                            required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="update-suffix" class="form-label">Suffix</label>
+                        <select id="update-suffix" name="update-suffix" class="form-control" required>
+                            <option value="" selected disabled>Select Suffix</option>
+                            <option value="N/A">N/A</option>
+                            <option value="Sr.">Sr.</option>
+                            <option value="Jr.">Jr.</option>
+                            <option value="I">I</option>
+                            <option value="II">II</option>
+                            <option value="III">III</option>
+                            <option value="IV">IV</option>
+                            <option value="V">V</option>
+                            <option value="VI">VI</option>
+                            <option value="VII">VII</option>
+                            <option value="VIII">VIII</option>
+                            <option value="IX">IX</option>
+                            <option value="X">X</option>
+                        </select>
+                    </div>
                     <div class="mb-3">
                         <label for="update-email" class="form-label">Email</label>
                         <input type="email" id="update-email" name="update-email" class="form-control"
