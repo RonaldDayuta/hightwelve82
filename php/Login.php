@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = trim($_POST['login-password']);
 
     // Query para hanapin ang user gamit ang Email o Username
-    $stmt = $conn->prepare('SELECT * FROM tblaccounts WHERE Email = ? OR Username = ?');
+    $stmt = $conn->prepare('SELECT * FROM tblaccounts WHERE BINARY Email = ? OR BINARY Username = ?');
     $stmt->bind_param("ss", $identifier, $identifier);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -26,12 +26,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (password_verify($password, $stored_password)) {
             if ($position == 'Admin') {
+                $_SESSION['admin_first-name'] = strtoupper($row['first_name']);
+                $_SESSION['admin_middle-name'] = strtoupper($row['middle_name']);
+                $_SESSION['admin_last-name'] = strtoupper($row['last_name']);
+                $_SESSION['admin_suffix'] = strtoupper($row['suffix']);
                 $_SESSION['admin_username'] = $row['Username'];
                 $_SESSION['admin_image'] = $row['Profile'];
                 $_SESSION['admin_email'] = $row['Email'];
                 $_SESSION['admin_id'] = $row['ID'];
                 $_SESSION['admin_pos'] = $row['WebPosition'];
             } else {
+                $_SESSION['user_first-name'] = $row['first_name'];
+                $_SESSION['user_middle-name'] = $row['middle_name'];
+                $_SESSION['user_last-name'] = $row['last_name'];
+                $_SESSION['user_suffix'] = $row['suffix'];
                 $_SESSION['user_username'] = $row['Username'];
                 $_SESSION['user_image'] = $row['Profile'];
                 $_SESSION['user_email'] = $row['Email'];
