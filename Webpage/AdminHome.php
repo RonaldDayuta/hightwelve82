@@ -10,9 +10,14 @@ if (!isset($_SESSION['admin_id'])) {
 }
 
 // Get session variables for displaying the profile
+$first_name = $_SESSION['admin_first-name'];
+$middle_name = $_SESSION['admin_middle-name'];
+$last_name = $_SESSION['admin_last-name'];
+$suffix = $_SESSION['admin_suffix'];
 $username = $_SESSION['admin_username'];
 $profile = $_SESSION['admin_image'];
 $email = $_SESSION['admin_email'];
+$pos = $_SESSION['admin_pos'];
 $id = $_SESSION['admin_id'];
 
 ?>
@@ -104,6 +109,7 @@ $id = $_SESSION['admin_id'];
 .close-btn:hover {
     color: red;
 }
+
 </style>
 
 <div class="home">
@@ -134,7 +140,8 @@ $id = $_SESSION['admin_id'];
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label">Username</label>
-                        <input type="text" class="form-control" name="username" value="<?php echo $username ?>"
+                        <input type="text" class="form-control" name="username" 
+                            value="<?php echo htmlspecialchars(strtoupper($_SESSION['admin_username']), ENT_QUOTES, 'UTF-8'); ?>" 
                             readonly />
                     </div>
                     <div class="mb-3" style="display: none;">

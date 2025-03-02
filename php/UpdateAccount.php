@@ -8,6 +8,10 @@ require '../vendor/autoload.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the values from the form
     $id = $_POST['update-id'];
+    $first_name = trim($_POST['update-first-name']);
+    $middle_name = trim($_POST['update-middle-name']);
+    $last_name = trim($_POST['update-last-name']);
+    $suffix = trim($_POST['update-suffix']);
     $email = $_POST['update-email'];
     $username = $_POST['update-username'];
     $position = $_POST['update-position'];
@@ -17,14 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // If the password field is not empty, hash it before updating
     if (!empty($password)) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "UPDATE tblaccounts SET Email=?, Username=?, WebPosition=?, Status=?, Password=? WHERE ID=?";
+        $sql = "UPDATE tblaccounts SET first_name=?, middle_name=?, last_name=?, suffix=?, Email=?, Username=?, WebPosition=?, Status=?, Password=? WHERE ID=?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssssi", $email, $username, $position, $status, $hashedPassword, $id);
+        $stmt->bind_param("sssssssssi", $first_name, $middle_name, $last_name, $suffix, $email, $username, $position, $status, $hashedPassword, $id);
     } else {
         // If no password is provided, update without changing the password
         $sql = "UPDATE tblaccounts SET Email=?, Username=?, WebPosition=?, Status=? WHERE ID=?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssssi", $email, $username, $position, $status, $id);
+        $stmt->bind_param("ssssssssi",$first_name, $middle_name, $last_name, $suffix, $email, $username, $position, $status, $id);
     }
 
     // Execute the query
@@ -65,6 +69,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <p style="text-align: center;">Your account details have been successfully updated.</p>
 
                         <div style="background-color: white; padding: 15px; border-radius: 5px; box-shadow: 0px 2px 5px rgba(0,0,0,0.1);">
+                            <p><b>First Name:</b> ' . htmlspecialchars($first_name) . '</p>
+                            <p><b>Middle Name:</b> ' . htmlspecialchars($middle_name) . '</p>
+                            <p><b>Last Name:</b> ' . htmlspecialchars($last_name) . '</p>
+                            <p><b>Suffix:</b> ' . htmlspecialchars($suffix) . '</p>
                             <p><b>Email:</b> ' . htmlspecialchars($email) . '</p>
                             <p><b>Username:</b> ' . htmlspecialchars($username) . '</p>
                             <p><b>Position:</b> ' . htmlspecialchars($position) . '</p>
