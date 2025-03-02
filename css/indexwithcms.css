@@ -311,6 +311,7 @@ nav h2 {
 .row .col-main .home {
   padding-right: 5rem;
   padding-left: 5rem;
+  padding-top: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -325,7 +326,6 @@ nav h2 {
 }
 
 .row .col-main .post-container {
-  margin-top: 1rem;
   background-color: var(--color-darknav);
   border-radius: 0.7rem;
   display: flex;

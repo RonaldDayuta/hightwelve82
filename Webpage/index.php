@@ -95,7 +95,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 colimg">
-                        <img src="../Information/Lodge Logo.png" alt="" />
+                        <img src="../Information/Lodge Logo.png" alt="" class="rotate" />
                     </div>
                 </div>
             </div>
@@ -109,14 +109,15 @@
                         <div
                             class="officer-bg"
                             style="
-                  background-image: linear-gradient(
-                      to top,
-                      rgba(0, 0, 0, 1) 10%,
-                      rgba(0, 0, 0, 0.5) 20%,
-                      rgba(0, 0, 0, 0) 90%
-                    ),
-                    url('../Information/Lodge Officers Jewels/1 Worshipful Master.png');
-                "></div>
+                            background-image: linear-gradient(
+                                to top,
+                                rgba(0, 0, 0, 1) 10%,
+                                rgba(0, 0, 0, 0.5) 20%,
+                                rgba(0, 0, 0, 0) 90%
+                                ),
+                                url('../Information/Lodge Officers Jewels/1 Worshipful Master.png');
+                            ">
+                        </div>
                         <h3>Bro. Aguinaldo S. Sepnio</h3>
                         <span>Worshipful Master</span>
                     </div>
