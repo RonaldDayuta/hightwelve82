@@ -7,6 +7,10 @@ require '../vendor/autoload.php'; // Gumamit ng Composer autoload
 include '../dbconnect/conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $first_name = trim($_POST['first-name']);
+    $middle_name = trim($_POST['middle-name']);
+    $last_name = trim($_POST['last-name']);
+    $suffix = trim($_POST['suffix']);
     $email = trim($_POST['account-email']);
     $username = trim($_POST['account-username']);
     $password = trim($_POST['account-password']);
@@ -89,8 +93,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Ipasok sa database
-    $stmt = $conn->prepare("INSERT INTO tblaccounts (Email, username, Password, WebPosition, Profile) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $email, $username, $hashed_password, $position, $image_path);
+    $stmt = $conn->prepare("INSERT INTO tblaccounts (first_name, middle_name, last_name, suffix, Email, username, Password, WebPosition, Profile) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssss", $first_name, $middle_name, $last_name, $suffix, $email, $username, $hashed_password, $position, $image_path);
 
     if ($stmt->execute()) {
         // Send email confirmation
@@ -127,6 +131,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <p style="text-align: center;">Thank you for joining us. Below are your account details:</p>
 
                         <table style="width: 100%; border-collapse: collapse;">
+                            <tr>
+                                <td style="padding: 10px; font-weight: bold;">First Name:</td>
+                                <td style="padding: 10px;">' . htmlspecialchars($first_name) . '</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; font-weight: bold;">Middle Name:</td>
+                                <td style="padding: 10px;">' . htmlspecialchars($middle_name) . '</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; font-weight: bold;">Last Name:</td>
+                                <td style="padding: 10px;">' . htmlspecialchars($last_name) . '</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; font-weight: bold;">Suffix:</td>
+                                <td style="padding: 10px;">' . htmlspecialchars($suffix) . '</td>
+                            </tr>
                             <tr>
                                 <td style="padding: 10px; font-weight: bold;">Email:</td>
                                 <td style="padding: 10px;">' . htmlspecialchars($email) . '</td>

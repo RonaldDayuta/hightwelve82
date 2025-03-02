@@ -10,6 +10,10 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Get session variables for displaying the profile
+$first_name = $_SESSION['user_first-name'];
+$middle_name = $_SESSION['user_middle-name'];
+$last_name = $_SESSION['user_last-name'];
+$suffix = $_SESSION['user_suffix'];
 $username = $_SESSION['user_username'];
 $profile = $_SESSION['user_image'];
 $email = $_SESSION['user_email'];
@@ -25,12 +29,8 @@ $id = $_SESSION['user_id'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/indexwithcms.css" />
     <title>High Twelve Lodge No.82</title>
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="../Information/Lodge Logo.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -38,33 +38,21 @@ $id = $_SESSION['user_id'];
 
 <body>
     <nav class="navbar navbar-expand-lg w-100 px-3">
-        <div
-            class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
             <!-- Logo & Title -->
             <div class="d-flex align-items-center">
-                <img
-                    src="../Information/Lodge Logo.png"
-                    alt="Logo"
-                    class="navbar-logo" />
+                <img src="../Information/Lodge Logo.png" alt="Logo" class="navbar-logo" />
                 <h2 class="mb-0 ms-2">HIGHTWELVE82</h2>
             </div>
 
             <!-- Navbar Toggle Button for Mobile -->
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Navigation Links -->
-            <div
-                class="collapse navbar-collapse justify-content-end"
-                id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a id="Home" class="nav-link" aria-current="page" href="#">
@@ -73,13 +61,8 @@ $id = $_SESSION['user_id'];
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a
-                            class="nav-link dropdown-toggle"
-                            data-bs-toggle="dropdown"
-                            href="#"
-                            role="button"
-                            aria-expanded="false"
-                            id="eventnav">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-expanded="false" id="eventnav">
                             <span class="material-icons-outlined">
                                 event
                             </span>Events</a>
@@ -131,8 +114,29 @@ $id = $_SESSION['user_id'];
         <div class="row">
             <div class="colleft-side col-lg-3 col-md-12">
                 <div class="profile">
-                    <img src="<?php echo $profile ?>" alt="" />
-                    <span><?php echo $username ?></span>
+                    <img src="<?php echo $profile; ?>" alt="" />
+                    <span>
+                        <?php 
+                            // Bagong variable para sa display name lang
+                            $display_name = $_SESSION['user_first-name'];
+
+                            // Idagdag ang middle initial kung hindi ito NULL, empty, o "N/A"
+                            if (!empty($_SESSION['user_middle-name']) && $_SESSION['user_middle-name'] !== "N/A") {
+                                $display_name .= ' ' . substr($_SESSION['user_middle-name'], 0, 1) . '.';
+                            }
+
+                            // Idagdag ang last name
+                            $display_name .= ' ' . $_SESSION['user_last-name'];
+
+                            // Idagdag ang suffix kung hindi ito "N/A"
+                            if (!empty($_SESSION['user_suffix']) && $_SESSION['user_suffix'] !== "N/A") {
+                                $display_name .= ' ' . $_SESSION['user_suffix'];
+                            }
+
+                            // I-display ang pangalan nang may encoding protection
+                            echo htmlspecialchars($display_name, ENT_QUOTES, 'UTF-8'); 
+                        ?>
+                    </span>
                 </div>
                 <div class="cards-events">
                     <h3>Latest News</h3>
@@ -185,11 +189,7 @@ $id = $_SESSION['user_id'];
                         <div class="search-acc">
                             <h3>Members</h3>
                             <form class="d-flex" role="search">
-                                <input
-                                    id="search-member"
-                                    class="form-control me-2"
-                                    type="search"
-                                    placeholder="Search"
+                                <input id="search-member" class="form-control me-2" type="search" placeholder="Search"
                                     aria-label="Search" />
                             </form>
                         </div>
@@ -202,7 +202,8 @@ $id = $_SESSION['user_id'];
         </div>
     </div>
 
-    <div class="modal fade" id="manageaccoutmodal" tabindex="-1" aria-labelledby="manageaccoutmodalLabel" aria-hidden="true">
+    <div class="modal fade" id="manageaccoutmodal" tabindex="-1" aria-labelledby="manageaccoutmodalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -211,16 +212,50 @@ $id = $_SESSION['user_id'];
                 </div>
                 <div class="modal-body text-center">
                     <img style="display: block;
-            margin: 0 auto 20px;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;" src="<?php echo $profile ?>" alt="Profile Image" class="profile-img">
+                    margin: 0 auto 20px;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    object-fit: cover;" src="<?php echo $profile ?>" alt="Profile Image" class="profile-img">
                     <form id="updateAccountForm">
                         <input type="text" name="id" value="<?php echo $id ?>" hidden>
                         <div class="mb-3">
                             <label class="form-label">Profile Image (Leave if you don't want to change)</label>
                             <input type="file" accept=".jpeg, .png, .gif, .jpg" class="form-control" name="image">
+                        </div>
+                        <div class="mb-3">
+                            <label for="first-name" class="form-label">First Name</label>
+                            <input type="text" id="first-name" name="first-name" class="form-control"
+                                placeholder="First Name" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="middle-name" class="form-label">Middle Name</label>
+                            <input type="text" id="middle-name" name="middle-name" class="form-control"
+                                placeholder="Middle Name, if w/o Middle Name type N/A" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="last-name" class="form-label">Last Name</label>
+                            <input type="text" id="last-name" name="last-name" class="form-control" placeholder="Last Name"
+                                required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="suffix" class="form-label">Suffix</label>
+                            <select id="suffix" name="suffix" class="form-control" required>
+                                <option value="" selected disabled>Select Suffix</option>
+                                <option value="N/A">N/A</option>
+                                <option value="Sr.">Sr.</option>
+                                <option value="Jr.">Jr.</option>
+                                <option value="I">I</option>
+                                <option value="II">II</option>
+                                <option value="III">III</option>
+                                <option value="IV">IV</option>
+                                <option value="V">V</option>
+                                <option value="VI">VI</option>
+                                <option value="VII">VII</option>
+                                <option value="VIII">VIII</option>
+                                <option value="IX">IX</option>
+                                <option value="X">X</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Username</label>
@@ -237,7 +272,8 @@ $id = $_SESSION['user_id'];
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">
                                 <span id="edit-button-text">Update Account</span>
-                                <div id="edit-spinner" class="spinner-border spinner-border-sm" role="status" style="display: none;"></div>
+                                <div id="edit-spinner" class="spinner-border spinner-border-sm" role="status"
+                                    style="display: none;"></div>
                             </button>
                         </div>
                     </form>

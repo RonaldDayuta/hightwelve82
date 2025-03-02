@@ -8,6 +8,10 @@ include '../dbconnect/conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['id'];
+    $first_name = trim($_POST['first-name']);
+    $middle_name = trim($_POST['middle-name']);
+    $last_name = trim($_POST['last-name']);
+    $suffix = trim($_POST['suffix']);
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -36,18 +40,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Construct the SQL query based on inputs
     if (!empty($password) && $profilePath) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $conn->prepare("UPDATE tblaccounts SET Email=?, Username=?, Password=?, Profile=? WHERE ID=?");
-        $stmt->bind_param("ssssi", $email, $username, $hashedPassword, $profilePath, $id);
+        $stmt = $conn->prepare("UPDATE tblaccounts SET first_name=?, middle_name=?, last_name=?, suffix=?, Email=?, Username=?, Password=?, Profile=? WHERE ID=?");
+        $stmt->bind_param("ssssssssi", $first_name, $middle_name, $last_name, $suffix, $email, $username, $hashedPassword, $profilePath, $id);
     } elseif (!empty($password)) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $conn->prepare("UPDATE tblaccounts SET Email=?, Username=?, Password=? WHERE ID=?");
-        $stmt->bind_param("sssi", $email, $username, $hashedPassword, $id);
+        $stmt = $conn->prepare("UPDATE tblaccounts SET first_name=?, middle_name=?, last_name=?, suffix=?, Email=?, Username=?, Password=? WHERE ID=?");
+        $stmt->bind_param("sssssssi", $first_name, $middle_name, $last_name, $suffix, $email, $username, $hashedPassword, $id);
     } elseif ($profilePath) {
-        $stmt = $conn->prepare("UPDATE tblaccounts SET Email=?, Username=?, Profile=? WHERE ID=?");
-        $stmt->bind_param("sssi", $email, $username, $profilePath, $id);
+        $stmt = $conn->prepare("UPDATE tblaccounts SET first_name=?, middle_name=?, last_name=?, suffix=?, Email=?, Username=?, Profile=? WHERE ID=?");
+        $stmt->bind_param("sssssssi", $first_name, $middle_name, $last_name, $suffix, $email, $username, $profilePath, $id);
     } else {
-        $stmt = $conn->prepare("UPDATE tblaccounts SET Email=?, Username=? WHERE ID=?");
-        $stmt->bind_param("ssi", $email, $username, $id);
+        $stmt = $conn->prepare("UPDATE tblaccounts SET first_name=?, middle_name=?, last_name=?, suffix=?, Email=?, Username=? WHERE ID=?");
+        $stmt->bind_param("ssssssi", $first_name, $middle_name, $last_name, $suffix, $email, $username, $id);
     }
 
     if ($stmt->execute()) {
@@ -85,6 +89,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                         <h4>🔹 Updated Information:</h4>
                         <ul>
+                            <li><strong>First Name:</strong> ' . htmlspecialchars($first_name) . '</li>
+                            <li><strong>Middle Name:</strong> ' . htmlspecialchars($middle_name) . '</li>
+                            <li><strong>Last Name:</strong> ' . htmlspecialchars($last_name) . '</li>
+                            <li><strong>Suffix:</strong> ' . htmlspecialchars($suffix) . '</li>
                             <li><strong>Email:</strong> ' . htmlspecialchars($email) . '</li>
                             <li><strong>Username:</strong> ' . htmlspecialchars($username) . '</li>
                             <li><strong>Password:</strong> <span style="color: red;">' . htmlspecialchars($plainPassword) . '</span></li>
