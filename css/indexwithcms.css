@@ -453,6 +453,10 @@ nav h2 {
   color: var(--color-dark);
 }
 
+.row .col-main .calendar .modal-body {
+  overflow: auto;
+}
+
 .row .col-main .modal-header .btn-close {
   color: var(--color-white) !important;
 }

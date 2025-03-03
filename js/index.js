@@ -1,7 +1,3 @@
-setTimeout(() => {
-  document.getElementById("loading-screen").style.display = "none";
-  document.getElementById("main-content").style.display = "block";
-}, 2000);
 $(document).ready(function () {
   $("#officers").removeClass("active").addClass("inactive");
   $("#Events").removeClass("active").addClass("inactive");

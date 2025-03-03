@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+// If loading screen was not shown, redirect to loading.php
+if (!isset($_SESSION['loading_shown'])) {
+    header("Location: ../Loading.php");
+    exit();
+}
+
+// Reset session so loading appears again on next visit
+unset($_SESSION['loading_shown']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,16 +28,7 @@
 </head>
 
 <body>
-    <div id="loading-screen">
-        <div class="clock">
-            <div class="hand hour-hand"></div>
-            <div class="hand minute-hand"></div>
-            <span class="num12">12</span>
-            <span class="num3">3</span>
-            <span class="num6">6</span>
-            <span class="num9">9</span>
-        </div>
-    </div>
+    
     <div id="main-content">
         <!-- Fixed Dark Navbar -->
         <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
