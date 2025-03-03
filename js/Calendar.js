@@ -89,6 +89,16 @@ $(document).ready(function () {
   $(document).on("click", ".day", function () {
     selectedDate = $(this).data("date");
     $("#selected-date").text(selectedDate);
+
+    let selectedDateObj = new Date(selectedDate);
+    let today = new Date();
+    today.setHours(0, 0, 0, 0); // I-reset ang oras para tama ang paghahambing
+
+    if (selectedDateObj < today) {
+      $("#add-event-btn").prop("disabled", true); // Disable kung nakalipas na petsa
+    } else {
+      $("#add-event-btn").prop("disabled", false); // Enable kung kasalukuyan o hinaharap
+    }
     fetchEvents();
   });
 
