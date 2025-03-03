@@ -3,7 +3,7 @@ session_start();
 
 // If loading screen was not shown, redirect to loading.php
 if (!isset($_SESSION['loading_shown'])) {
-    header("Location: ../Loading.php");
+    header("Location: ../index.php");
     exit();
 }
 
