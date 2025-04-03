@@ -12,10 +12,12 @@ if (isset($_SESSION['admin_id'])) {
     unset($_SESSION['admin_email']);
     unset($_SESSION['admin_id']);
 
-    header("Location: ../Webpage/index.php");
+    //header("Location: ../Webpage/index.php");
+    header("Location: ../access.php");
     exit();
 } else {
     // If the user is not logged in, redirect to login
-    header("Location: ../Webpage/index.php");
+    //header("Location: ../Webpage/index.php");
+    header("Location: ../access.php");
     exit();
 }
