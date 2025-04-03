@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
+    // If not logged in, redirect to access.html
+    header("Location: access.php");
+    exit; // Ensure no further code is executed after the redirect
+}
+
 $_SESSION['loading_shown'] = true; // Set session variable
 ?>
 
@@ -116,7 +124,7 @@ $_SESSION['loading_shown'] = true; // Set session variable
 </body>
 <script>
     setTimeout(() => {
-        window.location.href = "Webpage/index.php";
+        window.location.href = "Webpage/index.php";  // Redirect after 2 seconds
     }, 2000);
 </script>
 </html>
