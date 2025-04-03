@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'ronaldthird.dayuta@gmail.com'; // Palitan ng email mo
-            $mail->Password = 'wami xzxh dkic utgz'; // Gumamit ng app password
+            $mail->Password = 'iyjx wbok nmzv kdez'; // Gumamit ng app password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
