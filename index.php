@@ -49,20 +49,10 @@ $_SESSION['loading_shown'] = true; // Set session variable
   left: 50%;
   transform: translateX(-50%);
 }
-.num3 {
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-}
 .num6 {
   bottom: 5px;
   left: 50%;
   transform: translateX(-50%);
-}
-.num9 {
-  left: 5px;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 /* Clock Hands */
@@ -108,15 +98,13 @@ $_SESSION['loading_shown'] = true; // Set session variable
             <div class="hand hour-hand"></div>
             <div class="hand minute-hand"></div>
             <span class="num12">12</span>
-            <span class="num3">3</span>
             <span class="num6">6</span>
-            <span class="num9">9</span>
         </div>
     </div>
 </body>
 <script>
     setTimeout(() => {
         window.location.href = "Webpage/index.php";  // Redirect after 2 seconds
-    }, 2000);
+    }, 3000);
 </script>
 </html>

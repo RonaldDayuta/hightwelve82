@@ -372,12 +372,14 @@ p {
 .content-officers .officers-list {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 0;
   gap: 2rem;
 }
 
 .content-officers .officers-list .officer-container {
   max-width: 40rem;
-  height: 30rem;
+  height: 40rem;
 }
 
 .content-officers .officers-list .officer-container .officer-card h3 {
@@ -723,6 +725,15 @@ span {
   display: none;
 }
 
+@media screen and (max-width: 1400px) {
+  .text-content h1 {
+    font-size: 1.8rem;
+  }
+  .text-content p {
+    font-size: 0.9rem;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .content-events {
     padding-right: 1.5rem;
@@ -731,6 +742,21 @@ span {
   .home {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
+  }
+  .text-content h1 {
+    font-size: 1.5rem;
+  }
+  .text-content p {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .text-content h1 {
+    font-size: 1.1rem;
+  }
+  .text-content p {
+    font-size: 0.6rem;
   }
 }
 
@@ -742,6 +768,17 @@ span {
 
   .content-events .event-list .events-card img {
     max-width: 100%;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .row1 h1 {
+    font-size: 1rem;
+  }
+  .content-officers .h3 {
+    font-size: 0.9rem;
   }
 }
 
