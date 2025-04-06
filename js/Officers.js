@@ -18,10 +18,22 @@ $(document).ready(function () {
   $("#addOfficerForm").submit(function (event) {
     event.preventDefault();
     let formData = new FormData(this);
+  
+    // Get the position name and number
+    const select = document.getElementById('officerPosition');
+    const positionName = select.value; // The position title
+    const positionNumber = select.selectedOptions[0].getAttribute('data-num'); // The position number
+    
+    console.log("Position Name:", positionName);   // For example, "Auditor"
+    console.log("Position Number:", positionNumber); // For example, "7"
 
+    // Replace the original value of officerPosition with the position title
+    formData.set("officerPosition", positionName); // Set position title
+    formData.append("positionNumber", positionNumber); // Append position number
+    
     $("#button-text").text("Adding...");
     $("#spinner").show();
-
+  
     $.ajax({
       url: "../php/Addofficers.php",
       type: "POST",
@@ -61,7 +73,8 @@ $(document).ready(function () {
         });
       },
     });
-  });
+});
+
 
   $(document).on("click", "#officer-update", function () {
     let officerID = $(this).data("id");

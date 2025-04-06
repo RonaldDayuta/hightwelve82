@@ -48,10 +48,31 @@
                         <label for="officerName" class="form-label">Name</label>
                         <input type="text" class="form-control" id="officerName" name="officerName" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="officerPosition" class="form-label">Position</label>
-                        <input type="text" class="form-control" id="officerPosition" name="officerPosition" required>
-                    </div>
+                    <select class="form-control" id="officerPosition" name="officerPosition" required>
+                        <option value="">Select Position</option>
+                        <option value="Worshipful Master" data-num="1">Worshipful Master</option>
+                        <option value="Senior Warden" data-num="2">Senior Warden</option>
+                        <option value="Junior Warden" data-num="3">Junior Warden</option>
+                        <option value="Treasurer" data-num="4">Treasurer</option>
+                        <option value="Secretary" data-num="5">Secretary</option>
+                        <option value="Assistant Secretary" data-num="6">Assistant Secretary</option>
+                        <option value="Auditor" data-num="7">Auditor</option>
+                        <option value="Harmony Officer" data-num="8">Harmony Officer</option>
+                        <option value="Chaplain" data-num="9">Chaplain</option>
+                        <option value="Marshall" data-num="10">Marshall</option>
+                        <option value="Senior Deacon" data-num="11">Senior Deacon</option>
+                        <option value="Junior Deacon" data-num="12">Junior Deacon</option>
+                        <option value="Orator" data-num="13">Orator</option>
+                        <option value="Almoner" data-num="14">Almoner</option>
+                        <option value="Lecturer" data-num="15">Lecturer</option>
+                        <option value="Bible Bearer" data-num="16">Bible Bearer</option>
+                        <option value="Custodian of Works" data-num="17">Custodian of Works</option>
+                        <option value="Property Custodian" data-num="18">Property Custodian</option>
+                        <option value="Senior Steward" data-num="19">Senior Steward</option>
+                        <option value="Junior Steward" data-num="20">Junior Steward</option>
+                        <option value="Organist" data-num="21">Organist</option>
+                        <option value="Tyler" data-num="22">Tyler</option>
+                    </select>
                     <div class="mb-3">
                         <label for="positionDescription" class="form-label">Position Description</label>
                         <textarea class="form-control" id="positionDescription" name="positionDescription" rows="3"
