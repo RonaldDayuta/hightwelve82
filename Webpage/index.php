@@ -60,7 +60,7 @@ unset($_SESSION['loading_shown']);
                             <a class="nav-link" id="ActivitiesNav" href="#Activities">Activities</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="ContentNav" href="#post">Post Content</a>
+                            <a class="nav-link" id="ContentNav" href="#post">PostContent</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="OfficersNav" href="#Officers">Officers</a>
@@ -352,20 +352,20 @@ unset($_SESSION['loading_shown']);
         </div>
 
         <div id="officers" class="content-officers container">
-            <h3>Officers of High Twelve Masonic Lodge No. 82</h3>
-            <h3>Masonic Year 2025-2026</h3>
-            <div id="officer-list" class="officers-list">
+            <h3 class="h3">Officers of High Twelve Masonic Lodge No. 82</h3>
+            <h3 class="h3">Masonic Year 2025-2026</h3>
+            <div id="officer-list" class="officers-list col-12">
                 <div class="officer-container">
                     <div class="officer-card">
                         <div class="officer-bg" style="
-                background-image: linear-gradient(
-                    to top,
-                    rgba(0, 0, 0, 1) 10%,
-                    rgba(0, 0, 0, 0.5) 20%,
-                    rgba(0, 0, 0, 0) 90%
-                  ),
-                  url('../Information/Lodge Logo.png');
-              "></div>
+                            background-image: linear-gradient(
+                            to top,
+                            rgba(0, 0, 0, 1) 10%,
+                            rgba(0, 0, 0, 0.5) 20%,
+                            rgba(0, 0, 0, 0) 90%
+                        ),
+                        url('../Information/Lodge Logo.png');
+                            "></div>
                         <h3>Bro. Victor Roman C. Cacal</h3>
                         <span>Senior Warden</span>
                     </div>
