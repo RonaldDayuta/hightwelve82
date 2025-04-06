@@ -25,6 +25,15 @@ $_SESSION['loading_shown'] = true; // Set session variable
   justify-content: center;
 }
 
+img{
+  background-color: transparent;
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  margin-left:30px;
+  margin-top: 22px;
+}
+
 /* Clock Container */
 .clock {
   position: relative;
@@ -66,7 +75,7 @@ $_SESSION['loading_shown'] = true; // Set session variable
   transform-origin: bottom;
 }
 .hour-hand {
-  animation: rotateHour 6s linear infinite;
+  animation: rotateHour 3s linear infinite;
 }
 .minute-hand {
   height: 50px;
@@ -76,7 +85,7 @@ $_SESSION['loading_shown'] = true; // Set session variable
 /* Animations */
 @keyframes rotateHour {
   from {
-    transform: translateX(-50%) rotate(0deg);
+    transform: translateX(-50%) rotate(180deg);
   }
   to {
     transform: translateX(-50%) rotate(360deg);
@@ -100,7 +109,8 @@ $_SESSION['loading_shown'] = true; // Set session variable
             <span class="num12">12</span>
             <span class="num6">6</span>
         </div>
-    </div>
+        <img src="Information/New Project (1).png" alt="" />
+  </div>
 </body>
 <script>
     setTimeout(() => {
