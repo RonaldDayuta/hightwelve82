@@ -1,13 +1,5 @@
 <?php
 session_start();
-
-// Check if the user is logged in
-if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
-    // If not logged in, redirect to access.html
-    header("Location: access.php");
-    exit; // Ensure no further code is executed after the redirect
-}
-
 $_SESSION['loading_shown'] = true; // Set session variable
 ?>
 

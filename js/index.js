@@ -1,74 +1,181 @@
 $(document).ready(function () {
-  $("#officers").removeClass("active").addClass("inactive");
-  $("#Events").removeClass("active").addClass("inactive");
-  $("#News").removeClass("active").addClass("inactive");
-  $("#Activities").removeClass("active").addClass("inactive");
-  $("#post").removeClass("active").addClass("inactive");
+  // $("#officers").removeClass("active").addClass("inactive");
+  // $("#Events").removeClass("active").addClass("inactive");
+  // $("#News").removeClass("active").addClass("inactive");
+  // $("#Activities").removeClass("active").addClass("inactive");
+  // $("#post").removeClass("active").addClass("inactive");
 
-  $("#HomeNav, #AboutNav, #HistoryNav").click(function () {
-    $("#main").removeClass("inactive").addClass("active");
+  // $("#HomeNav, #AboutNav, #HistoryNav").click(function () {
+  //   $("#main").removeClass("inactive").addClass("active");
+  //   $("#officers").removeClass("active").addClass("inactive");
+  //   $("#Events").removeClass("active").addClass("inactive");
+  //   $("#News").removeClass("active").addClass("inactive");
+  //   $("#Activities").removeClass("active").addClass("inactive");
+  //   $("#post").removeClass("active").addClass("inactive");
+  // });
+
+  // $("#EventsNav").click(function () {
+  //   $("#main").removeClass("active").addClass("inactive");
+  //   $("#officers").removeClass("active").addClass("inactive");
+  //   $("#Events").removeClass("inactive").addClass("active");
+  //   $("#News").removeClass("active").addClass("inactive");
+  //   $("#Activities").removeClass("active").addClass("inactive");
+  //   $("#post").removeClass("active").addClass("inactive");
+  // });
+
+  // $("#NewsNav").click(function () {
+  //   $("#main").removeClass("active").addClass("inactive");
+  //   $("#officers").removeClass("active").addClass("inactive");
+  //   $("#Events").removeClass("active").addClass("inactive");
+  //   $("#News").removeClass("inactive").addClass("active");
+  //   $("#Activities").removeClass("active").addClass("inactive");
+  //   $("#post").removeClass("active").addClass("inactive");
+  // });
+
+  // $("#ActivitiesNav").click(function () {
+  //   $("#main").removeClass("active").addClass("inactive");
+  //   $("#officers").removeClass("active").addClass("inactive");
+  //   $("#Events").removeClass("active").addClass("inactive");
+  //   $("#News").removeClass("active").addClass("inactive");
+  //   $("#Activities").removeClass("inactive").addClass("active");
+  //   $("#post").removeClass("active").addClass("inactive");
+  // });
+
+  // $("#OfficersNav").click(function () {
+  //   $("#main").removeClass("active").addClass("inactive");
+  //   $("#officers").removeClass("inactive").addClass("active");
+  //   $("#Events").removeClass("active").addClass("inactive");
+  //   $("#News").removeClass("active").addClass("inactive");
+  //   $("#Activities").removeClass("active").addClass("inactive");
+  //   $("#post").removeClass("active").addClass("inactive");
+  // });
+
+  // $("#ContentNav").click(function () {
+  //   $("#main").removeClass("active").addClass("inactive");
+  //   $("#officers").removeClass("active").addClass("inactive");
+  //   $("#Events").removeClass("active").addClass("inactive");
+  //   $("#News").removeClass("active").addClass("inactive");
+  //   $("#Activities").removeClass("active").addClass("inactive");
+  //   $("#post").removeClass("inactive").addClass("active");
+  // });
+
+  // $("#btn-login").on("click", function () {
+  //   $(".login").addClass("loginactive");
+  //   $("#navbar").addClass("inactive");
+  //   $("body").css("overflow", "hidden");
+  // });
+  // $("#to-content").on("click", function () {
+  //   $(".login").removeClass("loginactive");
+  //   $("#navbar").removeClass("inactive");
+  //   $("body").css("overflow", "");
+  // });
+
+  $(document).ready(function () {
+    // Your existing logic to handle active/inactive classes on sections
     $("#officers").removeClass("active").addClass("inactive");
     $("#Events").removeClass("active").addClass("inactive");
     $("#News").removeClass("active").addClass("inactive");
     $("#Activities").removeClass("active").addClass("inactive");
     $("#post").removeClass("active").addClass("inactive");
+  
+    // Event handlers for navigation clicks
+    $("#HomeNav, #AboutNav, #HistoryNav, #EventsNav, #NewsNav, #ActivitiesNav, #OfficersNav, #ContentNav").click(function () {
+      // Remove active class and add inactive class to all sections
+      $("#main, #officers, #Events, #News, #Activities, #post").removeClass("active").addClass("inactive");
+  
+      // Add active class to the selected section based on clicked tab
+      var targetId = $(this).attr("id");
+      if (targetId === "HomeNav" || targetId === "AboutNav" || targetId === "HistoryNav") {
+        $("#main").removeClass("inactive").addClass("active");
+      } else if (targetId === "EventsNav") {
+        $("#Events").removeClass("inactive").addClass("active");
+      } else if (targetId === "NewsNav") {
+        $("#News").removeClass("inactive").addClass("active");
+      } else if (targetId === "ActivitiesNav") {
+        $("#Activities").removeClass("inactive").addClass("active");
+      } else if (targetId === "OfficersNav") {
+        $("#officers").removeClass("inactive").addClass("active");
+      } else if (targetId === "ContentNav") {
+        $("#post").removeClass("inactive").addClass("active");
+      }
+  
+      // Close the collapsible navbar after clicking a link (for mobile view)
+      if ($("#navbarNav").hasClass("show")) {
+        $("#navbarNav").collapse("hide");
+      }
+    });
+  
+    // Handling the login button
+    $("#btn-login").on("click", function () {
+      $(".login").addClass("loginactive");
+      $("#navbar").addClass("inactive");
+      $("body").css("overflow", "hidden");
+    });
+  
+    // Handling the to-content button
+    $("#to-content").on("click", function () {
+      $(".login").removeClass("loginactive");
+      $("#navbar").removeClass("inactive");
+      $("body").css("overflow", "");
+    });
   });
+  
 
-  $("#EventsNav").click(function () {
-    $("#main").removeClass("active").addClass("inactive");
-    $("#officers").removeClass("active").addClass("inactive");
-    $("#Events").removeClass("inactive").addClass("active");
-    $("#News").removeClass("active").addClass("inactive");
-    $("#Activities").removeClass("active").addClass("inactive");
-    $("#post").removeClass("active").addClass("inactive");
-  });
+  // $("#officers").removeClass("active").addClass("inactive");
+  // $("#Events").removeClass("active").addClass("inactive");
+  // $("#News").removeClass("active").addClass("inactive");
+  // $("#Activities").removeClass("active").addClass("inactive");
+  // $("#post").removeClass("active").addClass("inactive");
 
-  $("#NewsNav").click(function () {
-    $("#main").removeClass("active").addClass("inactive");
-    $("#officers").removeClass("active").addClass("inactive");
-    $("#Events").removeClass("active").addClass("inactive");
-    $("#News").removeClass("inactive").addClass("active");
-    $("#Activities").removeClass("active").addClass("inactive");
-    $("#post").removeClass("active").addClass("inactive");
-  });
+  // // Toggle navigation active state
+  // $("#HomeNav, #AboutNav, #HistoryNav, #EventsNav, #NewsNav, #ActivitiesNav, #ContentNav, #OfficersNav").click(function () {
+  //   // Remove active class from all nav links
+  //   $(".nav-link").removeClass("active");
 
-  $("#ActivitiesNav").click(function () {
-    $("#main").removeClass("active").addClass("inactive");
-    $("#officers").removeClass("active").addClass("inactive");
-    $("#Events").removeClass("active").addClass("inactive");
-    $("#News").removeClass("active").addClass("inactive");
-    $("#Activities").removeClass("inactive").addClass("active");
-    $("#post").removeClass("active").addClass("inactive");
-  });
+  //   // Add active class to the clicked nav link
+  //   $(this).addClass("active");
 
-  $("#OfficersNav").click(function () {
-    $("#main").removeClass("active").addClass("inactive");
-    $("#officers").removeClass("inactive").addClass("active");
-    $("#Events").removeClass("active").addClass("inactive");
-    $("#News").removeClass("active").addClass("inactive");
-    $("#Activities").removeClass("active").addClass("inactive");
-    $("#post").removeClass("active").addClass("inactive");
-  });
+  //   // Switch content visibility
+  //   if ($(this).is("#HomeNav, #AboutNav, #HistoryNav")) {
+  //     $("#main").removeClass("inactive").addClass("active");
+  //     $("#officers, #Events, #News, #Activities, #post").removeClass("active").addClass("inactive");
+  //   } else if ($(this).is("#EventsNav")) {
+  //     $("#main").removeClass("active").addClass("inactive");
+  //     $("#Events").removeClass("inactive").addClass("active");
+  //     $("#officers, #News, #Activities, #post").removeClass("active").addClass("inactive");
+  //   } else if ($(this).is("#NewsNav")) {
+  //     $("#main").removeClass("active").addClass("inactive");
+  //     $("#News").removeClass("inactive").addClass("active");
+  //     $("#officers, #Events, #Activities, #post").removeClass("active").addClass("inactive");
+  //   } else if ($(this).is("#ActivitiesNav")) {
+  //     $("#main").removeClass("active").addClass("inactive");
+  //     $("#Activities").removeClass("inactive").addClass("active");
+  //     $("#officers, #Events, #News, #post").removeClass("active").addClass("inactive");
+  //   } else if ($(this).is("#OfficersNav")) {
+  //     $("#main").removeClass("active").addClass("inactive");
+  //     $("#officers").removeClass("inactive").addClass("active");
+  //     $("#Events, #News, #Activities, #post").removeClass("active").addClass("inactive");
+  //   } else if ($(this).is("#ContentNav")) {
+  //     $("#main").removeClass("active").addClass("inactive");
+  //     $("#post").removeClass("inactive").addClass("active");
+  //     $("#officers, #Events, #News, #Activities").removeClass("active").addClass("inactive");
+  //   }
+  // });
 
-  $("#ContentNav").click(function () {
-    $("#main").removeClass("active").addClass("inactive");
-    $("#officers").removeClass("active").addClass("inactive");
-    $("#Events").removeClass("active").addClass("inactive");
-    $("#News").removeClass("active").addClass("inactive");
-    $("#Activities").removeClass("active").addClass("inactive");
-    $("#post").removeClass("inactive").addClass("active");
-  });
+  // // Login and other logic remains unchanged
+  // $("#btn-login").on("click", function () {
+  //   $(".login").addClass("loginactive");
+  //   $("#navbar").addClass("inactive");
+  //   $("body").css("overflow", "hidden");
+  // });
+  
+  // $("#to-content").on("click", function () {
+  //   $(".login").removeClass("loginactive");
+  //   $("#navbar").removeClass("inactive");
+  //   $("body").css("overflow", "");
+  // });
 
-  $("#btn-login").on("click", function () {
-    $(".login").addClass("loginactive");
-    $("#navbar").addClass("inactive");
-    $("body").css("overflow", "hidden");
-  });
-  $("#to-content").on("click", function () {
-    $(".login").removeClass("loginactive");
-    $("#navbar").removeClass("inactive");
-    $("body").css("overflow", "");
-  });
+  
 
   $("#form-login").submit(function (event) {
     event.preventDefault();
