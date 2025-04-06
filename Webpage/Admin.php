@@ -213,7 +213,6 @@ $id = $_SESSION['admin_id'];
                             </form>
                         </div>
                         <div id="members">
-
                         </div>
                     </ul>
                 </div>
