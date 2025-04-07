@@ -43,7 +43,7 @@ $id = $_SESSION['admin_id'];
             <!-- Logo & Title -->
             <div class="d-flex align-items-center">
                 <img src="../Information/Lodge Logo.png" alt="Logo" class="navbar-logo" />
-                <h2 class="mb-0 ms-2">HIGH TWELVE LODGE NO.82</h2>
+                <h2 class="mb-0 ms-2 navbarh2">HIGH TWELVE MASONIC LODGE NO. 82</h2>
             </div>
 
             <!-- Navbar Toggle Button for Mobile -->
@@ -113,11 +113,17 @@ $id = $_SESSION['admin_id'];
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a id="Repository" href="#" class=" nav-link">
+                        <span class="material-icons-outlined">folder</span>
+                            Repository
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#manageaccoutmodal">
                             <span class="material-icons-outlined">
                                 manage_accounts
                             </span>
-                            Manage Account
+                            ManageAccount
                         </a>
                     </li>
                     <li class="nav-item">

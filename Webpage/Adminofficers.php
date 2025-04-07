@@ -48,31 +48,34 @@
                         <label for="officerName" class="form-label">Name</label>
                         <input type="text" class="form-control" id="officerName" name="officerName" required>
                     </div>
-                    <select class="form-control" id="officerPosition" name="officerPosition" required>
-                        <option value="">Select Position</option>
-                        <option value="Worshipful Master" data-num="1">Worshipful Master</option>
-                        <option value="Senior Warden" data-num="2">Senior Warden</option>
-                        <option value="Junior Warden" data-num="3">Junior Warden</option>
-                        <option value="Treasurer" data-num="4">Treasurer</option>
-                        <option value="Secretary" data-num="5">Secretary</option>
-                        <option value="Assistant Secretary" data-num="6">Assistant Secretary</option>
-                        <option value="Auditor" data-num="7">Auditor</option>
-                        <option value="Harmony Officer" data-num="8">Harmony Officer</option>
-                        <option value="Chaplain" data-num="9">Chaplain</option>
-                        <option value="Marshall" data-num="10">Marshall</option>
-                        <option value="Senior Deacon" data-num="11">Senior Deacon</option>
-                        <option value="Junior Deacon" data-num="12">Junior Deacon</option>
-                        <option value="Orator" data-num="13">Orator</option>
-                        <option value="Almoner" data-num="14">Almoner</option>
-                        <option value="Lecturer" data-num="15">Lecturer</option>
-                        <option value="Bible Bearer" data-num="16">Bible Bearer</option>
-                        <option value="Custodian of Works" data-num="17">Custodian of Works</option>
-                        <option value="Property Custodian" data-num="18">Property Custodian</option>
-                        <option value="Senior Steward" data-num="19">Senior Steward</option>
-                        <option value="Junior Steward" data-num="20">Junior Steward</option>
-                        <option value="Organist" data-num="21">Organist</option>
-                        <option value="Tyler" data-num="22">Tyler</option>
+                    <div class="mb-3">
+                        <label for="officerofficerPosition" class="form-label">Position</label>
+                        <select class="form-control" id="officerPosition" name="officerPosition" required>
+                            <option value="" disabled selected>Select Position</option>
+                            <option value="1-Worshipful Master">Worshipful Master</option>
+                            <option value="2-Senior Warden">Senior Warden</option>
+                            <option value="3-Junior Warden">Junior Warden</option>
+                            <option value="4-Treasurer">Treasurer</option>
+                            <option value="5-Secretary">Secretary</option>
+                            <option value="6-Assistant Secretary">Assistant Secretary</option>
+                            <option value="7-Auditor">Auditor</option>
+                            <option value="8-Harmony Officer">Harmony Officer</option>
+                            <option value="9-Chaplain">Chaplain</option>
+                            <option value="10-Marshall">Marshall</option>
+                            <option value="11-Senior Deacon">Senior Deacon</option>
+                            <option value="12-Junior Deacon">Junior Deacon</option>
+                            <option value="13-Orator">Orator</option>
+                            <option value="14-Almoner">Almoner</option>
+                            <option value="15-Lecturer">Lecturer</option>
+                            <option value="16-Bible Bearer">Bible Bearer</option>
+                            <option value="17-Custodian of Works">Custodian of Works</option>
+                            <option value="18-Property Custodian">Property Custodian</option>
+                            <option value="19-Senior Steward">Senior Steward</option>
+                            <option value="20-Junior Steward">Junior Steward</option>
+                            <option value="21-Organist">Organist</option>
+                            <option value="22-Tyler">Tyler</option>
                     </select>
+                    </div>
                     <div class="mb-3">
                         <label for="positionDescription" class="form-label">Position Description</label>
                         <textarea class="form-control" id="positionDescription" name="positionDescription" rows="3"
@@ -116,8 +119,31 @@
                     </div>
                     <div class="mb-3">
                         <label for="editOfficerPosition" class="form-label">Position</label>
-                        <input type="text" class="form-control" id="editOfficerPosition" name="officerPosition"
-                            required>
+                        <select class="form-control" id="editOfficerPosition" name="officerPosition" required>
+                            <option value="" disabled selected>Select Position</option>
+                            <option value="1-Worshipful Master">Worshipful Master</option>
+                            <option value="2-Senior Warden">Senior Warden</option>
+                            <option value="3-Junior Warden">Junior Warden</option>
+                            <option value="4-Treasurer">Treasurer</option>
+                            <option value="5-Secretary">Secretary</option>
+                            <option value="6-Assistant Secretary">Assistant Secretary</option>
+                            <option value="7-Auditor">Auditor</option>
+                            <option value="8-Harmony Officer">Harmony Officer</option>
+                            <option value="9-Chaplain">Chaplain</option>
+                            <option value="10-Marshall">Marshall</option>
+                            <option value="11-Senior Deacon">Senior Deacon</option>
+                            <option value="12-Junior Deacon">Junior Deacon</option>
+                            <option value="13-Orator">Orator</option>
+                            <option value="14-Almoner">Almoner</option>
+                            <option value="15-Lecturer">Lecturer</option>
+                            <option value="16-Bible Bearer">Bible Bearer</option>
+                            <option value="17-Custodian of Works">Custodian of Works</option>
+                            <option value="18-Property Custodian">Property Custodian</option>
+                            <option value="19-Senior Steward">Senior Steward</option>
+                            <option value="20-Junior Steward">Junior Steward</option>
+                            <option value="21-Organist">Organist</option>
+                            <option value="22-Tyler">Tyler</option>
+                    </select>
                     </div>
                     <div class="mb-3">
                         <label for="editPositionDescription" class="form-label">Position Description</label>

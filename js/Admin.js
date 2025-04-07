@@ -13,6 +13,8 @@ $(document).ready(function () {
     $("#newsdrop").removeClass("actives");
     $("#meetdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
+    $("#Repository").removeClass("active");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#Accounts").click(function () {
@@ -26,6 +28,8 @@ $(document).ready(function () {
     $("#newsdrop").removeClass("actives");
     $("#meetdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
+    $("#Repository").removeClass("active");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#Calendar").click(function () {
@@ -39,6 +43,8 @@ $(document).ready(function () {
     $("#newsdrop").removeClass("actives");
     $("#meetdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
+    $("#Repository").removeClass("active");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#Officers").click(function () {
@@ -52,6 +58,8 @@ $(document).ready(function () {
     $("#newsdrop").removeClass("actives");
     $("#meetdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
+    $("#Repository").removeClass("active");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#eventdrop").click(function () {
@@ -65,6 +73,8 @@ $(document).ready(function () {
     $("#Calendar").removeClass("active");
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
+    $("#Repository").removeClass("active");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#newsdrop").click(function () {
@@ -78,6 +88,8 @@ $(document).ready(function () {
     $("#Calendar").removeClass("active");
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
+    $("#Repository").removeClass("active");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#meetdrop").click(function () {
@@ -91,6 +103,8 @@ $(document).ready(function () {
     $("#Calendar").removeClass("active");
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
+    $("#Repository").removeClass("active");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#actdrop").click(function () {
@@ -104,6 +118,23 @@ $(document).ready(function () {
     $("#Calendar").removeClass("active");
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
+    $("#Repository").removeClass("active");
+    $(".navbar-collapse").collapse("hide");
+  });
+
+  $("#Repository").click(function () {
+    $("#main").load("../Webpage/AdminRepo.php");
+    $("#Repository").addClass("active");
+    $("#Officers").removeClass("active");
+    $("#Calendar").removeClass("active");
+    $("#Accounts").removeClass("active");
+    $("#Home").removeClass("active");
+    $("#eventnav").removeClass("active");
+    $("#eventdrop").removeClass("actives");
+    $("#newsdrop").removeClass("actives");
+    $("#meetdrop").removeClass("actives");
+    $("#actdrop").removeClass("actives");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $.ajax({
@@ -114,16 +145,23 @@ $(document).ready(function () {
       let newsList = "";
 
       if (Array.isArray(data) && data.length > 0) {
-        data.forEach(news => {
+        data.forEach((news) => {
           let fullText = news.description.replace(/\n/g, "<br>");
-          let shortText = fullText.length > 100 ? fullText.substring(0, 100) + "..." : fullText;
+          let shortText =
+            fullText.length > 100
+              ? fullText.substring(0, 100) + "..."
+              : fullText;
           newsList += `
                     <div class="event-information">
                         <h3>${news.title}</h3>
                         <span>${news.event_date}</span>
                         <p class="news-description" data-full="${fullText}">
                             ${shortText}
-                            ${fullText.length > 100 ? '<br><span class="see-more1" style="cursor: pointer; color: #6c9bcf;">See More</span>' : ''}
+                            ${
+                              fullText.length > 100
+                                ? '<br><span class="see-more1" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+                                : ""
+                            }
                         </p>
                     </div>
                     <hr/>
@@ -153,10 +191,16 @@ $(document).ready(function () {
     let fullText = parent.data("full");
 
     if ($(this).text() === "See More") {
-      parent.html(fullText + '<br><span class="see-more1" style="cursor: pointer; color: #6c9bcf;"><br>See Less</span>');
+      parent.html(
+        fullText +
+          '<br><span class="see-more1" style="cursor: pointer; color: #6c9bcf;"><br>See Less</span>'
+      );
     } else {
       let shortText = fullText.substring(0, 100) + "...";
-      parent.html(shortText + '<br><span class="see-more1" style="cursor: pointer; color: #6c9bcf;">See More</span>');
+      parent.html(
+        shortText +
+          '<br><span class="see-more1" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+      );
     }
   });
 
@@ -170,7 +214,10 @@ $(document).ready(function () {
       if (Array.isArray(data) && data.length > 0) {
         data.forEach((event) => {
           let fullText = event.description.replace(/\n/g, "<br>");
-          let shortText = fullText.length > 100 ? fullText.substring(0, 100) + "..." : fullText;
+          let shortText =
+            fullText.length > 100
+              ? fullText.substring(0, 100) + "..."
+              : fullText;
 
           eventList += `
                     <div class="event-information">
@@ -178,7 +225,11 @@ $(document).ready(function () {
                         <span>${event.event_date}</span>
                         <p class="event-description" data-full="${fullText}">
                             ${shortText}
-                            ${fullText.length > 100 ? '<br><span class="see-more2" style="cursor: pointer; color: #6c9bcf;">See More</span>' : ''}
+                            ${
+                              fullText.length > 100
+                                ? '<br><span class="see-more2" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+                                : ""
+                            }
                         </p>
                     </div>
                     <hr />
@@ -209,10 +260,16 @@ $(document).ready(function () {
     let fullText = parent.data("full");
 
     if ($(this).text() === "See More") {
-      parent.html(fullText + '<br><span class="see-more2" style="cursor: pointer; color: #6c9bcf;">See Less</span>');
+      parent.html(
+        fullText +
+          '<br><span class="see-more2" style="cursor: pointer; color: #6c9bcf;">See Less</span>'
+      );
     } else {
       let shortText = fullText.substring(0, 100) + "...";
-      parent.html(shortText + '<br><span class="see-more2" style="cursor: pointer; color: #6c9bcf;">See More</span>');
+      parent.html(
+        shortText +
+          '<br><span class="see-more2" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+      );
     }
   });
 
@@ -224,9 +281,12 @@ $(document).ready(function () {
       let meetingsList = "";
 
       if (Array.isArray(data) && data.length > 0) {
-        data.forEach(meeting => {
+        data.forEach((meeting) => {
           let fullText = meeting.description.replace(/\n/g, "<br>");
-          let shortText = fullText.length > 100 ? fullText.substring(0, 100) + "..." : fullText;
+          let shortText =
+            fullText.length > 100
+              ? fullText.substring(0, 100) + "..."
+              : fullText;
 
           meetingsList += `
                     <div class="meetingalign">
@@ -237,7 +297,11 @@ $(document).ready(function () {
                                 <span>${meeting.event_date}</span>
                                 <p class="meeting-description" data-full="${fullText}" data-short="${shortText}">
                                     ${shortText}
-                                    ${fullText.length > 100 ? '<br><span class="see-more3" style="cursor: pointer;  color: #6c9bcf;"><br/>See More</span>' : ''}
+                                    ${
+                                      fullText.length > 100
+                                        ? '<br><span class="see-more3" style="cursor: pointer;  color: #6c9bcf;"><br/>See More</span>'
+                                        : ""
+                                    }
                                 </p>
                             </div>
                             <hr/>
@@ -268,9 +332,15 @@ $(document).ready(function () {
     let shortText = parent.data("short");
 
     if ($(this).text() === "See More") {
-      parent.html(fullText + '<br><span class="see-more3" style="cursor: pointer; color: #6c9bcf;">See Less</span>');
+      parent.html(
+        fullText +
+          '<br><span class="see-more3" style="cursor: pointer; color: #6c9bcf;">See Less</span>'
+      );
     } else {
-      parent.html(shortText + '<br><span class="see-more3" style="cursor: pointer; color: #6c9bcf;">See More</span>');
+      parent.html(
+        shortText +
+          '<br><span class="see-more3" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+      );
     }
   });
 

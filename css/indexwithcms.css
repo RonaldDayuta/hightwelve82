@@ -652,6 +652,94 @@ nav h2 {
   text-align: center;
 }
 
+.row .col-main .repository {
+  margin-top: 1.5rem;
+}
+
+.row .col-main .repository .createbutton {
+  margin-bottom: 1rem;
+}
+
+.row .col-main .repository .createbutton .newfolder {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.row .col-main .repository .folders {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.row .col-main .repository .folders .button-wrapper {
+  position: relative;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.row .col-main .repository .folders .button-wrapper button {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  color: var(--color-white);
+  border: none;
+  font-size: 1rem;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.row .col-main .repository .folders .button-wrapper .dot {
+  position: absolute;
+  font-size: 1.5rem !important;
+  color: var(--color-white);
+  right: 0.5rem;
+  top: 0.5rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.row .col-main .repository .folders .button-wrapper .dot-menu {
+  position: absolute;
+  top: 2.5rem;
+  right: 0.5rem;
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  z-index: 3;
+}
+
+.row .col-main .repository .folders .button-wrapper .dot-menu .menu-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.row .col-main .repository .folders .button-wrapper .dot-menu .menu-item:hover {
+  background-color: #eee;
+}
+
+.row .col-main .repository .folders button span {
+  font-size: 4rem;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 1400px) {
+  nav h2 {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .row .colleft-side {
     display: none;
@@ -659,10 +747,6 @@ nav h2 {
 
   .row .colright-side {
     padding: 1rem;
-  }
-
-  nav h2 {
-    display: none;
   }
 }
 
@@ -684,6 +768,11 @@ nav h2 {
   }
 
   .row .col-main .events {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .row .col-main .repository {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
   }

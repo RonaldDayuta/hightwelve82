@@ -1,7 +1,7 @@
 <?php
 require '../dbconnect/conn.php';
 
-$sql = "SELECT ID, Name, Position, Image FROM tblofficers";
+$sql = "SELECT ID, Name, Position, Image FROM tblofficers ORDER BY PositionNumber ASC";
 $result = $conn->query($sql);
 
 $officers = [];

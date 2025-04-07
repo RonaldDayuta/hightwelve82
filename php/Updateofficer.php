@@ -4,19 +4,19 @@ include '../dbconnect/conn.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $officerID = $_POST["officerID"];
     $name = $_POST["officerName"];
-    $position = $_POST["officerPosition"];
+    $positionNumber = $_POST["officerPositionNumber"]; // e.g., 1
+    $positionWord = $_POST["officerPositionWord"];     // e.g., Worshipful Master
     $posDesc = $_POST["positionDescription"];
 
     // Check if a new image is uploaded
     if (!empty($_FILES["officerImage"]["name"])) {
         $fileExt = pathinfo($_FILES["officerImage"]["name"], PATHINFO_EXTENSION);
-        $uniqueFileName = uniqid("officer_", true) . "." . $fileExt; // Generate a unique filename
+        $uniqueFileName = uniqid("officer_", true) . "." . $fileExt;
         $fileSize = $_FILES['officerImage']['size'];
         $fileTmpName = $_FILES['officerImage']['tmp_name'];
-        $fileType = $_FILES['officerImage']['type']; // Get image size in bytes (B)
-        $maxSize = 20 * 1024 * 1024; // 20MB in bytes
+        $fileType = $_FILES['officerImage']['type'];
+        $maxSize = 20 * 1024 * 1024; // 20MB
 
-        // 20MB Limit (20 * 1024 * 1024 = 20971520 bytes)
         if ($fileSize > $maxSize) {
             echo json_encode(["success" => false, "message" => "Image size exceeds 20MB limit!"]);
             exit();
@@ -25,16 +25,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $uploadPath = "../Officerimage/" . $uniqueFileName;
 
         if (move_uploaded_file($fileTmpName, $uploadPath)) {
-            $stmt = $conn->prepare("UPDATE tblofficers SET Name = ?, Position = ?, PosDecs = ?, Image = ? WHERE ID = ?");
-            $stmt->bind_param("ssssi", $name, $position, $posDesc, $uploadPath, $officerID);
+            // With image update
+            $stmt = $conn->prepare("UPDATE tblofficers SET Name = ?, PositionNumber = ?, Position = ?, PosDecs = ?, Image = ? WHERE ID = ?");
+            $stmt->bind_param("sisssi", $name, $positionNumber, $positionWord, $posDesc, $uploadPath, $officerID);
         } else {
             echo json_encode(["success" => false, "message" => "Failed to upload image."]);
             exit();
         }
     } else {
-        // If no new image, keep the old one
-        $stmt = $conn->prepare("UPDATE tblofficers SET Name = ?, Position = ?, PosDecs = ? WHERE ID = ?");
-        $stmt->bind_param("sssi", $name, $position, $posDesc, $officerID);
+        // Without image update
+        $stmt = $conn->prepare("UPDATE tblofficers SET Name = ?, PositionNumber = ?, Position = ?, PosDecs = ? WHERE ID = ?");
+        $stmt->bind_param("sissi", $name, $positionNumber, $positionWord, $posDesc, $officerID);
     }
 
     if ($stmt->execute()) {
