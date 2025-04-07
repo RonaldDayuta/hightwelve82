@@ -108,7 +108,7 @@ unset($_SESSION['loading_shown']);
                       rgba(0, 0, 0, 0.5) 20%,
                       rgba(0, 0, 0, 0) 90%
                     ),
-                    url('../Information/Lodge Officers Jewels/1 Worshipful Master.png');
+                    url('../Information/master.png');
                 "></div>
                             <h3>Bro. Aguinaldo S. Sepnio</h3>
                             <span>Worshipful Master</span>
@@ -123,7 +123,7 @@ unset($_SESSION['loading_shown']);
                       rgba(0, 0, 0, 0.5) 20%,
                       rgba(0, 0, 0, 0) 90%
                     ),
-                    url('../Information/Lodge Officers Jewels/2 Senior Warden.png');
+                    url('../Information/swarden.png');
                 "></div>
                             <h3>Bro. Victor Roman C. Cacal</h3>
                             <span>Senior Warden</span>
@@ -138,7 +138,7 @@ unset($_SESSION['loading_shown']);
                       rgba(0, 0, 0, 0.5) 20%,
                       rgba(0, 0, 0, 0) 90%
                     ),
-                    url('../Information/Lodge Officers Jewels/3 Junior Warden.png');
+                    url('../Information/jwarden.png');
                 "></div>
                             <h3>Bro. Faustino B. Austria Jr.</h3>
                             <span>Junior Warden</span>

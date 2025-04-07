@@ -1,82 +1,18 @@
 $(document).ready(function () {
-  // $("#officers").removeClass("active").addClass("inactive");
-  // $("#Events").removeClass("active").addClass("inactive");
-  // $("#News").removeClass("active").addClass("inactive");
-  // $("#Activities").removeClass("active").addClass("inactive");
-  // $("#post").removeClass("active").addClass("inactive");
+  $("#officers").removeClass("active").addClass("inactive");
+  $("#Events").removeClass("active").addClass("inactive");
+  $("#News").removeClass("active").addClass("inactive");
+  $("#Activities").removeClass("active").addClass("inactive");
+  $("#post").removeClass("active").addClass("inactive");
 
-  // $("#HomeNav, #AboutNav, #HistoryNav").click(function () {
-  //   $("#main").removeClass("inactive").addClass("active");
-  //   $("#officers").removeClass("active").addClass("inactive");
-  //   $("#Events").removeClass("active").addClass("inactive");
-  //   $("#News").removeClass("active").addClass("inactive");
-  //   $("#Activities").removeClass("active").addClass("inactive");
-  //   $("#post").removeClass("active").addClass("inactive");
-  // });
-
-  // $("#EventsNav").click(function () {
-  //   $("#main").removeClass("active").addClass("inactive");
-  //   $("#officers").removeClass("active").addClass("inactive");
-  //   $("#Events").removeClass("inactive").addClass("active");
-  //   $("#News").removeClass("active").addClass("inactive");
-  //   $("#Activities").removeClass("active").addClass("inactive");
-  //   $("#post").removeClass("active").addClass("inactive");
-  // });
-
-  // $("#NewsNav").click(function () {
-  //   $("#main").removeClass("active").addClass("inactive");
-  //   $("#officers").removeClass("active").addClass("inactive");
-  //   $("#Events").removeClass("active").addClass("inactive");
-  //   $("#News").removeClass("inactive").addClass("active");
-  //   $("#Activities").removeClass("active").addClass("inactive");
-  //   $("#post").removeClass("active").addClass("inactive");
-  // });
-
-  // $("#ActivitiesNav").click(function () {
-  //   $("#main").removeClass("active").addClass("inactive");
-  //   $("#officers").removeClass("active").addClass("inactive");
-  //   $("#Events").removeClass("active").addClass("inactive");
-  //   $("#News").removeClass("active").addClass("inactive");
-  //   $("#Activities").removeClass("inactive").addClass("active");
-  //   $("#post").removeClass("active").addClass("inactive");
-  // });
-
-  // $("#OfficersNav").click(function () {
-  //   $("#main").removeClass("active").addClass("inactive");
-  //   $("#officers").removeClass("inactive").addClass("active");
-  //   $("#Events").removeClass("active").addClass("inactive");
-  //   $("#News").removeClass("active").addClass("inactive");
-  //   $("#Activities").removeClass("active").addClass("inactive");
-  //   $("#post").removeClass("active").addClass("inactive");
-  // });
-
-  // $("#ContentNav").click(function () {
-  //   $("#main").removeClass("active").addClass("inactive");
-  //   $("#officers").removeClass("active").addClass("inactive");
-  //   $("#Events").removeClass("active").addClass("inactive");
-  //   $("#News").removeClass("active").addClass("inactive");
-  //   $("#Activities").removeClass("active").addClass("inactive");
-  //   $("#post").removeClass("inactive").addClass("active");
-  // });
-
-  // $("#btn-login").on("click", function () {
-  //   $(".login").addClass("loginactive");
-  //   $("#navbar").addClass("inactive");
-  //   $("body").css("overflow", "hidden");
-  // });
-  // $("#to-content").on("click", function () {
-  //   $(".login").removeClass("loginactive");
-  //   $("#navbar").removeClass("inactive");
-  //   $("body").css("overflow", "");
-  // });
-
-  $(document).ready(function () {
-    // Your existing logic to handle active/inactive classes on sections
+  $("#HomeNav, #AboutNav, #HistoryNav").click(function () {
+    $("#main").removeClass("inactive").addClass("active");
     $("#officers").removeClass("active").addClass("inactive");
     $("#Events").removeClass("active").addClass("inactive");
     $("#News").removeClass("active").addClass("inactive");
     $("#Activities").removeClass("active").addClass("inactive");
     $("#post").removeClass("active").addClass("inactive");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#EventsNav").click(function () {
@@ -86,6 +22,7 @@ $(document).ready(function () {
     $("#News").removeClass("active").addClass("inactive");
     $("#Activities").removeClass("active").addClass("inactive");
     $("#post").removeClass("active").addClass("inactive");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#NewsNav").click(function () {
@@ -95,6 +32,7 @@ $(document).ready(function () {
     $("#News").removeClass("inactive").addClass("active");
     $("#Activities").removeClass("active").addClass("inactive");
     $("#post").removeClass("active").addClass("inactive");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#ActivitiesNav").click(function () {
@@ -104,6 +42,7 @@ $(document).ready(function () {
     $("#News").removeClass("active").addClass("inactive");
     $("#Activities").removeClass("inactive").addClass("active");
     $("#post").removeClass("active").addClass("inactive");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#OfficersNav").click(function () {
@@ -113,6 +52,7 @@ $(document).ready(function () {
     $("#News").removeClass("active").addClass("inactive");
     $("#Activities").removeClass("active").addClass("inactive");
     $("#post").removeClass("active").addClass("inactive");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#ContentNav").click(function () {
@@ -122,6 +62,7 @@ $(document).ready(function () {
     $("#News").removeClass("active").addClass("inactive");
     $("#Activities").removeClass("active").addClass("inactive");
     $("#post").removeClass("inactive").addClass("active");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#btn-login").on("click", function () {

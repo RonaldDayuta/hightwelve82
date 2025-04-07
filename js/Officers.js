@@ -18,22 +18,15 @@ $(document).ready(function () {
   $("#addOfficerForm").submit(function (event) {
     event.preventDefault();
     let formData = new FormData(this);
-  
-    // Get the position name and number
-    const select = document.getElementById('officerPosition');
-    const positionName = select.value; // The position title
-    const positionNumber = select.selectedOptions[0].getAttribute('data-num'); // The position number
-    
-    console.log("Position Name:", positionName);   // For example, "Auditor"
-    console.log("Position Number:", positionNumber); // For example, "7"
-
-    // Replace the original value of officerPosition with the position title
-    formData.set("officerPosition", positionName); // Set position title
-    formData.append("positionNumber", positionNumber); // Append position number
-    
+    var selectedValue = $("#officerPosition").val(); // "1-Manager"
+    var parts = selectedValue.split("-");
+    var position_id = parts[0];
+    var position_name = parts[1];
+    formData.append("officerPositionNumber", position_id);
+    formData.append("officerPositionWord", position_name);
     $("#button-text").text("Adding...");
     $("#spinner").show();
-  
+
     $.ajax({
       url: "../php/Addofficers.php",
       type: "POST",
@@ -73,8 +66,7 @@ $(document).ready(function () {
         });
       },
     });
-});
-
+  });
 
   $(document).on("click", "#officer-update", function () {
     let officerID = $(this).data("id");
@@ -97,7 +89,6 @@ $(document).ready(function () {
             if (response.success) {
               $("#editOfficerID").val(response.data.ID);
               $("#editOfficerName").val(response.data.Name);
-              $("#editOfficerPosition").val(response.data.Position);
               $("#editPositionDescription").val(response.data.PosDecs);
               $("#editOfficerModal").modal("show");
             } else {
@@ -120,6 +111,12 @@ $(document).ready(function () {
   $("#editOfficerForm").submit(function (event) {
     event.preventDefault();
     let formData = new FormData(this);
+    var selectedValue = $("#editOfficerPosition").val(); // "1-Manager"
+    var parts = selectedValue.split("-");
+    var position_id = parts[0];
+    var position_name = parts[1];
+    formData.append("officerPositionNumber", position_id);
+    formData.append("officerPositionWord", position_name);
 
     $("#edit-button-text").text("Updating...");
     $("#edit-spinner").show();

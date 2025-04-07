@@ -2,7 +2,7 @@
 include '../dbconnect/conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $officersSql = "SELECT ID, Name, Position, PosDecs FROM tblofficers";
+    $officersSql = "SELECT ID, Name, Position, PosDecs FROM tblofficers ORDER BY PositionNumber ASC";
     $stmt = $conn->prepare($officersSql);
     $stmt->execute();
     $result = $stmt->get_result();
