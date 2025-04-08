@@ -1,6 +1,6 @@
 <?php
 include '../dbconnect/conn.php';
-    $foldersql = "SELECT * FROM folders";
+    $foldersql = "SELECT * FROM folders WHERE id2 = '0'";
     $stmt = $conn->prepare($foldersql);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -19,7 +19,7 @@ include '../dbconnect/conn.php';
                     </div>
 
                     <!-- Folder Button -->
-                    <button>
+                    <button data-id="<?= $row['id']; ?>" data-name="<?= $row['foldername']; ?>" class="openfolder">
                         <span class="material-icons-outlined">source</span>
                         <?= $row['foldername']; ?>
                     </button>
