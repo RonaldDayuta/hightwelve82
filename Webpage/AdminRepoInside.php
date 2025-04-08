@@ -13,7 +13,7 @@
             </div>
             <form id="uploadFormPDF">
                 <div class="modal-body">
-                    <div class="mb-3">
+                    <div class="mb-3" style="display: none;">
                         <input id="folderid" name="folderid" type="text" />
                         <input id="fileid" name="fileid" type="text" />
                     </div>
