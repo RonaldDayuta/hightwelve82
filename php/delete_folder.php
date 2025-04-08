@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = intval($id);
 
     // Run deletion query
-    $sql = "DELETE FROM pdffile WHERE fileid = $id";
+    $sql = "DELETE FROM folders WHERE id = $id";
     if (mysqli_query($conn, $sql)) {
         echo 'success';
     } else {
