@@ -409,35 +409,23 @@ $(document).ready(function () {
     }
   });
 
-  function fetchFolders(searchQuery = "") {
-    let url = searchQuery
-      ? "../php/SearchFolder.php"
-      : "../php/FolderTable.php";
-
-    $.ajax({
-      url: url,
-      type: "GET",
-      data: searchQuery ? { search: searchQuery } : {},
-      success: function (data) {
-        $("#folders").html(data);
-      },
-      error: function (xhr, status, error) {
-        console.error("Error fetching folders:", error);
-        console.log("Server response:", xhr.responseText);
-      },
-    });
-  }
-
-  // Fetch folders on page load
-  fetchFolders();
-
-  // Trigger search on Enter key press
-  $("#search-file").on("keydown", function (e) {
+  $("#search-file").on("keyup", function (e) {
     if (e.key === "Enter") {
-      e.preventDefault();  // Prevent form submission
-      let searchQuery = $(this).val().trim();
-      console.log(searchQuery);
-      fetchFolders(searchQuery);
+      const searchQuery = $(this).val().trim();
+      const folderId = $("#folderid").val(); // make sure this exists and is set
+  
+      $.ajax({
+        url: "../php/SearchFile.php",
+        type: "GET",
+        data: { search: searchQuery, folderid: folderId },
+        success: function (data) {
+          $("#tfiles").html(data);
+        },
+        error: function (xhr, status, error) {
+          console.error("Error searching files:", error);
+          console.log("Response:", xhr.responseText);
+        },
+      });
     }
-  });
+  });  
 });

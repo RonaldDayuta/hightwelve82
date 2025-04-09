@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->Port       = 587;
 
             //Recipients
-            $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve Lodge No. 82');
+            $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve Masonic Lodge No.82');
 
             // Loop through the result of email addresses and send an email to each
             while ($row = $resultEmails->fetch_assoc()) {
@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <!-- Footer -->
                         <div style="background-color: #007BFF; color: white; text-align: center; padding: 10px;">
-                            <p style="margin: 0;">&copy; 2025 High Twelve Lodge No.82</p>
+                            <p style="margin: 0;">&copy; 2025 High Twelve Masonic Lodge No.82</p>
                         </div>
                     </div>';
                 // Send the email

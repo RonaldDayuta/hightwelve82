@@ -1,32 +1,35 @@
 <?php
 include '../dbconnect/conn.php';
 
-$search = $_GET['search'] ?? '';
-$searchParam = '%' . $search . '%'; // Properly format the search string
+$search = isset($_GET["search"]) ? $_GET["search"] : "";
+$searchParam = '%' . $search . '%';
 
-$foldersql = "SELECT * FROM  WHERE id2 = '0' AND foldername LIKE ?";
-$stmt = $conn->prepare($foldersql);
-$stmt->bind_param("s", $searchParam); // Use the correctly formatted search string
+$sql = "SELECT * FROM pdffile WHERE name LIKE ? ORDER BY name ASC";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $searchParam);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
 ?>
-    <div class="button-wrapper">
-        <span class="material-icons-outlined dot">more_horiz</span>
-        <div data-id="<?= $row['id']; ?>" class="dot-menu">
-            <div id="folderrename" data-id="<?= $row['id']; ?>" class="menu-item rename-btn">Rename</div>
-            <div id="folderdelete" data-id="<?= $row['id']; ?>" class="menu-item delete-btn">Delete</div>
-        </div>
-        <button data-id="<?= $row['id']; ?>" data-name="<?= $row['foldername']; ?>" class="openfolder">
-            <span class="material-icons-outlined">source</span>
-            <?= htmlspecialchars($row['foldername']); ?>
-        </button>
-    </div>
+        <tr>
+            <td>
+                <div class="td-content">
+                    <div class="name">
+                        <?= htmlspecialchars($row['name']); ?>
+                    </div>
+                    <div class="button-wrapper">
+                        <span id="viewpdffile" data-file="<?= htmlspecialchars($row['path']); ?>" class="material-icons-outlined">visibility</span>
+                        <span id="downloadpdffile" data-id="<?= htmlspecialchars($row['fileid']); ?>" class="material-icons-outlined">file_download</span>
+                        <span id="deletepdffile" data-id="<?= htmlspecialchars($row['fileid']); ?>" class="material-icons-outlined" style="color: #ff0060;">delete</span>
+                    </div>
+                </div>
+            </td>
+        </tr>
 <?php
     }
 } else {
-    echo "<p>No folders found.</p>";
+    echo "<tr><td colspan='6'>No files found</td></tr>";
 }
 ?>
