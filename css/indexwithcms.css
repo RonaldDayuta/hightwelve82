@@ -775,40 +775,17 @@ nav h2 {
   width: 100%;
 }
 
-.row .col-main .insidefolder table .button-wrapper .dots {
-  font-size: 1.5rem !important;
-  color: var(--color-white);
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
+.row .col-main .insidefolder table .button-wrapper {
+  display: flex;
+  gap: 1rem;
 }
 
-.row .col-main .insidefolder table .button-wrapper .dot-menus {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  z-index: 3;
-  background-color: #fff;
-  color: #000;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  display: none;
-  flex-direction: column;
-}
-
-.row .col-main .insidefolder table .button-wrapper .dot-menus .menu-items {
-  padding: 0.5rem 1rem;
+.row .col-main .insidefolder table .button-wrapper:hover {
   cursor: pointer;
 }
 
-.row
-  .col-main
-  .insidefolder
-  table
-  .button-wrapper
-  .dot-menus
-  .menu-items:hover {
-  background-color: #eee;
+.row .col-main .insidefolder table .button-wrapper span:hover {
+  cursor: pointer;
 }
 
 .row .col-main .insidefolder .preview-modal {

@@ -1,6 +1,6 @@
 <?php
 include '../dbconnect/conn.php';
-    $foldersql = "SELECT * FROM folders WHERE id2 = '0'";
+    $foldersql = "SELECT * FROM folders WHERE id2 = '0' ORDER BY foldername ASC";
     $stmt = $conn->prepare($foldersql);
     $stmt->execute();
     $result = $stmt->get_result();
