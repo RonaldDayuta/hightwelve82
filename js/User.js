@@ -13,6 +13,8 @@ $(document).ready(function () {
     $("#newsdrop").removeClass("actives");
     $("#meetdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
+    $("#Repository").removeClass("active");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#eventdrop").click(function () {
@@ -26,6 +28,8 @@ $(document).ready(function () {
     $("#Calendar").removeClass("active");
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
+    $("#Repository").removeClass("active");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#newsdrop").click(function () {
@@ -39,6 +43,8 @@ $(document).ready(function () {
     $("#Calendar").removeClass("active");
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
+    $("#Repository").removeClass("active");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#meetdrop").click(function () {
@@ -52,6 +58,8 @@ $(document).ready(function () {
     $("#Calendar").removeClass("active");
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
+    $("#Repository").removeClass("active");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $("#actdrop").click(function () {
@@ -65,6 +73,22 @@ $(document).ready(function () {
     $("#Calendar").removeClass("active");
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
+    $("#Repository").removeClass("active");
+    $(".navbar-collapse").collapse("hide");
+  });
+  $("#Repository").click(function () {
+    $("#main").load("../Webpage/AdminRepo.php");
+    $("#Repository").addClass("active");
+    $("#Officers").removeClass("active");
+    $("#Calendar").removeClass("active");
+    $("#Accounts").removeClass("active");
+    $("#Home").removeClass("active");
+    $("#eventnav").removeClass("active");
+    $("#eventdrop").removeClass("actives");
+    $("#newsdrop").removeClass("actives");
+    $("#meetdrop").removeClass("actives");
+    $("#actdrop").removeClass("actives");
+    $(".navbar-collapse").collapse("hide");
   });
 
   $.ajax({
