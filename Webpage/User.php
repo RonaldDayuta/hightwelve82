@@ -94,6 +94,12 @@ $id = $_SESSION['user_id'];
                         </ul>
                     </li>
                     <li class="nav-item">
+                        <a id="Repository" href="#" class=" nav-link">
+                        <span class="material-icons-outlined">folder</span>
+                            Repository
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#manageaccoutmodal">
                             <span class="material-icons-outlined">
                                 manage_accounts
