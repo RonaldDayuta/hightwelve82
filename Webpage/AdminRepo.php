@@ -12,7 +12,7 @@
                 </g>
             </svg>
 
-            <input class="input" type="text" placeholder="Search..." name="searchbar" />
+            <input class="input" id="search-folder" type="text" placeholder="Search..." name="searchbar" />
         </div>
     </div>
     <div id="folders" class="folders">
@@ -47,4 +47,5 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../js/Repo.js"></script>
