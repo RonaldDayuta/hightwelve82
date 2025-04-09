@@ -1,8 +1,8 @@
 <?php
 include '../dbconnect/conn.php';
 
-$search = isset($_GET["search"]) ? $_GET["search"] : "";
-$searchParam = '%' . $search . '%';
+$search = $_POST['search'] ?? '';
+$searchParam = "%$search%";
 
 $sql = "SELECT * FROM pdffile WHERE name LIKE ? ORDER BY name ASC";
 $stmt = $conn->prepare($sql);

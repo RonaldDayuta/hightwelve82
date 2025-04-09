@@ -231,38 +231,39 @@ $id = $_SESSION['user_id'];
                         </div>
                         <div class="mb-3">
                             <label for="first-name" class="form-label">First Name</label>
-                            <input type="text" id="first-name" name="first-name" class="form-control"
+                            <input type="text" id="first-name" name="first-name" class="form-control" value="<?php echo $first_name ?>"
                                 placeholder="First Name" required />
                         </div>
                         <div class="mb-3">
                             <label for="middle-name" class="form-label">Middle Name</label>
-                            <input type="text" id="middle-name" name="middle-name" class="form-control"
+                            <input type="text" id="middle-name" name="middle-name" class="form-control" value="<?php echo $middle_name ?>"
                                 placeholder="Middle Name, if w/o Middle Name type N/A" required />
                         </div>
                         <div class="mb-3">
                             <label for="last-name" class="form-label">Last Name</label>
-                            <input type="text" id="last-name" name="last-name" class="form-control" placeholder="Last Name"
+                            <input type="text" id="last-name" name="last-name" value="<?php echo $last_name ?>" class="form-control" placeholder="Last Name"
                                 required />
                         </div>
                         <div class="mb-3">
                             <label for="suffix" class="form-label">Suffix</label>
-                            <select id="suffix" name="suffix" class="form-control" required>
-                                <option value="" selected disabled>Select Suffix</option>
-                                <option value="N/A">N/A</option>
-                                <option value="Sr.">Sr.</option>
-                                <option value="Jr.">Jr.</option>
-                                <option value="I">I</option>
-                                <option value="II">II</option>
-                                <option value="III">III</option>
-                                <option value="IV">IV</option>
-                                <option value="V">V</option>
-                                <option value="VI">VI</option>
-                                <option value="VII">VII</option>
-                                <option value="VIII">VIII</option>
-                                <option value="IX">IX</option>
-                                <option value="X">X</option>
+                            <select style="text-align: center;" id="suffix" name="suffix" class="form-control" required>
+                                <option value="" disabled <?= empty($suffix) ? 'selected' : '' ?>>Select Suffix</option>
+                                <option value="N/A" <?= $suffix == "N/A" ? 'selected' : '' ?>>N/A</option>
+                                <option value="Sr." <?= $suffix == "Sr." ? 'selected' : '' ?>>Sr.</option>
+                                <option value="Jr." <?= $suffix == "Jr." ? 'selected' : '' ?>>Jr.</option>
+                                <option value="I" <?= $suffix == "I" ? 'selected' : '' ?>>I</option>
+                                <option value="II" <?= $suffix == "II" ? 'selected' : '' ?>>II</option>
+                                <option value="III" <?= $suffix == "III" ? 'selected' : '' ?>>III</option>
+                                <option value="IV" <?= $suffix == "IV" ? 'selected' : '' ?>>IV</option>
+                                <option value="V" <?= $suffix == "V" ? 'selected' : '' ?>>V</option>
+                                <option value="VI" <?= $suffix == "VI" ? 'selected' : '' ?>>VI</option>
+                                <option value="VII" <?= $suffix == "VII" ? 'selected' : '' ?>>VII</option>
+                                <option value="VIII" <?= $suffix == "VIII" ? 'selected' : '' ?>>VIII</option>
+                                <option value="IX" <?= $suffix == "IX" ? 'selected' : '' ?>>IX</option>
+                                <option value="X" <?= $suffix == "X" ? 'selected' : '' ?>>X</option>
                             </select>
                         </div>
+
                         <div class="mb-3">
                             <label class="form-label">Username</label>
                             <input type="text" class="form-control" name="username" value="<?php echo $username ?>" />

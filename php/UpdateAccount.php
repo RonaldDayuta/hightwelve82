@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sssssssssi", $first_name, $middle_name, $last_name, $suffix, $email, $username, $position, $status, $hashedPassword, $id);
     } else {
         // If no password is provided, update without changing the password
-        $sql = "UPDATE tblaccounts SET Email=?, Username=?, WebPosition=?, Status=? WHERE ID=?";
+        $sql = "UPDATE tblaccounts SET first_name=?, middle_name=?, last_name=?, suffix=?, Email=?, Username=?, WebPosition=?, Status=? WHERE ID=?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ssssssssi",$first_name, $middle_name, $last_name, $suffix, $email, $username, $position, $status, $id);
     }

@@ -210,6 +210,39 @@ $(document).ready(function () {
           $("#tfiles").html("<p>Error loading events.</p>");
         },
       });
+      $("#search-file").on("keyup", function () {
+        let searchText = $(this).val().trim(); // Get the input value and trim spaces
+
+        if (searchText !== "") {
+          $.ajax({
+            url: "../php/SearchFile.php",
+            type: "POST",
+            data: { search: searchText }, // Use "search" to handle both date & title
+            beforeSend: function () {
+              $("#tfiles").html("<p>Loading...</p>"); // Show loading text
+            },
+            success: function (response) {
+              $("#tfiles").html(response);
+            },
+            error: function (xhr, status, error) {
+              console.error("AJAX Error: " + error);
+              $("#tfiles").html("<p>Error fetching file.</p>");
+            },
+          });
+        } else {
+          $.ajax({
+            url: "../php/fetchfileinsidefolder.php", // PHP script to fetch events
+            type: "GET",
+            data: { id: id },
+            success: function (response) {
+              $("#tfiles").html(response);
+            },
+            error: function () {
+              $("#tfiles").html("<p>Error loading file.</p>");
+            },
+          });
+        }
+      });
       $("#uploadFormPDF").on("submit", function (e) {
         e.preventDefault();
 
@@ -243,7 +276,9 @@ $(document).ready(function () {
                 text: response,
               });
               $("#uploadFormPDF")[0].reset();
-              $("#uploadModal").modal("hide");
+              const modalEl = document.getElementById("uploadModal");
+              const modal = bootstrap.Modal.getInstance(modalEl);
+              modal.hide();
               $.ajax({
                 url: "../php/fetchfileinsidefolder.php",
                 type: "GET",
@@ -252,7 +287,7 @@ $(document).ready(function () {
                   $("#tfiles").html(response);
                 },
                 error: function () {
-                  $("#tfiles").html("<p>Error loading events.</p>");
+                  $("#tfiles").html("<p>Error loading file.</p>");
                 },
               });
             } else {
@@ -358,56 +393,36 @@ $(document).ready(function () {
     $("#main").load("../Webpage/AdminRepo.php");
   });
 
-  // Modify fetchFolders to fetch folders on pressing Enter
-  function fetchFolders(searchQuery = "") {
-    let url = searchQuery
-      ? "../php/SearchFolder.php"
-      : "../php/FolderTable.php";
+  $("#search-folder").on("keyup", function () {
+    let searchText = $(this).val().trim(); // Get the input value and trim spaces
 
-    $.ajax({
-      url: url,
-      type: "GET",
-      data: searchQuery ? { search: searchQuery } : {},
-      success: function (data) {
-        $("#folders").html(data);
-      },
-      error: function (xhr, status, error) {
-        console.error("Error fetching folders:", error);
-        console.log("Server response:", xhr.responseText);
-      },
-    });
-  }
-
-  // Fetch folders on page load
-  fetchFolders();
-
-  // Trigger search on Enter key press
-  $("#search-folder").on("keydown", function (e) {
-    if (e.key === "Enter") {
-      e.preventDefault();  // Prevent form submission
-      let searchQuery = $(this).val().trim();
-      console.log(searchQuery);
-      fetchFolders(searchQuery);
-    }
-  });
-
-  $("#search-file").on("keyup", function (e) {
-    if (e.key === "Enter") {
-      const searchQuery = $(this).val().trim();
-      const folderId = $("#folderid").val(); // make sure this exists and is set
-  
+    if (searchText !== "") {
       $.ajax({
-        url: "../php/SearchFile.php",
-        type: "GET",
-        data: { search: searchQuery, folderid: folderId },
-        success: function (data) {
-          $("#tfiles").html(data);
+        url: "../php/SearchFolder.php",
+        type: "POST",
+        data: { search: searchText }, // Use "search" to handle both date & title
+        beforeSend: function () {
+          $("#folders").html("<p>Loading...</p>"); // Show loading text
+        },
+        success: function (response) {
+          $("#folders").html(response);
         },
         error: function (xhr, status, error) {
-          console.error("Error searching files:", error);
-          console.log("Response:", xhr.responseText);
+          console.error("AJAX Error: " + error);
+          $("#folders").html("<p>Error fetching folders.</p>");
+        },
+      });
+    } else {
+      $.ajax({
+        url: "../php/fetchfolderforadmin.php", // PHP script to fetch events
+        type: "GET",
+        success: function (response) {
+          $("#folders").html(response);
+        },
+        error: function () {
+          $("#folders").html("<p>Error loading folders.</p>");
         },
       });
     }
-  });  
+  });
 });

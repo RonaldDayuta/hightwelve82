@@ -141,6 +141,10 @@ $(document).ready(function () {
               $("#update-password").val(response.data.DecryptedPassword);
               $("#update-position").val(response.data.WebPosition);
               $("#update-status").val(response.data.Status);
+              $("#update-first-name").val(response.data.first_name);
+              $("#update-last-name").val(response.data.last_name);
+              $("#update-middle-name").val(response.data.middle_name);
+              $("#update-suffix").val(response.data.suffix);
 
               $("#updateModal").modal("show");
             } else {
@@ -226,17 +230,17 @@ $(document).ready(function () {
   });
 });
 
-document.querySelectorAll(".toggle-password").forEach(button => {
+document.querySelectorAll(".toggle-password").forEach((button) => {
   button.addEventListener("click", function () {
-      let input = this.previousElementSibling;
-      let icon = this.querySelector("i");
+    let input = this.previousElementSibling;
+    let icon = this.querySelector("i");
 
-      if (input.type === "password") {
-          input.type = "text";
-          icon.classList.replace("fa-eye", "fa-eye-slash");
-      } else {
-          input.type = "password";
-          icon.classList.replace("fa-eye-slash", "fa-eye");
-      }
+    if (input.type === "password") {
+      input.type = "text";
+      icon.classList.replace("fa-eye", "fa-eye-slash");
+    } else {
+      input.type = "password";
+      icon.classList.replace("fa-eye-slash", "fa-eye");
+    }
   });
 });

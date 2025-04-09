@@ -1,8 +1,8 @@
 <?php
 include '../dbconnect/conn.php';
 
-$search = $_GET['search'] ?? '';
-$searchParam = '%' . $search . '%'; // Properly format the search string
+$search = $_POST['search'] ?? '';
+$searchParam = "%$search%"; // Properly format the search string
 
 $foldersql = "SELECT * FROM folders WHERE id2 = '0' AND foldername LIKE ?";
 $stmt = $conn->prepare($foldersql);

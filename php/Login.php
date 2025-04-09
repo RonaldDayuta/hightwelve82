@@ -19,6 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($row) {
         $stored_password = $row['Password']; // Database password
         $position = $row['WebPosition'];
+        $status = strtolower($row['Status']); // 'active', 'inactive', or 'suspend'
+
+        // Check account status
+        if ($status !== 'active') {
+            echo json_encode(['success' => false, 'message' => 'Your account is ' . ucfirst($status) . '. Please contact the administrator.']);
+            exit;
+        }
 
         // DEBUG: I-print ang password values
         error_log("Entered Password: " . $password);
