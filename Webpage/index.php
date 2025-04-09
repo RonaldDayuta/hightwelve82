@@ -60,7 +60,7 @@ unset($_SESSION['loading_shown']);
                             <a class="nav-link" id="ActivitiesNav" href="#Activities">Activities</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="ContentNav" href="#post">PostContent</a>
+                            <a class="nav-link" id="ContentNav" href="#post">Post Content</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="OfficersNav" href="#Officers">Officers</a>

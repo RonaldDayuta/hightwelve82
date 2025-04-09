@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
-            $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve Lodge No.82');
+            $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve Masonic Lodge No.82');
             $mail->addAddress($email);
 
             $mail->isHTML(true);
@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <!-- Footer -->
                     <div style="background-color: #007BFF; color: white; text-align: center; padding: 10px;">
-                        <p style="margin: 0;">Best regards,<br><strong>High Twelve Lodge No.82</strong></p>
+                        <p style="margin: 0;">Best regards,<br><strong>High Twelve Masonic Lodge No.82</strong></p>
                     </div>
                 </div>';
             $mail->send();

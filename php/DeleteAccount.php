@@ -47,7 +47,7 @@ if (isset($_POST['id'])) {
                 $mail->Port       = 587;
 
                 // Recipients
-                $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve Lodge No.82');
+                $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve Masonic Lodge No.82');
                 $mail->addAddress($email, $username); // Send email to the user
 
                 // Content
@@ -76,7 +76,7 @@ if (isset($_POST['id'])) {
 
                         <!-- Footer -->
                         <div style="background-color: #DC3545; color: white; text-align: center; padding: 10px;">
-                            <p style="margin: 0;">&copy; 2025 High Twelve Lodge No.82</p>
+                            <p style="margin: 0;">&copy; 2025 High Twelve Masonic Lodge No.82</p>
                         </div>
                     </div>';
                 $mail->send();
