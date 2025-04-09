@@ -187,24 +187,6 @@ $(document).ready(function () {
     var name = $(this).data("name");
     var id = $(this).data("id");
     $("#main").load("../Webpage/AdminRepoInside.php", function () {
-      // Toggle dot menu
-      $(document).on("click", ".dots", function (e) {
-        e.stopPropagation(); // Prevent immediate close
-        const $menu = $(this).siblings(".dot-menus");
-        $(".dot-menus").not($menu).hide(); // Hide other menus
-        $menu.toggle(); // Toggle this menu
-      });
-
-      // Close menu on outside click
-      $(document).on("click", function () {
-        $(".dot-menus").hide();
-      });
-
-      // Prevent click inside the menu from closing it
-      $(document).on("click", ".dot-menus", function (e) {
-        e.stopPropagation();
-      });
-
       $("#insidefoldername").text(name);
       $("#openupload").click(function () {
         $("#folderid").val(id);
