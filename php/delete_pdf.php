@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        $filePath = '../PDFFile/' . $row['path']; // Adjust path as needed
+        $filePath = $row['path']; // Adjust path as needed
 
         // Step 2: Delete file from folder
         if (file_exists($filePath)) {
