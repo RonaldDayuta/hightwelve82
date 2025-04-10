@@ -156,7 +156,7 @@ p {
   flex-direction: column;
   justify-content: end;
   overflow: hidden; /* Ensures no overflow when scaling */
-  height: 40rem;
+  height: 30rem;
   box-shadow: var(--box-shadow);
   padding: 1rem;
   border-radius: 1rem;
@@ -165,11 +165,11 @@ p {
 .officer-card .officer-bg {
   position: absolute;
   inset: 0; /* Fills the entire .officer-card */
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   transition: transform 0.8s ease-in-out; /* Smooth scaling effect */
   z-index: -1; /* Keeps it behind the content */
+  height: 40rem;
 }
 
 .officer-card:hover .officer-bg {
@@ -379,7 +379,7 @@ p {
 
 .content-officers .officers-list .officer-container {
   max-width: 40rem;
-  height: 40rem;
+  height: 30rem;
 }
 
 .content-officers .officers-list .officer-container .officer-card h3 {
@@ -407,11 +407,11 @@ p {
 .content-officers .officers-list .officer-container .officer-bg {
   position: absolute;
   inset: 0; /* Fills the entire .officer-card */
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   transition: transform 0.8s ease-in-out; /* Smooth scaling effect */
   z-index: -1; /* Keeps it behind the content */
+  height: 40rem;
 }
 
 .content-officers

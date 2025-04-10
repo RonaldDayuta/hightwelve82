@@ -150,7 +150,11 @@ $(document).ready(function () {
             text: "The folder was added successfully!",
             confirmButtonColor: "#3085d6",
           }).then(() => {
-            $("#addFolderModal").modal("hide");
+            var modalEl = document.getElementById("addFolderModal");
+            var modalInstance = bootstrap.Modal.getInstance(modalEl);
+            if (modalInstance) {
+              modalInstance.hide();
+            }
             $("#folderForm")[0].reset();
             $.ajax({
               url: "../php/fetchfolderforadmin.php", // PHP script to fetch events
@@ -276,9 +280,11 @@ $(document).ready(function () {
                 text: response,
               });
               $("#uploadFormPDF")[0].reset();
-              const modalEl = document.getElementById("uploadModal");
-              const modal = bootstrap.Modal.getInstance(modalEl);
-              modal.hide();
+              var modalEl = document.getElementById("uploadModal");
+              var modalInstance = bootstrap.Modal.getInstance(modalEl);
+              if (modalInstance) {
+                modalInstance.hide();
+              }
               $.ajax({
                 url: "../php/fetchfileinsidefolder.php",
                 type: "GET",

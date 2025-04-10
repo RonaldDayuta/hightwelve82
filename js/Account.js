@@ -146,7 +146,10 @@ $(document).ready(function () {
               $("#update-middle-name").val(response.data.middle_name);
               $("#update-suffix").val(response.data.suffix);
 
-              $("#updateModal").modal("show");
+              var myModal = new bootstrap.Modal(
+                document.getElementById("updateModal")
+              );
+              myModal.show();
             } else {
               Swal.fire("Error", response.message, "error");
             }
@@ -191,7 +194,11 @@ $(document).ready(function () {
             title: "Updated!",
             text: result.message,
           });
-          $("#updateModal").modal("hide");
+          var modalEl = document.getElementById("updateModal");
+          var modalInstance = bootstrap.Modal.getInstance(modalEl);
+          if (modalInstance) {
+            modalInstance.hide();
+          }
           spinner.hide();
           buttonText.text("Update Account");
           loadAccounts();

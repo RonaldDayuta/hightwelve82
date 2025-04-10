@@ -77,7 +77,10 @@ $(document).ready(function () {
       cache: false,
       success: function (data) {
         $("#table-events").html(data);
-        $("#eventModal").modal("show");
+        var modal = bootstrap.Modal.getOrCreateInstance(
+          document.getElementById("eventModal")
+        );
+        modal.show();
       },
       error: function (xhr, status, error) {
         console.error("Error loading events:", error);
@@ -128,12 +131,14 @@ $(document).ready(function () {
   function openAddEventModal() {
     document.getElementById("add-event-date").innerText = selectedDate;
     document.getElementById("event-date").value = selectedDate;
-    new bootstrap.Modal(document.getElementById("addEventModal")).show();
+    var modal = bootstrap.Modal.getOrCreateInstance(
+      document.getElementById("addEventModal")
+    );
+    modal.show();
   }
 
   $("#add-event-btn").click(function () {
     openAddEventModal();
-    $("#eventModal").modal("hide");
   });
 
   $("#event-form").submit(function (event) {
@@ -174,8 +179,15 @@ $(document).ready(function () {
             $("#event-form")[0].reset();
 
             // Hide the modal after successful submission
-            $("#addEventModal").modal("hide");
-            $("#eventModal").modal("show");
+            var modalEl = document.getElementById("addEventModal");
+            var modalInstance = bootstrap.Modal.getInstance(modalEl);
+            if (modalInstance) {
+              modalInstance.hide();
+            }
+            var modal = bootstrap.Modal.getOrCreateInstance(
+              document.getElementById("eventModal")
+            );
+            modal.show();
 
             // Refresh events to show the newly added event
             fetchEvents(); // Refresh calendar or events list
@@ -267,8 +279,10 @@ $(document).ready(function () {
           // Clear file input (User can upload a new image)
           $("#update-event-image").val("");
 
-          // Show the modal
-          $("#updateEventModal").modal("show");
+          var modal = bootstrap.Modal.getOrCreateInstance(
+            document.getElementById("updateEventModal")
+          );
+          modal.show();
         } else {
           Swal.fire("Error", response.message, "error");
         }
@@ -307,7 +321,11 @@ $(document).ready(function () {
             icon: "success",
             confirmButtonText: "OK",
           }).then(() => {
-            $("#updateEventModal").modal("hide");
+            var modalEl = document.getElementById("updateEventModal");
+            var modalInstance = bootstrap.Modal.getInstance(modalEl);
+            if (modalInstance) {
+              modalInstance.hide();
+            }
             fetchEvents(); // Refresh the event list
 
             // Reset button state

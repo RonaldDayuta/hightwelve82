@@ -21,6 +21,7 @@ unset($_SESSION['loading_shown']);
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../Information/Lodge Logo.ico">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> -->
@@ -99,7 +100,8 @@ unset($_SESSION['loading_shown']);
             <!-- Content Section -->
             <div class="content-offficer container">
                 <div class="row g-4">
-                    <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="col-lg-4 col-md-4 col-sm-12" data-aos="zoom-in" data-aos-offset="500"
+                    data-aos-duration="500">
                         <div class="officer-card">
                             <div class="officer-bg" style="
                   background-image: linear-gradient(
@@ -114,7 +116,8 @@ unset($_SESSION['loading_shown']);
                             <span>Worshipful Master</span>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="col-lg-4 col-md-4 col-sm-12" data-aos="zoom-in" data-aos-offset="500"
+                    data-aos-duration="700">
                         <div class="officer-card">
                             <div class="officer-bg" style="
                   background-image: linear-gradient(
@@ -129,7 +132,8 @@ unset($_SESSION['loading_shown']);
                             <span>Senior Warden</span>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="col-lg-4 col-md-4 col-sm-12" data-aos="zoom-in" data-aos-offset="500"
+                    data-aos-duration="900">
                         <div class="officer-card">
                             <div class="officer-bg" style="
                   background-image: linear-gradient(
@@ -413,8 +417,12 @@ unset($_SESSION['loading_shown']);
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="../js/index.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>

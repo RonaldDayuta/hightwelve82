@@ -90,7 +90,10 @@ $(document).ready(function () {
               $("#editOfficerID").val(response.data.ID);
               $("#editOfficerName").val(response.data.Name);
               $("#editPositionDescription").val(response.data.PosDecs);
-              $("#editOfficerModal").modal("show");
+              var myModal = new bootstrap.Modal(
+                document.getElementById("editOfficerModal")
+              );
+              myModal.show();
             } else {
               Swal.fire("Error", "Failed to fetch officer details.", "error");
             }
@@ -138,7 +141,11 @@ $(document).ready(function () {
             text: response.message,
             confirmButtonText: "OK",
           }).then(() => {
-            $("#editOfficerModal").modal("hide");
+            var modalEl = document.getElementById("editOfficerModal");
+            var modalInstance = bootstrap.Modal.getInstance(modalEl);
+            if (modalInstance) {
+              modalInstance.hide();
+            }
             $("#editOfficerForm")[0].reset();
             loadofficers();
           });

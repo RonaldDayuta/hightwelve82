@@ -1,4 +1,13 @@
 $(document).ready(function () {
+  function hideNavbarCollapse() {
+    const navbarCollapse = document.querySelector(".navbar-collapse");
+    if (navbarCollapse && bootstrap.Collapse) {
+      const bsCollapse =
+        bootstrap.Collapse.getInstance(navbarCollapse) ||
+        new bootstrap.Collapse(navbarCollapse, { toggle: false });
+      bsCollapse.hide();
+    }
+  }
   $("#main").load("../Webpage/AdminHome.php");
   $("#Home").addClass("active");
 
@@ -14,7 +23,7 @@ $(document).ready(function () {
     $("#meetdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
     $("#Repository").removeClass("active");
-    $(".navbar-collapse").collapse("hide");
+    hideNavbarCollapse();
   });
 
   $("#Accounts").click(function () {
@@ -29,7 +38,7 @@ $(document).ready(function () {
     $("#meetdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
     $("#Repository").removeClass("active");
-    $(".navbar-collapse").collapse("hide");
+    hideNavbarCollapse();
   });
 
   $("#Calendar").click(function () {
@@ -44,7 +53,7 @@ $(document).ready(function () {
     $("#meetdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
     $("#Repository").removeClass("active");
-    $(".navbar-collapse").collapse("hide");
+    hideNavbarCollapse();
   });
 
   $("#Officers").click(function () {
@@ -59,7 +68,7 @@ $(document).ready(function () {
     $("#meetdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
     $("#Repository").removeClass("active");
-    $(".navbar-collapse").collapse("hide");
+    hideNavbarCollapse();
   });
 
   $("#eventdrop").click(function () {
@@ -74,7 +83,7 @@ $(document).ready(function () {
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
     $("#Repository").removeClass("active");
-    $(".navbar-collapse").collapse("hide");
+    hideNavbarCollapse();
   });
 
   $("#newsdrop").click(function () {
@@ -89,7 +98,7 @@ $(document).ready(function () {
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
     $("#Repository").removeClass("active");
-    $(".navbar-collapse").collapse("hide");
+    hideNavbarCollapse();
   });
 
   $("#meetdrop").click(function () {
@@ -104,7 +113,7 @@ $(document).ready(function () {
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
     $("#Repository").removeClass("active");
-    $(".navbar-collapse").collapse("hide");
+    hideNavbarCollapse();
   });
 
   $("#actdrop").click(function () {
@@ -119,7 +128,7 @@ $(document).ready(function () {
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
     $("#Repository").removeClass("active");
-    $(".navbar-collapse").collapse("hide");
+    hideNavbarCollapse();
   });
 
   $("#Repository").click(function () {
@@ -134,7 +143,7 @@ $(document).ready(function () {
     $("#newsdrop").removeClass("actives");
     $("#meetdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
-    $(".navbar-collapse").collapse("hide");
+    hideNavbarCollapse();
   });
 
   $.ajax({
