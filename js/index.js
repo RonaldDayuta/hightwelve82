@@ -197,6 +197,7 @@ $(document).ready(function () {
     },
   });
 
+  // nasa index.js ako
   $.ajax({
     url: '../php/getContent.php',
     type: 'GET',
