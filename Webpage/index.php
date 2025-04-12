@@ -158,7 +158,7 @@ unset($_SESSION['loading_shown']);
                     </div>
                 </div>
                 <div class="container">
-                    <div class="container-about">
+                    <div class="row row1">
                         <h1>High Twelve Masonic Lodge No. 82</h1>
                         <p class="about-text">Loading content...</p> <!-- This will be replaced dynamically -->
                     </div>
@@ -172,7 +172,7 @@ unset($_SESSION['loading_shown']);
                     </div>
                 </div>
                 <div class="container">
-                    <div class="container-history">
+                    <div class="row row1">
                         <h1>Brief history of Masonry in the Philippines</h1>
                         <p class="history-text">Loading content...</p> <!-- This will be replaced dynamically -->
                     </div>

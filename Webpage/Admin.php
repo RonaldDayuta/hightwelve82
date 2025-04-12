@@ -121,7 +121,7 @@ $id = $_SESSION['admin_id'];
                             <span class="material-icons-outlined">
                                 manage_accounts
                             </span>
-                            Manage Account
+                            ManageAccount
                         </a>
                     </li>
                     <li class="nav-item">
@@ -129,7 +129,7 @@ $id = $_SESSION['admin_id'];
                             <span class="material-icons-outlined">
                                 edit
                             </span>
-                            Edit About & History
+                            About&History
                         </a>
                     </li>
                     <li class="nav-item">
@@ -320,7 +320,7 @@ $id = $_SESSION['admin_id'];
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="edithistoryaboutmodalLabel">Add About & History</h5>
+                    <h5 class="modal-title" id="edithistoryaboutmodalLabel">About & History</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

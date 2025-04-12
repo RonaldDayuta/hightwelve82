@@ -3,14 +3,16 @@
 include('../dbconnect/conn.php');
 
 // Prepare the SQL query to fetch the content
-$query = "SELECT about, history FROM tblcontent LIMIT 1"; // Adjust query based on your needs
+$query = "SELECT about, history FROM tblcontent ORDER BY id DESC LIMIT 1"; // Adjust if you want latest entry
 $result = mysqli_query($conn, $query);
 
 // Check if the query was successful
 if ($result) {
     $row = mysqli_fetch_assoc($result);
-    $about = $row['about'];
-    $history = $row['history'];
+    
+    // Apply formatting to preserve line breaks and sanitize output
+    $about = nl2br(htmlspecialchars($row['about']));
+    $history = nl2br(htmlspecialchars($row['history']));
     
     // Return the data as JSON
     echo json_encode(['about' => $about, 'history' => $history]);
