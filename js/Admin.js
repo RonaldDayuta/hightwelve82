@@ -166,11 +166,10 @@ $(document).ready(function () {
                         <span>${news.event_date}</span>
                         <p class="news-description" data-full="${fullText}">
                             ${shortText}
-                            ${
-                              fullText.length > 100
-                                ? '<br><span class="see-more1" style="cursor: pointer; color: #6c9bcf;">See More</span>'
-                                : ""
-                            }
+                            ${fullText.length > 100
+              ? '<br><span class="see-more1" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+              : ""
+            }
                         </p>
                     </div>
                     <hr/>
@@ -202,13 +201,13 @@ $(document).ready(function () {
     if ($(this).text() === "See More") {
       parent.html(
         fullText +
-          '<br><span class="see-more1" style="cursor: pointer; color: #6c9bcf;"><br>See Less</span>'
+        '<br><span class="see-more1" style="cursor: pointer; color: #6c9bcf;"><br>See Less</span>'
       );
     } else {
       let shortText = fullText.substring(0, 100) + "...";
       parent.html(
         shortText +
-          '<br><span class="see-more1" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+        '<br><span class="see-more1" style="cursor: pointer; color: #6c9bcf;">See More</span>'
       );
     }
   });
@@ -234,11 +233,10 @@ $(document).ready(function () {
                         <span>${event.event_date}</span>
                         <p class="event-description" data-full="${fullText}">
                             ${shortText}
-                            ${
-                              fullText.length > 100
-                                ? '<br><span class="see-more2" style="cursor: pointer; color: #6c9bcf;">See More</span>'
-                                : ""
-                            }
+                            ${fullText.length > 100
+              ? '<br><span class="see-more2" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+              : ""
+            }
                         </p>
                     </div>
                     <hr />
@@ -271,13 +269,13 @@ $(document).ready(function () {
     if ($(this).text() === "See More") {
       parent.html(
         fullText +
-          '<br><span class="see-more2" style="cursor: pointer; color: #6c9bcf;">See Less</span>'
+        '<br><span class="see-more2" style="cursor: pointer; color: #6c9bcf;">See Less</span>'
       );
     } else {
       let shortText = fullText.substring(0, 100) + "...";
       parent.html(
         shortText +
-          '<br><span class="see-more2" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+        '<br><span class="see-more2" style="cursor: pointer; color: #6c9bcf;">See More</span>'
       );
     }
   });
@@ -306,14 +304,13 @@ $(document).ready(function () {
                                 <span>${meeting.event_date}</span>
                                 <p class="meeting-description" data-full="${fullText}" data-short="${shortText}">
                                     ${shortText}
-                                    ${
-                                      fullText.length > 100
-                                        ? '<br><span class="see-more3" style="cursor: pointer;  color: #6c9bcf;"><br/>See More</span>'
-                                        : ""
-                                    }
+                                    ${fullText.length > 100
+              ? '<br><span class="see-more3" style="cursor: pointer;  color: #6c9bcf;"><br/>See More</span>'
+              : ""
+            }
                                 </p>
                             </div>
-                            <hr/>
+                            <hr/>f
                         </div>
                     </div>
                 `;
@@ -343,12 +340,12 @@ $(document).ready(function () {
     if ($(this).text() === "See More") {
       parent.html(
         fullText +
-          '<br><span class="see-more3" style="cursor: pointer; color: #6c9bcf;">See Less</span>'
+        '<br><span class="see-more3" style="cursor: pointer; color: #6c9bcf;">See Less</span>'
       );
     } else {
       parent.html(
         shortText +
-          '<br><span class="see-more3" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+        '<br><span class="see-more3" style="cursor: pointer; color: #6c9bcf;">See More</span>'
       );
     }
   });
@@ -415,6 +412,44 @@ $(document).ready(function () {
       },
     });
   });
+
+  $('#insertContentForm').submit(function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Show the spinner while submitting
+    $('#submit-spinner').show();
+    $('#submit-button-text').hide();
+
+    var formData = new FormData(this);
+
+    $.ajax({
+      url: '../php/insertContent.php', // PHP script that handles the insert
+      type: 'POST',
+      data: formData,
+      processData: false, // Don't process the data
+      contentType: false, // Don't set content type
+      success: function (response) {
+        $('#submit-spinner').hide();
+        $('#submit-button-text').show();
+        if (response === 'success') {
+          Swal.fire('Success!', 'Content added successfully!', 'success').then(() => {
+            // Optionally reset the form fields after success
+            $('#insertContentForm')[0].reset();
+          });
+        } else {
+          Swal.fire('Error', response, 'error');
+        }
+      },
+      error: function (xhr, status, error) {
+        $('#submit-spinner').hide();
+        $('#submit-button-text').show();
+        Swal.fire('Error', 'An error occurred: ' + error, 'error');
+      }
+    });
+  });
+
+
+  // Using jQuery AJAX to fetch data
 
   function fetchMembers(searchQuery = "") {
     let url = searchQuery

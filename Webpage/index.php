@@ -30,7 +30,7 @@ unset($_SESSION['loading_shown']);
 </head>
 
 <body>
-    
+
     <div id="main-content">
         <!-- Fixed Dark Navbar -->
         <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
@@ -101,7 +101,7 @@ unset($_SESSION['loading_shown']);
             <div class="content-offficer container">
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-4 col-sm-12" data-aos="zoom-in" data-aos-offset="500"
-                    data-aos-duration="500">
+                        data-aos-duration="500">
                         <div class="officer-card">
                             <div class="officer-bg" style="
                   background-image: linear-gradient(
@@ -117,7 +117,7 @@ unset($_SESSION['loading_shown']);
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12" data-aos="zoom-in" data-aos-offset="500"
-                    data-aos-duration="700">
+                        data-aos-duration="700">
                         <div class="officer-card">
                             <div class="officer-bg" style="
                   background-image: linear-gradient(
@@ -133,7 +133,7 @@ unset($_SESSION['loading_shown']);
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12" data-aos="zoom-in" data-aos-offset="500"
-                    data-aos-duration="900">
+                        data-aos-duration="900">
                         <div class="officer-card">
                             <div class="officer-bg" style="
                   background-image: linear-gradient(
@@ -158,80 +158,9 @@ unset($_SESSION['loading_shown']);
                     </div>
                 </div>
                 <div class="container">
-                    <div class="row row1">
+                    <div class="container-about">
                         <h1>High Twelve Masonic Lodge No. 82</h1>
-                        <p>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On
-                            June 25, 1922, sixteen members of the Craft belonging to three
-                            lodges in this Grand Jurisdiction got together to practice the
-                            ritual on the conferral of degrees. Imbued with the desire to
-                            promote the best interests of the Order, it dawned upon them to
-                            organize a new lodge. Upon the suggestion of Bro. Severino
-                            Karganilla, the name "High Twelve" was adopted for the new lodge.
-                            <br />
-                            <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A
-                            petition for dispensation, signed by the sixteen members, was
-                            prepared and the recommendation of three lodges working in Manila
-                            was secured. On July 20, 1922, Grand Master Quintin Paredes,
-                            issued a dispensation authorizing the petitioners to form a lodge
-                            The Grand Master designated Filomeno Galang as the first
-                            Worshipful Master of the Lodge.
-                            <br />
-                            <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The
-                            unyielding determination of the founders and the good record of
-                            the lodge while working under dispensation resulted in the
-                            favorable recommendation of the Committee on Charters during to
-                            Eleventh Annual Communication of the Grand Lodge on January 23,
-                            1923. Thus, the lodge was issued a charter as High-Twelve Lodge
-                            No. 82. On February 17, 1923 Grand Master Frederic H. Stevens
-                            formally constituted the lodge and installed its officers in
-                            public ceremonies conducted at the Blue Lodge Hall of the Masonic
-                            Temple at the Escolta in Manila.
-                            <br />
-                            <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And
-                            so, from a casual gathering of sixteen inspired members of the
-                            Craft there came into being High-Twelve Lodge No. 82 which now
-                            counts with more than one hundred active members. The record made
-                            by the lodge during the more than eighty years of its fruitful
-                            existence stands out as a glowing tribute to its founders, to its
-                            officers and its members who, from year to year, have carried on
-                            the work of promoting universal brotherhood through the practice
-                            of the principal tenets of the Masonic Institution - Brotherly
-                            Love, Relief and Truth.
-                            <br />
-                            <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proficiency
-                            in the rituals of Masonry has been the perennial trademark of High
-                            Twelve Lodge. Some of its members who have distinguished
-                            themselves with their accurate execution of the Monitor are
-                            Francisco Olizon, Felipe Carbonilia, Adriano R. Rivera, Jose
-                            Intal, Dominador Escosa, Gregorio Cariaga, Fidel Manalo, Baldomero
-                            Reyes and, of course, the longtime Senior Grand Lecturer
-                            Hermogenes P. Oliveros. Men who have distinguished themselves in
-                            the Masonic fraternity and in Philippine society also graced to
-                            roster of this lodge. To name a few we have Mauro Baradi, PGM;
-                            Charles Mosebrook, PGM; Gen. Manuel D. Mandac, PGM; Domingo C.
-                            Bascarra; Regino G. Padua; and Prisco N. Evangelista. It should
-                            also be mentioned that this lodge almost mothered a lodge in
-                            China. In the 1930's one of its members, Eduardo Co Seteng, was
-                            the Mayor of Amoy, China. On September 16, 1933 he entertained
-                            over 100 Masons who held membership in Philippine lodges. The
-                            organization of a Masonic lodge in Amoy was discussed.
-                            Preliminarily, they agreed to form a Masonic Club and named Mayor
-                            Co Seteng as chairman of the organizing committee. In spite of
-                            their early enthusiasm, however, they never went beyond the
-                            "Masonic Club" stage.
-                            <br />
-                            <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Among
-                            the present leaders of the lodge are Gigi Ancajas, Charles G.
-                            Agar, Rolando C. Chill, Reuynaldo Cortez, Larry Uy, Genaro T.
-                            Cabreros, Felix D. Ramos, Jr., George L. So, Arturo E. Fadriquela
-                            and Bienvenuto C. Alegre.
-                        </p>
+                        <p class="about-text">Loading content...</p> <!-- This will be replaced dynamically -->
                     </div>
                 </div>
             </div>
@@ -243,54 +172,14 @@ unset($_SESSION['loading_shown']);
                     </div>
                 </div>
                 <div class="container">
-                    <div class="row row1">
+                    <div class="container-history">
                         <h1>Brief history of Masonry in the Philippines</h1>
-                        <p>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Masonry
-                            existed in England long before the creation of the first Grand
-                            Lodge, so was Philippine Masonry already alive even before the
-                            formation of the Grand Lodge of the Philippine Islands. In 1856,
-                            for example, Primera Luz Filipina, the first Masonic lodge in the
-                            Philippines, was formed by Jose Malcampo y Monge, a navy ensign
-                            who subsequently became Governor General of the Philippines.
-                            <br />
-                            <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Primera
-                            Luz was chartered by Gran Oriente Luisitano and admitted only
-                            Spaniards in its fold. Subsequently, three other lodges were
-                            established one after the other: the first by the Germans, the
-                            second by the British consul in Nagtahan, and the third by the
-                            Spaniards in Pandacan.
-                            <br />
-                            <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On
-                            December 19, 1912, three lodges namely (Manila 342, Cavite 350,
-                            and Corregidor 386) that were chartered under the Constitution of
-                            the Grand Lodge of California which later changed to Manila 1,
-                            Cavite 2 and Corregidor 3 finally succeeded in establishing the
-                            Grand Lodge of Free and Accepted Masons of the Philippine Islands,
-                            the forerunner of what is now officially known as the Most
-                            Worshipful Grand Lodge of Free and Accepted Masons of the
-                            Philippines.
-                            <br />
-                            <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Not
-                            only that, Dr, Serafin Quiazon, head of the National Historical
-                            Institute of the Republic of the Philippines, while researching in
-                            London on the British trade with the Philippines, stumbled upon a
-                            significant piece of historical data. Guissippe Garibaldi, that
-                            brilliant Italian revolutionary whom President Abraham Lincoln
-                            offered a command in the United States Army during the American
-                            Civil War, captained a vessel that anchored in Manila Bay sometime
-                            in the middle of the nineteenth century. There is little doubt
-                            that the tenets of the Craft landed with Garibaldi in the sandy
-                            beaches of the Philippine Islands during that period.
-                        </p>
+                        <p class="history-text">Loading content...</p> <!-- This will be replaced dynamically -->
                     </div>
                 </div>
             </div>
-        </div>
 
+        </div>
         <div id="Events" class="content-events container">
             <h3>Events</h3>
             <div id="events-list" class="event-list">
@@ -421,7 +310,7 @@ unset($_SESSION['loading_shown']);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="../js/index.js"></script>
     <script>
-        AOS.init();
+    AOS.init();
     </script>
 </body>
 

@@ -112,16 +112,24 @@ $id = $_SESSION['admin_id'];
                     </li>
                     <li class="nav-item">
                         <a id="Repository" href="#" class=" nav-link">
-                        <span class="material-icons-outlined">folder</span>
+                            <span class="material-icons-outlined">folder</span>
                             Repository
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#manageaccoutmodal">
+                        <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#manageaccountmodal">
                             <span class="material-icons-outlined">
                                 manage_accounts
                             </span>
-                            ManageAccount
+                            Manage Account
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#edithistoryaboutmodal">
+                            <span class="material-icons-outlined">
+                                edit
+                            </span>
+                            Edit About & History
                         </a>
                     </li>
                     <li class="nav-item">
@@ -136,10 +144,10 @@ $id = $_SESSION['admin_id'];
     <div class="container-fluid p-0">
         <div class="row">
             <div class="colleft-side col-lg-3 col-md-12">
-            <div class="profile">
-                <img src="<?php echo $profile; ?>" alt="" />
-                <span>
-                    <?php 
+                <div class="profile">
+                    <img src="<?php echo $profile; ?>" alt="" />
+                    <span>
+                        <?php 
                         // Bagong variable para sa display name lang
                         $display_name = $_SESSION['admin_first-name'];
 
@@ -159,8 +167,8 @@ $id = $_SESSION['admin_id'];
                         // I-display ang pangalan nang may encoding protection
                         echo htmlspecialchars($display_name, ENT_QUOTES, 'UTF-8'); 
                     ?>
-                </span>
-            </div>
+                    </span>
+                </div>
                 <div class="cards-events">
                     <h3>Latest News</h3>
                     <div class="event-information">
@@ -224,7 +232,7 @@ $id = $_SESSION['admin_id'];
         </div>
     </div>
 
-    <div class="modal fade" id="manageaccoutmodal" tabindex="-1" aria-labelledby="manageaccoutmodalLabel"
+    <div class="modal fade" id="manageaccountmodal" tabindex="-1" aria-labelledby="manageaccoutmodalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -248,11 +256,13 @@ $id = $_SESSION['admin_id'];
                         </div>
                         <div class="mb-3">
                             <label class="form-label">First Name</label>
-                            <input type="text" class="form-control" name="first-name" value="<?php echo $first_name ?>" />
+                            <input type="text" class="form-control" name="first-name"
+                                value="<?php echo $first_name ?>" />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Middle Name</label>
-                            <input type="text" class="form-control" name="middle-name" value="<?php echo $middle_name ?>" />
+                            <input type="text" class="form-control" name="middle-name"
+                                value="<?php echo $middle_name ?>" />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Last Name</label>
@@ -303,7 +313,43 @@ $id = $_SESSION['admin_id'];
             </div>
         </div>
     </div>
-    
+
+    <div class="modal fade" id="edithistoryaboutmodal" tabindex="-1" aria-labelledby="edithistoryaboutmodalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="edithistoryaboutmodalLabel">Add About & History</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="insertContentForm">
+                        <!-- This hidden field is for a unique identifier in case you need it -->
+                        <input type="hidden" name="id" value="">
+
+                        <div class="mb-3">
+                            <label class="form-label">About</label>
+                            <textarea class="form-control" name="about" rows="5"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">History</label>
+                            <textarea class="form-control" name="history" rows="8"></textarea>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">
+                                <span id="edit-button-text">Save Changes</span>
+                                <div id="edit-spinner" class="spinner-border spinner-border-sm" role="status"
+                                    style="display: none;"></div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

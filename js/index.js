@@ -197,6 +197,27 @@ $(document).ready(function () {
     },
   });
 
+  $(document).ready(function () {
+    $.ajax({
+      url: '../php/getContent.php',
+      type: 'GET',
+      dataType: 'json',
+      success: function (data) {
+        if (data.error) {
+          $('.about-text').html('Error: ' + data.error);
+          $('.history-text').html('Error: ' + data.error);
+          console.log('PHP Error:', data.details); // optional debug
+        } else {
+          $('.about-text').html(data.about);
+          $('.history-text').html(data.history);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.log('AJAX Error:', error);
+      }
+    });
+  });
+  
   $.ajax({
     url: "../php/fetchpost.php",
     type: "GET",
@@ -223,9 +244,8 @@ $(document).ready(function () {
           });
 
           if (imagesArray.length > 1) {
-            imagesHTML += `<div class="more-images-btn" data-index="${index}">+${
-              imagesArray.length - 1
-            } More</div>`;
+            imagesHTML += `<div class="more-images-btn" data-index="${index}">+${imagesArray.length - 1
+              } More</div>`;
           }
         }
 
@@ -240,11 +260,10 @@ $(document).ready(function () {
               </div>
               <p class="post-description" data-full="${fullDescription}">
                 ${shortDescription} 
-                ${
-                  fullDescription.length > 100
-                    ? '<span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>'
-                    : ""
-                }
+                ${fullDescription.length > 100
+            ? '<span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+            : ""
+          }
               </p>
               <div class="post-images">${imagesHTML}</div>
           </div>
@@ -271,13 +290,13 @@ $(document).ready(function () {
     if ($(this).text() === "See More") {
       parent.html(
         fullText +
-          ' <span class="see-more4" style="cursor: pointer; color: #6c9bcf;"><br>See Less</br></span>'
+        ' <span class="see-more4" style="cursor: pointer; color: #6c9bcf;"><br>See Less</br></span>'
       );
     } else {
       let shortText = fullText.substring(0, 100) + "...";
       parent.html(
         shortText +
-          ' <span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+        ' <span class="see-more4" style="cursor: pointer; color: #6c9bcf;">See More</span>'
       );
     }
   });
@@ -317,13 +336,13 @@ $(document).ready(function () {
     if ($(this).text() === "See More") {
       parent.html(
         fullText +
-          ' <span class="see-more-btn1" style="cursor: pointer; color: #6c9bcf;"><br/>See Less</span>'
+        ' <span class="see-more-btn1" style="cursor: pointer; color: #6c9bcf;"><br/>See Less</span>'
       );
     } else {
       let shortText = fullText.substring(0, 100) + "...";
       parent.html(
         shortText +
-          ' <span class="see-more-btn1" style="cursor: pointer; color: #6c9bcf;">See More</span>'
+        ' <span class="see-more-btn1" style="cursor: pointer; color: #6c9bcf;">See More</span>'
       );
     }
   });
