@@ -314,6 +314,7 @@ $id = $_SESSION['admin_id'];
         </div>
     </div>
 
+    <!-- kailangan makita mo ito -->
     <div class="modal fade" id="edithistoryaboutmodal" tabindex="-1" aria-labelledby="edithistoryaboutmodalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
