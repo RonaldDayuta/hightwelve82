@@ -197,27 +197,25 @@ $(document).ready(function () {
     },
   });
 
-  $(document).ready(function () {
-    $.ajax({
-      url: '../php/getContent.php',
-      type: 'GET',
-      dataType: 'json',
-      success: function (data) {
-        if (data.error) {
-          $('.about-text').html('Error: ' + data.error);
-          $('.history-text').html('Error: ' + data.error);
-          console.log('PHP Error:', data.details); // optional debug
-        } else {
-          $('.about-text').html(data.about);
-          $('.history-text').html(data.history);
-        }
-      },
-      error: function (xhr, status, error) {
-        console.log('AJAX Error:', error);
+  $.ajax({
+    url: '../php/getContent.php',
+    type: 'GET',
+    dataType: 'json',
+    success: function (data) {
+      if (data.error) {
+        $('.about-text').html('Error: ' + data.error);
+        $('.history-text').html('Error: ' + data.error);
+        console.log('PHP Error:', data.details); // optional debug
+      } else {
+        $('.about-text').html(data.about);
+        $('.history-text').html(data.history);
       }
-    });
+    },
+    error: function (xhr, status, error) {
+      console.log('AJAX Error:', error);
+    }
   });
-  
+
   $.ajax({
     url: "../php/fetchpost.php",
     type: "GET",
