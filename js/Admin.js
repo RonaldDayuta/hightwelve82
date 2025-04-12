@@ -422,6 +422,7 @@ $(document).ready(function () {
 
     var formData = new FormData(this);
 
+    // bakit di nalabas sa iyo ito?
     $.ajax({
       url: '../php/insertContent.php', // PHP script that handles the insert
       type: 'POST',
