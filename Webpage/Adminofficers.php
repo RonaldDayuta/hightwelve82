@@ -68,12 +68,13 @@
                             <option value="14-Almoner">Almoner</option>
                             <option value="15-Lecturer">Lecturer</option>
                             <option value="16-Bible Bearer">Bible Bearer</option>
-                            <option value="17-Custodian of Works">Custodian of Works</option>
-                            <option value="18-Property Custodian">Property Custodian</option>
-                            <option value="19-Senior Steward">Senior Steward</option>
-                            <option value="20-Junior Steward">Junior Steward</option>
-                            <option value="21-Organist">Organist</option>
-                            <option value="22-Tyler">Tyler</option>
+                            <option value="17-Historian">Historian</option>
+                            <option value="18-Custodian of Works">Custodian of Works</option>
+                            <option value="19-Property Custodian">Property Custodian</option>
+                            <option value="20-Senior Steward">Senior Steward</option>
+                            <option value="21-Junior Steward">Junior Steward</option>
+                            <option value="22-Organist">Organist</option>
+                            <option value="23-Tyler">Tyler</option>
                     </select>
                     </div>
                     <div class="mb-3">
@@ -137,12 +138,13 @@
                             <option value="14-Almoner">Almoner</option>
                             <option value="15-Lecturer">Lecturer</option>
                             <option value="16-Bible Bearer">Bible Bearer</option>
-                            <option value="17-Custodian of Works">Custodian of Works</option>
-                            <option value="18-Property Custodian">Property Custodian</option>
-                            <option value="19-Senior Steward">Senior Steward</option>
-                            <option value="20-Junior Steward">Junior Steward</option>
-                            <option value="21-Organist">Organist</option>
-                            <option value="22-Tyler">Tyler</option>
+                            <option value="17-Historian">Historian</option>
+                            <option value="18-Custodian of Works">Custodian of Works</option>
+                            <option value="19-Property Custodian">Property Custodian</option>
+                            <option value="20-Senior Steward">Senior Steward</option>
+                            <option value="21-Junior Steward">Junior Steward</option>
+                            <option value="22-Organist">Organist</option>
+                            <option value="23-Tyler">Tyler</option>
                     </select>
                     </div>
                     <div class="mb-3">

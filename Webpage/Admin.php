@@ -125,11 +125,11 @@ $id = $_SESSION['admin_id'];
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#edithistoryaboutmodal">
+                        <a href="#" class="nav-link" data-bs-toggle="modal" id="editcontent" data-bs-target="#edithistoryaboutmodal">
                             <span class="material-icons-outlined">
                                 edit
                             </span>
-                            About&History
+                            History
                         </a>
                     </li>
                     <li class="nav-item">
@@ -320,7 +320,7 @@ $id = $_SESSION['admin_id'];
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="edithistoryaboutmodalLabel">About & History</h5>
+                    <h5 class="modal-title" id="edithistoryaboutmodalLabel">History</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -329,13 +329,8 @@ $id = $_SESSION['admin_id'];
                         <input type="hidden" name="id" value="">
 
                         <div class="mb-3">
-                            <label class="form-label">About</label>
-                            <textarea class="form-control" name="about" rows="5"></textarea>
-                        </div>
-
-                        <div class="mb-3">
                             <label class="form-label">History</label>
-                            <textarea class="form-control" name="history" rows="8"></textarea>
+                            <textarea id="about-content" class="form-control" name="about" rows="8"></textarea>
                         </div>
 
                         <div class="modal-footer">

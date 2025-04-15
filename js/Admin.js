@@ -459,6 +459,25 @@ $(document).ready(function () {
     });
   });
 
+  $("#editcontent").click(function () {
+    $.ajax({
+      url: "../php/getContent2.php",
+      type: "GET",
+      dataType: "json",
+      success: function (data) {
+        if (data.error) {
+          $("#about-content").html("Error: " + data.error);
+          console.log("PHP Error:", data.details); // optional debug
+        } else {
+          $("#about-content").val(data.about);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.log("AJAX Error:", error);
+      },
+    });
+  });
+
   // Using jQuery AJAX to fetch data
 
   function fetchMembers(searchQuery = "") {

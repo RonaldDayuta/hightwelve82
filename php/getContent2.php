@@ -11,7 +11,7 @@ if ($result) {
     $row = mysqli_fetch_assoc($result);
     
     // Apply formatting to preserve line breaks and sanitize output
-    $about = nl2br(htmlspecialchars($row['about']));
+    $about = htmlspecialchars($row['about']);
     
     // Return the data as JSON
     echo json_encode(['about' => $about]);

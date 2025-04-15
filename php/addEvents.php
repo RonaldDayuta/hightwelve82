@@ -1,5 +1,5 @@
 <?php
-require '../dbconnect/conn.php'; // Database connection file
+include '../dbconnect/conn.php'; // Database connection file
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -64,12 +64,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             //Server settings
             $mail->isSMTP();
-            $mail->Host       = 'smtp.gmail.com';  // Set your SMTP server
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'ronaldthird.dayuta@gmail.com'; // SMTP username
-            $mail->Password   = 'iyjx wbok nmzv kdez';   // SMTP password
+            $mail->Host = 'smtp.gmail.com';  // Set your SMTP server
+            $mail->SMTPAuth = true;
+            $mail->Username = 'ronaldthird.dayuta@gmail.com'; // SMTP username
+            $mail->Password = 'iyjx wbok nmzv kdez';   // SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port       = 587;
+            $mail->Port = 587;
 
             //Recipients
             $mail->setFrom('ronaldthird.dayuta@gmail.com', 'High Twelve Masonic Lodge No.82');

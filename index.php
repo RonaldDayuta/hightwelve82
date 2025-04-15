@@ -18,7 +18,7 @@ $_SESSION['loading_shown'] = true; // Set session variable
   left: 0;
   width: 100%;
   height: 100%;
-  background: black;
+  background: #070f34;
   display: flex;
   flex-direction: column;
   align-items: center;

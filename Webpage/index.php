@@ -46,10 +46,7 @@ unset($_SESSION['loading_shown']);
                             <a class="nav-link" id="HomeNav" href="#Home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="AboutNav" href="#about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="HistoryNav" href="#history">History</a>
+                            <a class="nav-link" id="AboutNav" href="#about">History</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="EventsNav" href="#Events">Events</a>
@@ -154,7 +151,7 @@ unset($_SESSION['loading_shown']);
             <div id="about" class="content-about container-fluid">
                 <div class="background-container-about">
                     <div class="container">
-                        <h3>About</h3>
+                        <h3>History</h3>
                     </div>
                 </div>
                 <div class="container">
@@ -164,21 +161,6 @@ unset($_SESSION['loading_shown']);
                     </div>
                 </div>
             </div>
-
-            <div id="history" class="content-history container-fluid">
-                <div class="background-container-history">
-                    <div class="container">
-                        <h3>History</h3>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row row1">
-                        <h1>Brief history of Masonry in the Philippines</h1>
-                        <p class="history-text">Loading content...</p> <!-- This will be replaced dynamically -->
-                    </div>
-                </div>
-            </div>
-
         </div>
         <div id="Events" class="content-events container">
             <h3>Events</h3>
@@ -238,7 +220,6 @@ unset($_SESSION['loading_shown']);
         </div>
 
         <div id="post" class="container home">
-            <h3>Post Content</h3>
             <div id="cms" class="cms">
 
             </div>
@@ -277,8 +258,11 @@ unset($_SESSION['loading_shown']);
                             <img src="../Information/Lodge Logo.png" alt="" />
                             <div class="name">
                                 <h2>High Twelve Masonic Lodge No. 82</h2>
-                                The Most Worshipful Grand Lodge of Free and Accepted Masons of
+                                <span>
+                                The Most Worshipful Grand Lodge of <br /> Free and Accepted Masons of
                                 the Philippines
+                                </span>
+                                
                             </div>
                         </div>
                     </div>

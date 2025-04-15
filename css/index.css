@@ -29,7 +29,7 @@
 body {
   font-family: "Source Serif 4", sans-serif !important;
   overflow-x: hidden;
-  background-color: black !important;
+  background-color: #070f34 !important;
   color: var(--color-white);
 }
 
@@ -58,7 +58,8 @@ p {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.945); /* Almost Black */
+  background: #070f34; /* Almost Black */
+  box-shadow: var(--box-shadow);
 }
 
 .navbar button {
@@ -76,8 +77,8 @@ p {
 .background-container-officer {
   background-image: linear-gradient(
       to top,
-      rgba(0, 0, 0, 1) 10%,
-      rgba(0, 0, 0, 0.5) 60%,
+      #070f34 10%,
+      #070f3485 60%,
       rgba(0, 0, 0, 0) 90%
     ),
     url("../Information/New Project.png"); /* Replace with your image */
@@ -99,7 +100,7 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Dark Overlay */
+  background: #070f34a1; /* Dark Overlay */
   z-index: 1;
 }
 
@@ -205,8 +206,8 @@ p {
   height: 100%;
   background-image: linear-gradient(
       to top,
-      rgba(0, 0, 0, 1) 10%,
-      rgba(0, 0, 0, 0.5) 80%,
+      #070f34 10%,
+      #070f3485 60%,
       rgba(0, 0, 0, 0) 90%
     ),
     url("../Information/Lodge Logo.png"); /* Replace with your image */
@@ -248,78 +249,10 @@ p {
   font-weight: 900;
   text-transform: uppercase;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .content-about .row1 p {
-  width: 60rem;
-}
-
-.background-container-history {
-  position: relative;
-  height: 90vh;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  margin-top: 3.5rem;
-  overflow: hidden; /* Ensures no overflow when scaling */
-}
-
-/* Background Image */
-.background-container-history::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 1) 10%,
-      rgba(0, 0, 0, 0.5) 80%,
-      rgba(0, 0, 0, 0) 90%
-    ),
-    url("../Information/high twelve 82.jpg.opt595x448o0,0s595x448.jpg"); /* Replace with your image */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: transform 0.8s ease-in-out; /* Smooth scaling effect */
-  z-index: -1;
-}
-
-/* Smooth Zoom-in effect */
-.background-container-history:hover::after {
-  transform: scale(1.1); /* Zooms in the background */
-}
-
-.content-history {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-}
-
-.content-history .container {
-  position: relative;
-  z-index: 2;
-}
-
-.content-history h3 {
-  font-size: 1.5rem;
-  font-weight: 900;
-}
-
-.content-history .row1 {
-  padding-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.content-history .row1 h1 {
-  font-weight: 900;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.content-history .row1 p {
   width: 60rem;
 }
 
@@ -331,6 +264,10 @@ p {
 
 .content-events h3 {
   font-weight: 900;
+}
+
+.content-events span {
+  color: var(--color-white);
 }
 
 .content-events .event-list {
@@ -349,6 +286,7 @@ p {
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: var(--box-shadow);
+  background-color: #020a2b;
 }
 
 .content-events .event-list .events-card img {
@@ -378,13 +316,14 @@ p {
 }
 
 .content-officers .officers-list .officer-container {
-  max-width: 40rem;
+  width: 25rem;
   height: 30rem;
 }
 
 .content-officers .officers-list .officer-container .officer-card h3 {
   text-align: center;
   font-weight: 600;
+  font-size: 1.3rem;
 }
 
 .content-officers .officers-list .officer-container .officer-card span {
@@ -442,7 +381,7 @@ p {
 }
 
 .login .container .rowlogin {
-  background-color: var(--color-white);
+  background-color: #070f34;
   padding: 2rem;
   border-radius: 1rem;
   max-height: 40rem;
@@ -490,7 +429,6 @@ p {
 
 .login .container .rowlogin .container-logo-name .logo .name {
   text-align: center;
-  padding: 3;
 }
 
 .login .container .rowlogin .col-signin-signup {
@@ -510,7 +448,7 @@ p {
 
 .login .container .rowlogin .col-signin-signup .signin h2,
 span {
-  color: black;
+  color: var(--color-white);
 }
 
 .login .container .rowlogin .col-signin-signup .signin span {
@@ -711,6 +649,9 @@ span {
   flex-direction: column;
   gap: 2rem;
 }
+.home .cms .viewpostcontainer {
+  background-color: #020a2b;
+}
 
 .loginactive {
   display: flex;
@@ -758,6 +699,9 @@ span {
   .text-content p {
     font-size: 0.6rem;
   }
+  .login .container .rowlogin .container-logo-name .logo .name {
+    font-size: 0.7rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -779,6 +723,13 @@ span {
   }
   .content-officers .h3 {
     font-size: 0.9rem;
+  }
+  .content-officers .officers-list .officer-container {
+    width: 20rem;
+    height: 25rem;
+  }
+  .login .container .rowlogin .container-logo-name .logo .name {
+    font-size: 1rem;
   }
 }
 

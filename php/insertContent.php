@@ -6,19 +6,18 @@ include('../dbconnect/conn.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get form data
     $about = $_POST['about'];
-    $history = $_POST['history'];
 
     // Check if fields are empty
-    if (empty($about) || empty($history)) {
+    if (empty($about)) {
         echo 'All fields are required.';
     } else {
         // Prepare SQL query for inserting new content into the database using prepared statements
-        $query = "INSERT INTO tblcontent (about, history) VALUES (?, ?)";
+        $query = "INSERT INTO tblcontent (about, history) VALUES (?, 'Loading')";
 
         // Initialize prepared statement
         if ($stmt = mysqli_prepare($conn, $query)) {
             // Bind parameters to the prepared statement
-            mysqli_stmt_bind_param($stmt, 'ss', $about, $history); // 'ss' indicates two string parameters
+            mysqli_stmt_bind_param($stmt, 's', $about); // 'ss' indicates two string parameters
 
             // Execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
