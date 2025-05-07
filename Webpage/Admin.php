@@ -36,7 +36,7 @@ $id = $_SESSION['admin_id'];
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg w-100 px-3">
+    <nav class="navbar navbar-expand-xl w-100 px-3">
         <div class="container-fluid d-flex justify-content-between align-items-center">
             <!-- Logo & Title -->
             <div class="d-flex align-items-center">
@@ -108,6 +108,12 @@ $id = $_SESSION['admin_id'];
                         <a id="Officers" href="#" class=" nav-link">
                             <span class="material-icons-outlined"> group </span>
                             Officers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="Pastmaster" href="#" class=" nav-link">
+                            <span class="material-icons-outlined"> group </span>
+                            PastMasters
                         </a>
                     </li>
                     <li class="nav-item">

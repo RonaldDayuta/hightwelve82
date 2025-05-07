@@ -4,6 +4,7 @@ $(document).ready(function () {
   $("#News").removeClass("active").addClass("inactive");
   $("#Activities").removeClass("active").addClass("inactive");
   $("#post").removeClass("active").addClass("inactive");
+  $("#Pastmaster").removeClass("active").addClass("inactive");
 
   $("#HomeNav, #AboutNav, #HistoryNav").click(function () {
     $("#main").removeClass("inactive").addClass("active");
@@ -11,6 +12,7 @@ $(document).ready(function () {
     $("#Events").removeClass("active").addClass("inactive");
     $("#News").removeClass("active").addClass("inactive");
     $("#Activities").removeClass("active").addClass("inactive");
+    $("#Pastmaster").removeClass("active").addClass("inactive");
     $("#post").removeClass("active").addClass("inactive");
     $(".navbar-collapse").collapse("hide");
   });
@@ -21,6 +23,7 @@ $(document).ready(function () {
     $("#Events").removeClass("inactive").addClass("active");
     $("#News").removeClass("active").addClass("inactive");
     $("#Activities").removeClass("active").addClass("inactive");
+    $("#Pastmaster").removeClass("active").addClass("inactive");
     $("#post").removeClass("active").addClass("inactive");
     $(".navbar-collapse").collapse("hide");
   });
@@ -31,6 +34,7 @@ $(document).ready(function () {
     $("#Events").removeClass("active").addClass("inactive");
     $("#News").removeClass("inactive").addClass("active");
     $("#Activities").removeClass("active").addClass("inactive");
+    $("#Pastmaster").removeClass("active").addClass("inactive");
     $("#post").removeClass("active").addClass("inactive");
     $(".navbar-collapse").collapse("hide");
   });
@@ -41,6 +45,7 @@ $(document).ready(function () {
     $("#Events").removeClass("active").addClass("inactive");
     $("#News").removeClass("active").addClass("inactive");
     $("#Activities").removeClass("inactive").addClass("active");
+    $("#Pastmaster").removeClass("active").addClass("inactive");
     $("#post").removeClass("active").addClass("inactive");
     $(".navbar-collapse").collapse("hide");
   });
@@ -51,6 +56,7 @@ $(document).ready(function () {
     $("#Events").removeClass("active").addClass("inactive");
     $("#News").removeClass("active").addClass("inactive");
     $("#Activities").removeClass("active").addClass("inactive");
+    $("#Pastmaster").removeClass("active").addClass("inactive");
     $("#post").removeClass("active").addClass("inactive");
     $(".navbar-collapse").collapse("hide");
   });
@@ -61,7 +67,19 @@ $(document).ready(function () {
     $("#Events").removeClass("active").addClass("inactive");
     $("#News").removeClass("active").addClass("inactive");
     $("#Activities").removeClass("active").addClass("inactive");
+    $("#Pastmaster").removeClass("active").addClass("inactive");
     $("#post").removeClass("inactive").addClass("active");
+    $(".navbar-collapse").collapse("hide");
+  });
+
+  $("#RollNav").click(function () {
+    $("#main").removeClass("active").addClass("inactive");
+    $("#officers").removeClass("active").addClass("inactive");
+    $("#Events").removeClass("active").addClass("inactive");
+    $("#News").removeClass("active").addClass("inactive");
+    $("#Activities").removeClass("active").addClass("inactive");
+    $("#post").removeClass("active").addClass("inactive");
+    $("#Pastmaster").removeClass("inactive").addClass("active");
     $(".navbar-collapse").collapse("hide");
   });
 
@@ -344,5 +362,13 @@ $(document).ready(function () {
           ' <span class="see-more-btn1" style="cursor: pointer; color: #6c9bcf;">See More</span>'
       );
     }
+  });
+  $.ajax({
+    url: "../php/fetchpastmasterindex.php",
+    type: "POST",
+    caches: false,
+    success: function (data) {
+      $("#masterlist").html(data);
+    },
   });
 });

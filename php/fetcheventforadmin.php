@@ -4,7 +4,7 @@ include '../dbconnect/conn.php';
 date_default_timezone_set('Asia/Manila'); // Set timezone
 
 $sql = "SELECT * FROM tblevents 
-        WHERE event_date BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 2 DAY) 
+        WHERE event_date BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 30 DAY) 
         AND category = 'events' 
         ORDER BY event_date ASC"; // Para nakaayos by date
 

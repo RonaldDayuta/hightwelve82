@@ -653,6 +653,50 @@ span {
   background-color: #020a2b;
 }
 
+.roll {
+  margin-top: 3rem;
+  padding: 2rem;
+}
+
+.roll .title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.roll .title h3 {
+  font-weight: 900;
+  font-size: clamp(1.2rem, 3vw, 2rem) !important;
+}
+
+.roll .title img {
+  height: clamp(6rem, 12vw, 10rem);
+}
+
+.roll .masterlist {
+  columns: 400px;
+}
+
+.roll .masterlist .list {
+  background-color: #020a2b;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  max-width: 25rem;
+  margin-bottom: 1rem;
+}
+
+.roll .masterlist .list h3 {
+  font-size: 1.2rem;
+}
+
+.roll .masterlist .list h3:first-child {
+  font-size: 1rem;
+}
+
 .loginactive {
   display: flex;
 }
@@ -699,8 +743,18 @@ span {
   .text-content p {
     font-size: 0.6rem;
   }
-  .login .container .rowlogin .container-logo-name .logo .name {
+  .login .container .rowlogin .container-logo-name .logo .name span {
     font-size: 0.7rem;
+  }
+  .login .container .rowlogin .container-logo-name .logo .name h2 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .roll {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -728,8 +782,20 @@ span {
     width: 20rem;
     height: 25rem;
   }
-  .login .container .rowlogin .container-logo-name .logo .name {
+  .login .container .rowlogin .container-logo-name .logo .name span {
     font-size: 1rem;
+  }
+  .login .container .rowlogin .container-logo-name .logo .name h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .login .container .rowlogin .container-logo-name .logo .name span {
+    font-size: 0.6rem;
+  }
+  .login .container .rowlogin .container-logo-name .logo .name h2 {
+    font-size: 0.9rem;
   }
 }
 

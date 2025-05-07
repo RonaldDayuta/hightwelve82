@@ -14,6 +14,7 @@ $(document).ready(function () {
   $("#Home").click(function () {
     $("#main").load("../Webpage/AdminHome.php");
     $("#Home").addClass("active");
+    $("#Pastmaster").removeClass("active");
     $("#Accounts").removeClass("active");
     $("#Calendar").removeClass("active");
     $("#Officers").removeClass("active");
@@ -30,6 +31,7 @@ $(document).ready(function () {
     $("#main").load("../Webpage/AdminAccount.php");
     $("#Accounts").addClass("active");
     $("#Home").removeClass("active");
+    $("#Pastmaster").removeClass("active");
     $("#Calendar").removeClass("active");
     $("#Officers").removeClass("active");
     $("#eventnav").removeClass("active");
@@ -44,6 +46,7 @@ $(document).ready(function () {
   $("#Calendar").click(function () {
     $("#main").load("../Webpage/AdminCalendar.php");
     $("#Calendar").addClass("active");
+    $("#Pastmaster").removeClass("active");
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
     $("#Officers").removeClass("active");
@@ -59,6 +62,7 @@ $(document).ready(function () {
   $("#Officers").click(function () {
     $("#main").load("../Webpage/Adminofficers.php");
     $("#Officers").addClass("active");
+    $("#Pastmaster").removeClass("active");
     $("#Calendar").removeClass("active");
     $("#Accounts").removeClass("active");
     $("#Home").removeClass("active");
@@ -74,6 +78,7 @@ $(document).ready(function () {
   $("#eventdrop").click(function () {
     $("#main").load("../Webpage/AdminEvent.php");
     $("#eventdrop").addClass("actives");
+    $("#Pastmaster").removeClass("active");
     $("#newsdrop").removeClass("actives");
     $("#meetdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
@@ -89,6 +94,7 @@ $(document).ready(function () {
   $("#newsdrop").click(function () {
     $("#main").load("../Webpage/AdminNews.php");
     $("#newsdrop").addClass("actives");
+    $("#Pastmaster").removeClass("active");
     $("#eventdrop").removeClass("actives");
     $("#meetdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
@@ -104,6 +110,7 @@ $(document).ready(function () {
   $("#meetdrop").click(function () {
     $("#main").load("../Webpage/AdminMeeting.php");
     $("#meetdrop").addClass("actives");
+    $("#Pastmaster").removeClass("active");
     $("#newsdrop").removeClass("actives");
     $("#eventdrop").removeClass("actives");
     $("#actdrop").removeClass("actives");
@@ -119,6 +126,7 @@ $(document).ready(function () {
   $("#actdrop").click(function () {
     $("#main").load("../Webpage/AdminActivities.php");
     $("#actdrop").addClass("actives");
+    $("#Pastmaster").removeClass("active");
     $("#meetdrop").removeClass("actives");
     $("#newsdrop").removeClass("actives");
     $("#eventdrop").removeClass("actives");
@@ -134,6 +142,23 @@ $(document).ready(function () {
   $("#Repository").click(function () {
     $("#main").load("../Webpage/AdminRepo.php");
     $("#Repository").addClass("active");
+    $("#Pastmaster").removeClass("active");
+    $("#Officers").removeClass("active");
+    $("#Calendar").removeClass("active");
+    $("#Accounts").removeClass("active");
+    $("#Home").removeClass("active");
+    $("#eventnav").removeClass("active");
+    $("#eventdrop").removeClass("actives");
+    $("#newsdrop").removeClass("actives");
+    $("#meetdrop").removeClass("actives");
+    $("#actdrop").removeClass("actives");
+    hideNavbarCollapse();
+  });
+
+  $("#Pastmaster").click(function () {
+    $("#main").load("../Webpage/AdminPast.php");
+    $("#Pastmaster").addClass("active");
+    $("#Repository").removeClass("active");
     $("#Officers").removeClass("active");
     $("#Calendar").removeClass("active");
     $("#Accounts").removeClass("active");
@@ -313,7 +338,7 @@ $(document).ready(function () {
                                     }
                                 </p>
                             </div>
-                            <hr/>f
+                            <hr/>
                         </div>
                     </div>
                 `;

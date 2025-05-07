@@ -120,6 +120,7 @@ nav h2 {
   display: flex;
   max-width: 10rem;
 }
+
 .navbar-nav .dropdown-item {
   display: flex;
   align-items: center;
@@ -821,9 +822,6 @@ nav h2 {
 @media screen and (max-width: 1670px) {
   nav h2 {
     display: none;
-  }
-  nav {
-    overflow: auto;
   }
 }
 

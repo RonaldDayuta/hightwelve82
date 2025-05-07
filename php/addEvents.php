@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category = isset($_POST['event-category']) ? trim($_POST['event-category']) : '';
     $post_category = isset($_POST['post-category']) ? trim($_POST['post-category']) : '';
     $priority_category = isset($_POST['priority-category']) ? trim($_POST['priority-category']) : '';
-    $image_path  = ''; // Default value
+    $image_path  = "../Information/Lodge Logo.png"; // Default value
 
     // Image upload handling
     if (isset($_FILES['event-image']) && $_FILES['event-image']['error'] === UPLOAD_ERR_OK) {

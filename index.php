@@ -34,11 +34,18 @@ img{
   margin-top: 22px;
 }
 
+@media screen and (max-width: 500px) {
+  img{
+  width: 450px;
+  height: 450px;
+}
+}
+
 /* Clock Container */
 .clock {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   border: 5px solid white;
   border-radius: 50%;
   display: flex;

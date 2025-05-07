@@ -5,7 +5,7 @@ include "../dbconnect/conn.php"; // Database connection
 $today = date("Y-m-d");
 
 // Get the date 5 days from today
-$nextFiveDays = date("Y-m-d", strtotime("+5 days"));
+$nextFiveDays = date("Y-m-d", strtotime("+30 days"));
 
 // SQL Query: Get news from today to the next 5 days
 $query = "SELECT event_date, title, description, image FROM tblevents 

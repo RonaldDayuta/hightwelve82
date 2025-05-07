@@ -49,6 +49,12 @@ unset($_SESSION['loading_shown']);
                             <a class="nav-link" id="AboutNav" href="#about">History</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" id="OfficersNav" href="#Officers">Officers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="RollNav" href="#Pastmaster">PastMasters</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" id="EventsNav" href="#Events">Events</a>
                         </li>
                         <li class="nav-item">
@@ -58,10 +64,7 @@ unset($_SESSION['loading_shown']);
                             <a class="nav-link" id="ActivitiesNav" href="#Activities">Activities</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="ContentNav" href="#post">Post Content</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="OfficersNav" href="#Officers">Officers</a>
+                            <a class="nav-link" id="ContentNav" href="#post">BulletinBoard</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="btn-login" href="#"><button>Login</button></a>
@@ -244,6 +247,19 @@ unset($_SESSION['loading_shown']);
                         <span>Senior Warden</span>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div id="Pastmaster" class="roll">
+            <div class="title">
+                <img src="../Information/Masonic_PastMaster.svg.png" alt="">
+                <h3>Roll of Past Masters</h3>
+            </div>
+            <div id="masterlist" class="masterlist">
+                <div class="list">
+                    <h3>Name</h3>
+                    <span>1990-94</span>
+                </div>            
             </div>
         </div>
 

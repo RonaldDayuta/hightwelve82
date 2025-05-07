@@ -7,7 +7,7 @@ date_default_timezone_set('Asia/Manila');
 
 // Get today's date and the date 5 days from today
 $today = date('Y-m-d');
-$next5Days = date('Y-m-d', strtotime('+5 days'));
+$next5Days = date('Y-m-d', strtotime('+30 days'));
 
 // Query to get meetings scheduled from today to the next 5 days
 $sql = "SELECT title, event_date, description, image FROM tblevents 
