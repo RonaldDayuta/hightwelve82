@@ -65,15 +65,16 @@
 <div class="modal fade" id="editPastMasterModal" tabindex="-1" aria-labelledby="editPastMasterModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form id="addPastMasterForm">
+      <form id="editPastMasterForm">
         <div class="modal-header">
           <h5 class="modal-title" id="editPastMasterModalLabel">Edit Past Master</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+        <input type="text" id="idedit" name="id" style="display:none;">
           <div class="mb-3">
             <label for="date" class="form-label">Date</label>
-            <input type="text" class="form-control" id="idedit" name="date" required>
+            <input type="text" class="form-control" id="dateedit" name="date" required>
           </div>
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>

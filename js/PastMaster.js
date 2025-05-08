@@ -97,10 +97,54 @@ $(document).ready(function () {
       dataType: "json",
       success: function (response) {
         if (response.success) {
-          $("#idedit").val(response.data.date);
+          $("#dateedit").val(response.data.date);
           $("#nameedit").val(response.data.name);
+          $("#idedit").val(response.data.id);
         } else {
           Swal.fire("Update", response.message, "info");
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("AJAX Error:", xhr.responseText);
+        Swal.fire("Error", "An error occurred deleting the record.", "error");
+      },
+    });
+  });
+
+  $("#editPastMasterForm").submit(function (e) {
+    e.preventDefault();
+
+    let formdata = new FormData(this);
+
+    $.ajax({
+      url: "../php/updatepastmaster.php",
+      type: "POST",
+      data: formdata,
+      processData: false,
+      contentType: false,
+      dataType: "json",
+      success: function (response) {
+        if (response.success) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: response.message,
+            confirmButtonText: "OK",
+          }).then(() => {
+            var modalEl = document.getElementById("editPastMasterModal");
+            var modalInstance = bootstrap.Modal.getInstance(modalEl);
+            if (modalInstance) {
+              modalInstance.hide();
+            }
+            loadmaster();
+          });
+        } else {
+          Swal.fire({
+            icon: "info",
+            title: "Error",
+            text: response.message,
+            confirmButtonText: "OK",
+          });
         }
       },
       error: function (xhr, status, error) {
